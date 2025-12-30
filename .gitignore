@@ -8,3 +8,4 @@ FEIstyle.cls
 latexmkrc
 README.md
 thesis.tex
+Makefile
