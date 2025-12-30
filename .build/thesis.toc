@@ -1,9 +1,0 @@
-\babel@toc {slovak}{}\relax 
-\thispagestyle {plain}
-\contentsline {section}{\'{U}vod}{11}{section*.1}%
-\contentsline {section}{Z\'{a}ver}{13}{section*.2}%
-\contentsline {section}{Literatúra}{14}{section*.3}%
-\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{14}{section*.4}%
-\contentsline {section}{\numberline {A}Algoritmus}{15}{section.6}%
-\contentsline {section}{\numberline {B}Výpis dlhého kódu}{16}{section.9}%
-\contentsline {section}{\numberline {C}Slovníček pojmov}{17}{section.12}%
