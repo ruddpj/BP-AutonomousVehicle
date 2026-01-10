@@ -1,6 +1,6 @@
 import socket
 
-CAM_URL = "http://192.168.4.1/stream"
+CAM_URL = 0 #"http://192.168.4.1/stream"
 
 UDP_IP = "192.168.4.255"
 UDP_PORT = 5005

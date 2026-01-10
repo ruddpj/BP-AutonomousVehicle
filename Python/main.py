@@ -1,5 +1,28 @@
 import cv2 as cv
 import connect as cnt
+import numpy as np
+
+def video_grid(frame_v: np.ndarray,
+               canny_v: np.ndarray,
+               roi_v: np.ndarray,
+               hough_v: np.ndarray) -> np.ndarray:
+    h, w = frame_v.shape[:2]
+
+    frame_v = cv.resize(frame_v, (w, h))
+    canny_v = cv.resize(canny_v, (w, h))
+    roi_v = cv.resize(roi_v, (w, h))
+    hough_v = cv.resize(hough_v, (w, h))
+
+    canny_v = cv.cvtColor(canny_v, cv.COLOR_GRAY2BGR)
+    roi_v = cv.cvtColor(roi_v, cv.COLOR_GRAY2BGR)
+
+    top = np.hstack((frame_v, canny_v))
+    bot = np.hstack((roi_v, hough_v))
+
+    stacked = np.vstack((top, bot))
+
+    return stacked
+
 
 cap = cv.VideoCapture(cnt.CAM_URL)
 if not cap.isOpened():
@@ -13,43 +36,45 @@ while True:
     if not ret:
         continue
 
-    # zmenši pre rýchlosť
     frame = cv.resize(frame, (320, 240))
-    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-    blurred = cv.GaussianBlur(gray, (7, 7), 0)
 
-    # detekcia tmavších objektov (prekážky)
-    _, thresh = cv.threshold(blurred, 80, 255, cv.THRESH_BINARY_INV)
+    canny = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    canny = cv.GaussianBlur(canny, (5, 5), 0)
+    canny = cv.Canny(canny, 100, 200)
 
-    # nájdi kontúry
-    contours, _ = cv.findContours(thresh, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
-    direction = "FORWARD"
+    height, width = canny.shape
+    mask = np.zeros_like(canny)
+    polygon = np.array([[
+        (0, height),
+        (width, height),
+        (width//2, height//2)
+    ]], np.int32)
+    cv.fillPoly(mask, polygon, 255)
+    roi = cv.bitwise_and(canny, mask)
 
-    if contours:
-        largest = max(contours, key=cv.contourArea)
-        area = cv.contourArea(largest)
+    lines = cv.HoughLinesP(
+        roi,
+        rho=1,
+        theta=np.pi/180,
+        threshold=100,
+        minLineLength=40,
+        maxLineGap=150
+    )
+    line_frame = np.zeros_like(frame)
+    if lines is not None:
+        for line in lines:
+            x1, y1, x2, y2 = line[0]
+            slope = (y2 - y1) / (x2 - x1 + 1e-6)
+            if abs(slope) > 0.5:
+                cv.line(line_frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
+    hough = cv.addWeighted(frame, 0.8, line_frame, 1, 1)
 
-        if area > 500:  # len ak je dosť veľká prekážka
-            x, y, w, h = cv.boundingRect(largest)
-            cx = x + w // 2
+    #cnt.sendUDP(direction)
+    #cv.putText(frame, direction, (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-            # zakresli obrys
-            cv.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)
-            cv.line(frame, (cx, 0), (cx, 240), (255, 0, 0), 2)
+    stack = video_grid(frame, canny, roi, hough)
+    cv.imshow("Lane detection", stack)
 
-            # rozhodovanie
-            if cx < 120:
-                direction = "RIGHT"   # prekážka vľavo → otoč doprava
-            elif cx > 200:
-                direction = "LEFT"    # prekážka vpravo → otoč doľava
-            else:
-                direction = "STOP"
-
-    # pošli smer cez UDP
-    cnt.sendUDP(direction)
-    cv.putText(frame, direction, (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-
-    cv.imshow("Obstacle Detection", frame)
     if cv.waitKey(1) & 0xFF == 27:  # ESC
         break
 
