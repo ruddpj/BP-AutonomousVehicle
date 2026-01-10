@@ -19,10 +19,13 @@ while True:
 
     canny = tf.canny_transform(frame)
     roi = tf.define_roi(canny)
-    hough = tf.hough_transform(frame, roi)
+    hough, lines = tf.hough_transform(frame, roi)
 
-    #cnt.sendUDP(direction)
-    #cv.putText(frame, direction, (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    steering = itp.compute_steering(frame, lines)
+
+    if steering is not None:
+        cnt.sendUDP(steering)
+        cv.putText(frame, str(steering), (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     stack = tf.video_grid(frame, canny, roi, hough)
     cv.imshow("Lane detection", stack)

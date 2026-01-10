@@ -44,7 +44,7 @@ def define_roi(frame: np.ndarray) -> np.ndarray:
 
     return roi
 
-def hough_transform(frame: np.ndarray, roi: np.ndarray) -> np.ndarray:
+def hough_transform(frame: np.ndarray, roi: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     lines = cv.HoughLinesP(
         roi,
         rho=1,
@@ -64,4 +64,4 @@ def hough_transform(frame: np.ndarray, roi: np.ndarray) -> np.ndarray:
 
     hough = cv.addWeighted(frame, 0.8, line_frame, 1, 1)
 
-    return hough
+    return hough, lines
