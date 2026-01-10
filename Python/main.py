@@ -1,6 +1,7 @@
 import cv2 as cv
 import connect as cnt
 import transform as tf
+import interpret as itp
 
 cap = cv.VideoCapture(cnt.CAM_URL)
 if not cap.isOpened():
