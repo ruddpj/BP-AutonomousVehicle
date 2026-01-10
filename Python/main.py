@@ -56,9 +56,9 @@ while True:
         roi,
         rho=1,
         theta=np.pi/180,
-        threshold=100,
-        minLineLength=40,
-        maxLineGap=150
+        threshold=50,
+        minLineLength=30,
+        maxLineGap=200
     )
     line_frame = np.zeros_like(frame)
     if lines is not None:
