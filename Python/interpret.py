@@ -1,10 +1,7 @@
 from typing import Any
-
 import numpy as np
-from numpy import floating
 
-
-def find_left_right_lines(lines: np.ndarray) -> tuple[list[floating[Any]], list[floating[Any]]]:
+def find_left_right_lines(lines: np.ndarray) -> tuple[list[np.floating[Any]], list[np.floating[Any]]]:
     left_lines = []
     right_lines = []
 
@@ -27,7 +24,7 @@ def find_left_right_lines(lines: np.ndarray) -> tuple[list[floating[Any]], list[
     return left_lines, right_lines
 
 
-def average_lines(lines: np.ndarray) -> tuple[floating[Any], floating[Any]] | None:
+def average_lines(lines: list[np.floating[Any]]) -> tuple[np.floating[Any], np.floating[Any]] | None:
     slopes = []
     intercepts = []
 
@@ -41,3 +38,22 @@ def average_lines(lines: np.ndarray) -> tuple[floating[Any], floating[Any]] | No
         return None
 
     return np.mean(slopes), np.mean(intercepts)
+
+
+def x_at_y(line: tuple[np.floating[Any], np.floating[Any]], y: int) -> int:
+    m, b = line
+    return int((y - int(b)) / int(m))
+
+def find_lane_center(frame: np.ndarray, lines: np.ndarray) -> int:
+    height, width = frame.shape[:2]
+    y = int(height * 0.6)
+
+    left_lines, right_lines = find_left_right_lines(lines)
+
+    left_lane = average_lines(left_lines)
+    right_lane = average_lines(right_lines)
+
+    left_x = x_at_y(left_lane, y)
+    right_x = x_at_y(right_lane, y)
+
+    return (left_x + right_x) // 2
