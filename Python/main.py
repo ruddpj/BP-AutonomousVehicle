@@ -24,8 +24,12 @@ while True:
     steering = itp.compute_steering(frame, lines)
 
     if steering is not None:
+        print(steering)
         cnt.sendUDP(steering)
         cv.putText(frame, str(steering), (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    else:
+        cnt.badUDP()
+        cv.putText(frame, "Lane not detected", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     stack = tf.video_grid(frame, canny, roi, hough)
     cv.imshow("Lane detection", stack)

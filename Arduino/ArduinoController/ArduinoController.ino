@@ -9,21 +9,33 @@ unsigned int localPort = 5005;
 char incoming[255];
 
 // Ultrasound sensor pins
-#define TRIG_PIN A1
-#define ECHO_PIN A0
+#define TRIG_PIN D2
+#define ECHO_PIN D3
 
 long duration;
 float distance;
 
 // Driver OUT pins
-#define L_PWM D2
-#define L_DIR D3
-#define R_PWM D4
-#define R_DIR D5
+#define L_PWM D9
+#define L_DIR D10
+#define R_PWM D11
+#define R_DIR D12
 
 const int BASE_SPEED = 1200;
 const int PWM_FREQ = 20000;
 const int PWM_RES = 11;
+
+void printDistance(int distance) {
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.print("cm\n");
+}
+
+void printPacket(int steer) {
+  Serial.print("Packet: ");
+  Serial.print(steer);
+  Serial.print("\n");
+}
 
 void setMotor(int pwmPin, int dirPin, int channel, int speed) {
   speed = constrain(speed, 0, 2000);
@@ -67,6 +79,8 @@ void setup() {
     delay(500);
   }
 
+  Serial.print("WiFi Connected");
+
   udp.begin(localPort);
 }
 
@@ -87,7 +101,10 @@ void loop() {
   duration = pulseIn(ECHO_PIN, HIGH);
   distance = duration * 0.0343 / 2;
 
-  if (distance < 5) {
+  printDistance(distance);
+  printPacket(steer);
+
+  if (distance < 5 || steer > 2000) {
     stopWheels();
   } else {
     driveSteering(steer);
