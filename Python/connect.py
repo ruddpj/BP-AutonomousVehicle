@@ -1,12 +1,38 @@
+import subprocess
 import socket
 
-CAM_URL = "http://192.168.4.1/stream"
+SSID = "LAPTOP_AP"
+PASSWORD = "12345678"
 
-UDP_IP = "192.168.4.255"
+CAM_IP = "10.42.0.128"
+CAM_PORT = 81
+CAM_CHANNEL = "/stream"
+
+UDP_IP = "10.42.0.111"
 UDP_PORT = 5005
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+
+def startHotspot():
+    print("Starting Hotspot")
+    subprocess.run([
+        "nmcli",
+        "device",
+        "wifi",
+        "hotspot",
+        "ssid", SSID,
+        "password", PASSWORD
+    ], check=True)
+
+
+def stopHotspot():
+    print("Stopping Hotspot")
+    subprocess.run([
+        "nmcli",
+        "connection",
+        "down",
+        "Hotspot-1",
+    ], check=False)
 
 
 def sendUDP(direction: float):
@@ -15,5 +41,5 @@ def sendUDP(direction: float):
 
 
 def badUDP():
-    bad = "1000"#"4000"
+    bad = "4000"
     sock.sendto(bad.encode(), (UDP_IP, UDP_PORT))

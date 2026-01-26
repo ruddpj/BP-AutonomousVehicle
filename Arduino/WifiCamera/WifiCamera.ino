@@ -1,7 +1,15 @@
 #include "esp_camera.h"
 #include <WiFi.h>
+#include "esp_timer.h"
+#include "Arduino.h"
 #include "esp_http_server.h"
 
+// ---------------- Wi-Fi ----------------
+const char* ssid = "LAPTOP_AP";
+const char* password = "12345678";
+
+// ---------------- Kamera ----------------
+// Piny pre ESP32-CAM (AI-Thinker)
 #define PWDN_GPIO_NUM     32
 #define RESET_GPIO_NUM    -1
 #define XCLK_GPIO_NUM      0
@@ -19,71 +27,75 @@
 #define HREF_GPIO_NUM     23
 #define PCLK_GPIO_NUM     22
 
-const char* ssid = "ESP32CAM_AP";
-const char* password = "";
+// ---------------- Funkcie ----------------
+httpd_handle_t stream_httpd = NULL;
 
-static const char* STREAM_CONTENT_TYPE = "multipart/x-mixed-replace;boundary=frame";
+// Stream handler
+esp_err_t stream_handler(httpd_req_t *req){
+  camera_fb_t * fb = NULL;
+  char * part_buf[64];
+  static const char* _STREAM_CONTENT_TYPE = "multipart/x-mixed-replace;boundary=frame";
 
-static esp_err_t stream_handler(httpd_req_t *req) {
-  camera_fb_t *fb = NULL;
-  esp_err_t res = ESP_OK;
-  char part_buf[64];
+  httpd_resp_set_type(req, _STREAM_CONTENT_TYPE);
 
-  res = httpd_resp_set_type(req, STREAM_CONTENT_TYPE);
-  if(res != ESP_OK) return res;
-
-  while(true) {
+  while(true){
     fb = esp_camera_fb_get();
-    if(!fb) {
+    if(!fb){
       Serial.println("Camera capture failed");
-      continue;
+      httpd_resp_send_500(req);
+      return ESP_FAIL;
     }
 
-    size_t hlen = snprintf(part_buf, sizeof(part_buf),
-                           "--frame\r\nContent-Type: image/jpeg\r\n\r\n");
-    res = httpd_resp_send_chunk(req, part_buf, hlen);
-    if(res == ESP_OK)
-      res = httpd_resp_send_chunk(req, (const char *)fb->buf, fb->len);
-    if(res == ESP_OK)
-      res = httpd_resp_send_chunk(req, "\r\n", 2);
+    // HTTP multipart
+    httpd_resp_send_chunk(req, "--frame\r\n", 9);
+    sprintf((char*)part_buf, "Content-Type: image/jpeg\r\nContent-Length: %u\r\n\r\n", fb->len);
+    httpd_resp_send_chunk(req, (const char*)part_buf, strlen((char*)part_buf));
+    httpd_resp_send_chunk(req, (const char*)fb->buf, fb->len);
+    httpd_resp_send_chunk(req, "\r\n", 2);
 
     esp_camera_fb_return(fb);
-
-    if(res != ESP_OK)
-      break;
-
-    delay(30);
+    delay(30); // ~30 FPS
   }
-  return res;
+
+  return ESP_OK;
 }
 
-void startCameraServer() {
+// Spustenie HTTP stream servera
+void startCameraServer(){
   httpd_config_t config = HTTPD_DEFAULT_CONFIG();
-  config.server_port = 80;
+  config.server_port = 81; // port streamu
 
-  httpd_handle_t server = NULL;
-  if (httpd_start(&server, &config) == ESP_OK) {
+  if(httpd_start(&stream_httpd, &config) == ESP_OK){
     httpd_uri_t stream_uri = {
       .uri       = "/stream",
       .method    = HTTP_GET,
       .handler   = stream_handler,
       .user_ctx  = NULL
     };
-    httpd_register_uri_handler(server, &stream_uri);
-    Serial.println("Camera stream server started!");
-  } else {
-    Serial.println("Failed to start HTTP server!");
+    httpd_register_uri_handler(stream_httpd, &stream_uri);
   }
 }
 
+// ---------------- Setup ----------------
 void setup() {
   Serial.begin(115200);
-  Serial.setDebugOutput(true);
-  Serial.println();
 
+  // Wi-Fi
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  Serial.println("Connecting to Wi-Fi...");
+  while(WiFi.status() != WL_CONNECTED){
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nWi-Fi connected!");
+  Serial.print("ESP32 IP: ");
+  Serial.println(WiFi.localIP());
+
+  // Kamera
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
-  config.ledc_timer = LEDC_TIMER_0;
+  config.ledc_timer   = LEDC_TIMER_0;
   config.pin_d0 = Y2_GPIO_NUM;
   config.pin_d1 = Y3_GPIO_NUM;
   config.pin_d2 = Y4_GPIO_NUM;
@@ -103,27 +115,29 @@ void setup() {
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
 
-  if(psramFound()) {
+  if(psramFound()){
     config.frame_size = FRAMESIZE_QVGA;
-    config.jpeg_quality = 10;
+    config.jpeg_quality = 12;
     config.fb_count = 2;
   } else {
-    config.frame_size = FRAMESIZE_QQVGA;
-    config.jpeg_quality = 12;
+    config.frame_size = FRAMESIZE_QVGA;
+    config.jpeg_quality = 15;
     config.fb_count = 1;
   }
 
-  if(esp_camera_init(&config) != ESP_OK) {
-    Serial.println("Camera init failed");
+  if(esp_camera_init(&config) != ESP_OK){
+    Serial.println("Camera init failed!");
     return;
   }
 
-  WiFi.softAP(ssid, password);
-  Serial.println("SoftAP started!");
-  Serial.println(WiFi.softAPIP());
-
+  // Spustenie streamu
   startCameraServer();
+  Serial.println("Camera ready! Stream at:");
+  Serial.print("http://");
+  Serial.print(WiFi.localIP());
+  Serial.println(":81/stream");
 }
 
 void loop() {
+  delay(1000);
 }

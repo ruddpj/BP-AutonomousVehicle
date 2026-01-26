@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include <WiFiUdp.h>
 
-const char* ssid = "ESP32CAM_AP";
-const char* password = "";
+const char* ssid = "LAPTOP_AP";
+const char* password = "12345678";
 
 WiFiUDP udp;
 unsigned int localPort = 5005;
@@ -80,6 +80,7 @@ void setup() {
   }
 
   Serial.print("WiFi Connected");
+  Serial.print(WiFi.localIP());
 
   udp.begin(localPort);
 }
