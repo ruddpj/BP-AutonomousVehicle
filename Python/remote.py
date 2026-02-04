@@ -2,8 +2,7 @@ import cv2 as cv
 import time
 import os
 import connect as cnt
-import transform as tf
-import interpret as itp
+import pygame
 
 def videoLoop():
     while True:
@@ -19,33 +18,37 @@ def videoLoop():
         print("Cannot open camera")
         exit(1)
 
-    while True:
+    pygame.init()
+    screen = pygame.display.set_mode((300, 200))
+    pygame.display.set_caption("Vehicle Control")
+
+    clock = pygame.time.Clock()
+    running = True
+    while running:
         ret, frame = cap.read()
         if not ret:
             continue
 
         frame = cv.resize(frame, (320, 240))
+        cv.imshow("ESP32CAM", frame)
+        cv.waitKey(1)
 
-        canny = tf.canny_transform(frame)
-        roi = tf.define_roi(canny)
-        hough, lines = tf.hough_transform(frame, roi)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
-        steering = itp.compute_steering(frame, lines)
+        keys = pygame.key.get_pressed()
 
-        if steering is not None:
-            print(steering)
-            cnt.sendUDP(steering)
-            cv.putText(frame, str(steering), (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        if keys[pygame.K_a]:
+            cnt.sendUDP(0)
+        elif keys[pygame.K_d]:
+            cnt.sendUDP(2)
         else:
-            cnt.badUDP()
-            cv.putText(frame, "Lane not detected", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            cnt.sendUDP(1)
 
-        stack = tf.video_grid(frame, canny, roi, hough)
-        cv.imshow("Lane detection", stack)
+        clock.tick(20)
 
-        if cv.waitKey(1) & 0xFF == 27:  # ESC
-            break
-
+    pygame.quit()
     cap.release()
     cv.destroyAllWindows()
 

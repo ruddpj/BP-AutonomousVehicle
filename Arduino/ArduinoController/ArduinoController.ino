@@ -18,12 +18,12 @@ float distance;
 // Driver OUT pins
 #define L_PWM D9
 #define L_DIR D10
-#define R_PWM D11
-#define R_DIR D12
+#define R_PWM D5
+#define R_DIR D6
 
-const int BASE_SPEED = 1200;
+const int BASE_SPEED = 255;
 const int PWM_FREQ = 20000;
-const int PWM_RES = 11;
+const int PWM_RES = 8;
 
 void printDistance(int distance) {
   Serial.print("Distance: ");
@@ -38,14 +38,14 @@ void printPacket(int steer) {
 }
 
 void setMotor(int pwmPin, int dirPin, int channel, int speed) {
-  speed = constrain(speed, 0, 2000);
+  speed = constrain(speed, 0, 255);
 
   digitalWrite(dirPin, LOW);
   ledcWrite(channel, speed);
 }
 
 void driveSteering(int steer) {
-  if (abs(steer) < 50) steer = 0;
+  if (abs(steer) < 16) steer = 0;
 
   int left = BASE_SPEED - steer;
   int right = BASE_SPEED + steer;
@@ -74,6 +74,9 @@ void setup() {
   ledcAttachPin(L_PWM, 0);
   ledcAttachPin(R_PWM, 1);
 
+  digitalWrite(L_DIR, LOW);
+  digitalWrite(R_DIR, LOW);
+
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -86,12 +89,14 @@ void setup() {
 }
 
 void loop() {
+  memset(incoming, 0, sizeof(incoming));
+
   int packetSize = udp.parsePacket();
   if (packetSize) {
     int len = udp.read(incoming, 255);
-    if (len > 0) incoming[len] = 0;
   }
-  const int steer = atoi(incoming) - 1000;
+
+  int steer = atoi(incoming) - 256;
 
   digitalWrite(TRIG_PIN, LOW);
   delayMicroseconds(2);
@@ -105,7 +110,7 @@ void loop() {
   printDistance(distance);
   printPacket(steer);
 
-  if (distance < 5 || steer > 2000) {
+  if (distance < 10 || steer < -255) {
     stopWheels();
   } else {
     driveSteering(steer);

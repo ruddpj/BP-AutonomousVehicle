@@ -5,8 +5,7 @@ SSID = "LAPTOP_AP"
 PASSWORD = "12345678"
 
 CAM_IP = "10.42.0.128"
-CAM_PORT = 81
-CAM_CHANNEL = "/stream"
+CAM_URL = "http://10.42.0.128:81/stream"
 
 UDP_IP = "10.42.0.111"
 UDP_PORT = 5005
@@ -36,10 +35,10 @@ def stopHotspot():
 
 
 def sendUDP(direction: float):
-    message = str(int(direction * 1000))
+    message = str(int(direction * 255) + 1)
     sock.sendto(message.encode(), (UDP_IP, UDP_PORT))
 
 
 def badUDP():
-    bad = "4000"
+    bad = "1000"
     sock.sendto(bad.encode(), (UDP_IP, UDP_PORT))
