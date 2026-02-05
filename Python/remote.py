@@ -24,7 +24,15 @@ def videoLoop():
 
     clock = pygame.time.Clock()
     running = True
+
+    cap.set(cv.CAP_PROP_BUFFERSIZE, 1)
+
+    last_send = 0
+
     while running:
+        for _ in range(2):
+            cap.read()
+
         ret, frame = cap.read()
         if not ret:
             continue
@@ -40,13 +48,19 @@ def videoLoop():
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_a]:
-            cnt.sendUDP(0)
+            val = 0.5
         elif keys[pygame.K_d]:
-            cnt.sendUDP(2)
+            val = 1.5
+        elif keys[pygame.K_w]:
+            val = 1.0
         else:
-            cnt.sendUDP(1)
+            val = -1.0
 
-        clock.tick(20)
+        if time.time() - last_send > 0.02:
+            cnt.sendUDP(val)
+            last_send = time.time()
+
+        clock.tick(60)
 
     pygame.quit()
     cap.release()
