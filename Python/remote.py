@@ -19,7 +19,7 @@ def videoLoop():
         exit(1)
 
     pygame.init()
-    screen = pygame.display.set_mode((300, 200))
+    _ = pygame.display.set_mode((300, 200))
     pygame.display.set_caption("Vehicle Control")
 
     clock = pygame.time.Clock()
@@ -48,13 +48,15 @@ def videoLoop():
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_a]:
-            val = 0.5
+            val = 0.0
         elif keys[pygame.K_d]:
-            val = 1.5
+            val = 2
         elif keys[pygame.K_w]:
             val = 1.0
         else:
-            val = -1.0
+            cnt.badUDP()
+            clock.tick(60)
+            continue
 
         if time.time() - last_send > 0.02:
             cnt.sendUDP(val)

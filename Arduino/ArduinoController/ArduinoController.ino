@@ -8,7 +8,7 @@ const char* password = "12345678";
 WiFiUDP udp;
 unsigned int localPort = 5005;
 uint8_t incoming[2];
-int steer = 0;
+int steer = -256;
 
 // Ultrasound sensor pins
 #define TRIG_PIN D2
@@ -45,11 +45,25 @@ void printPacket(int steer) {
 }
 
 // Motor Functions
+void setMotor(int pwmPin, int dirPin, int channel, int speed) {
+  if (speed < 0) {
+    digitalWrite(dirPin, HIGH);
+    speed = -speed;
+  } else {
+    digitalWrite(dirPin, LOW);
+  }
+
+  ledcWrite(channel, constrain(speed, 0, 255));
+}
+
 void driveSteering(int steer) {
   if (steer > -16 && steer < 16) steer = 0;
 
-  ledcWrite(0, constrain(BASE_SPEED - steer, 0, 255));
-  ledcWrite(1, constrain(BASE_SPEED + steer, 0, 255));
+  int left = constrain(BASE_SPEED - steer, -255, 255);
+  int right = constrain(BASE_SPEED + steer, -255, 255);
+
+  setMotor(L_PWM, L_DIR, 0, left);
+  setMotor(R_PWM, R_DIR, 1, right);
 }
 
 void stopWheels() {
@@ -135,6 +149,6 @@ void loop() {
   if (distance < 10 || steer < -255 || steer > 255) {
     stopWheels();
   } else {
-    driveSteering(steer);
+    driveSteering(steer*2);
   }
 }
