@@ -1,5 +1,6 @@
 import subprocess
 import socket
+import struct
 
 SSID = "LAPTOP_AP"
 PASSWORD = "12345678"
@@ -35,10 +36,10 @@ def stopHotspot():
 
 
 def sendUDP(direction: float):
-    message = str(int(direction * 255) + 1)
-    sock.sendto(message.encode(), (UDP_IP, UDP_PORT))
+    message = round(direction * 255) + 1
+    sock.sendto(struct.pack('<H', message), (UDP_IP, UDP_PORT))
 
 
 def badUDP():
-    bad = "1000"
-    sock.sendto(bad.encode(), (UDP_IP, UDP_PORT))
+    bad = 0
+    sock.sendto(struct.pack('<H', bad), (UDP_IP, UDP_PORT))
