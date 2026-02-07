@@ -18,7 +18,7 @@ int steer = -256;
 volatile uint32_t echoStart = 0;
 volatile uint32_t echoEnd = 0;
 volatile bool echoDone = false;
-float distance = 999;
+float distance = 0;
 
 // Driver OUT pins
 #define L_PWM D9
@@ -59,8 +59,8 @@ void setMotor(int pwmPin, int dirPin, int channel, int speed) {
 void driveSteering(int steer) {
   if (steer > -16 && steer < 16) steer = 0;
 
-  int left = constrain(BASE_SPEED - steer, -255, 255);
-  int right = constrain(BASE_SPEED + steer, -255, 255);
+  int left = constrain(BASE_SPEED - steer * 2, -255, 255);
+  int right = constrain(BASE_SPEED + steer * 2, -255, 255);
 
   setMotor(L_PWM, L_DIR, 0, left);
   setMotor(R_PWM, R_DIR, 1, right);
@@ -149,6 +149,6 @@ void loop() {
   if (distance < 10 || steer < -255 || steer > 255) {
     stopWheels();
   } else {
-    driveSteering(steer*2);
+    driveSteering(steer);
   }
 }
