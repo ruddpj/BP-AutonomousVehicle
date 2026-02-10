@@ -27,7 +27,7 @@ uint16_t distance = 0;
 #define R_DIR D6
 
 // Driver constants
-const int BASE_SPEED = 160;
+const int BASE_SPEED = 255;
 const int PWM_FREQ = 20000;
 const int PWM_RES = 8;
 const int MIN_PWM = 40;
@@ -49,12 +49,14 @@ void printPacket(int steer) {
 void setMotor(int pwmPin, int dirPin, int channel, int speed) {
   if (speed < 0) {
     digitalWrite(dirPin, HIGH);
+    //digitalWrite(pwmPin, LOW);
     speed = -speed;
   } else {
     digitalWrite(dirPin, LOW);
+    //digitalWrite(pwmPin, HIGH);
   }
 
-  ledcWrite(channel, constrain(speed, 0, 255));
+  ledcWrite(channel, speed);
 }
 
 void driveSteering(int steer) {
@@ -76,6 +78,9 @@ void driveSteering(int steer) {
 void stopWheels() {
   ledcWrite(0, 0);
   ledcWrite(1, 0);
+
+  digitalWrite(L_DIR, LOW);
+  digitalWrite(R_DIR, LOW);
 }
 
 // Ultrasound control functions
@@ -156,6 +161,6 @@ void loop() {
   if (distance < 10 || steer < -255 || steer > 255) {
     stopWheels();
   } else {
-    driveSteering(steer);
+    driveSteering(steer*2);
   }
 }

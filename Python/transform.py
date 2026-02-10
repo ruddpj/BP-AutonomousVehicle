@@ -1,66 +1,40 @@
 import numpy as np
 import cv2 as cv
 
-def video_grid(frame: np.ndarray,
-               canny: np.ndarray,
-               yolo: np.ndarray,
-               hough: np.ndarray) -> np.ndarray:
-    height, width = frame.shape[:2]
+lower_white = np.array([0, 0, 200])
+upper_white = np.array([180, 30, 255])
 
-    frame = cv.resize(frame, (width, height))
-    canny = cv.resize(canny, (width, height))
-    yolo = cv.resize(yolo, (width, height))
-    hough = cv.resize(hough, (width, height))
+def region_of_interest(frame):
+    h, w = frame.shape[:2]
+    roi_mask = np.zeros_like(frame)
+    roi_height = 100
 
-    canny = cv.cvtColor(canny, cv.COLOR_GRAY2BGR)
+    roi_mask[h - roi_height:h, :] = [255, 255, 255]
+    masked = cv.bitwise_and(frame, roi_mask)
+    return masked
 
-    top = np.hstack((frame, canny))
-    bot = np.hstack((yolo, hough))
 
-    stacked = np.vstack((top, bot))
+def mask_road(frame):
+    hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+    mask = cv.inRange(hsv, lower_white, upper_white)
 
-    return stacked
+    kernel = np.ones((5, 5), np.uint8)
+    mask = cv.morphologyEx(mask, cv.MORPH_OPEN, kernel)
+    mask = cv.morphologyEx(mask, cv.MORPH_CLOSE, kernel)
 
-def canny_transform(frame: np.ndarray) -> np.ndarray:
-    canny = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-    canny = cv.GaussianBlur(canny, (5, 5), 0)
-    canny = cv.Canny(canny, 100, 200)
+    return mask
 
-    return canny
 
-def define_roi(frame: np.ndarray) -> np.ndarray:
-    height, width = frame.shape
-    mask = np.zeros_like(frame)
+def find_contours(mask):
+    contours, _ = cv.findContours(mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+    return contours
 
-    polygon = np.array([[
-        (0, height),
-        (width, height),
-        (width // 2, height // 2)
-    ]], np.int32)
 
-    cv.fillPoly(mask, polygon, 255)
-    roi = cv.bitwise_and(frame, mask)
-
-    return roi
-
-def hough_transform(frame: np.ndarray, roi: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    lines = cv.HoughLinesP(
-        roi,
-        rho=1,
-        theta=np.pi / 180,
-        threshold=50,
-        minLineLength=30,
-        maxLineGap=200
-    )
-
-    line_frame = np.zeros_like(frame)
-    if lines is not None:
-        for line in lines:
-            x1, y1, x2, y2 = line[0]
-            slope = (y2 - y1) / (x2 - x1 + 1e-6)
-            if abs(slope) > 0.5:
-                cv.line(line_frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
-
-    hough = cv.addWeighted(frame, 0.8, line_frame, 1, 1)
-
-    return hough, lines
+def mark_contours(frame, contours):
+    if contours:
+        largest = max(contours, key=cv.contourArea)
+        M = cv.moments(largest)
+        if M["m00"] != 0:
+            cx = int(M["m10"] / M["m00"])
+            cy = int(M["m01"] / M["m00"])
+            cv.circle(frame, (cx, cy), 5, (0, 0, 255), -1)
