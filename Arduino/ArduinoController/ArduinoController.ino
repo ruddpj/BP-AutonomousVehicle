@@ -18,7 +18,7 @@ int steer = -256;
 volatile uint32_t echoStart = 0;
 volatile uint32_t echoEnd = 0;
 volatile bool echoDone = false;
-float distance = 0;
+uint16_t distance = 0;
 
 // Driver OUT pins
 #define L_PWM D9
@@ -27,9 +27,10 @@ float distance = 0;
 #define R_DIR D6
 
 // Driver constants
-const int BASE_SPEED = 255;
+const int BASE_SPEED = 160;
 const int PWM_FREQ = 20000;
 const int PWM_RES = 8;
+const int MIN_PWM = 40;
 
 // Print-outs
 void printDistance(int distance) {
@@ -59,8 +60,14 @@ void setMotor(int pwmPin, int dirPin, int channel, int speed) {
 void driveSteering(int steer) {
   if (steer > -16 && steer < 16) steer = 0;
 
-  int left = constrain(BASE_SPEED - steer * 2, -255, 255);
-  int right = constrain(BASE_SPEED + steer * 2, -255, 255);
+  int left = constrain(BASE_SPEED - steer, -255, 255);
+  int right = constrain(BASE_SPEED + steer, -255, 255);
+
+  if (left != 0 && abs(left) < MIN_PWM)
+    left = (left > 0) ? MIN_PWM : -MIN_PWM;
+
+  if (right != 0 && abs(right) < MIN_PWM)
+    right = (right > 0) ? MIN_PWM : -MIN_PWM;
 
   setMotor(L_PWM, L_DIR, 0, left);
   setMotor(R_PWM, R_DIR, 1, right);
@@ -139,7 +146,7 @@ void loop() {
 
   if (echoDone) {
     uint32_t duration = echoEnd - echoStart;
-    distance = duration * 0.0343 / 2;
+    distance = duration / 58;
     echoDone = false;
   }
 

@@ -5,8 +5,10 @@ import connect as cnt
 import transform as tf
 import interpret as itp
 
+DEBUG_MODE = False
+
 def videoLoop():
-    while True:
+    while True and not DEBUG_MODE:
         response = os.system(f"ping -c 1 {cnt.CAM_IP} > /dev/null 2>&1")
         if response == 0:
             print("ESP32-CAM online")
@@ -14,7 +16,7 @@ def videoLoop():
         print(".", end="")
         time.sleep(1)
 
-    cap = cv.VideoCapture(cnt.CAM_URL)
+    cap = cv.VideoCapture(0 if DEBUG_MODE else cnt.CAM_URL)
     if not cap.isOpened():
         print("Cannot open camera")
         exit(1)
