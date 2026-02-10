@@ -4,8 +4,9 @@ import os
 import connect as cnt
 import transform as tf
 import interpret as itp
+import detect as dt
 
-DEBUG_MODE = False
+DEBUG_MODE = True
 
 def videoLoop():
     while True and not DEBUG_MODE:
@@ -28,6 +29,8 @@ def videoLoop():
 
         frame = cv.resize(frame, (320, 240))
 
+        yolo = dt.detect(frame)
+
         canny = tf.canny_transform(frame)
         roi = tf.define_roi(canny)
         hough, lines = tf.hough_transform(frame, roi)
@@ -42,7 +45,7 @@ def videoLoop():
             cnt.badUDP()
             cv.putText(frame, "Lane not detected", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-        stack = tf.video_grid(frame, canny, roi, hough)
+        stack = tf.video_grid(frame, canny, yolo, hough)
         cv.imshow("Lane detection", stack)
 
         if cv.waitKey(1) & 0xFF == 27:  # ESC

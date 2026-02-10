@@ -3,20 +3,19 @@ import cv2 as cv
 
 def video_grid(frame: np.ndarray,
                canny: np.ndarray,
-               roi: np.ndarray,
+               yolo: np.ndarray,
                hough: np.ndarray) -> np.ndarray:
     height, width = frame.shape[:2]
 
     frame = cv.resize(frame, (width, height))
     canny = cv.resize(canny, (width, height))
-    roi = cv.resize(roi, (width, height))
+    yolo = cv.resize(yolo, (width, height))
     hough = cv.resize(hough, (width, height))
 
     canny = cv.cvtColor(canny, cv.COLOR_GRAY2BGR)
-    roi = cv.cvtColor(roi, cv.COLOR_GRAY2BGR)
 
     top = np.hstack((frame, canny))
-    bot = np.hstack((roi, hough))
+    bot = np.hstack((yolo, hough))
 
     stacked = np.vstack((top, bot))
 
