@@ -32,9 +32,14 @@ def videoLoop():
         frame = tf.region_of_interest(frame)
         mask = tf.mask_road(frame)
         contours = tf.find_contours(mask)
-        tf.mark_contours(frame, contours)
 
-        steering = None
+        cx, cy = itp.find_center(contours)
+        if cx is not None:
+            steering = itp.compute_steering(cx)
+            itp.mark_center(frame, cx, cy)
+        else:
+            steering = None
+
         if steering is not None:
             print(steering)
             cnt.sendUDP(steering)
@@ -55,7 +60,7 @@ def videoLoop():
 
 if __name__ == "__main__":
     try:
-        cnt.startHotspot()
+        #cnt.startHotspot()
         time.sleep(2)
 
         videoLoop()

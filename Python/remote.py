@@ -50,11 +50,11 @@ def videoLoop():
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_a]:
-            val = 1.8
+            val = 511
         elif keys[pygame.K_d]:
-            val = 0.2
+            val = 1
         elif keys[pygame.K_w]:
-            val = 1.0
+            val = 256
         else:
             cnt.badUDP()
             clock.tick(60)

@@ -28,13 +28,3 @@ def mask_road(frame):
 def find_contours(mask):
     contours, _ = cv.findContours(mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
     return contours
-
-
-def mark_contours(frame, contours):
-    if contours:
-        largest = max(contours, key=cv.contourArea)
-        M = cv.moments(largest)
-        if M["m00"] != 0:
-            cx = int(M["m10"] / M["m00"])
-            cy = int(M["m01"] / M["m00"])
-            cv.circle(frame, (cx, cy), 5, (0, 0, 255), -1)
