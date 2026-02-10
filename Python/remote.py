@@ -4,8 +4,10 @@ import os
 import connect as cnt
 import pygame
 
+DEBUG_MODE = True
+
 def videoLoop():
-    while True:
+    while True and not DEBUG_MODE:
         response = os.system(f"ping -c 1 {cnt.CAM_IP} > /dev/null 2>&1")
         if response == 0:
             print("ESP32-CAM online")
@@ -13,7 +15,7 @@ def videoLoop():
         print(".", end="")
         time.sleep(1)
 
-    cap = cv.VideoCapture(cnt.CAM_URL)
+    cap = cv.VideoCapture(0 if DEBUG_MODE else cnt.CAM_URL)
     if not cap.isOpened():
         print("Cannot open camera")
         exit(1)
@@ -48,11 +50,11 @@ def videoLoop():
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_a]:
-            val = 0.0
+            val = 511
         elif keys[pygame.K_d]:
-            val = 2
+            val = 1
         elif keys[pygame.K_w]:
-            val = 1.0
+            val = 256
         else:
             cnt.badUDP()
             clock.tick(60)

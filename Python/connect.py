@@ -36,10 +36,8 @@ def stopHotspot():
 
 
 def sendUDP(direction: float):
-    message = round(direction * 255) + 1
-    sock.sendto(struct.pack('<H', message), (UDP_IP, UDP_PORT))
+    sock.sendto(struct.pack('<H', direction), (UDP_IP, UDP_PORT))
 
 
 def badUDP():
-    bad = 0
-    sock.sendto(struct.pack('<H', bad), (UDP_IP, UDP_PORT))
+    sock.sendto(struct.pack('<H', 0), (UDP_IP, UDP_PORT))

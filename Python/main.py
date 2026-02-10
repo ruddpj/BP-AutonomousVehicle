@@ -29,13 +29,16 @@ def videoLoop():
 
         frame = cv.resize(frame, (320, 240))
 
-        yolo = dt.detect(frame)
+        frame = tf.region_of_interest(frame)
+        mask = tf.mask_road(frame)
+        contours = tf.find_contours(mask)
 
-        canny = tf.canny_transform(frame)
-        roi = tf.define_roi(canny)
-        hough, lines = tf.hough_transform(frame, roi)
-
-        steering = itp.compute_steering(frame, lines)
+        cx, cy = itp.find_center(contours)
+        if cx is not None:
+            steering = itp.compute_steering(cx)
+            itp.mark_center(frame, cx, cy)
+        else:
+            steering = None
 
         if steering is not None:
             print(steering)
@@ -45,8 +48,8 @@ def videoLoop():
             cnt.badUDP()
             cv.putText(frame, "Lane not detected", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-        stack = tf.video_grid(frame, canny, yolo, hough)
-        cv.imshow("Lane detection", stack)
+        cv.imshow("Lane detection", frame)
+        cv.imshow("Mask", mask)
 
         if cv.waitKey(1) & 0xFF == 27:  # ESC
             break
@@ -57,7 +60,7 @@ def videoLoop():
 
 if __name__ == "__main__":
     try:
-        cnt.startHotspot()
+        #cnt.startHotspot()
         time.sleep(2)
 
         videoLoop()

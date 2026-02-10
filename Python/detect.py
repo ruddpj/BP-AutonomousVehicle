@@ -10,7 +10,6 @@ SLOW_THRESHOLD = 150
 def detect(frame):
     results = model(frame)[0]
 
-
     for det in results.boxes:
         x1, y1, x2, y2 = map(int, det.xyxy[0])
         conf = float(det.conf[0])
