@@ -1,8 +1,8 @@
 import numpy as np
 import cv2 as cv
 
-lower_white = np.array([0, 0, 200])
-upper_white = np.array([180, 30, 255])
+lower_white = np.array([0, 0, 180])
+upper_white = np.array([180, 40, 255])
 
 def region_of_interest(frame):
     h, w = frame.shape[:2]
@@ -28,3 +28,6 @@ def mask_road(frame):
 def find_contours(mask):
     contours, _ = cv.findContours(mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
     return contours
+
+def video_grid(video_array):
+    return np.concatenate(video_array, axis=1)

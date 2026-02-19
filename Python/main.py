@@ -29,27 +29,32 @@ def videoLoop():
 
         frame = cv.resize(frame, (320, 240))
 
-        frame = tf.region_of_interest(frame)
-        mask = tf.mask_road(frame)
+        roi = tf.region_of_interest(frame)
+        mask = tf.mask_road(roi)
         contours = tf.find_contours(mask)
+
+        detections = dt.detect(frame)
+        obstacle = frame.copy()
 
         cx, cy = itp.find_center(contours)
         if cx is not None:
-            steering = itp.compute_steering(cx)
+            steering = itp.compute_steering(cx, detections)
             itp.mark_center(frame, cx, cy)
+            obstacle = dt.draw_boxes(obstacle, detections)
         else:
             steering = None
 
         if steering is not None:
-            print(steering)
+            print("Thresholding: ", steering)
             cnt.sendUDP(steering)
             cv.putText(frame, str(steering), (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         else:
             cnt.badUDP()
             cv.putText(frame, "Lane not detected", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-        cv.imshow("Lane detection", frame)
-        cv.imshow("Mask", mask)
+        #All inputs have to be 3-dimensional
+        videogrid = tf.video_grid((frame, cv.cvtColor(mask, cv.COLOR_GRAY2BGR), obstacle))
+        cv.imshow("Lane detection", videogrid)
 
         if cv.waitKey(1) & 0xFF == 27:  # ESC
             break
