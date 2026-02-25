@@ -1,3 +1,8 @@
 .idea/
 .venv/
 .build/
+thesis.log
+thesis.lol
+thesis.out
+thesis.run.xml
+thesis.toc
