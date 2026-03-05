@@ -1,6 +1,7 @@
 .idea/
 .venv/
 .build/
+FEIStyle-2.0.1/
 thesis.log
 thesis.lol
 thesis.out
@@ -12,3 +13,5 @@ thesis.loa
 texput.log
 thesis.blg
 thesis.bbl
+thesis.glo
+thesis.acn
