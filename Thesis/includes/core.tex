@@ -1,0 +1,76 @@
+\section{Autonómne vozidlá}\label{sec:AutonomneVozidla}
+\subsection{Čo je to autonómne vozidlo?}
+Autonómne vozidlo, niekedy nazývané aj samoriadiace auto je dopravný prostriedok, ktorý je schopný fungovať s obmedzeným alebo žiadnym ľudským zásahom. Na rozdiel od tradičných vozidiel nevyžaduje vodiča. Autonómne vozidlá vykonávajú túto úlohu pomocou viacerých hardvérových a softvérových systémov. Hoci ani v roku 2026 nemá termín 'samoriadiace' jednotnú štadardnú definíciu, hlavným cieľom týchto technológií zostáva eliminácia ľudských chýb, zvýšenie efektivity premávky a sprístupnenie prepravy ľudom, ktorí nie sú schopní šoférovať sami.\par
+Na vnímanie okolia vozidla používame senzory detekcie objektov. Systém vnímania používa kamery, RADAR, LiDAR a ultrazvukové senzory, pričom každý z nich má špecifickú funkciu. Kamery poskytujú vozidlu vizuálnu detekciu objektov na krátku až strednú vzdialenosť. Majú široké spektrum využitia, od detekcie vzdialených prvkov po rozpoznávanie pruhov a dopravných značení, čím simulujú funkciu ľudského oka. Radarové senzory sa delia podľa dosahu: radary na dlhý dosah sa používajú na detekciu vzdialených objektov aj v nepriaznivých podmienkach (hmla, dážď, prach), radary na krátky dosah sa používajú na prevenciu kolízie z boku a zo zadu. LiDAR na rozdiel od radaru je lepší v mapovaní trojrozmerných objektov, no je viac náchylný na poveternostné podmienky. Ultrazvukové senzory sa využívajú na meranie krátkych vzdialeností, napríklad pri parkovaní~\cite{wevolver2020}.\par
+Autonómne vozidlá často pracujú s čiastočne neznámym a dynamickým prostredím, preto si musia vystavať model svojho prostredia a zároveň sa v ňom lokalizovať. Tento proces je známy pod skratkou SLAM (súčasná lokalizácia a mapovanie). Spočíva v spracovaní dát zo senzorov, máp s vysokým rozlíšením a systéme GPS, vďaka čomu si zariadenie vytvorí model prostredia a určí v ňom svoju polohu v reálnom čase.\par
+Tretí systém je zodpovedný za plánovanie a rozhodovanie. Na základe dát z predchádzajúcej vrstvy vozidlo vyhodnocuje a reaguje na vývoj dopravnej situácii. Primárnym cieľom je zachovať bezpečnosť a efektívnosť jazdy. Táto vrstva má za úlohu lokálne a globálne plánovanie trasy, vyhýbanie sa prekážkam, kontrolu rýchlosti a jazdných pruhov. Najčastejšie sa používajú modely strojového učenia, vrátane neurónových sietí na detekciu objektov a na predvídanie správania iných účastníkov cestnej premávky.\par
+Posledným kľúčovým článkom je konanie a ovládanie vozidla. Systém ovládania vozidla premení abstraktné požiadavky predchádzajúcej vrstvy na fyzické pohyby auta. Zodpovedá za smerové riadenie, zrýchľovanie a brzdenie. Pokročilé algoritmy zároveň zabezpečujú, aby pohyb bol plynulý, stabilný a rešpektoval limitácie podvozku. Vďaka integrácii týchto systémov dokáže autonómne vozidlo navigovať v komplexných dopravných situáciách s minimálnou až nulovou potrebou ľudského zásahu.
+
+\subsection{Úrovne autonómnych vozidiel}
+Úrovne autonómnych vozidiel sú definované organizáciou SAE International v štandarde SAEJ3016. Tento dokument delí automatizáciu riadenia do šietstich stupňov (0-5) podľa toho, akú časť jazdy zabezpečuje systém a akú úlohu ešte stále zohráva vodič. O samoriadiacich autách sa často hovorí ako o jednej kategórii, no v praxi ide o postupný vývoj od minimálnej podpory riadenia až po úplnú autonómiu vozidla bez zásahu človeka~\cite{saej3016}.
+\subsubsection{Úroveň 0}
+\paragraph{Žiadna automatizácia}Na tejto úrovni všetky činnosti vykonáva ľudský vodič. Vozidlo môže mať bezpečnostné systémy, ako napríklad upozornenie opustenia jazdného pruhu, no samotné riadenie je plne v rukách človeka.
+\subsubsection{Úroveň 1}
+\paragraph{Asistované riadenie}Systém pomáha s postranným alebo pozdĺžnym riadením vozidla ale nie v obidvoch prípadoch naraz. Sem patria asistencie ako udržiavanie rýchlosti (tempomat) alebo mierne korigovanie smeru. Vodič však musí neustále sledovať situáciu na vozovke a mať ruky na volante.
+\subsubsection{Úroveň 2}
+\paragraph{Čiastočná automatizácia}Vozidlo dokáže súčasne riadiť smer aj rýchlosť, stále však platí, že vodič nepretržite dohliada na jazdu a je pripravený zasiahnuť v prípade núdze. Systém vykonáva viac úloh riadenia naraz, no zodpovednosť upadá na človeka.
+\subsubsection{Úroveň 3}
+\paragraph{Podmienená automatizácia}Jazda v špecifickej situácii je automatizovaná a vodič nemusí aktívne sledovať okolie. Ak však systém vyhodnotí, že situáciu nezvládne, kontrola vozidla sa vráti vodičovi. Vodič musí byť pripravený prevziať kontrolu nad vozidlom.
+\subsubsection{Úroveň 4}
+\paragraph{Vysoká automatizácia}Na tejto úrovni je vozidlo schopné zvládnuť jazdu úplne samo v rámci definovaných prostredí alebo podmienok. V prípade, že sa vozidlo dostane mimo týchto podmienok, dokáže bezpečne zastaviť. Prítomnosť ľudského šoféra nie je nutná.
+\subsubsection{Úroveň 5}
+\paragraph{Plná automatizácia}Najvyšší stupeň automatizácie, vozidlo dokáže jazdiť samostatne za všetkých podmienok, v ktorých dokáže jazdiť človek. Neexistuje potreba vodiča. Vozidlo zastaví v prípade zlyhania určitých modulov riadenia.
+
+\section{Analýza súčasného stavu}\label{sec:Analyza}
+\subsection{Aktuálny stav technológie}
+V posledných rokoch sme zaznamenali nárast vydaní automobilov tretej úrovne autonómnosti, autonómne taxi služby sa stávajú realizovateľným spôsobom dopravy v mestách a dostali sme prvé ukážky kamiónov bez nutnosti ľudského vodiča~\cite{electronics2022, mckinsey2026}.\par
+Vďaka adventu umelej inteligecie a zvýšenia výkonu výpočtových platforiem sme zaregistrovali značný pokrok v technológiách autonómnych vozidiel. Výrobcovia sa snažia zlepšovať kombinácie radarových, LiDARových a kamerových dát tak, aby boli robustnejšie voči dopravným a poveternostným podmienkam. Pokračuje snaha v návrhu scenárov pre hraničné sitúacie, čím sa zlepší percepčná schopnosť autonómnych systémov a zrýchli ich nasadenie~\cite{motortrend2026, nvidia2026}.\par
+Autonómne vozidla zaznamenali značnú investíciu ale aj kontrolu zo strany štátnych a nadnárodných organizácií. Firmy, ktoré poskytujú služby samoriadiacich vozidiel rozširujú svoju dostupnosť, znižujú počet senzorov a náklady na hardvér. Hoci technológický pokrok pokračuje, integrácia do infraštruktúry mesta zostáva ako prednou výzvou pre adopciu AV do dopravy~\cite{theguardian2026, waymo2026}.
+\subsection{Použitie autonómnych vozidiel}
+Autonómne vozidlá majú mnohé použitia a ich možnosti sa v posledných rokoch rozširujú. Najpozoruhodnejšie použitie je v doprave. Ich hlavným cieľom je zvýšenie bezpečnosti premávky a plynulosti dopravy. Štandard SAE International opisuje plán prechodu od asistencie šoférovania po plne autonómnu prevádzku.\par
+Autonómne taxi služby, často nazývané aj ako robo-taxi sú značným trendom v oblasti mestskej dopravy, ktoré nahrádzajú tradičné ľudmi-operované taxíky. Ďalšou rýchlo rastúcou oblasťou je autonómne doručovanie jedla na krátke vzdialenosti. Tieto aplikácie predstavujú realizovateľné scenáre uplatnenia autonómneho riadenia.
+\subsubsection{Autonómne taxi služby}
+Autonómne taxi služby predstavujú jednu z najpokročilejších foriem využitia autonómnych služieb. Proces od objednanie, naplánovanie trasy po prepravy pasažierov je plne automatizovaný. Mnohí výrobcovia automobilov a technologícké firmy investujú kapitál do robo-taxíkov. Na popredí je firma Waymo, ktorá je dcérskou spoločnosťou Alphabet. Ich automobily, ktoré spĺňajú štvrtú úroveň autonómie, využívajú LiDAR, radar a kamery na vytvorenie trojrozmerného obrazu prostredia. S každou ďalšou generáciou vozidiel redukujú počet senzorov, čím znižujú náklady na výrobu a zlepšujú škálovateľnosť projektu.\par
+Nvidia pracuje na modeli uvažovania, ktorý urýchľuje adopciu štrtej a piatej úrovni AV. Model Alpamayo 1 je open-source a zameriava sa na riešenie komplexných a kritických dopravných situácií. Mnohé štáty investujú do AV startupov aby urýchlili integráciu a riešili problémy priamo s výrobcami. V Anglicku je to firma Oxa, ktorá sa zameriava na logistiku prepravy tovaru. Po boku súkromných investorov našla Oxfordská firma podporu od Britského národného fondu, so zameraním zlepšiť technologický sektor.\par
+Alternatívny prístup zvolil technologický gigant Tesla, so službou Robotaxi a očakávaným automobilom Cybercab. Tesla používa namiesto finančne nákladových LiDAR senzorov kamerový systém s interpretáciou dát pomocou umelej inteligencie. Služba Robotaxi využíva systém FSD (Full Self-Driving), forma autónomneho riadenia tretieho stupňa. Ľudský operátor dohliada nad jazdou a je pripravený prevziať kontrolu nad riadením v prípade kritického zlyhania. V roku 2026 začala firma zavádzať vozidlá bez dozoru do ich flotily~\cite{notateslaapp2026}.
+\subsubsection{Autonomizácia donášky jedla}
+\subsection{Umelá inteligencia}
+\subsection{Senzory}
+
+\section{Komponenty systému}\label{sec:Komponenty}
+\subsection{Komponenty autonómneho vozidla}
+\subsubsection{Arduino Nano ESP32 mikrokontroler}
+\subsubsection{ESP32-CAM + OV2640 kamera}
+\subsubsection{HC-SR04 Ultrazvukový senzor}
+\subsubsection{DRV8833 driver pre motorčeky}
+\subsubsection{Elektrické komponenty}
+\subsubsection{Rám vozidla}
+\subsection{Server}
+\subsection{Softvér}
+\subsubsection{C++}
+\subsubsection{Python}
+\subsubsection{OpenCV}
+\subsubsection{Ultralytics YOLOv8}
+
+\section{Návrh a implementácia}\label{sec:NavrhAImplementacia}
+\subsection{Návrh komunikácie komponentov}
+\subsection{Návrh rámu a rozloženie komponentov}
+\subsection{Montovanie vozidla}
+
+\section{Detekcia vozovky}\label{sec:DetekciaVozovky}
+\subsection{Region of interest}
+\subsection{Hľadanie svetlých regiónov}
+\subsection{Hľadanie kontúr vozovky}
+\subsection{Interpretácia dát}
+
+\section{Detekcia prekážky}\label{sec:DetekciaPrekazky}
+\subsection{Ultrazvukový senzor}
+\subsection{CNN}
+\subsection{Interpretácia dát}
+
+\section{Testovanie}\label{sec:Testovanie}
+\subsection{Testovanie motorov}
+\subsection{Testovanie senzorov}
+\subsection{Testovanie kamery}
+
+\section{Výsledky}\label{sec:Vysledky}
