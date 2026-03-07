@@ -321,6 +321,91 @@
       \verb https://www.notateslaapp.com/news/3527/tesla-launches-unsupervised-robotaxi-rides-in-austin
       \endverb
     \endentry
+    \entry{srinivas2022}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=c7343b3ae251a775a0e4cde098a9d33b}{%
+           family={Srinivas},
+           familyi={S\bibinitperiod},
+           given={Sharan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c20c6fd2f83cf422f2e490e7b6ec2cf8}{%
+           family={Ramachandiran},
+           familyi={R\bibinitperiod},
+           given={Surya},
+           giveni={S\bibinitperiod}}}%
+        {{hash=31b1ce48f7dcd80234d7db554cece744}{%
+           family={Rajendran},
+           familyi={R\bibinitperiod},
+           given={Suchithra},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{3d36416e1a98840f565b6d109209faee}
+      \strng{fullhash}{3d36416e1a98840f565b6d109209faee}
+      \strng{fullhashraw}{3d36416e1a98840f565b6d109209faee}
+      \strng{bibnamehash}{3d36416e1a98840f565b6d109209faee}
+      \strng{authorbibnamehash}{3d36416e1a98840f565b6d109209faee}
+      \strng{authornamehash}{3d36416e1a98840f565b6d109209faee}
+      \strng{authorfullhash}{3d36416e1a98840f565b6d109209faee}
+      \strng{authorfullhashraw}{3d36416e1a98840f565b6d109209faee}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1366-5545}
+      \field{journaltitle}{Transportation Research Part E: Logistics and Transportation Review}
+      \field{title}{Autonomous robot-driven deliveries: A review of recent developments and future directions}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{165}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.tre.2022.102834
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1366554522002150
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1366554522002150
+      \endverb
+    \endentry
+    \entry{forbes2025}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=5e35049013b541ccd7c72c87f4004780}{%
+           family={Koetsier},
+           familyi={K\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Forbes}%
+      }
+      \strng{namehash}{5e35049013b541ccd7c72c87f4004780}
+      \strng{fullhash}{5e35049013b541ccd7c72c87f4004780}
+      \strng{fullhashraw}{5e35049013b541ccd7c72c87f4004780}
+      \strng{bibnamehash}{5e35049013b541ccd7c72c87f4004780}
+      \strng{authorbibnamehash}{5e35049013b541ccd7c72c87f4004780}
+      \strng{authornamehash}{5e35049013b541ccd7c72c87f4004780}
+      \strng{authorfullhash}{5e35049013b541ccd7c72c87f4004780}
+      \strng{authorfullhashraw}{5e35049013b541ccd7c72c87f4004780}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Starship’s 2,700 Robots Have Made 9M Deliveries. Now They’re Coming To Your City}
+      \field{urlday}{7}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.forbes.com/sites/johnkoetsier/2025/10/15/starships-2700-robots-have-made-9m-deliveries-now-theyre-coming-to-your-city/
+      \endverb
+      \verb{url}
+      \verb https://www.forbes.com/sites/johnkoetsier/2025/10/15/starships-2700-robots-have-made-9m-deliveries-now-theyre-coming-to-your-city/
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

@@ -2405,6 +2405,8 @@
     <bcf:citekey order="5" intorder="1">theguardian2026</bcf:citekey>
     <bcf:citekey order="5" intorder="2">waymo2026</bcf:citekey>
     <bcf:citekey order="6" intorder="1">notateslaapp2026</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">srinivas2022</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">forbes2025</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
