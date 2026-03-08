@@ -285,6 +285,199 @@
       \verb https://www.autonomous-vehicles-conference.com/news/waymo-slims-sensors-to-drive-down-robotaxi-costs
       \endverb
     \endentry
+    \entry{hamza2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=886cbf0a393440d3c1d094050751d44a}{%
+           family={Hamza},
+           familyi={H\bibinitperiod},
+           given={Guirrou},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c9c6bfa7fc8b2053b4638caa1d7277be}{%
+           family={Es-sadek},
+           familyi={E\bibinithyphendelim s\bibinitperiod},
+           given={Mohamed},
+           giveni={M\bibinitperiod}}}%
+        {{hash=dd940f60e0e6603be2d4415ce7a7cbbf}{%
+           family={Taher},
+           familyi={T\bibinitperiod},
+           given={Youssef},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{c255c0a8e96441544af96ad68fc2cb9c}
+      \strng{fullhash}{c255c0a8e96441544af96ad68fc2cb9c}
+      \strng{fullhashraw}{c255c0a8e96441544af96ad68fc2cb9c}
+      \strng{bibnamehash}{c255c0a8e96441544af96ad68fc2cb9c}
+      \strng{authorbibnamehash}{c255c0a8e96441544af96ad68fc2cb9c}
+      \strng{authornamehash}{c255c0a8e96441544af96ad68fc2cb9c}
+      \strng{authorfullhash}{c255c0a8e96441544af96ad68fc2cb9c}
+      \strng{authorfullhashraw}{c255c0a8e96441544af96ad68fc2cb9c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Artificial Intelligence In Self-Driving: Study of Advanced Current Applications}
+      \field{urlday}{8}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.31224/3209
+      \endverb
+    \endentry
+    \entry{grigorescu2019}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=31b973d2d170d0a739b5fa7263cf576a}{%
+           family={Grigorescu},
+           familyi={G\bibinitperiod},
+           given={Sorin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0bf95200606473c5e88edf2d229212ed}{%
+           family={Trasnea},
+           familyi={T\bibinitperiod},
+           given={Bogdan},
+           giveni={B\bibinitperiod}}}%
+        {{hash=e3098ac31977e6d9d3351750874ae05b}{%
+           family={Cocias},
+           familyi={C\bibinitperiod},
+           given={Tiberiu},
+           giveni={T\bibinitperiod}}}%
+        {{hash=fbadbacf683156beb785ab9402f6483c}{%
+           family={Macesanu},
+           familyi={M\bibinitperiod},
+           given={Gigel},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{72237f988c4e23f3ea8892f2aea0ef76}
+      \strng{fullhash}{72237f988c4e23f3ea8892f2aea0ef76}
+      \strng{fullhashraw}{72237f988c4e23f3ea8892f2aea0ef76}
+      \strng{bibnamehash}{72237f988c4e23f3ea8892f2aea0ef76}
+      \strng{authorbibnamehash}{72237f988c4e23f3ea8892f2aea0ef76}
+      \strng{authornamehash}{72237f988c4e23f3ea8892f2aea0ef76}
+      \strng{authorfullhash}{72237f988c4e23f3ea8892f2aea0ef76}
+      \strng{authorfullhashraw}{72237f988c4e23f3ea8892f2aea0ef76}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Field Robotics}
+      \field{month}{11}
+      \field{title}{A survey of deep learning techniques for autonomous driving}
+      \field{urlday}{8}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{37}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \field{pages}{362\bibrangedash 386}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1002/rob.21918
+      \endverb
+    \endentry
+    \entry{badue2021}{article}{}{}
+      \name{author}{13}{}{%
+        {{hash=04d91001a6e2923237f7b0d34aee7e66}{%
+           family={Badue},
+           familyi={B\bibinitperiod},
+           given={Claudine},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b592fef8cab50c1c4e41d7b15fd749dc}{%
+           family={Guidolini},
+           familyi={G\bibinitperiod},
+           given={Rânik},
+           giveni={R\bibinitperiod}}}%
+        {{hash=96a1126388a1973534df2abeab802459}{%
+           family={Carneiro},
+           familyi={C\bibinitperiod},
+           given={Raphael\bibnamedelima Vivacqua},
+           giveni={R\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=0a46bbed9280de83af1eb84b3a83f50c}{%
+           family={Azevedo},
+           familyi={A\bibinitperiod},
+           given={Pedro},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e2d1c1a40066eea911466b24ab0ca056}{%
+           family={Cardoso},
+           familyi={C\bibinitperiod},
+           given={Vinicius\bibnamedelima B.},
+           giveni={V\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=5696d990fff61d028be7afa8810bbc68}{%
+           family={Forechi},
+           familyi={F\bibinitperiod},
+           given={Avelino},
+           giveni={A\bibinitperiod}}}%
+        {{hash=39e9532e40b292bf2f1eb0c9de279676}{%
+           family={Jesus},
+           familyi={J\bibinitperiod},
+           given={Luan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=67747b093bf71d021b487d47abddd598}{%
+           family={Berriel},
+           familyi={B\bibinitperiod},
+           given={Rodrigo},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e55481e776e2f1cc473afc7ad1eff3ee}{%
+           family={Paixão},
+           familyi={P\bibinitperiod},
+           given={Thiago\bibnamedelima M.},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=31375b73421dada0563028bdcca71c43}{%
+           family={Mutz},
+           familyi={M\bibinitperiod},
+           given={Filipe},
+           giveni={F\bibinitperiod}}}%
+        {{hash=3522d111d2639a4e56cc0f4488a156b5}{%
+           family={Paula\bibnamedelima Veronese},
+           familyi={P\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=1bbe9a0be4f14bc9f8573c9f3040d5ca}{%
+           family={Oliveira-Santos},
+           familyi={O\bibinithyphendelim S\bibinitperiod},
+           given={Thiago},
+           giveni={T\bibinitperiod}}}%
+        {{hash=b9e8ece55f8d7e2f71c9242865d7507b}{%
+           family={Souza},
+           familyi={S\bibinitperiod},
+           given={Alberto\bibnamedelimb F.\bibnamedelimi De},
+           giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e997a470100bc031fb3cf68ebd2c0c4c}
+      \strng{fullhash}{f7271deee1a9c2f84910fac5b491d978}
+      \strng{fullhashraw}{f7271deee1a9c2f84910fac5b491d978}
+      \strng{bibnamehash}{e997a470100bc031fb3cf68ebd2c0c4c}
+      \strng{authorbibnamehash}{e997a470100bc031fb3cf68ebd2c0c4c}
+      \strng{authornamehash}{e997a470100bc031fb3cf68ebd2c0c4c}
+      \strng{authorfullhash}{f7271deee1a9c2f84910fac5b491d978}
+      \strng{authorfullhashraw}{f7271deee1a9c2f84910fac5b491d978}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0957-4174}
+      \field{journaltitle}{Expert Systems with Applications}
+      \field{title}{Self-driving cars: A survey}
+      \field{urlday}{8}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{165}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \field{pages}{113816}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.eswa.2020.113816
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S095741742030628X
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S095741742030628X
+      \endverb
+    \endentry
     \entry{notateslaapp2026}{online}{}{}
       \name{author}{1}{}{%
         {{hash=4bcb75e26ec9ddef02307fd9c2604b5e}{%
@@ -304,8 +497,8 @@
       \strng{authornamehash}{4bcb75e26ec9ddef02307fd9c2604b5e}
       \strng{authorfullhash}{4bcb75e26ec9ddef02307fd9c2604b5e}
       \strng{authorfullhashraw}{4bcb75e26ec9ddef02307fd9c2604b5e}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Tesla Launches Unsupervised Robotaxi Rides in Austin}
@@ -347,8 +540,8 @@
       \strng{authornamehash}{3d36416e1a98840f565b6d109209faee}
       \strng{authorfullhash}{3d36416e1a98840f565b6d109209faee}
       \strng{authorfullhashraw}{3d36416e1a98840f565b6d109209faee}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1366-5545}
@@ -389,8 +582,8 @@
       \strng{authornamehash}{5e35049013b541ccd7c72c87f4004780}
       \strng{authorfullhash}{5e35049013b541ccd7c72c87f4004780}
       \strng{authorfullhashraw}{5e35049013b541ccd7c72c87f4004780}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Starship’s 2,700 Robots Have Made 9M Deliveries. Now They’re Coming To Your City}
