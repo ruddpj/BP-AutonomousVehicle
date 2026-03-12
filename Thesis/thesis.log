@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  9 MAR 2026 18:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  12 MAR 2026 14:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1509,12 +1509,12 @@ al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 
 
 ]
-<includes/assignment.pdf, id=236, 597.50786pt x 845.04686pt>
+<includes/assignment.pdf, id=232, 597.50786pt x 845.04686pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf>
 Package pdftex.def Info: includes/assignment.pdf  used on input line 55.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
-<includes/assignment.pdf, id=238, page=1, 597.50786pt x 845.04686pt>
+<includes/assignment.pdf, id=234, page=1, 597.50786pt x 845.04686pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf, page 1>
 Package pdftex.def Info: includes/assignment.pdf , page1 used on input line 55.
@@ -1641,8 +1641,13 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 [14]
 
 [15]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
+3.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 
-[16]
+[16{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [17]
 
@@ -1650,11 +1655,15 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 
 [19]
 
-[20])
+[20]
 
-[21] (./includes/conclusion.tex)
+[21]
 
-[22
+[22])
+
+[23] (./includes/conclusion.tex)
+
+[24
 
 
 ]
@@ -1672,26 +1681,26 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-[23
+[25
 
 
 ] (./includes/ai_declaration.tex)
 
-[24] (./includes/attachmentA.tex)
+[26] (./includes/attachmentA.tex)
 
-[25
+[27
 
 
 
 
 ] (./includes/attachmentB.tex)
 
-[26
+[28
 
 
 ] (./includes/attachmentC.tex)
 
-[27
+[29
 
 
 ] (./thesis.aux)
@@ -1700,17 +1709,17 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 179C37C80D27CA45A81595DCECB568C4;8161.
+(rerunfilecheck)             Checksum: F2F8909099C7E92E1DF5D40B2E0534BA;7909.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36001 strings out of 473190
- 659028 string characters out of 5715806
- 1640243 words of memory out of 5000000
- 58429 multiletter control sequences out of 15000+600000
- 647204 words of font info for 172 fonts, out of 8000000 for 9000
+ 36093 strings out of 473190
+ 661117 string characters out of 5715806
+ 1643493 words of memory out of 5000000
+ 58485 multiletter control sequences out of 15000+600000
+ 649256 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,131p,2353b,3128s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
@@ -1720,10 +1729,10 @@ mf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fo
 nts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
 public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/l
 m/lmtt12.pfb>
-Output written on thesis.pdf (28 pages, 285534 bytes).
+Output written on thesis.pdf (30 pages, 297258 bytes).
 PDF statistics:
- 530 PDF objects out of 1000 (max. 8388607)
- 477 compressed objects within 5 object streams
- 104 named destinations out of 1000 (max. 500000)
- 52168 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 563 PDF objects out of 1000 (max. 8388607)
+ 505 compressed objects within 6 object streams
+ 110 named destinations out of 1000 (max. 500000)
+ 56256 words of extra memory for PDF output out of 61914 (max. 10000000)
 

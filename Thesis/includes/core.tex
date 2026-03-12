@@ -22,7 +22,7 @@ Posledným kľúčovým článkom je konanie a ovládanie. Systém ovládania vo
 \section{Analýza súčasného stavu}\label{sec:Analyza}
 \subsection{Aktuálny stav technológie}
 V posledných rokoch sme zaznamenali nárast vydaní automobilov tretej úrovne autonómnosti, autonómne taxi služby sa stávajú realizovateľným spôsobom dopravy v mestách a dostali sme prvé ukážky kamiónov bez nutnosti ľudského vodiča~\cite{electronics2022}\cite{mckinsey2026}.\par
-Vďaka adventu umelej inteligecie a zvýšenia výkonu výpočtových platforiem sme zaregistrovali značný pokrok v technológiách autonómnych vozidiel. Výrobcovia sa snažia zlepšovať kombinácie radarových, LiDARových a kamerových dát tak, aby boli robustnejšie voči dopravným a poveternostným podmienkam. Pokračuje snaha v návrhu scenárov pre hraničné sitúacie, čím sa zlepší percepčná schopnosť autonómnych systémov a zrýchli ich nasadenie~\cite{motortrend2026}\cite{nvidia2026}.\par
+Vďaka vývoju v oblasti umelej inteligecie a zvýšenia výkonu výpočtových platforiem sme zaregistrovali značný pokrok v technológiách autonómnych vozidiel. Výrobcovia sa snažia zlepšovať kombinácie radarových, LiDARových a kamerových dát tak, aby boli robustnejšie voči dopravným a poveternostným podmienkam. Pokračuje snaha v návrhu scenárov pre hraničné sitúacie, čím sa zlepší percepčná schopnosť autonómnych systémov a zrýchli ich nasadenie~\cite{motortrend2026}\cite{nvidia2026}.\par
 Autonómne vozidla zaznamenali značnú investíciu ale aj kontrolu zo strany štátnych a nadnárodných organizácií. Spoločnosti, ktoré poskytujú služby samoriadiacich vozidiel rozširujú svoju dostupnosť, znižujú počet senzorov a náklady na hardvér. Hoci technológický pokrok napreduje, integrácia do infraštruktúry mesta zostáva podstatnou výzvou pre adopciu AV do dopravy. Štandard SAE International preto opisuje plán prechodu od asistencie šoférovania po plne autonómnu prevádzku~\cite{theguardian2026}\cite{waymo2026}.
 \subsubsection{Umelá inteligencia}
 Umelá inteligencia (AI) vykonáva dôležitú funkciu v percepčnom, rozhodovacom a plánovacom systéme autonómneho vozidla, čím nahrádza rolu ľudského vodiča. Moderné systémy používajú strojové učenie (machine learning) na detekciu hazardov na ceste, klasifikáciu dopravných značiek a sledovanie a predikciu pohybu chodcov a ostatných vozidiel~\cite{hamza2023}.\par
@@ -44,13 +44,55 @@ ADR používajú zväčša kombináciu kamier a počítačového videnia na navi
 Autonómna donáška jedla zaznamenala výrazný rozvoj počas pandémie COVID-19. Mnohé spoločnosti poskytujúce donášku jedla, ako napríklad Uber Eats a DoorDash, ale aj logistické spoločnosti ako Amazon, Walmart a Google začali investovať do vývoja ADR. Jedným z priekopníkov v tejto oblasti je spoločnosť Starship Technologies, ktorá výrazne rozšírila svoju flotilu práve počas pandémie. Zatiaľ čo donáška pomocou pozemných robotov je bežná, mnohé spoločnosti investujú aj do vývoja doručovania pomocou autonómnych dronov.
 
 \section{Komponenty systému}\label{sec:Komponenty}
-\subsection{Komponenty autonómneho vozidla}
-\subsubsection{Arduino Nano ESP32 mikrokontroler}
-\subsubsection{ESP32-CAM + OV2640 kamera}
-\subsubsection{HC-SR04 Ultrazvukový senzor}
-\subsubsection{DRV8833 driver pre motorčeky}
-\subsubsection{Elektrické komponenty}
-\subsubsection{Rám vozidla}
+V tejto kapitole si preberieme použité komponenty celkového systému. Výber správnych súčastí v rámci limitácií bakalárskej práce je kľúčový pre získanie lepších výsledkov. V tejto práci sme boli obmedzený na platformu mikrokontrolerov Arduino a použitím knižnice počítačového videnia OpenCV.
+\subsection{Arduino Nano ESP32 mikrokontroler}
+Arduino Nano je rodina kompaktných a nákladovo efektívnych mikrokontrolerov. Nano ESP32 je osadený čipom ESP32-S3, ktorý integruje možnosti Wi-Fi a Bluetooth. Mikrokontroler poskytuje správnu rovnováhu veľkosti a výkonu, s dostatočným počtom pinov na pripojenie periférií.\par
+V našej práci používame Arduino Nano ESP32 ako riadiacu jednotku, ktorá získava vstupy od ostatných komponentov a podľa nich riadi mechanické časti vozidla~\cite{arduino}.\par
+\noindent\textbf{Technické parametre:}
+\begin{itemize}
+	\item Rozmery: 18 * 45mm
+	\item Vstupné/výstupné napätie: 3.3V
+	\item Počet GPIO pinov: 48
+	\item Komunikačné rozhrania: UART, I2C, SPI
+	\item Rýchlosť procesora: 240Mhz
+	\item Veľkosť ROM: 384kB
+	\item Veľkosť SRAM: 512kB
+	\item Veľkosť RAM: 8MB
+\end{itemize}
+\subsection{ESP32-CAM + OV2640 kamera}
+Vývojová doska ESP32-CAM integruje Wi-Fi a Bluetooth modul spolu s rozhraním na pripojenie 2MPx kamerový senzor OV2640. Táto kombinácia nám poskytuje oddelenú implementáciu prenosu videa, čím uvolníme výpočtovú záťaž hlavného čipu. Senzor OV2640 disponuje s natívnym rozlíšením 1600 x 1200 pixelov a obrazovou frekvenciou 60 FPS, čo poskytuje dostatočnú výkonovú rezervu~\cite{esp32cam}\cite{ov2640}.\par
+\noindent\textbf{Technické parametre:}
+\begin{itemize}
+	\item Rozmery: 27 * 40mm
+	\item Pracovné napätie: 2.2V - 3.6V
+	\item Rozlíšenie kamery: 1600 x 1200
+	\item Frame rate kamery: 60FPS (pri CIF formáte)
+	\item Rýchlosť procesora: 240Mhz
+	\item Veľkosť FLASH: 4MB
+	\item Veľkosť PSRAM: 4MB
+\end{itemize}
+\subsection{HC-SR04 Ultrazvukový senzor}
+Ultrazvukový senzor HC-SR04 je nákladovo efektívne riešenie na detekciu prekážky pred vozidlom. Používame ho ako sekundárny systém na núdzové zastavenie vozidla v prípade, že kamerový systém nedetekuje prekážku~\cite{hcsr04}.\par
+\noindent\textbf{Technické parametre:}
+\begin{itemize}
+	\item Rozmery: 20 * 45 * 15mm
+	\item Pracovné napätie: 5V
+	\item Maximálna vzdialenosť: 4n
+	\item Minimálna vzdialenosť: 2cm
+	\item Merací úhol: 15°
+\end{itemize}
+\subsection{DRV8833 driver pre motorčeky}
+Driver DRV8833 sme použili na nezávislé riadenie dvoch DC motorov. Integrovaný obvod obsahuje dvojitý H-mostík, ktorý umožnuje meniť polaritu napätia, a tým aj smer otáčania motorov. Modul má štyri vstupné piny (dva pre každý motor), pomocou ktorých možno ovládať rýchlosť a smer otáčania~\cite{drv8833}.\par
+\noindent\textbf{Technické parametre:}
+\begin{itemize}
+	\item Rozmery: 5 * 4 mm
+	\item Logické napätie: 2.7V - 10.8V
+	\item Drive napätie: 3V - 10V
+	\item Drive prúd: 1.5A (MAX pre jeden mostík)
+	\item Maximálny výkon: 15W
+\end{itemize}
+\subsection{Elektrické komponenty}
+\subsection{Rám vozidla}
 \subsection{Server}
 \subsection{Softvér}
 \subsubsection{C++}

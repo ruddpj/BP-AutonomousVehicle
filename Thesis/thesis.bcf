@@ -2410,6 +2410,11 @@
     <bcf:citekey order="12" intorder="1">notateslaapp2026</bcf:citekey>
     <bcf:citekey order="13" intorder="1">srinivas2022</bcf:citekey>
     <bcf:citekey order="14" intorder="1">forbes2025</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">arduino</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">esp32cam</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">ov2640</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">hcsr04</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">drv8833</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
