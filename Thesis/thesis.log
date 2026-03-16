@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  12 MAR 2026 14:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  16 MAR 2026 21:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1244,6 +1244,17 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 312.
 \cftbeforeprititleskip=\skip137
 \cftafterprititleskip=\skip138
 )
+\glswrite=\write4
+\glo@main@file=\write5
+\openout5 = `thesis.glo'.
+
+Package glossaries Info: Writing glossary file thesis.glo on input line 38.
+\glo@acronym@file=\write6
+\openout6 = `thesis.acn'.
+
+Package glossaries Info: Writing glossary file thesis.acn on input line 38.
+
+(./includes/glossary.tex)
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 43
 .
 
@@ -1251,7 +1262,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 43
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (./thesis.aux
 Package babel Info: 'slovak' activates 'slovak' shorthands.
-(babel)             Reported  on input line 16.
+(babel)             Reported  on input line 20.
 )
 \openout1 = `thesis.aux'.
 
@@ -1276,8 +1287,8 @@ LaTeX Font Info:    ... okay on input line 43.
 Package hyperref Info: Link coloring ON on input line 43.
 
 (./thesis.out) (./thesis.out)
-\@outlinefile=\write4
-\openout4 = `thesis.out'.
+\@outlinefile=\write7
+\openout7 = `thesis.out'.
 
 LaTeX Info: Redefining \microtypecontext on input line 43.
 Package microtype Info: Applying patch `toc' on input line 43.
@@ -1467,6 +1478,8 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 [1
 
+\openout4 = `thesis.ist'.
+
 
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
@@ -1509,12 +1522,12 @@ al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 
 
 ]
-<includes/assignment.pdf, id=232, 597.50786pt x 845.04686pt>
+<includes/assignment.pdf, id=228, 597.50786pt x 845.04686pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf>
 Package pdftex.def Info: includes/assignment.pdf  used on input line 55.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
-<includes/assignment.pdf, id=234, page=1, 597.50786pt x 845.04686pt>
+<includes/assignment.pdf, id=230, page=1, 597.50786pt x 845.04686pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf, page 1>
 Package pdftex.def Info: includes/assignment.pdf , page1 used on input line 55.
@@ -1606,52 +1619,62 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 [6
 
 ])
-\tf@toc=\write5
-\openout5 = `thesis.toc'.
+\tf@toc=\write8
+\openout8 = `thesis.toc'.
 
 
 
-[7] (./thesis.loa)
-\tf@loa=\write6
-\openout6 = `thesis.loa'.
+[7]
+\mylenf=\skip139
+ (./thesis.lof)
+\tf@lof=\write9
+\openout9 = `thesis.lof'.
+
+ (./thesis.lot)
+\tf@lot=\write10
+\openout10 = `thesis.lot'.
 
 
 
-[8] (./thesis.lol)
-\tf@lol=\write7
-\openout7 = `thesis.lol'.
+[8] (./thesis.acr)
+
+[9] (./thesis.loa)
+\tf@loa=\write11
+\openout11 = `thesis.loa'.
 
 
 
-[9] (./includes/introduction.tex)
+[10] (./thesis.lol)
+\tf@lol=\write12
+\openout12 = `thesis.lol'.
 
-[10
+
+
+[11] (./includes/introduction.tex)
+
+[12
 
 
 
 
 ] (./includes/core.tex
 
-[11]
-
-[12]
-
 [13]
 
 [14]
 
 [15]
+
+[16]
+
+[17]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
-3.
+4.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[16{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-
-[17]
-
-[18]
+[18{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [19]
 
@@ -1659,11 +1682,19 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 [21]
 
-[22])
+[22]
 
-[23] (./includes/conclusion.tex)
+[23]
 
-[24
+[24]
+
+[25]
+
+[26])
+
+[27] (./includes/conclusion.tex)
+
+[28
 
 
 ]
@@ -1681,26 +1712,28 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-[25
+[29
 
 
-] (./includes/ai_declaration.tex)
+]
 
-[26] (./includes/attachmentA.tex)
+[30] (./includes/ai_declaration.tex)
 
-[27
+[31] (./includes/attachmentA.tex)
+
+[32
 
 
 
 
 ] (./includes/attachmentB.tex)
 
-[28
+[33
 
 
 ] (./includes/attachmentC.tex)
 
-[29
+[34
 
 
 ] (./thesis.aux)
@@ -1709,17 +1742,17 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F2F8909099C7E92E1DF5D40B2E0534BA;7909.
+(rerunfilecheck)             Checksum: 0B6AE7A1A013FB6FBEFE44157C939C79;7803.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36093 strings out of 473190
- 661117 string characters out of 5715806
- 1643493 words of memory out of 5000000
- 58485 multiletter control sequences out of 15000+600000
- 649256 words of font info for 186 fonts, out of 8000000 for 9000
+ 36677 strings out of 473190
+ 669931 string characters out of 5715806
+ 1651511 words of memory out of 5000000
+ 59009 multiletter control sequences out of 15000+600000
+ 650149 words of font info for 195 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,131p,2353b,3128s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
@@ -1729,10 +1762,10 @@ mf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fo
 nts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
 public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/l
 m/lmtt12.pfb>
-Output written on thesis.pdf (30 pages, 297258 bytes).
+Output written on thesis.pdf (35 pages, 310652 bytes).
 PDF statistics:
- 563 PDF objects out of 1000 (max. 8388607)
- 505 compressed objects within 6 object streams
- 110 named destinations out of 1000 (max. 500000)
- 56256 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 656 PDF objects out of 1000 (max. 8388607)
+ 593 compressed objects within 6 object streams
+ 138 named destinations out of 1000 (max. 500000)
+ 56248 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -2415,6 +2415,12 @@
     <bcf:citekey order="17" intorder="1">ov2640</bcf:citekey>
     <bcf:citekey order="18" intorder="1">hcsr04</bcf:citekey>
     <bcf:citekey order="19" intorder="1">drv8833</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">stroustrupcpp</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">kuhlmanpython</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">acm2012</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">opencv2025</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">make2023</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">yolo2023</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

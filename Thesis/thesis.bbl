@@ -122,24 +122,29 @@
       \endverb
     \endentry
     \entry{mckinsey2026}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=43bde6c27e550d0f29e79c895d5aa2ae}{%
+      \name{author}{2}{}{%
+        {{hash=27f3376c31aef76c2eb350251be1b828}{%
            family={Ani\bibnamedelima Kelkar},
            familyi={A\bibinitperiod\bibinitdelim K\bibinitperiod},
-           given={Kersten\bibnamedelimb Heineke\bibnamedelimb a\bibnamedelimb Martin\bibnamedelima Kellner},
-           giveni={K\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+           given={Kersten\bibnamedelima Heineke},
+           giveni={K\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=08f0ee31097afecd902c0256bbe450f1}{%
+           family={Kellner},
+           familyi={K\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
       }
       \list{organization}{1}{%
         {McKinsey \& Company}%
       }
-      \strng{namehash}{43bde6c27e550d0f29e79c895d5aa2ae}
-      \strng{fullhash}{43bde6c27e550d0f29e79c895d5aa2ae}
-      \strng{fullhashraw}{43bde6c27e550d0f29e79c895d5aa2ae}
-      \strng{bibnamehash}{43bde6c27e550d0f29e79c895d5aa2ae}
-      \strng{authorbibnamehash}{43bde6c27e550d0f29e79c895d5aa2ae}
-      \strng{authornamehash}{43bde6c27e550d0f29e79c895d5aa2ae}
-      \strng{authorfullhash}{43bde6c27e550d0f29e79c895d5aa2ae}
-      \strng{authorfullhashraw}{43bde6c27e550d0f29e79c895d5aa2ae}
+      \strng{namehash}{e718b5af88a524570f1f64c1f60d8162}
+      \strng{fullhash}{e718b5af88a524570f1f64c1f60d8162}
+      \strng{fullhashraw}{e718b5af88a524570f1f64c1f60d8162}
+      \strng{bibnamehash}{e718b5af88a524570f1f64c1f60d8162}
+      \strng{authorbibnamehash}{e718b5af88a524570f1f64c1f60d8162}
+      \strng{authornamehash}{e718b5af88a524570f1f64c1f60d8162}
+      \strng{authorfullhash}{e718b5af88a524570f1f64c1f60d8162}
+      \strng{authorfullhashraw}{e718b5af88a524570f1f64c1f60d8162}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
@@ -675,6 +680,243 @@
       \endverb
       \verb{url}
       \verb https://www.ti.com/lit/ds/symlink/drv8833.pdf?ts=1773296972820
+      \endverb
+    \endentry
+    \entry{stroustrupcpp}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=4975813514faee20fb6fcdb39a08af6f}{%
+           family={Stroustrup},
+           familyi={S\bibinitperiod},
+           given={Bjarne},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{fullhash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{fullhashraw}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{bibnamehash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{authorbibnamehash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{authornamehash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{authorfullhash}{4975813514faee20fb6fcdb39a08af6f}
+      \strng{authorfullhashraw}{4975813514faee20fb6fcdb39a08af6f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4}
+      \field{isbn}{978-0-321-56384-2}
+      \field{title}{C++ Programming Language}
+      \field{urlday}{16}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2013}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://chenweixiang.github.io/docs/The_C++_Programming_Language_4th_Edition_Bjarne_Stroustrup.pdf
+      \endverb
+      \verb{url}
+      \verb https://chenweixiang.github.io/docs/The_C++_Programming_Language_4th_Edition_Bjarne_Stroustrup.pdf
+      \endverb
+    \endentry
+    \entry{kuhlmanpython}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=2a6fcba16a9ad0207aa3d5e4a341ab88}{%
+           family={Kuhlman},
+           familyi={K\bibinitperiod},
+           given={Dave},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Platypus Global Media}%
+      }
+      \strng{namehash}{2a6fcba16a9ad0207aa3d5e4a341ab88}
+      \strng{fullhash}{2a6fcba16a9ad0207aa3d5e4a341ab88}
+      \strng{fullhashraw}{2a6fcba16a9ad0207aa3d5e4a341ab88}
+      \strng{bibnamehash}{2a6fcba16a9ad0207aa3d5e4a341ab88}
+      \strng{authorbibnamehash}{2a6fcba16a9ad0207aa3d5e4a341ab88}
+      \strng{authornamehash}{2a6fcba16a9ad0207aa3d5e4a341ab88}
+      \strng{authorfullhash}{2a6fcba16a9ad0207aa3d5e4a341ab88}
+      \strng{authorfullhashraw}{2a6fcba16a9ad0207aa3d5e4a341ab88}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0984221233}
+      \field{title}{A Python Book: Beginning Python, Advanced Python, and Python Exercises}
+      \field{urlday}{16}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2011}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://web.archive.org/web/20120623165941/http://cutter.rexx.com/~dkuhlman/python_book_01.html
+      \endverb
+      \verb{url}
+      \verb https://web.archive.org/web/20120623165941/http://cutter.rexx.com/~dkuhlman/python_book_01.html
+      \endverb
+    \endentry
+    \entry{acm2012}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=298c7606e443db3ba730d752a7beef02}{%
+           family={Kari\bibnamedelima Pulli},
+           familyi={K\bibinitperiod\bibinitdelim P\bibinitperiod},
+           given={Kirill\bibnamedelima Kornyakov},
+           giveni={K\bibinitperiod\bibinitdelim K\bibinitperiod},
+           suffix={Anatoly\bibnamedelima Baksheev},
+           suffixi={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=1d098c5c830e11de425b6a216ed38c01}{%
+           family={Eruhimov},
+           familyi={E\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{94fd3738e4900100412f1c7d2b27d99e}
+      \strng{fullhash}{94fd3738e4900100412f1c7d2b27d99e}
+      \strng{fullhashraw}{94fd3738e4900100412f1c7d2b27d99e}
+      \strng{bibnamehash}{94fd3738e4900100412f1c7d2b27d99e}
+      \strng{authorbibnamehash}{94fd3738e4900100412f1c7d2b27d99e}
+      \strng{authornamehash}{94fd3738e4900100412f1c7d2b27d99e}
+      \strng{authorfullhash}{94fd3738e4900100412f1c7d2b27d99e}
+      \strng{authorfullhashraw}{94fd3738e4900100412f1c7d2b27d99e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1542-7730}
+      \field{journaltitle}{Queue}
+      \field{number}{4}
+      \field{title}{Realtime Computer Vision with OpenCV}
+      \field{urlday}{16}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{10}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1145/2181796
+      \endverb
+      \verb{urlraw}
+      \verb https://spawn-queue.acm.org/doi/full/10.1145/2181796.2206309
+      \endverb
+      \verb{url}
+      \verb https://spawn-queue.acm.org/doi/full/10.1145/2181796.2206309
+      \endverb
+    \endentry
+    \entry{opencv2025}{misc}{}{}
+      \list{organization}{1}{%
+        {OpenCV}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{title}{Open Source Computer Vision Library}
+      \field{urlday}{16}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/opencv/opencv
+      \endverb
+      \verb{url}
+      \verb https://github.com/opencv/opencv
+      \endverb
+    \endentry
+    \entry{make2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=93e141b5d802e4e01a6e89c21fe987f0}{%
+           family={Terven},
+           familyi={T\bibinitperiod},
+           given={Juan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=dfa25f6c7070c0fc0f4f68c633c24955}{%
+           family={Córdova-Esparza},
+           familyi={C\bibinithyphendelim E\bibinitperiod},
+           given={Diana-Margarita},
+           giveni={D\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=b6e0367bb1f1adda5538e853e1f7b906}{%
+           family={Romero-González},
+           familyi={R\bibinithyphendelim G\bibinitperiod},
+           given={Julio-Alejandro},
+           giveni={J\bibinithyphendelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{48956cf27f42e7a960d148f7da00585f}
+      \strng{fullhash}{48956cf27f42e7a960d148f7da00585f}
+      \strng{fullhashraw}{48956cf27f42e7a960d148f7da00585f}
+      \strng{bibnamehash}{48956cf27f42e7a960d148f7da00585f}
+      \strng{authorbibnamehash}{48956cf27f42e7a960d148f7da00585f}
+      \strng{authornamehash}{48956cf27f42e7a960d148f7da00585f}
+      \strng{authorfullhash}{48956cf27f42e7a960d148f7da00585f}
+      \strng{authorfullhashraw}{48956cf27f42e7a960d148f7da00585f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2504-4990}
+      \field{journaltitle}{Machine Learning and Knowledge Extraction}
+      \field{number}{4}
+      \field{title}{A Comprehensive Review of YOLO Architectures in Computer Vision: From YOLOv1 to YOLOv8 and YOLO-NAS}
+      \field{urlday}{16}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{volume}{5}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \field{pages}{1680\bibrangedash 1716}
+      \range{pages}{37}
+      \verb{doi}
+      \verb 10.3390/make5040083
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2504-4990/5/4/83
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2504-4990/5/4/83
+      \endverb
+    \endentry
+    \entry{yolo2023}{misc}{}{}
+      \name{author}{3}{}{%
+        {{hash=c5c5e5cd7f4f477f617289b32613deb0}{%
+           family={Jocher},
+           familyi={J\bibinitperiod},
+           given={Glenn},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b8739ebbf3f871d471b6720a02ed541f}{%
+           family={Qiu},
+           familyi={Q\bibinitperiod},
+           given={Jing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ec281637802454e8df4de72f3b1ee401}{%
+           family={Chaurasia},
+           familyi={C\bibinitperiod},
+           given={Ayush},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1d270278cb86ffcfd6356ed5db820a38}
+      \strng{fullhash}{1d270278cb86ffcfd6356ed5db820a38}
+      \strng{fullhashraw}{1d270278cb86ffcfd6356ed5db820a38}
+      \strng{bibnamehash}{1d270278cb86ffcfd6356ed5db820a38}
+      \strng{authorbibnamehash}{1d270278cb86ffcfd6356ed5db820a38}
+      \strng{authornamehash}{1d270278cb86ffcfd6356ed5db820a38}
+      \strng{authorfullhash}{1d270278cb86ffcfd6356ed5db820a38}
+      \strng{authorfullhashraw}{1d270278cb86ffcfd6356ed5db820a38}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ultralytics YOLO}
+      \field{urlday}{16}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/ultralytics/ultralytics
+      \endverb
+      \verb{url}
+      \verb https://github.com/ultralytics/ultralytics
       \endverb
     \endentry
   \enddatalist
