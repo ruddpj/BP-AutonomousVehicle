@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  16 MAR 2026 21:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  22 MAR 2026 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1522,12 +1522,12 @@ al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 
 
 ]
-<includes/assignment.pdf, id=228, 597.50786pt x 845.04686pt>
+<includes/assignment.pdf, id=224, 597.50786pt x 845.04686pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf>
 Package pdftex.def Info: includes/assignment.pdf  used on input line 55.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
-<includes/assignment.pdf, id=230, page=1, 597.50786pt x 845.04686pt>
+<includes/assignment.pdf, id=226, page=1, 597.50786pt x 845.04686pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf, page 1>
 Package pdftex.def Info: includes/assignment.pdf , page1 used on input line 55.
@@ -1742,16 +1742,16 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 0B6AE7A1A013FB6FBEFE44157C939C79;7803.
+(rerunfilecheck)             Checksum: 7F994200BFEB3A165FC7FA17C56F8E65;7618.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36677 strings out of 473190
- 669931 string characters out of 5715806
- 1651511 words of memory out of 5000000
- 59009 multiletter control sequences out of 15000+600000
+ 36706 strings out of 473190
+ 670347 string characters out of 5715806
+ 1651856 words of memory out of 5000000
+ 59038 multiletter control sequences out of 15000+600000
  650149 words of font info for 195 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,131p,2353b,3128s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1762,10 +1762,10 @@ mf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fo
 nts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
 public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/l
 m/lmtt12.pfb>
-Output written on thesis.pdf (35 pages, 310652 bytes).
+Output written on thesis.pdf (35 pages, 312732 bytes).
 PDF statistics:
- 656 PDF objects out of 1000 (max. 8388607)
- 593 compressed objects within 6 object streams
+ 657 PDF objects out of 1000 (max. 8388607)
+ 594 compressed objects within 6 object streams
  138 named destinations out of 1000 (max. 500000)
- 56248 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 56240 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -48,13 +48,12 @@
 \contentsline {subsection}{\numberline {7.1}Ultrazvukový senzor}{25}{subsection.42}%
 \contentsline {subsection}{\numberline {7.2}CNN}{25}{subsection.43}%
 \contentsline {subsection}{\numberline {7.3}Interpretácia dát}{25}{subsection.44}%
-\contentsline {section}{\numberline {8}Testovanie}{26}{section.45}%
-\contentsline {subsection}{\numberline {8.1}Testovanie motorov}{26}{subsection.46}%
-\contentsline {subsection}{\numberline {8.2}Testovanie senzorov}{26}{subsection.47}%
-\contentsline {subsection}{\numberline {8.3}Testovanie kamery}{26}{subsection.48}%
-\contentsline {section}{\numberline {9}Výsledky}{27}{section.49}%
-\contentsline {section}{Z\'{a}ver}{28}{section*.50}%
-\contentsline {section}{Literatúra}{29}{section*.51}%
+\contentsline {section}{\numberline {8}Metodika a testovanie}{26}{section.45}%
+\contentsline {subsection}{\numberline {8.1}Metodika}{26}{subsection.46}%
+\contentsline {subsection}{\numberline {8.2}Testovanie}{26}{subsection.47}%
+\contentsline {section}{\numberline {9}Výsledky}{27}{section.48}%
+\contentsline {section}{Z\'{a}ver}{28}{section*.49}%
+\contentsline {section}{Literatúra}{29}{section*.50}%
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
@@ -179,7 +178,7 @@
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
-\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{31}{section*.52}%
-\contentsline {section}{\numberline {A}Algoritmus}{32}{section.54}%
-\contentsline {section}{\numberline {B}Výpis dlhého kódu}{33}{section.57}%
-\contentsline {section}{\numberline {C}Slovníček pojmov}{34}{section.60}%
+\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{31}{section*.51}%
+\contentsline {section}{\numberline {A}Algoritmus}{32}{section.53}%
+\contentsline {section}{\numberline {B}Výpis dlhého kódu}{33}{section.56}%
+\contentsline {section}{\numberline {C}Slovníček pojmov}{34}{section.59}%
