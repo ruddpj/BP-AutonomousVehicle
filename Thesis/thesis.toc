@@ -37,23 +37,23 @@
 \contentsline {subsection}{\numberline {4.4}Ultralytics YOLOv8}{22}{subsection.31}%
 \contentsline {section}{\numberline {5}Návrh a implementácia}{23}{section.32}%
 \contentsline {subsection}{\numberline {5.1}Návrh komunikácie komponentov}{23}{subsection.33}%
-\contentsline {subsection}{\numberline {5.2}Návrh rámu a rozloženie komponentov}{23}{subsection.34}%
-\contentsline {subsection}{\numberline {5.3}Montovanie vozidla}{23}{subsection.35}%
-\contentsline {section}{\numberline {6}Detekcia vozovky}{24}{section.36}%
-\contentsline {subsection}{\numberline {6.1}Region of interest}{24}{subsection.37}%
-\contentsline {subsection}{\numberline {6.2}Hľadanie svetlých regiónov}{24}{subsection.38}%
-\contentsline {subsection}{\numberline {6.3}Hľadanie kontúr vozovky}{24}{subsection.39}%
-\contentsline {subsection}{\numberline {6.4}Interpretácia dát}{24}{subsection.40}%
-\contentsline {section}{\numberline {7}Detekcia prekážky}{25}{section.41}%
-\contentsline {subsection}{\numberline {7.1}Ultrazvukový senzor}{25}{subsection.42}%
-\contentsline {subsection}{\numberline {7.2}CNN}{25}{subsection.43}%
-\contentsline {subsection}{\numberline {7.3}Interpretácia dát}{25}{subsection.44}%
-\contentsline {section}{\numberline {8}Metodika a testovanie}{26}{section.45}%
-\contentsline {subsection}{\numberline {8.1}Metodika}{26}{subsection.46}%
-\contentsline {subsection}{\numberline {8.2}Testovanie}{26}{subsection.47}%
-\contentsline {section}{\numberline {9}Výsledky}{27}{section.48}%
-\contentsline {section}{Z\'{a}ver}{28}{section*.49}%
-\contentsline {section}{Literatúra}{29}{section*.50}%
+\contentsline {subsection}{\numberline {5.2}Návrh rámu a rozloženie komponentov}{24}{subsection.34}%
+\contentsline {subsection}{\numberline {5.3}Montovanie vozidla}{24}{subsection.35}%
+\contentsline {section}{\numberline {6}Detekcia vozovky}{25}{section.36}%
+\contentsline {subsection}{\numberline {6.1}Region of interest}{25}{subsection.37}%
+\contentsline {subsection}{\numberline {6.2}Hľadanie svetlých regiónov}{25}{subsection.38}%
+\contentsline {subsection}{\numberline {6.3}Hľadanie kontúr vozovky}{25}{subsection.39}%
+\contentsline {subsection}{\numberline {6.4}Interpretácia dát}{25}{subsection.40}%
+\contentsline {section}{\numberline {7}Detekcia prekážky}{26}{section.41}%
+\contentsline {subsection}{\numberline {7.1}Ultrazvukový senzor}{26}{subsection.42}%
+\contentsline {subsection}{\numberline {7.2}CNN}{26}{subsection.43}%
+\contentsline {subsection}{\numberline {7.3}Interpretácia dát}{26}{subsection.44}%
+\contentsline {section}{\numberline {8}Metodika a testovanie}{27}{section.45}%
+\contentsline {subsection}{\numberline {8.1}Metodika}{27}{subsection.46}%
+\contentsline {subsection}{\numberline {8.2}Testovanie}{27}{subsection.47}%
+\contentsline {section}{\numberline {9}Výsledky}{28}{section.48}%
+\contentsline {section}{Z\'{a}ver}{29}{section*.49}%
+\contentsline {section}{Literatúra}{30}{section*.50}%
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
@@ -178,7 +178,7 @@
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
-\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{31}{section*.51}%
-\contentsline {section}{\numberline {A}Algoritmus}{32}{section.53}%
-\contentsline {section}{\numberline {B}Výpis dlhého kódu}{33}{section.56}%
-\contentsline {section}{\numberline {C}Slovníček pojmov}{34}{section.59}%
+\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{32}{section*.51}%
+\contentsline {section}{\numberline {A}Algoritmus}{33}{section.53}%
+\contentsline {section}{\numberline {B}Výpis dlhého kódu}{34}{section.56}%
+\contentsline {section}{\numberline {C}Slovníček pojmov}{35}{section.59}%
