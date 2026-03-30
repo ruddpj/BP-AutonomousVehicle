@@ -49,11 +49,9 @@ void printPacket(int steer) {
 void setMotor(int pwmPin, int dirPin, int channel, int speed) {
   if (speed < 0) {
     digitalWrite(dirPin, HIGH);
-    //digitalWrite(pwmPin, LOW);
     speed = -speed;
   } else {
     digitalWrite(dirPin, LOW);
-    //digitalWrite(pwmPin, HIGH);
   }
 
   ledcWrite(channel, speed);
@@ -128,9 +126,6 @@ void setup() {
     delay(200);
   }
 
-  //Serial.print("WiFi Connected");
-  //Serial.print(WiFi.localIP());
-
   udp.begin(localPort);
 }
 
@@ -154,9 +149,6 @@ void loop() {
     distance = duration / 58;
     echoDone = false;
   }
-
-  //printDistance(distance);
-  //printPacket(steer);
 
   if (distance < 10 || steer < -255 || steer > 255) {
     stopWheels();

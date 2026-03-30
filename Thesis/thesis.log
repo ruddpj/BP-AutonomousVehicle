@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  27 MAR 2026 16:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  30 MAR 2026 17:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1234,7 +1234,7 @@ File: pppdftex.def 2025/03/12 v0.6f Pdfpages driver for pdfTeX (AM)
 Package: nowidow 2011/09/20 1.0 Easily prevent widows and orphans
 Package: nowidow 
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 312.
+Package hyperref Info: Option `colorlinks' set `true' on input line 333.
 \c@listOfAppendix=\count520
 \c@priloh=\count521
 \cftbeforeprilohskip=\skip134
@@ -1662,80 +1662,138 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 [13]
 
 [14]
+<img/sensors.png, id=420, 284.39583pt x 156.91959pt>
+File: img/sensors.png Graphic file (type png)
+<use img/sensors.png>
+Package pdftex.def Info: img/sensors.png  used on input line 35.
+(pdftex.def)             Requested size: 426.59268pt x 235.37878pt.
+
 
 [15]
 
-[16]
+[16 <./img/sensors.png>]
 
 [17]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
-4.
+
+[18]
+<img/arduino.png, id=471, 645.41125pt x 483.8075pt>
+File: img/arduino.png Graphic file (type png)
+<use img/arduino.png>
+Package pdftex.def Info: img/arduino.png  used on input line 61.
+(pdftex.def)             Requested size: 193.62486pt x 145.14337pt.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
+8.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[18{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+[19{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./img/ar
+duino.png>]
+<img/esp32cam.jpg, id=485, 642.4pt x 843.15pt>
+File: img/esp32cam.jpg Graphic file (type jpg)
+<use img/esp32cam.jpg>
+Package pdftex.def Info: img/esp32cam.jpg  used on input line 81.
+(pdftex.def)             Requested size: 128.47772pt x 168.627pt.
 
-[19]
 
-[20]
+[20 <./img/esp32cam.jpg>]
+<img/hcsr04.jpg, id=495, 963.6pt x 722.7pt>
+File: img/hcsr04.jpg Graphic file (type jpg)
+<use img/hcsr04.jpg>
+Package pdftex.def Info: img/hcsr04.jpg  used on input line 101.
+(pdftex.def)             Requested size: 192.71658pt x 144.53743pt.
+<img/drv8833.png, id=499, 481.8pt x 271.0125pt>
+File: img/drv8833.png Graphic file (type png)
+<use img/drv8833.png>
+Package pdftex.def Info: img/drv8833.png  used on input line 119.
+(pdftex.def)             Requested size: 96.35829pt x 54.20152pt.
 
-[21]
 
-[22]
+[21 <./img/hcsr04.jpg>]
+
+[22 <./img/drv8833.png>]
 
 [23]
 
 [24]
+<img/diagram1.png, id=544, 763.85374pt x 503.8825pt>
+File: img/diagram1.png Graphic file (type png)
+<use img/diagram1.png>
+Package pdftex.def Info: img/diagram1.png  used on input line 162.
+(pdftex.def)             Requested size: 381.92593pt x 251.94063pt.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
 
-[25]
-
-[26]
-
-[27])
-
-[28] (./includes/conclusion.tex)
-
-[29
-
-
-]
+[25 <./img/diagram1.png>]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 169.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-04.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
+69.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+)
+
+[26]
+
+[27]
+
+[28]
+
+[29]
+
+[30]
+
+[31])
+
+[32] (./includes/conclusion.tex)
+
+[33
+
+
+]
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
 
 
-[30
+[34
 
 
 ]
 
-[31] (./includes/ai_declaration.tex)
+[35] (./includes/ai_declaration.tex)
 
-[32] (./includes/attachmentA.tex)
+[36] (./includes/attachmentA.tex)
 
-[33
+[37
 
 
 
 
 ] (./includes/attachmentB.tex)
 
-[34
+[38
 
 
 ] (./includes/attachmentC.tex)
 
-[35
+[39
 
 
 ] (./thesis.aux)
@@ -1743,31 +1801,75 @@ Package microtype Info: Character `029' is missing
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 7F994200BFEB3A165FC7FA17C56F8E65;7618.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `thesis.out':
+(rerunfilecheck)             Before: 53528CFB88EE115B1DB770F44C571079;7649
+(rerunfilecheck)             After:  CE894419E4532A09573051B19F266861;7649.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36707 strings out of 473190
- 670354 string characters out of 5715806
- 1652856 words of memory out of 5000000
- 59038 multiletter control sequences out of 15000+600000
- 650149 words of font info for 195 fonts, out of 8000000 for 9000
+ 37542 strings out of 473190
+ 680185 string characters out of 5715806
+ 1761574 words of memory out of 5000000
+ 59762 multiletter control sequences out of 15000+600000
+ 656770 words of font info for 202 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,131p,2353b,3128s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/tex
-mf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fo
-nts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
-public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/l
-m/lmtt12.pfb>
-Output written on thesis.pdf (36 pages, 315769 bytes).
+
+pdfTeX warning (dest): name{lstlisting.507} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{lstlisting.348} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{lstlisting.274} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{lstlisting.240} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{lstlisting.200} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{lstlisting.181} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{lstlisting.137} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.639} has been referenced but does not exist
+, replaced by a fixed one
+
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf
+-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts
+/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
+c/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss1
+2.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></
+usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on thesis.pdf (40 pages, 1400369 bytes).
 PDF statistics:
- 663 PDF objects out of 1000 (max. 8388607)
- 599 compressed objects within 6 object streams
- 139 named destinations out of 1000 (max. 500000)
- 56240 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 846 PDF objects out of 1000 (max. 8388607)
+ 759 compressed objects within 8 object streams
+ 230 named destinations out of 1000 (max. 500000)
+ 60878 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -29,7 +29,14 @@ Autonómne vozidla zaznamenali značnú investíciu ale aj kontrolu zo strany š
 V súčasnosti sa autonómne modely trénujú na obrovskom množstve anotovaných obrázkov, videí, simulácií a skutočných jazdných dát, aby v praxy zvládli širokú škálu scenárov. Hlboké učenie (deep learning) a učenie posilňovaním (reinforcement learning) sa používajú v novodobých autonómnych vozidlách. Deep learning, podskupina strojového učenia, pracuje na princípe viacvrstvových neurónových sietí, čím sa fungovaním podobá ľudskému mozgu. Reinforcement learning mení správanie modelu využitím systému odmien a penalizácií~\cite{grigorescu2019}.\par
 Napriek značnej komplexnosti zostáva riešenie hraničných prípadov (edge cases)  zásadnou výzvou pre dnešné systémy. Potreba veľkého množstva tréningových dát a vysoká hranica bezpečnosti a spoľahlivosti výrazne spomaľuje nasadenie vozidiel do reálnej premávky.
 \subsubsection{Senzory}
-Senzory sú spôsob akým autonómne vozidlá vnímajú svoje okolie. V súčasnosti sa v autách využíva kombinácia kamier, \acrshort{lidar}ových, \acrshort{radar}ových a ultrazvukových senzorov~\cite{badue2021}.\par
+Senzory sú spôsob akým autonómne vozidlá vnímajú svoje okolie. Ako je možné vidieť na obrázku \ref{fig:sensors}, v súčasnosti sa v autách využíva kombinácia kamier, \acrshort{lidar}ových, \acrshort{radar}ových a ultrazvukových senzorov~\cite{badue2021}.\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=1.50]{img/sensors.png}
+	\caption{Ako \acrshort{av} vnímaju prostredie}
+	\footnotesize{\cite{hamza2023}, licencované pod CC BY 4.0.}
+	\label{fig:sensors}
+\end{figure}
 Kamery predstavujú najrozšírenejší typ senzorov; sú nákladovo efektívne, no citlivé na zlé osvetlenie a počasie. Používajú sa na detekciu jazdných pruhov, rozpoznávanie dopravných značiek a identifikáciu chodcov a vozidiel. \acrshort{radar} využíva elektromagnetické vlny na meranie vzdialenosti a rýchlosti. Používa sa najmä pre detekciu vzdialených objektov aj v nepriaznivých poveternostných podmienkach (dážď, hmla, sneh). \acrshort{lidar} používa laserové impulzy na vytvorenie detailného trojrozmerného modelu okolia, no okrem vysokých nákladov je aj viac náchylný na zlé počasie. Ultrazvukové senzory majú využitie v detekcii objektov na krátke vzdialenosti, napríklad pri parkovacích manévroch.\par
 Súčasný vývoj v oblasti senzorov sa zameriava primárne na zvyšovanie presnosti meranie, optimalizovanie počtu potrebných senzorov a výrazné znižovanie ich ceny. Výrobcovia taktiež zefektivňujú kombinovanie dát viacerých senzorov, tzv. senzorovú fúziu, čím zvyšujú presnosť a spoľahlivosť systému.
 \subsection{Použitie autonómnych vozidiel}
@@ -49,6 +56,13 @@ V tejto kapitole si preberieme použité komponenty celkového systému. Výber 
 Mikrokontrolér je malý počítač na jednom integrovanom obvode. Arduino je taliánska open source hardvérová a softvérová firma, ktorá dizajnuje a vyrába mikrokontroléry na výrobu rôznych zariadení.\par
 Arduino Nano je rodina kompaktných a nákladovo efektívnych mikrokontrolérov. Nano ESP32 je osadený čipom ESP32-S3, ktorý integruje možnosti Wi-Fi a Bluetooth. Mikrokontrolér poskytuje správnu rovnováhu veľkosti a výkonu, s dostatočným počtom pinov na pripojenie periférií.\par
 V našej práci používame Arduino Nano ESP32 ako riadiacu jednotku, ktorá získava vstupy od ostatných komponentov a podľa nich riadi mechanické časti vozidla~\cite{arduino}.\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.30]{img/arduino.png}
+	\caption{Arduino Nano ESP32}
+	\footnotesize{Arduino, licencované pod \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}, cez arduino.cc.}
+	\label{fig:arduino}
+\end{figure}
 \noindent\textbf{Technické parametre:}
 \begin{itemize}
 	\item Rozmery: 18 * 45mm
@@ -62,6 +76,13 @@ V našej práci používame Arduino Nano ESP32 ako riadiacu jednotku, ktorá zí
 \end{itemize}
 \subsection{ESP32-CAM + OV2640 kamera}
 Vývojová doska ESP32-CAM integruje Wi-Fi a Bluetooth modul spolu s rozhraním na pripojenie 2MPx kamerový senzor OV2640. Táto kombinácia nám poskytuje oddelenú implementáciu prenosu videa, čím uvolníme výpočtovú záťaž hlavného čipu. Senzor OV2640 disponuje s natívnym rozlíšením 1600 x 1200 pixelov a obrazovou frekvenciou 60 FPS, čo poskytuje dostatočnú výkonovú rezervu~\cite{esp32cam}\cite{ov2640}.\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.20]{img/esp32cam.jpg}
+	\caption{ESP32-CAM a OV2640}
+	\footnotesize{Nowforever, licencované pod \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}, cez Wikimedia Commons.}
+	\label{fig:esp32cam}
+\end{figure}
 \noindent\textbf{Technické parametre:}
 \begin{itemize}
 	\item Rozmery: 27 * 40mm
@@ -75,6 +96,13 @@ Vývojová doska ESP32-CAM integruje Wi-Fi a Bluetooth modul spolu s rozhraním 
 \subsection{HC-SR04 Ultrazvukový senzor}
 Ultrazvukový senzor je zariadenie, ktoré generuje a deteguje ultrazvukové vlny. Tieto vlny sa odrazia od objektu a vrátia sa k prijímaču. Meraním času, za ktorý sa vlna vráti a znalosť rýchlosti zvuku dokážeme určiť vzdialenosť objektu.\par
 HC-SR04 je nákladovo efektívne riešenie na detekciu prekážky pred vozidlom. Používame ho ako sekundárny systém na núdzové zastavenie vozidla v prípade, že kamerový systém nedetekuje prekážku~\cite{hcsr04}.\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.20]{img/hcsr04.jpg}
+	\caption{HC-SR04 Ultrazvukový senzor}
+	\footnotesize{Nevit Dilmen, licencované pod \href{https://creativecommons.org/licenses/by-sa/3.0/deed.en}{CC BY-SA 3.0}, cez Wikimedia Commons.}
+	\label{fig:hcsr04}
+\end{figure}
 \noindent\textbf{Technické parametre:}
 \begin{itemize}
 	\item Rozmery: 20 * 45 * 15mm
@@ -86,6 +114,13 @@ HC-SR04 je nákladovo efektívne riešenie na detekciu prekážky pred vozidlom.
 \subsection{DRV8833 driver pre motorčeky}
 Motor driver je zariadenie určené na riadenie motorov. Slúži na zosilnenie slabého signálu z riadiacej jednotky (napr. mikrokontroléra), aby motoru poskytol potrebné napätie a prúd. Mnohé moduly poskytujú možnosť ovládať rýchlosť aj smer otáčania motorov.\par
 DRV8833 sme použili na nezávislé riadenie dvoch \acrshort{dc} motorov. Integrovaný obvod obsahuje dvojitý H-mostík, ktorý umožnuje meniť polaritu napätia, a tým aj smer otáčania motorov. Modul má štyri vstupné piny (dva pre každý motor), pomocou ktorých možno ovládať rýchlosť a smer otáčania~\cite{drv8833}.\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.20]{img/drv8833.png}
+	\caption{DRV8833 driver pre motorčeky}
+	\footnotesize{vlastná fotografia.}
+	\label{fig:drv8833}
+\end{figure}
 \noindent\textbf{Technické parametre:}
 \begin{itemize}
 	\item Rozmery: 5 * 4 mm
@@ -122,10 +157,95 @@ Vhodný návrh architektúry je kľúčový pre efektívnu spoluprácu všetkýc
 \subsection{Návrh komunikácie komponentov}
 Komunikácia komponentov predstavuje dôležitý aspekt projektu, pretože je nutné aby si jednotlivé časti mohli synchrónne vymieňať a spracovať dáta. Systém je navrhnutý tak, aby v prípade výpadku jedného alebo viacerých komponentov dokázal bezpečne zastaviť vozidlo.\par
 Dôsledkom nízkeho výpočtového výkonu mikrokontrolérov Arduino sme použili v našej implementácii model klient-server. V danej štruktúre vystupujú dva typy entít; nadradení klienti iniciujú požiadavky na pasívny server, ktorý posiela odpovede klientom.\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.50]{img/diagram1.png}
+	\caption{Diagram komunikácie komponentov}
+	\footnotesize{vlastný diagram.}
+	\label{fig:spojenie}
+\end{figure}
 Server je v našom projekte laptop, ktorý taktiež spúšťa Wi-Fi sieť na komunikáciu s komponentmi. Všetky funkcie webserveru sme programovali pomocou jazyka Python. Bezdrôtový pripojný bod sme vytvorili NetworkManagerom, nástrojom na konfiguráciu sieťových zariadení v operačnom systéme Linux, pomocou ktorého sme sieťovú kartu našeho laptopu zmenili na prípojný bod Wi-Fi hotspotu. Na spustenie tohto programu v Pythone sme použili knižnicu subprocess. \par
+\lstset{style=code}
+\begin{lstlisting}[language=Python, caption=Zapnutie Wi-Fi hotspotu]
+import subprocess
+import socket
+
+SSID = "LAPTOP_AP"
+PASSWORD = "12345678"
+
+def startHotspot():
+    print("Starting Hotspot")
+    subprocess.run([
+        "nmcli",
+        "device",
+        "wifi",
+        "hotspot",
+        "ssid", SSID,
+        "password", PASSWORD
+    ], check=True)
+\end{lstlisting}
 ESP32-CAM pracuje ako klient, ktorý posiela obrázkové dáta na server za pomoci Wi-Fi. Po pripojení na server začne cez protokol HTTP na porte 81 vysielať video z kamery OV2640. Obrázky sú rozlíšenia QVGA (t.j 320x240 pixelov) s formátom JPEG. Nový obrázok sa pošle každých 30ms, čo znamená, že stream má približne 30FPS.\par
+\begin{lstlisting}[language=C++, caption=Spustenie HTTP stream na ESP32-CAM]
+void startCameraServer(){
+  httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+  config.server_port = 81; // port streamu
+
+  if(httpd_start(&stream_httpd, &config) == ESP_OK){
+    httpd_uri_t stream_uri = {
+      .uri       = "/stream",
+      .method    = HTTP_GET,
+      .handler   = stream_handler,
+      .user_ctx  = NULL
+    };
+    httpd_register_uri_handler(stream_httpd, &stream_uri);
+  }
+}
+\end{lstlisting}
 Vďaka statickej IP adrese dokážeme serveru povedať na akej URL má očakávať obrázky. Funkcia VideoCapture z knižnice OpenCV má podporu pre spracovanie obrazu z URL. Po interpretovaní dát, server pošle požiadavku na Arduino Nano. Odpoveď sa odošle cez UDP socket, ideálne pre aplikácie fungujúce v reálnom čase, IP adrese mikrokontroléra na porte 5005. Komunikáciu sprostredkuje Python knižnica socket. Poslané dáta sú vo forme 2 bytov, čo je najmenší potrebný buffer na uloženie údajov o riadení.\par
+\begin{lstlisting}[language=Python, caption=Posielanie UDP packetov]
+import struct
+
+CAM_IP = "10.42.0.128"
+CAM_URL = "http://10.42.0.128:81/stream"
+
+UDP_IP = "10.42.0.111"
+UDP_PORT = 5005
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+def sendUDP(direction: float):
+    sock.sendto(struct.pack('<H', direction), (UDP_IP, UDP_PORT))
+\end{lstlisting}
 Arduino príjme UDP packet a súčasne získa nameránu vzdialenosť z ultrazvukového senzora. Snímač sa spúšťa v intervaloch 50ms, z dôvodu efektívneho využitia výpočtového výkonu. Ak vyhodnotí, že objekt pred senzorom je do 10 cm, vozidlo zastaví, inak nastaví riadenie motorov. Každému z motorčekov sú priradené dva výstupné piny -- pulse width modulation (PWM) a smerový (DIR) pin. PWM riadi rýchlosť a DIR smer otáčania kolies. Signály z pinov sú zaslané na DRV8833, ktorý fyzicky poháňa dva \acrshort{dc} motory.
+\begin{lstlisting}[language=C++, caption=Vnútorný cyklus Arduina]
+void loop() {
+  while (udp.parsePacket() >= 2) {
+    udp.read(incoming, 2);
+
+    uint16_t raw = incoming[0] | (incoming[1] << 8);
+    steer = (int)raw - 256;
+  }
+
+  static unsigned long lastTrig = 0;
+  if (millis() - lastTrig > 50) {
+    lastTrig = millis();
+    echoDone = false;
+    triggerUltrasonic();
+  }
+
+  if (echoDone) {
+    uint32_t duration = echoEnd - echoStart;
+    distance = duration / 58;
+    echoDone = false;
+  }
+
+  if (distance < 10 || steer < -255 || steer > 255) {
+    stopWheels();
+  } else {
+    driveSteering(steer*2);
+  }
+}
+\end{lstlisting}
 \subsection{Návrh rámu a rozloženie komponentov}
 Správny návrh rámu a rozloženia komponentov na ňom je doležité pre správne fungovanie celého systému. V našej implementácii sme sa zamerali na minimalizovanie váhy vozidla a maximalizovanie kompaktnosti komponentov a tým ich zohranie.\par
 Na návrh rámu sme použili softvér Blender, populárny všeobecne používaný program na dizajn, modelovanie a animáciu, ktorý je taktiež schopný exportovať vo formáte '.stl', ideálny pre 3D tlač. Po odmeraní všetkých komponetov, sme začali pracovať na prototypu rámu. Vyskúšali sme mnoho návrhov, kde sme otestovali rôzne rozloženia a orientácie komponentov. Vybrali sme si dvojkolesový dizajn vpredu so zadnou vidlicou, ktorá sa dá vymeniť (v prípade opotrebovania alebo zmeny povrchu). Najťažšie komponenty -- batériu a menič napätia -- sme umiestnili na spodok vozidla pre zníženie ťažiška a zvýšenie stability. Pridali sme držiak na kameru a ultrazvukový senzor na stabilizovanie obrazu. Kolesá sme navrhli ako duté valce na minimalizovanie váhy.\par

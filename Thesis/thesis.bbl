@@ -52,6 +52,12 @@
       \field{subtitle}{Levels or categories of driving automation}
       \field{title}{J3016\_202104: Taxonomy and Definitions for Terms Related to Driving Automation Systems for On-Road Motor Vehicles}
       \field{year}{2021}
+      \verb{urlraw}
+      \verb https://wiki.unece.org/download/attachments/128418539/SAE%20J3016_202104.pdf?api=v2
+      \endverb
+      \verb{url}
+      \verb https://wiki.unece.org/download/attachments/128418539/SAE%20J3016_202104.pdf?api=v2
+      \endverb
     \endentry
     \entry{electronics2022}{article}{}{}
       \name{author}{7}{}{%
@@ -329,6 +335,12 @@
       \verb{doi}
       \verb 10.31224/3209
       \endverb
+      \verb{urlraw}
+      \verb https://www.researchgate.net/publication/373560170_Artificial_Intelligence_In_Self-Driving_Study_of_Advanced_Current_Applications
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/publication/373560170_Artificial_Intelligence_In_Self-Driving_Study_of_Advanced_Current_Applications
+      \endverb
     \endentry
     \entry{grigorescu2019}{article}{}{}
       \name{author}{4}{}{%
@@ -378,6 +390,12 @@
       \range{pages}{25}
       \verb{doi}
       \verb 10.1002/rob.21918
+      \endverb
+      \verb{urlraw}
+      \verb https://www.researchgate.net/publication/337264008_A_survey_of_deep_learning_techniques_for_autonomous_driving
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/publication/337264008_A_survey_of_deep_learning_techniques_for_autonomous_driving
       \endverb
     \endentry
     \entry{badue2021}{article}{}{}

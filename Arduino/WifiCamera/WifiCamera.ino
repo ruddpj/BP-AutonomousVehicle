@@ -41,7 +41,6 @@ esp_err_t stream_handler(httpd_req_t *req){
   while(true){
     fb = esp_camera_fb_get();
     if(!fb){
-      Serial.println("Camera capture failed");
       httpd_resp_send_500(req);
       return ESP_FAIL;
     }
@@ -81,16 +80,9 @@ void setup() {
   Serial.begin(115200);
 
   // Wi-Fi
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
-  Serial.println("Connecting to Wi-Fi...");
   while(WiFi.status() != WL_CONNECTED){
     delay(500);
-    Serial.print(".");
   }
-  Serial.println("\nWi-Fi connected!");
-  Serial.print("ESP32 IP: ");
-  Serial.println(WiFi.localIP());
 
   // Kamera
   camera_config_t config;
@@ -126,16 +118,11 @@ void setup() {
   }
 
   if(esp_camera_init(&config) != ESP_OK){
-    Serial.println("Camera init failed!");
     return;
   }
 
   // Spustenie streamu
   startCameraServer();
-  Serial.println("Camera ready! Stream at:");
-  Serial.print("http://");
-  Serial.print(WiFi.localIP());
-  Serial.println(":81/stream");
 }
 
 void loop() {
