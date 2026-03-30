@@ -118,7 +118,6 @@ DRV8833 sme použili na nezávislé riadenie dvoch \acrshort{dc} motorov. Integr
 	\centering
 	\includegraphics[scale=0.20]{img/drv8833.png}
 	\caption{DRV8833 driver pre motorčeky}
-	\footnotesize{vlastná fotografia.}
 	\label{fig:drv8833}
 \end{figure}
 \noindent\textbf{Technické parametre:}
@@ -161,7 +160,6 @@ Dôsledkom nízkeho výpočtového výkonu mikrokontrolérov Arduino sme použil
 	\centering
 	\includegraphics[scale=0.50]{img/diagram1.png}
 	\caption{Diagram komunikácie komponentov}
-	\footnotesize{vlastný diagram.}
 	\label{fig:spojenie}
 \end{figure}
 Server je v našom projekte laptop, ktorý taktiež spúšťa Wi-Fi sieť na komunikáciu s komponentmi. Všetky funkcie webserveru sme programovali pomocou jazyka Python. Bezdrôtový pripojný bod sme vytvorili NetworkManagerom, nástrojom na konfiguráciu sieťových zariadení v operačnom systéme Linux, pomocou ktorého sme sieťovú kartu našeho laptopu zmenili na prípojný bod Wi-Fi hotspotu. Na spustenie tohto programu v Pythone sme použili knižnicu subprocess. \par
@@ -249,6 +247,12 @@ void loop() {
 \subsection{Návrh rámu a rozloženie komponentov}
 Správny návrh rámu a rozloženia komponentov na ňom je doležité pre správne fungovanie celého systému. V našej implementácii sme sa zamerali na minimalizovanie váhy vozidla a maximalizovanie kompaktnosti komponentov a tým ich zohranie.\par
 Na návrh rámu sme použili softvér Blender -- populárny, všeobecne používaný program na dizajn, modelovanie a animáciu, ktorý umožnuje exportovať do formáte .stl, ideálneho pre 3D tlač. Po odmeraní všetkých komponentov, sme začali pracovať na prototype rámu. Vyskúšali sme mnoho návrhov, kde sme otestovali rôzne rozloženia a orientácie súčiastok. Zvolili sme si dizajn s dvoma kolesami vpredu a zadnou vidlicou, ktorá je vymeniteľná (pre prípad opotrebovania alebo zmeny povrchu). Najťažšie komponenty -- batériu a menič napätia -- sme umiestnili na spodok vozidla, aby sme znížili ťažiško a zvýšili stabilitu. Pridali sme držiak na kameru a ultrazvukový senzor na stabilizáciu obrazu. Kolesá sme navrhli ako duté valce s cieľom minimalizovania hmotnosti.\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.35]{img/model.png}
+	\caption{3D model vozidla}
+	\label{fig:model}
+\end{figure}
 Model bol vytlačený na tlačiarni Bambulab A1 mini, použitím filamentu kyseliny polymliečnej (PLA). Na kolesá vozidla sme zasa využili odolnejší polyetyléntereftálat modifikovaný glykolom (PETG).\par
 \subsection{Montovanie vozidla}
 Po získaní všetkých potrebných komponentov sme začali s montážou vozidla. Na prepojenie súčiastok sme použili nepájivé pole a farebne odlíšené vodiče. Jednotlivé elektronické prvky sme zapojili podľa definície pinov v kóde. Nepájivé pole sme na rám vozidla pomocou lepiacej vrstvy na jeho spodnej strane.\par
