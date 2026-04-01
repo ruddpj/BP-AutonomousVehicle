@@ -30,7 +30,6 @@ uint16_t distance = 0;
 const int BASE_SPEED = 255;
 const int PWM_FREQ = 20000;
 const int PWM_RES = 8;
-const int MIN_PWM = 40;
 
 // Print-outs
 void printDistance(int distance) {
@@ -54,7 +53,6 @@ void setMotor(int pinA, int pinB, int speed) {
     ledcWrite(pinA, 0);
     ledcWrite(pinB, -speed);
   }
-
 }
 
 void driveSteering(int steer) {
@@ -63,14 +61,8 @@ void driveSteering(int steer) {
   int left = constrain(BASE_SPEED - steer, -255, 255);
   int right = constrain(BASE_SPEED + steer, -255, 255);
 
-  if (left != 0 && abs(left) < MIN_PWM)
-    left = (left > 0) ? MIN_PWM : -MIN_PWM;
-
-  if (right != 0 && abs(right) < MIN_PWM)
-    right = (right > 0) ? MIN_PWM : -MIN_PWM;
-
-  setMotor(0, 2, left);
-  setMotor(1, 3, right);
+  setMotor(0, 1, left);
+  setMotor(2, 3, right);
 }
 
 void stopWheels() {
