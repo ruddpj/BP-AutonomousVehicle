@@ -16,10 +16,7 @@ def mark_center(frame, cx, cy):
     cv.circle(frame, (cx, cy), 5, (0, 0, 255), -1)
 
 
-def compute_steering(cx, detections, width=320):
-    obstacle = avoid_obstacles(detections)
-    print("Obstacle: ", obstacle)
-    cx = max(0, min(cx, width))
+def compute_steering(cx, width=320):
     return round(1 + (cx / width) * 510)
 
 

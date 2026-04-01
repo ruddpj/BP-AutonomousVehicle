@@ -6,7 +6,7 @@ import transform as tf
 import interpret as itp
 import detect as dt
 
-DEBUG_MODE = False
+DEBUG_MODE = True
 
 def videoLoop():
     while True and not DEBUG_MODE:
@@ -22,6 +22,8 @@ def videoLoop():
         print("Cannot open camera")
         exit(1)
 
+    frame_count = 0
+    detections = None
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -33,19 +35,21 @@ def videoLoop():
         mask = tf.mask_road(roi)
         contours = tf.find_contours(mask)
 
-        detections = dt.detect(frame)
-        obstacle = frame.copy()
+        if frame_count % 6 == 0:
+            detections = dt.detect(frame)
+            frame_count = 0
 
-        cx, cy = itp.find_center(contours)
-        if cx is not None:
-            steering = itp.compute_steering(cx, detections)
-            itp.mark_center(frame, cx, cy)
-            obstacle = dt.draw_boxes(obstacle, detections)
+        if detections is None:
+            cx, cy = itp.find_center(contours)
+            if cx is not None:
+                itp.mark_center(frame, cx, cy)
+                steering = itp.compute_steering(cx)
+            else:
+                steering = None
         else:
-            steering = None
+            steering = itp.avoid_obstacles(detections)
 
         if steering is not None:
-            print("Thresholding: ", steering)
             cnt.sendUDP(steering)
             cv.putText(frame, str(steering), (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         else:
@@ -53,11 +57,13 @@ def videoLoop():
             cv.putText(frame, "Lane not detected", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
         #All inputs have to be 3-dimensional
-        videogrid = tf.video_grid((frame, cv.cvtColor(mask, cv.COLOR_GRAY2BGR), obstacle))
+        videogrid = tf.video_grid((frame, cv.cvtColor(mask, cv.COLOR_GRAY2BGR)))
         cv.imshow("Lane detection", videogrid)
 
         if cv.waitKey(1) & 0xFF == 27:  # ESC
             break
+
+        frame_count += 1
 
     cap.release()
     cv.destroyAllWindows()
