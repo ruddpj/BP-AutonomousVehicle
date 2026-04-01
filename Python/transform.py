@@ -1,22 +1,22 @@
 import numpy as np
 import cv2 as cv
 
-lower_white = np.array([0, 0, 180])
-upper_white = np.array([180, 40, 255])
+lower_black = np.array([0,0, 0])
+upper_black = np.array([180, 255, 70])
 
 def region_of_interest(frame):
     h, w = frame.shape[:2]
-    roi_mask = np.zeros_like(frame)
     roi_height = 100
+    roi_mask = np.ones_like(frame) * 255
 
-    roi_mask[h - roi_height:h, :] = [255, 255, 255]
-    masked = cv.bitwise_and(frame, roi_mask)
-    return masked
+    roi_mask[h - roi_height:h, :] = frame[h - roi_height:h, :]
+
+    return roi_mask
 
 
 def mask_road(frame):
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
-    mask = cv.inRange(hsv, lower_white, upper_white)
+    mask = cv.inRange(hsv, lower_black, upper_black)
 
     kernel = np.ones((5, 5), np.uint8)
     mask = cv.morphologyEx(mask, cv.MORPH_OPEN, kernel)

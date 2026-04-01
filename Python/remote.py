@@ -4,7 +4,7 @@ import os
 import connect as cnt
 import pygame
 
-DEBUG_MODE = True
+DEBUG_MODE = False
 
 def videoLoop():
     while True and not DEBUG_MODE:
