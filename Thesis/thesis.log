@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  30 MAR 2026 17:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  30 MAR 2026 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1662,7 +1662,7 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 [13]
 
 [14]
-<img/sensors.png, id=408, 284.39583pt x 156.91959pt>
+<img/sensors.png, id=412, 284.39583pt x 156.91959pt>
 File: img/sensors.png Graphic file (type png)
 <use img/sensors.png>
 Package pdftex.def Info: img/sensors.png  used on input line 35.
@@ -1676,7 +1676,7 @@ Package pdftex.def Info: img/sensors.png  used on input line 35.
 [17]
 
 [18]
-<img/arduino.png, id=459, 645.41125pt x 483.8075pt>
+<img/arduino.png, id=463, 645.41125pt x 483.8075pt>
 File: img/arduino.png Graphic file (type png)
 <use img/arduino.png>
 Package pdftex.def Info: img/arduino.png  used on input line 61.
@@ -1689,7 +1689,7 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 [19{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./img/ar
 duino.png>]
-<img/esp32cam.jpg, id=473, 642.4pt x 843.15pt>
+<img/esp32cam.jpg, id=477, 642.4pt x 843.15pt>
 File: img/esp32cam.jpg Graphic file (type jpg)
 <use img/esp32cam.jpg>
 Package pdftex.def Info: img/esp32cam.jpg  used on input line 81.
@@ -1697,26 +1697,26 @@ Package pdftex.def Info: img/esp32cam.jpg  used on input line 81.
 
 
 [20 <./img/esp32cam.jpg>]
-<img/hcsr04.jpg, id=483, 963.6pt x 722.7pt>
+<img/hcsr04.jpg, id=487, 963.6pt x 722.7pt>
 File: img/hcsr04.jpg Graphic file (type jpg)
 <use img/hcsr04.jpg>
 Package pdftex.def Info: img/hcsr04.jpg  used on input line 101.
-(pdftex.def)             Requested size: 192.71658pt x 144.53743pt.
-<img/drv8833.png, id=487, 481.8pt x 271.0125pt>
-File: img/drv8833.png Graphic file (type png)
-<use img/drv8833.png>
-Package pdftex.def Info: img/drv8833.png  used on input line 119.
-(pdftex.def)             Requested size: 96.35829pt x 54.20152pt.
+(pdftex.def)             Requested size: 163.80983pt x 122.85736pt.
+<img/drv8833.jpg, id=491, 1939.245pt x 1497.595pt>
+File: img/drv8833.jpg Graphic file (type jpg)
+<use img/drv8833.jpg>
+Package pdftex.def Info: img/drv8833.jpg  used on input line 119.
+(pdftex.def)             Requested size: 155.14276pt x 119.81004pt.
 
 
 [21 <./img/hcsr04.jpg>]
 
-[22 <./img/drv8833.png>]
+[22 <./img/drv8833.jpg>]
 
 [23]
 
 [24]
-<img/diagram1.png, id=532, 763.85374pt x 503.8825pt>
+<img/diagram1.png, id=535, 763.85374pt x 503.8825pt>
 File: img/diagram1.png Graphic file (type png)
 <use img/diagram1.png>
 Package pdftex.def Info: img/diagram1.png  used on input line 161.
@@ -1752,7 +1752,7 @@ File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 [26]
 
 [27]
-<img/model.png, id=612, 1314.41063pt x 542.77782pt>
+<img/model.png, id=615, 1314.41063pt x 542.77782pt>
 File: img/model.png Graphic file (type png)
 <use img/model.png>
 Package pdftex.def Info: img/model.png  used on input line 252.
@@ -1765,10 +1765,26 @@ Overfull \hbox (19.03288pt too wide) in paragraph at lines 252--253
 
 
 [28 <./img/model.png>]
+<img/vozidlo1.jpg, id=628, 2534.46875pt x 2017.5375pt>
+File: img/vozidlo1.jpg Graphic file (type jpg)
+<use img/vozidlo1.jpg>
+Package pdftex.def Info: img/vozidlo1.jpg  used on input line 263.
+(pdftex.def)             Requested size: 380.15392pt x 302.61757pt.
+<img/vozidlo2.jpg, id=629, 3071.475pt x 2481.27pt>
+File: img/vozidlo2.jpg Graphic file (type jpg)
+<use img/vozidlo2.jpg>
+Package pdftex.def Info: img/vozidlo2.jpg  used on input line 269.
+(pdftex.def)             Requested size: 460.70137pt x 372.17444pt.
 
-[29]
+Overfull \hbox (19.68364pt too wide) in paragraph at lines 269--270
+ [][] 
+ []
 
-[30]
+
+
+[29 <./img/vozidlo1.jpg>]
+
+[30 <./img/vozidlo2.jpg>]
 
 [31]
 
@@ -1814,17 +1830,21 @@ Package microtype Info: Character `029' is missing
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A5CA0CF408D63B0F5FC24767996BB6BB;7649.
+(rerunfilecheck)             Checksum: C183188F362F2AF4F87327D39A76B13B;7639.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37543 strings out of 473190
- 680223 string characters out of 5715806
- 1761623 words of memory out of 5000000
- 59769 multiletter control sequences out of 15000+600000
+ 37560 strings out of 473190
+ 680614 string characters out of 5715806
+ 1761704 words of memory out of 5000000
+ 59784 multiletter control sequences out of 15000+600000
  656770 words of font info for 202 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,131p,2353b,3128s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1837,10 +1857,10 @@ lic/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lms
 s12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/loca
 l/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (41 pages, 1690578 bytes).
+Output written on thesis.pdf (41 pages, 5936184 bytes).
 PDF statistics:
- 838 PDF objects out of 1000 (max. 8388607)
- 748 compressed objects within 8 object streams
- 224 named destinations out of 1000 (max. 500000)
- 60883 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 843 PDF objects out of 1000 (max. 8388607)
+ 752 compressed objects within 8 object streams
+ 226 named destinations out of 1000 (max. 500000)
+ 60893 words of extra memory for PDF output out of 61914 (max. 10000000)
 

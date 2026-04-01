@@ -21,10 +21,10 @@ volatile bool echoDone = false;
 uint16_t distance = 0;
 
 // Driver OUT pins
-#define L_PWM D9
-#define L_DIR D10
-#define R_PWM D5
-#define R_DIR D6
+#define L_PINA D7
+#define L_PINB D5
+#define R_PINA D9
+#define R_PINB D11
 
 // Driver constants
 const int BASE_SPEED = 255;
@@ -46,15 +46,15 @@ void printPacket(int steer) {
 }
 
 // Motor Functions
-void setMotor(int pwmPin, int dirPin, int channel, int speed) {
-  if (speed < 0) {
-    digitalWrite(dirPin, HIGH);
-    speed = -speed;
+void setMotor(int pinA, int pinB, int speed) {
+  if (speed > 0) {
+    ledcWrite(pinA, speed);
+    ledcWrite(pinB, 0);
   } else {
-    digitalWrite(dirPin, LOW);
+    ledcWrite(pinA, 0);
+    ledcWrite(pinB, -speed);
   }
 
-  ledcWrite(channel, speed);
 }
 
 void driveSteering(int steer) {
@@ -69,16 +69,15 @@ void driveSteering(int steer) {
   if (right != 0 && abs(right) < MIN_PWM)
     right = (right > 0) ? MIN_PWM : -MIN_PWM;
 
-  setMotor(L_PWM, L_DIR, 0, left);
-  setMotor(R_PWM, R_DIR, 1, right);
+  setMotor(0, 2, left);
+  setMotor(1, 3, right);
 }
 
 void stopWheels() {
   ledcWrite(0, 0);
   ledcWrite(1, 0);
-
-  digitalWrite(L_DIR, LOW);
-  digitalWrite(R_DIR, LOW);
+  ledcWrite(2, 0);
+  ledcWrite(3, 0);
 }
 
 // Ultrasound control functions
@@ -107,19 +106,17 @@ void setup() {
   pinMode(ECHO_PIN, INPUT);
   attachInterrupt(ECHO_PIN, echoISR, CHANGE);
 
-  // Setup direction pins
-  pinMode(L_DIR, OUTPUT);
-  pinMode(R_DIR, OUTPUT);
-
-  digitalWrite(L_DIR, LOW);
-  digitalWrite(R_DIR, LOW);
-
   // Setup PWM pins
   ledcSetup(0, PWM_FREQ, PWM_RES);
   ledcSetup(1, PWM_FREQ, PWM_RES);
+  ledcSetup(2, PWM_FREQ, PWM_RES);
+  ledcSetup(3, PWM_FREQ, PWM_RES);
 
-  ledcAttachPin(L_PWM, 0);
-  ledcAttachPin(R_PWM, 1);
+  // Attach PWM pins to channels
+  ledcAttachPin(L_PINA, 0);
+  ledcAttachPin(L_PINB, 1);
+  ledcAttachPin(R_PINA, 2);
+  ledcAttachPin(R_PINB, 3);
 
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {

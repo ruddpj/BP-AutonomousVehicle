@@ -98,7 +98,7 @@ Ultrazvukový senzor je zariadenie, ktoré generuje a deteguje ultrazvukové vln
 HC-SR04 je nákladovo efektívne riešenie na detekciu prekážky pred vozidlom. Používame ho ako sekundárny systém na núdzové zastavenie vozidla v prípade, že kamerový systém nedetekuje prekážku~\cite{hcsr04}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.20]{img/hcsr04.jpg}
+	\includegraphics[scale=0.17]{img/hcsr04.jpg}
 	\caption{HC-SR04 Ultrazvukový senzor}
 	\footnotesize{Nevit Dilmen, licencované pod \href{https://creativecommons.org/licenses/by-sa/3.0/deed.en}{CC BY-SA 3.0}, cez Wikimedia Commons.}
 	\label{fig:hcsr04}
@@ -116,7 +116,7 @@ Motor driver je zariadenie určené na riadenie motorov. Slúži na zosilnenie s
 DRV8833 sme použili na nezávislé riadenie dvoch \acrshort{dc} motorov. Integrovaný obvod obsahuje dvojitý H-mostík, ktorý umožnuje meniť polaritu napätia, a tým aj smer otáčania motorov. Modul má štyri vstupné piny (dva pre každý motor), pomocou ktorých možno ovládať rýchlosť a smer otáčania~\cite{drv8833}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.20]{img/drv8833.png}
+	\includegraphics[scale=0.08]{img/drv8833.jpg}
 	\caption{DRV8833 driver pre motorčeky}
 	\label{fig:drv8833}
 \end{figure}
@@ -258,16 +258,28 @@ Model bol vytlačený na tlačiarni Bambulab A1 mini, použitím filamentu kysel
 Po získaní všetkých potrebných komponentov sme začali s montážou vozidla. Na prepojenie súčiastok sme použili nepájivé pole a farebne odlíšené vodiče. Jednotlivé elektronické prvky sme zapojili podľa definície pinov v kóde. Nepájivé pole sme na rám vozidla pomocou lepiacej vrstvy na jeho spodnej strane.\par
 K motorčekom sme prispájkovali káble, pripevnili kolesá a nalepili pásku na zvýšenie trenia. Celú sústavu pre obe strany sme následne zasunuli do vyhradených držiakov. Kameru a ultrazvukový senzor sme vložili do držiaku, ktorý sme pripevnili k vozidlu pomocou sťahovacích pások. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky.\par
 Modifikovali sme aj USB-A kábel pridaním vypínača a koncovích hrotov; túto súčiastku sme zapojili do USB výstupu na meniči a do napájaciej koľajnice na nepájivom poli. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.15]{img/vozidlo1.jpg}
+	\caption{Skompletizované vozidlo (predok)}
+	\label{fig:vozidlo1}
+\end{figure}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.15]{img/vozidlo2.jpg}
+	\caption{Skompletizované vozidlo (zadok)}
+	\label{fig:vozidlo2}
+\end{figure}
 
-\section{Detekcia vozovky}\label{sec:DetekciaVozovky}
-\subsection{Region of interest}
-\subsection{Hľadanie svetlých regiónov}
-\subsection{Hľadanie kontúr vozovky}
-\subsection{Interpretácia dát}
-
-\section{Detekcia prekážky}\label{sec:DetekciaPrekazky}
-\subsection{Ultrazvukový senzor}
-\subsection{CNN}
+\section{Detekcia}\label{sec:Detekcia}
+\subsection{Detekcia vozovky}
+Detekcia cesty slúži ako dôležitá súčasť autonómnych vozidiel. \acrshort{av} musia byť schopné sa udržať na rôznych typoch vozovky, za rozlišných svetelných podmienok. Systémy vnímania to dokážu pomocou kombinácie počítačového videnia a dát zo senzorov.
+\subsubsection{Region of interest}
+\subsubsection{Hľadanie svetlých regiónov}
+\subsubsection{Hľadanie kontúr vozovky}
+\subsection{Detekcia prekážky}
+\subsubsection{Ultrazvukový senzor}
+\subsubsection{CNN}
 \subsection{Interpretácia dát}
 
 \section{Metodika a testovanie}\label{sec:MetodikaATestovanie}

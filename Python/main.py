@@ -6,7 +6,7 @@ import transform as tf
 import interpret as itp
 import detect as dt
 
-DEBUG_MODE = True
+DEBUG_MODE = False
 
 def videoLoop():
     while True and not DEBUG_MODE:
@@ -65,7 +65,7 @@ def videoLoop():
 
 if __name__ == "__main__":
     try:
-        #cnt.startHotspot()
+        cnt.startHotspot()
         time.sleep(2)
 
         videoLoop()
