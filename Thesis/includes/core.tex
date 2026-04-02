@@ -256,26 +256,42 @@ Na návrh rámu sme použili softvér Blender -- populárny, všeobecne použív
 Model bol vytlačený na tlačiarni Bambulab A1 mini, použitím filamentu kyseliny polymliečnej (PLA). Na kolesá vozidla sme zasa využili odolnejší polyetyléntereftálat modifikovaný glykolom (PETG).\par
 \subsection{Montovanie vozidla}
 Po získaní všetkých potrebných komponentov sme začali s montážou vozidla. Na prepojenie súčiastok sme použili nepájivé pole a farebne odlíšené vodiče. Jednotlivé elektronické prvky sme zapojili podľa definície pinov v kóde. Nepájivé pole sme na rám vozidla pomocou lepiacej vrstvy na jeho spodnej strane.\par
-K motorčekom sme prispájkovali káble, pripevnili kolesá a nalepili pásku na zvýšenie trenia. Celú sústavu pre obe strany sme následne zasunuli do vyhradených držiakov. Kameru a ultrazvukový senzor sme vložili do držiaku, ktorý sme pripevnili k vozidlu pomocou sťahovacích pások. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky.\par
-Modifikovali sme aj USB-A kábel pridaním vypínača a koncovích hrotov; túto súčiastku sme zapojili do USB výstupu na meniči a do napájaciej koľajnice na nepájivom poli. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali.
+K motorčekom sme prispájkovali káble, pripevnili kolesá a nalepili pásku na zvýšenie trenia. Celú sústavu pre obe strany sme následne zasunuli do vyhradených držiakov. Kameru a ultrazvukový senzor sme vložili do držiaku, ktorý sme pripevnili k vozidlu pomocou sťahovacích pások.\par
+K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali.
+\newpage
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.15]{img/vozidlo1.jpg}
+	\includegraphics[scale=0.12]{img/vozidlo1.jpg}
 	\caption{Skompletizované vozidlo (predok)}
 	\label{fig:vozidlo1}
 \end{figure}
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.15]{img/vozidlo2.jpg}
+	\includegraphics[scale=0.10]{img/vozidlo2.jpg}
 	\caption{Skompletizované vozidlo (zadok)}
 	\label{fig:vozidlo2}
 \end{figure}
 
+\clearpage
 \section{Detekcia}\label{sec:Detekcia}
 \subsection{Detekcia vozovky}
-Detekcia cesty slúži ako dôležitá súčasť autonómnych vozidiel. \acrshort{av} musia byť schopné sa udržať na rôznych typoch vozovky, za rozlišných svetelných podmienok. Systémy vnímania to dokážu pomocou kombinácie počítačového videnia a dát zo senzorov.
+Detekcia jazdných pruhov a hraníc vozovky predstavuje jeden z kritických systémov autonómnych vozidiel. Jej hlavnou úlohou je identifikovať cestu, udržať sa na nej a správne zareágovať v prípade zmien vozovky. \acrshort{av} sú schopné túto funkciu vykonávať fúziou rôznych senzorov. Táto podkapitola sa zaoberá metódami spracovania dát, ktoré umožnujú systému identifikovať vozovku od prostredia.
 \subsubsection{Region of interest}
-\subsubsection{Hľadanie svetlých regiónov}
+\acrfull{roi}, po slovensky oblasť záujmu, je časť datasetu, ktorá je vybraná pre určitý dôvod. V kontexte autonómnych vozidiel sa \acrshort{roi} používa na ohraničenie určitej oblasti obrazového vstupu kamier, ktorá je pre daný systém detekcie relevantná.\par
+Pri implementácii detekcie vozovky sme použili \acrshort{roi} ako prvý krok pred-spracovania. Vozovka sa v drvivej väčšine prípadov nachádza v spodnej polovici obrazu a spracovanie hornej časti zbytočne vnáša nepotrebné informácie, čo spôsobuje vizuálny šum a zaťažuje procesor.\par
+Na oddelenie \acrshort{roi} sme použili funkcie dostupné v knižnici OpenCV.\par
+\begin{lstlisting}[language=Python, caption=Funkcia \acrshort{roi}]
+def region_of_interest(frame):
+    h, w = frame.shape[:2]
+    roi_height = 100
+    roi_mask = np.ones_like(frame) * 255
+
+    roi_mask[h - roi_height:h, :] = frame[h - roi_height:h, :]
+
+    return roi_mask
+\end{lstlisting}
+Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný obraz, pričom všetky jej prvky boli nastavené na maximálnu hodnotu 8-bitového rozsahu (255). Následne bola do tejto matice prenesená relevantná časť datasetu od vopred definovanej vertikálnel hranice \verb|roi_height| smerom nadol. Výsledkom je obraz, kde sú spracované len tie pixely, ktoré sú v spodnej polovici obrazu a pravdepodobne obsahujú informácie o vozovke.
+\subsubsection{Hľadanie tmavých regiónov}
 \subsubsection{Hľadanie kontúr vozovky}
 \subsection{Detekcia prekážky}
 \subsubsection{Ultrazvukový senzor}
