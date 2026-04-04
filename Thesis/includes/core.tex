@@ -257,7 +257,7 @@ Model bol vytlačený na tlačiarni Bambulab A1 mini, použitím filamentu kysel
 \subsection{Montovanie vozidla}
 Po získaní všetkých potrebných komponentov sme začali s montážou vozidla. Na prepojenie súčiastok sme použili nepájivé pole a farebne odlíšené vodiče. Jednotlivé elektronické prvky sme zapojili podľa definície pinov v kóde. Nepájivé pole sme na rám vozidla pomocou lepiacej vrstvy na jeho spodnej strane.\par
 K motorčekom sme prispájkovali káble, pripevnili kolesá a nalepili pásku na zvýšenie trenia. Celú sústavu pre obe strany sme následne zasunuli do vyhradených držiakov. Kameru a ultrazvukový senzor sme vložili do držiaku, ktorý sme pripevnili k vozidlu pomocou sťahovacích pások.\par
-K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali -- viď obrázok \ref{vozidlo1} a \ref{vozidlo2}.
+K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali -- viď obrázok \ref{fig:vozidlo1} a \ref{fig:vozidlo2}.
 \newpage
 \begin{figure}[!ht]
 	\centering
@@ -302,21 +302,20 @@ Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný ob
 \subsection{Detekcia prekážok}
 Dôležitým pilierom bezpečnosti autonómnych vozidiel je schopnosť detekcie prekážok. V reálnom čase musia identifikovať a klasifikovať prekážku na vozovke alebo v jej blízkosti a adekvátne na ňu reagovať. Tento proces využíva dáta z rôznych senzorov na vyhodnotenie situácie. Na základe týchto dát dokáže \acrshort{av} obísť objekt alebo zastaviť. V tejto podkapitole si vysvetlíme použité metódy na detekciu prekážok.
 \subsubsection{Ultrazvukový senzor}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.60]{img/ultrazvuk.png}
+	\caption{Diagram fungovania ultrazvukového senzora}
+	\label{fig:ultrazvuk}
+\end{figure}
 Ultrazvukové senzory sa používajú v autonómnych vozidlách na detekciu objektov na krátke vzdialenosti, näjme na prevenciu kolízie pri pomalých rýchlostiach, ako sú napríklad parkovacie manévre. Na rozdiel od fotoelektrických senzorov (napr. \acrshort{radar}), nie sú ovplyvnené farbou alebo odrazivosťou cieľa, pretože používajú zvuk a nie svetlo.\par
-Pri našej implementácii sme použili ultrazvukový senzor na detekciu prekážok priamo pred vozidlom. Použitý HC-SR04 ultrazvukový senzor funguje ako vysielač, prijímač aj riadiaci obvod. Princíp merania vzdialenosti je nasledovný:
+Pri našej implementácii sme použili ultrazvukový senzor na detekciu prekážok priamo pred vozidlom. Použitý HC-SR04 ultrazvukový senzor funguje ako vysielač, prijímač aj riadiaci obvod -- obrázok \ref{fig:ultrazvuk} ilustruje jeho funkciu. Princíp merania vzdialenosti je nasledovný:
 \begin{enumerate}
 	\item Arduino pošle signál vysokej úrovne na \verb|Trig| pin ultrazvukového senzora.
 	\item Modul pošle osem 40kHz signálov a nastaví vysokú úroveň na pine \verb|Echo|.
 	\item Spustí sa časovač, zatiaľ čo senzor očakáva návratový signál.
 	\item Ak zaznamená pulz, zastaví časovač a zníži hodnotu \verb|Echo| pinu.
 \end{enumerate}
-Obrázok \ref{fig:ultrazvuk} ilustruje tento proces. 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.12]{img/ultrazvuk.png}
-	\caption{Diagram fungovania ultrazvukového senzora}
-	\label{fig:ultrazvuk}
-\end{figure}
 Keďže máme rýchlosť zvuku\footnote{Používame rýchlosť zvuku pri suchom 20$^\circ$C vzduchu, čo je 343m/s.} a čas za ktorý sa signál vrátil, vieme vypočítať vzdialenosť vozidla a objektu pred ním. Rovnica na výpočet vzdialenosti je nasledovná:
 \[ vzdialenosť = \frac{nameraný\, čas}{2} * rýchlosť\, zvuku\]
 Ultrazvukový modul riadime pomocou dvoch pinov mikrokontroléra Arduino. Jeden pin, nastavený na mód OUTPUT, používame sa zaslanie vysokej hodnoty na modul. Druhý pin, nastavený na mód INPUT, je určený na získanie signálu zo senzora; na tento pin sme pripojili rutinu prerušenia.
@@ -340,7 +339,7 @@ Keďže je tento výpočet náročnejší, merania prebiehajú v 50 ms intervalo
 \end{lstlisting}
 Z dôvodu zjednodušenia výpočtu používame aproximáciu skutočnej vzdialenosti v centimetroch. Ak sa meraný predmet nachádza vo vzdialenosti do 10 cm, vozidlo zastaví.
 \subsubsection{CNN}
-\acrfull{cnn}, po slovensky konvolučná neurónová sieť, je typ doprednej neurónovej siete, ktorá používa optimalizáciu filtrov. Tento typ hlbokej neurónovej siete sa štandardne používa pri počítačovom videní a spracovaní obrazu. Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebným prvkom je takzvaná konvolučná vrstva, ktorá obsahuje rôzne filtre -- matice váh. Počas doprednej propagácie sa po celej výške a šírke vstupnej matice počíta skalárny súčin pre každý filter konvolučnej vrstvy. Výsledkom je dvojrozmerná aktivačná mapa daného filtra. \acrshort{cnn} sa učia vytvárať filtre, ktoré sa aktivujú v prípade, že sa na vstupe nachádza požadovaná vlastnosť. Ďalšie vrstvy ako združovacia (pooling) vrstva sa používa na zmenšenie rozmerov vstupnej matice, ReLU vrstva na odstránenie záporných hodnôt a plne prepojená (fully connected) vrstva na finálnu klasifikáciu. Obrázok \ref{fig:cnn} ilustruje bežnú konvolučnú neurónovú sieť.
+\acrfull{cnn}, po slovensky konvolučná neurónová sieť, je typ doprednej neurónovej siete, ktorá používa optimalizáciu filtrov. Tento typ hlbokej neurónovej siete sa štandardne používa pri počítačovom videní a spracovaní obrazu. Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebným prvkom je takzvaná konvolučná vrstva, ktorá obsahuje rôzne filtre -- matice váh. Počas doprednej propagácie sa po celej výške a šírke vstupnej matice počíta skalárny súčin pre každý filter konvolučnej vrstvy. Výsledkom je dvojrozmerná aktivačná mapa daného filtra. \acrshort{cnn} sa učia vytvárať filtre, ktoré sa aktivujú v prípade, že sa na vstupe nachádza požadovaná vlastnosť. Ďalšie vrstvy ako združovacia (pooling) vrstva sa používa na zmenšenie rozmerov vstupnej matice, ReLU vrstva na odstránenie záporných hodnôt a plne prepojená (fully connected) vrstva na finálnu klasifikáciu. Obrázok \ref{fig:cnn} zobrazuje bežnú konvolučnú neurónovú sieť.
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.40]{img/cnn.png}

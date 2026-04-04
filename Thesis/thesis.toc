@@ -46,7 +46,7 @@
 \contentsline {subsubsection}{\numberline {6.1.3}Hľadanie kontúr vozovky}{31}{subsubsection.132}%
 \contentsline {subsection}{\numberline {6.2}Detekcia prekážok}{31}{subsection.133}%
 \contentsline {subsubsection}{\numberline {6.2.1}Ultrazvukový senzor}{31}{subsubsection.134}%
-\contentsline {subsubsection}{\numberline {6.2.2}CNN}{32}{subsubsection.156}%
+\contentsline {subsubsection}{\numberline {6.2.2}CNN}{33}{subsubsection.156}%
 \contentsline {subsection}{\numberline {6.3}Interpretácia dát}{33}{subsection.158}%
 \contentsline {section}{\numberline {7}Metodika a testovanie}{34}{section.159}%
 \contentsline {subsection}{\numberline {7.1}Metodika}{34}{subsection.160}%
