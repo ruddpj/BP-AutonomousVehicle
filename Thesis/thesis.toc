@@ -1,59 +1,59 @@
 \babel@toc {slovak}{}\relax 
 \thispagestyle {plain}
-\contentsline {section}{\'{U}vod}{12}{section*.3}%
-\contentsline {section}{\numberline {1}Autonómne vozidlá}{13}{section.4}%
-\contentsline {subsection}{\numberline {1.1}Čo je to autonómne vozidlo?}{13}{subsection.5}%
-\contentsline {subsection}{\numberline {1.2}Úrovne autonómnych vozidiel}{13}{subsection.6}%
-\contentsline {subsubsection}{\numberline {1.2.1}Úroveň 0}{14}{subsubsection.7}%
-\contentsline {paragraph}{Žiadna automatizácia}{14}{subsubsection.7}%
-\contentsline {subsubsection}{\numberline {1.2.2}Úroveň 1}{14}{subsubsection.8}%
-\contentsline {paragraph}{Asistované riadenie}{14}{subsubsection.8}%
-\contentsline {subsubsection}{\numberline {1.2.3}Úroveň 2}{14}{subsubsection.9}%
-\contentsline {paragraph}{Čiastočná automatizácia}{14}{subsubsection.9}%
-\contentsline {subsubsection}{\numberline {1.2.4}Úroveň 3}{14}{subsubsection.10}%
-\contentsline {paragraph}{Podmienená automatizácia}{14}{subsubsection.10}%
-\contentsline {subsubsection}{\numberline {1.2.5}Úroveň 4}{14}{subsubsection.11}%
-\contentsline {paragraph}{Vysoká automatizácia}{14}{subsubsection.11}%
-\contentsline {subsubsection}{\numberline {1.2.6}Úroveň 5}{14}{subsubsection.12}%
-\contentsline {paragraph}{Plná automatizácia}{14}{subsubsection.12}%
-\contentsline {section}{\numberline {2}Analýza súčasného stavu}{15}{section.13}%
-\contentsline {subsection}{\numberline {2.1}Aktuálny stav technológie}{15}{subsection.14}%
-\contentsline {subsubsection}{\numberline {2.1.1}Umelá inteligencia}{15}{subsubsection.15}%
-\contentsline {subsubsection}{\numberline {2.1.2}Senzory}{16}{subsubsection.16}%
-\contentsline {subsection}{\numberline {2.2}Použitie autonómnych vozidiel}{17}{subsection.18}%
-\contentsline {subsubsection}{\numberline {2.2.1}Autonómne taxi služby}{17}{subsubsection.19}%
-\contentsline {subsubsection}{\numberline {2.2.2}Autonomizácia donášky jedla}{17}{subsubsection.20}%
-\contentsline {section}{\numberline {3}Komponenty systému}{19}{section.21}%
-\contentsline {subsection}{\numberline {3.1}Arduino Nano ESP32 mikrokontrolér}{19}{subsection.22}%
-\contentsline {subsection}{\numberline {3.2}ESP32-CAM + OV2640 kamera}{20}{subsection.24}%
-\contentsline {subsection}{\numberline {3.3}HC-SR04 Ultrazvukový senzor}{21}{subsection.26}%
-\contentsline {subsection}{\numberline {3.4}DRV8833 driver pre motorčeky}{21}{subsection.28}%
-\contentsline {subsection}{\numberline {3.5}Ďalšie elektrické komponenty}{22}{subsection.30}%
-\contentsline {subsection}{\numberline {3.6}Server}{22}{subsection.31}%
-\contentsline {section}{\numberline {4}Softvér}{23}{section.32}%
-\contentsline {subsection}{\numberline {4.1}C++}{23}{subsection.33}%
-\contentsline {subsection}{\numberline {4.2}Python}{23}{subsection.34}%
-\contentsline {subsection}{\numberline {4.3}OpenCV}{23}{subsection.35}%
-\contentsline {subsection}{\numberline {4.4}Ultralytics YOLOv8}{24}{subsection.36}%
-\contentsline {section}{\numberline {5}Návrh a implementácia}{25}{section.37}%
-\contentsline {subsection}{\numberline {5.1}Návrh komunikácie komponentov}{25}{subsection.38}%
-\contentsline {subsection}{\numberline {5.2}Návrh rámu a rozloženie komponentov}{28}{subsection.113}%
-\contentsline {subsection}{\numberline {5.3}Montovanie vozidla}{29}{subsection.115}%
-\contentsline {section}{\numberline {6}Detekcia}{31}{section.118}%
-\contentsline {subsection}{\numberline {6.1}Detekcia vozovky}{31}{subsection.119}%
-\contentsline {subsubsection}{\numberline {6.1.1}Region of interest}{31}{subsubsection.120}%
-\contentsline {subsubsection}{\numberline {6.1.2}Hľadanie tmavých regiónov}{32}{subsubsection.130}%
-\contentsline {subsubsection}{\numberline {6.1.3}Hľadanie kontúr vozovky}{32}{subsubsection.131}%
-\contentsline {subsection}{\numberline {6.2}Detekcia prekážky}{32}{subsection.132}%
-\contentsline {subsubsection}{\numberline {6.2.1}Ultrazvukový senzor}{32}{subsubsection.133}%
-\contentsline {subsubsection}{\numberline {6.2.2}CNN}{32}{subsubsection.134}%
-\contentsline {subsection}{\numberline {6.3}Interpretácia dát}{32}{subsection.135}%
-\contentsline {section}{\numberline {7}Metodika a testovanie}{33}{section.136}%
-\contentsline {subsection}{\numberline {7.1}Metodika}{33}{subsection.137}%
-\contentsline {subsection}{\numberline {7.2}Testovanie}{33}{subsection.138}%
-\contentsline {section}{\numberline {8}Výsledky}{34}{section.139}%
-\contentsline {section}{Z\'{a}ver}{35}{section*.140}%
-\contentsline {section}{Literatúra}{36}{section*.141}%
+\contentsline {section}{\'{U}vod}{11}{section*.3}%
+\contentsline {section}{\numberline {1}Autonómne vozidlá}{12}{section.4}%
+\contentsline {subsection}{\numberline {1.1}Čo je to autonómne vozidlo?}{12}{subsection.5}%
+\contentsline {subsection}{\numberline {1.2}Úrovne autonómnych vozidiel}{12}{subsection.6}%
+\contentsline {subsubsection}{\numberline {1.2.1}Úroveň 0}{13}{subsubsection.7}%
+\contentsline {paragraph}{Žiadna automatizácia}{13}{subsubsection.7}%
+\contentsline {subsubsection}{\numberline {1.2.2}Úroveň 1}{13}{subsubsection.8}%
+\contentsline {paragraph}{Asistované riadenie}{13}{subsubsection.8}%
+\contentsline {subsubsection}{\numberline {1.2.3}Úroveň 2}{13}{subsubsection.9}%
+\contentsline {paragraph}{Čiastočná automatizácia}{13}{subsubsection.9}%
+\contentsline {subsubsection}{\numberline {1.2.4}Úroveň 3}{13}{subsubsection.10}%
+\contentsline {paragraph}{Podmienená automatizácia}{13}{subsubsection.10}%
+\contentsline {subsubsection}{\numberline {1.2.5}Úroveň 4}{13}{subsubsection.11}%
+\contentsline {paragraph}{Vysoká automatizácia}{13}{subsubsection.11}%
+\contentsline {subsubsection}{\numberline {1.2.6}Úroveň 5}{13}{subsubsection.12}%
+\contentsline {paragraph}{Plná automatizácia}{13}{subsubsection.12}%
+\contentsline {section}{\numberline {2}Analýza súčasného stavu}{14}{section.13}%
+\contentsline {subsection}{\numberline {2.1}Aktuálny stav technológie}{14}{subsection.14}%
+\contentsline {subsubsection}{\numberline {2.1.1}Umelá inteligencia}{14}{subsubsection.15}%
+\contentsline {subsubsection}{\numberline {2.1.2}Senzory}{15}{subsubsection.16}%
+\contentsline {subsection}{\numberline {2.2}Použitie autonómnych vozidiel}{16}{subsection.18}%
+\contentsline {subsubsection}{\numberline {2.2.1}Autonómne taxi služby}{16}{subsubsection.19}%
+\contentsline {subsubsection}{\numberline {2.2.2}Autonomizácia donášky jedla}{16}{subsubsection.20}%
+\contentsline {section}{\numberline {3}Komponenty systému}{18}{section.21}%
+\contentsline {subsection}{\numberline {3.1}Arduino Nano ESP32 mikrokontrolér}{18}{subsection.22}%
+\contentsline {subsection}{\numberline {3.2}ESP32-CAM + OV2640 kamera}{19}{subsection.24}%
+\contentsline {subsection}{\numberline {3.3}HC-SR04 Ultrazvukový senzor}{20}{subsection.26}%
+\contentsline {subsection}{\numberline {3.4}DRV8833 driver pre motorčeky}{20}{subsection.28}%
+\contentsline {subsection}{\numberline {3.5}Ďalšie elektrické komponenty}{21}{subsection.30}%
+\contentsline {subsection}{\numberline {3.6}Server}{21}{subsection.31}%
+\contentsline {section}{\numberline {4}Softvér}{22}{section.32}%
+\contentsline {subsection}{\numberline {4.1}C++}{22}{subsection.33}%
+\contentsline {subsection}{\numberline {4.2}Python}{22}{subsection.34}%
+\contentsline {subsection}{\numberline {4.3}OpenCV}{22}{subsection.35}%
+\contentsline {subsection}{\numberline {4.4}Ultralytics YOLOv8}{23}{subsection.36}%
+\contentsline {section}{\numberline {5}Návrh a implementácia}{24}{section.37}%
+\contentsline {subsection}{\numberline {5.1}Návrh komunikácie komponentov}{24}{subsection.38}%
+\contentsline {subsection}{\numberline {5.2}Návrh rámu a rozloženie komponentov}{27}{subsection.113}%
+\contentsline {subsection}{\numberline {5.3}Montovanie vozidla}{28}{subsection.115}%
+\contentsline {section}{\numberline {6}Detekcia}{30}{section.118}%
+\contentsline {subsection}{\numberline {6.1}Detekcia vozovky}{30}{subsection.119}%
+\contentsline {subsubsection}{\numberline {6.1.1}Region of interest}{30}{subsubsection.120}%
+\contentsline {subsubsection}{\numberline {6.1.2}Hľadanie tmavých regiónov}{31}{subsubsection.131}%
+\contentsline {subsubsection}{\numberline {6.1.3}Hľadanie kontúr vozovky}{31}{subsubsection.132}%
+\contentsline {subsection}{\numberline {6.2}Detekcia prekážok}{31}{subsection.133}%
+\contentsline {subsubsection}{\numberline {6.2.1}Ultrazvukový senzor}{31}{subsubsection.134}%
+\contentsline {subsubsection}{\numberline {6.2.2}CNN}{32}{subsubsection.156}%
+\contentsline {subsection}{\numberline {6.3}Interpretácia dát}{33}{subsection.158}%
+\contentsline {section}{\numberline {7}Metodika a testovanie}{34}{section.159}%
+\contentsline {subsection}{\numberline {7.1}Metodika}{34}{subsection.160}%
+\contentsline {subsection}{\numberline {7.2}Testovanie}{34}{subsection.161}%
+\contentsline {section}{\numberline {8}Výsledky}{35}{section.162}%
+\contentsline {section}{Z\'{a}ver}{36}{section*.163}%
+\contentsline {section}{Literatúra}{37}{section*.164}%
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
@@ -180,7 +180,7 @@
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
-\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{38}{section*.142}%
-\contentsline {section}{\numberline {A}Algoritmus}{39}{section.144}%
-\contentsline {section}{\numberline {B}Výpis dlhého kódu}{40}{section.147}%
-\contentsline {section}{\numberline {C}Slovníček pojmov}{41}{section.150}%
+\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{39}{section*.165}%
+\contentsline {section}{\numberline {A}Algoritmus}{40}{section.167}%
+\contentsline {section}{\numberline {B}Výpis dlhého kódu}{41}{section.170}%
+\contentsline {section}{\numberline {C}Slovníček pojmov}{42}{section.173}%

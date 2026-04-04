@@ -162,7 +162,7 @@ Dôsledkom nízkeho výpočtového výkonu mikrokontrolérov Arduino sme použil
 	\caption{Diagram komunikácie komponentov}
 	\label{fig:spojenie}
 \end{figure}
-Server je v našom projekte laptop, ktorý taktiež spúšťa Wi-Fi sieť na komunikáciu s komponentmi. Všetky funkcie webserveru sme programovali pomocou jazyka Python. Bezdrôtový pripojný bod sme vytvorili NetworkManagerom, nástrojom na konfiguráciu sieťových zariadení v operačnom systéme Linux, pomocou ktorého sme sieťovú kartu našeho laptopu zmenili na prípojný bod Wi-Fi hotspotu. Na spustenie tohto programu v Pythone sme použili knižnicu subprocess. \par
+Server je v našom projekte laptop, ktorý taktiež spúšťa Wi-Fi sieť na komunikáciu s komponentmi - viď obrázok \ref{fig:spojenie}. Všetky funkcie webserveru sme programovali pomocou jazyka Python. Bezdrôtový pripojný bod sme vytvorili NetworkManagerom, nástrojom na konfiguráciu sieťových zariadení v operačnom systéme Linux, pomocou ktorého sme sieťovú kartu našeho laptopu zmenili na prípojný bod Wi-Fi hotspotu. Na spustenie tohto programu v Pythone sme použili knižnicu subprocess. \par
 \lstset{style=code}
 \begin{lstlisting}[language=Python, caption=Zapnutie Wi-Fi hotspotu]
 import subprocess
@@ -257,7 +257,7 @@ Model bol vytlačený na tlačiarni Bambulab A1 mini, použitím filamentu kysel
 \subsection{Montovanie vozidla}
 Po získaní všetkých potrebných komponentov sme začali s montážou vozidla. Na prepojenie súčiastok sme použili nepájivé pole a farebne odlíšené vodiče. Jednotlivé elektronické prvky sme zapojili podľa definície pinov v kóde. Nepájivé pole sme na rám vozidla pomocou lepiacej vrstvy na jeho spodnej strane.\par
 K motorčekom sme prispájkovali káble, pripevnili kolesá a nalepili pásku na zvýšenie trenia. Celú sústavu pre obe strany sme následne zasunuli do vyhradených držiakov. Kameru a ultrazvukový senzor sme vložili do držiaku, ktorý sme pripevnili k vozidlu pomocou sťahovacích pások.\par
-K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali.
+K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali -- viď obrázok \ref{vozidlo1} a \ref{vozidlo2}.
 \newpage
 \begin{figure}[!ht]
 	\centering
@@ -275,12 +275,12 @@ K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a men
 \clearpage
 \section{Detekcia}\label{sec:Detekcia}
 \subsection{Detekcia vozovky}
-Detekcia jazdných pruhov a hraníc vozovky predstavuje jeden z kritických systémov autonómnych vozidiel. Jej hlavnou úlohou je identifikovať cestu, udržať sa na nej a správne zareágovať v prípade zmien vozovky. \acrshort{av} sú schopné túto funkciu vykonávať fúziou rôznych senzorov. Táto podkapitola sa zaoberá metódami spracovania dát, ktoré umožnujú systému identifikovať vozovku od prostredia.
+Detekcia jazdných pruhov a hraníc vozovky predstavuje jeden z kritických subsystémov autonómnych vozidiel. Jej hlavnou úlohou je identifikovať cestu, udržať sa na nej a správne zareágovať v prípade zmien vozovky. \acrshort{av} sú schopné túto funkciu vykonávať fúziou rôznych senzorov. Táto podkapitola sa zaoberá metódami spracovania dát, ktoré umožnujú systému identifikovať vozovku od prostredia.
 \subsubsection{Region of interest}
 \acrfull{roi}, po slovensky oblasť záujmu, je časť datasetu, ktorá je vybraná pre určitý dôvod. V kontexte autonómnych vozidiel sa \acrshort{roi} používa na ohraničenie určitej oblasti obrazového vstupu kamier, ktorá je pre daný systém detekcie relevantná.\par
 Pri implementácii detekcie vozovky sme použili \acrshort{roi} ako prvý krok pred-spracovania. Vozovka sa v drvivej väčšine prípadov nachádza v spodnej polovici obrazu a spracovanie hornej časti zbytočne vnáša nepotrebné informácie, čo spôsobuje vizuálny šum a zaťažuje procesor.\par
 Na oddelenie \acrshort{roi} sme použili funkcie dostupné v knižnici OpenCV.\par
-\begin{lstlisting}[language=Python, caption=Funkcia \acrshort{roi}]
+\begin{lstlisting}[language=Python, caption=Funkcia ROI]
 def region_of_interest(frame):
     h, w = frame.shape[:2]
     roi_height = 100
@@ -290,12 +290,64 @@ def region_of_interest(frame):
 
     return roi_mask
 \end{lstlisting}
-Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný obraz, pričom všetky jej prvky boli nastavené na maximálnu hodnotu 8-bitového rozsahu (255). Následne bola do tejto matice prenesená relevantná časť datasetu od vopred definovanej vertikálnel hranice \verb|roi_height| smerom nadol. Výsledkom je obraz, kde sú spracované len tie pixely, ktoré sú v spodnej polovici obrazu a pravdepodobne obsahujú informácie o vozovke.
+Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný obraz, pričom všetky jej prvky boli nastavené na maximálnu hodnotu 8-bitového rozsahu (255). Následne bola do tejto matice prenesená relevantná časť datasetu od vopred definovanej vertikálnel hranice \verb|roi_height| smerom nadol. Výsledok, viditeľný na obrázku \ref{fig:roi}, je obraz, kde sú spracované len tie pixely, ktoré sú v spodnej polovici obrazu a pravdepodobne obsahujú informácie o vozovke.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.20]{img/roi.jpg}
+	\caption{Obraz s použitím ROI}
+	\label{fig:roi}
+\end{figure}
 \subsubsection{Hľadanie tmavých regiónov}
 \subsubsection{Hľadanie kontúr vozovky}
-\subsection{Detekcia prekážky}
+\subsection{Detekcia prekážok}
+Dôležitým pilierom bezpečnosti autonómnych vozidiel je schopnosť detekcie prekážok. V reálnom čase musia identifikovať a klasifikovať prekážku na vozovke alebo v jej blízkosti a adekvátne na ňu reagovať. Tento proces využíva dáta z rôznych senzorov na vyhodnotenie situácie. Na základe týchto dát dokáže \acrshort{av} obísť objekt alebo zastaviť. V tejto podkapitole si vysvetlíme použité metódy na detekciu prekážok.
 \subsubsection{Ultrazvukový senzor}
+Ultrazvukové senzory sa používajú v autonómnych vozidlách na detekciu objektov na krátke vzdialenosti, näjme na prevenciu kolízie pri pomalých rýchlostiach, ako sú napríklad parkovacie manévre. Na rozdiel od fotoelektrických senzorov (napr. \acrshort{radar}), nie sú ovplyvnené farbou alebo odrazivosťou cieľa, pretože používajú zvuk a nie svetlo.\par
+Pri našej implementácii sme použili ultrazvukový senzor na detekciu prekážok priamo pred vozidlom. Použitý HC-SR04 ultrazvukový senzor funguje ako vysielač, prijímač aj riadiaci obvod. Princíp merania vzdialenosti je nasledovný:
+\begin{enumerate}
+	\item Arduino pošle signál vysokej úrovne na \verb|Trig| pin ultrazvukového senzora.
+	\item Modul pošle osem 40kHz signálov a nastaví vysokú úroveň na pine \verb|Echo|.
+	\item Spustí sa časovač, zatiaľ čo senzor očakáva návratový signál.
+	\item Ak zaznamená pulz, zastaví časovač a zníži hodnotu \verb|Echo| pinu.
+\end{enumerate}
+Obrázok \ref{fig:ultrazvuk} ilustruje tento proces. 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.12]{img/ultrazvuk.png}
+	\caption{Diagram fungovania ultrazvukového senzora}
+	\label{fig:ultrazvuk}
+\end{figure}
+Keďže máme rýchlosť zvuku\footnote{Používame rýchlosť zvuku pri suchom 20$^\circ$C vzduchu, čo je 343m/s.} a čas za ktorý sa signál vrátil, vieme vypočítať vzdialenosť vozidla a objektu pred ním. Rovnica na výpočet vzdialenosti je nasledovná:
+\[ vzdialenosť = \frac{nameraný\, čas}{2} * rýchlosť\, zvuku\]
+Ultrazvukový modul riadime pomocou dvoch pinov mikrokontroléra Arduino. Jeden pin, nastavený na mód OUTPUT, používame sa zaslanie vysokej hodnoty na modul. Druhý pin, nastavený na mód INPUT, je určený na získanie signálu zo senzora; na tento pin sme pripojili rutinu prerušenia.
+\begin{lstlisting}[language=C++, caption=Obsluha prerušenia ultrazvukového senzora]
+void IRAM_ATTR echoISR() {
+  if (digitalRead(ECHO_PIN)) {
+    echoStart = micros();
+  } else {
+    echoEnd = micros();
+    echoDone = true;
+  }
+}
+\end{lstlisting}
+Keďže je tento výpočet náročnejší, merania prebiehajú v 50 ms intervaloch. Samotný výpočet sa vykonáva v rámci danej iterácie hlavného cyklu.
+\begin{lstlisting}[language=C++, caption=Výpočet vzdialenosti z merania ultrazvukového senzora]
+  if (echoDone) {
+    uint32_t duration = echoEnd - echoStart;
+    distance = duration / 58;
+    echoDone = false;
+  }
+\end{lstlisting}
+Z dôvodu zjednodušenia výpočtu používame aproximáciu skutočnej vzdialenosti v centimetroch. Ak sa meraný predmet nachádza vo vzdialenosti do 10 cm, vozidlo zastaví.
 \subsubsection{CNN}
+\acrfull{cnn}, po slovensky konvolučná neurónová sieť, je typ doprednej neurónovej siete, ktorá používa optimalizáciu filtrov. Tento typ hlbokej neurónovej siete sa štandardne používa pri počítačovom videní a spracovaní obrazu. Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebným prvkom je takzvaná konvolučná vrstva, ktorá obsahuje rôzne filtre -- matice váh. Počas doprednej propagácie sa po celej výške a šírke vstupnej matice počíta skalárny súčin pre každý filter konvolučnej vrstvy. Výsledkom je dvojrozmerná aktivačná mapa daného filtra. \acrshort{cnn} sa učia vytvárať filtre, ktoré sa aktivujú v prípade, že sa na vstupe nachádza požadovaná vlastnosť. Ďalšie vrstvy ako združovacia (pooling) vrstva sa používa na zmenšenie rozmerov vstupnej matice, ReLU vrstva na odstránenie záporných hodnôt a plne prepojená (fully connected) vrstva na finálnu klasifikáciu. Obrázok \ref{fig:cnn} ilustruje bežnú konvolučnú neurónovú sieť.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.40]{img/cnn.png}
+	\caption{Typická CNN}
+	\footnotesize{Aphex34, licencované pod \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}, cez Wikimedia Commons.}
+	\label{fig:cnn}
+\end{figure}
 \subsection{Interpretácia dát}
 
 \section{Metodika a testovanie}\label{sec:MetodikaATestovanie}
