@@ -57,7 +57,7 @@ def videoLoop():
             cv.putText(frame, "Lane not detected", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
         #All inputs have to be 3-dimensional
-        videogrid = tf.video_grid((frame, cv.cvtColor(mask, cv.COLOR_GRAY2BGR)))
+        videogrid = tf.video_grid((frame, cv.cvtColor(mask, cv.COLOR_GRAY2BGR), roi))
         cv.imshow("Lane detection", videogrid)
 
         if cv.waitKey(1) & 0xFF == 27:  # ESC

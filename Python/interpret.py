@@ -21,16 +21,4 @@ def compute_steering(cx, width=320):
 
 
 def avoid_obstacles(detections, half_frame_width=160):
-    steering = 0
-
-    for det in detections.boxes:
-        x1, y1, x2, y2 = map(int, det.xyxy[0])
-
-        cx = (x1 + x2) // 2
-        height = y2 - y1
-
-        if height > half_frame_width:
-            offset = (cx - half_frame_width) / half_frame_width
-            steering += -offset
-
-    return steering
+    return 0

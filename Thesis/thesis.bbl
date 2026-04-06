@@ -46,8 +46,8 @@
       \list{publisher}{1}{%
         {SAE International}%
       }
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labeltitlesource}{title}
       \field{subtitle}{Levels or categories of driving automation}
       \field{title}{J3016\_202104: Taxonomy and Definitions for Terms Related to Driving Automation Systems for On-Road Motor Vehicles}
@@ -105,8 +105,8 @@
       \strng{authornamehash}{b6695fcacf48174996cfb11631a622b8}
       \strng{authorfullhash}{309468c63b3822c6a996c17f694ce9e6}
       \strng{authorfullhashraw}{309468c63b3822c6a996c17f694ce9e6}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2079-9292}
@@ -151,8 +151,8 @@
       \strng{authornamehash}{e718b5af88a524570f1f64c1f60d8162}
       \strng{authorfullhash}{e718b5af88a524570f1f64c1f60d8162}
       \strng{authorfullhashraw}{e718b5af88a524570f1f64c1f60d8162}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Where to next? Insights from autonomous-vehicle experts}
@@ -187,8 +187,8 @@
       \strng{authornamehash}{95e1a6a9d1fb58c230883ea4f154bcaf}
       \strng{authorfullhash}{95e1a6a9d1fb58c230883ea4f154bcaf}
       \strng{authorfullhashraw}{95e1a6a9d1fb58c230883ea4f154bcaf}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{The Great Sensor War Behind Self-Driving Cars Just Got Way More Interesting}
@@ -223,8 +223,8 @@
       \strng{authornamehash}{83bb71e073fe49c61a6f9b08624c1d3e}
       \strng{authorfullhash}{83bb71e073fe49c61a6f9b08624c1d3e}
       \strng{authorfullhashraw}{83bb71e073fe49c61a6f9b08624c1d3e}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{NVIDIA Announces Alpamayo Family of Open-Source AI Models and Tools to Accelerate Safe, Reasoning-Based Autonomous Vehicle Development}
@@ -259,8 +259,8 @@
       \strng{authornamehash}{469361e07cc90747b1185b1969de4dff}
       \strng{authorfullhash}{469361e07cc90747b1185b1969de4dff}
       \strng{authorfullhashraw}{469361e07cc90747b1185b1969de4dff}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Nvidia and UK Wealth Fund invest in British autonomous driving startup Oxa}
@@ -280,8 +280,8 @@
       \list{organization}{1}{%
         {Autonomous Vehicles \& AI}%
       }
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{title}{Waymo Slims Sensors to Drive Down Robotaxi Costs}
       \field{urlday}{4}
@@ -322,8 +322,8 @@
       \strng{authornamehash}{c255c0a8e96441544af96ad68fc2cb9c}
       \strng{authorfullhash}{c255c0a8e96441544af96ad68fc2cb9c}
       \strng{authorfullhashraw}{c255c0a8e96441544af96ad68fc2cb9c}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Artificial Intelligence In Self-Driving: Study of Advanced Current Applications}
@@ -476,8 +476,8 @@
       \strng{authornamehash}{e997a470100bc031fb3cf68ebd2c0c4c}
       \strng{authorfullhash}{f7271deee1a9c2f84910fac5b491d978}
       \strng{authorfullhashraw}{f7271deee1a9c2f84910fac5b491d978}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0957-4174}
@@ -520,8 +520,8 @@
       \strng{authornamehash}{4bcb75e26ec9ddef02307fd9c2604b5e}
       \strng{authorfullhash}{4bcb75e26ec9ddef02307fd9c2604b5e}
       \strng{authorfullhashraw}{4bcb75e26ec9ddef02307fd9c2604b5e}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Tesla Launches Unsupervised Robotaxi Rides in Austin}
@@ -563,8 +563,8 @@
       \strng{authornamehash}{3d36416e1a98840f565b6d109209faee}
       \strng{authorfullhash}{3d36416e1a98840f565b6d109209faee}
       \strng{authorfullhashraw}{3d36416e1a98840f565b6d109209faee}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1366-5545}
@@ -605,8 +605,8 @@
       \strng{authornamehash}{5e35049013b541ccd7c72c87f4004780}
       \strng{authorfullhash}{5e35049013b541ccd7c72c87f4004780}
       \strng{authorfullhashraw}{5e35049013b541ccd7c72c87f4004780}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Starship’s 2,700 Robots Have Made 9M Deliveries. Now They’re Coming To Your City}
@@ -626,8 +626,8 @@
       \list{organization}{1}{%
         {Arduino®}%
       }
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{howpublished}{SKU: ABX00083}
       \field{title}{Arduino® Nano ESP32}
@@ -642,8 +642,8 @@
       \list{organization}{1}{%
         {DFRobot}%
       }
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{howpublished}{SKU: DFR602}
       \field{title}{ESP32-CAM Development Board}
@@ -658,8 +658,8 @@
       \list{organization}{1}{%
         {OmniVision}%
       }
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{title}{OV2640 Color CMOS UXGA (2.0 MegaPixel) CAMERA CHIPTM with OmniPixel2TM Technology}
       \verb{urlraw}
@@ -673,8 +673,8 @@
       \list{organization}{1}{%
         {ElecFreaks}%
       }
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{title}{Ultrasonic Ranging Module HC - SR04}
       \verb{urlraw}
@@ -688,8 +688,8 @@
       \list{organization}{1}{%
         {Texas Instruments}%
       }
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{howpublished}{SKU: SLVSAR1E}
       \field{title}{DRV8833 Dual H-Bridge Motor Driver}
@@ -719,8 +719,8 @@
       \strng{authornamehash}{4975813514faee20fb6fcdb39a08af6f}
       \strng{authorfullhash}{4975813514faee20fb6fcdb39a08af6f}
       \strng{authorfullhashraw}{4975813514faee20fb6fcdb39a08af6f}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{4}
@@ -757,8 +757,8 @@
       \strng{authornamehash}{2a6fcba16a9ad0207aa3d5e4a341ab88}
       \strng{authorfullhash}{2a6fcba16a9ad0207aa3d5e4a341ab88}
       \strng{authorfullhashraw}{2a6fcba16a9ad0207aa3d5e4a341ab88}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-0984221233}
@@ -798,8 +798,8 @@
       \strng{authornamehash}{94fd3738e4900100412f1c7d2b27d99e}
       \strng{authorfullhash}{94fd3738e4900100412f1c7d2b27d99e}
       \strng{authorfullhashraw}{94fd3738e4900100412f1c7d2b27d99e}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1542-7730}
@@ -826,8 +826,8 @@
       \list{organization}{1}{%
         {OpenCV}%
       }
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labeltitlesource}{title}
       \field{title}{Open Source Computer Vision Library}
       \field{urlday}{16}
@@ -840,6 +840,92 @@
       \endverb
       \verb{url}
       \verb https://github.com/opencv/opencv
+      \endverb
+    \endentry
+    \entry{cnnvc}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=173b92a99e0f805399cbedaf80c1baa0}{%
+           family={Venkatesan},
+           familyi={V\bibinitperiod},
+           given={Baoxin},
+           giveni={B\bibinitperiod},
+           suffix={Ragav;\bibnamedelima Li},
+           suffixi={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{173b92a99e0f805399cbedaf80c1baa0}
+      \strng{fullhash}{173b92a99e0f805399cbedaf80c1baa0}
+      \strng{fullhashraw}{173b92a99e0f805399cbedaf80c1baa0}
+      \strng{bibnamehash}{173b92a99e0f805399cbedaf80c1baa0}
+      \strng{authorbibnamehash}{173b92a99e0f805399cbedaf80c1baa0}
+      \strng{authornamehash}{173b92a99e0f805399cbedaf80c1baa0}
+      \strng{authorfullhash}{173b92a99e0f805399cbedaf80c1baa0}
+      \strng{authorfullhashraw}{173b92a99e0f805399cbedaf80c1baa0}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-351-65032-8}
+      \field{title}{Convolutional Neural Networks in Visual Computing: A Concise Guide}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://books.google.sk/books?id=bAM7DwAAQBAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.sk/books?id=bAM7DwAAQBAJ
+      \endverb
+    \endentry
+    \entry{ciregan2012}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=dd1f854d82b8609d3bad746e2f2e93da}{%
+           family={Ciregan},
+           familyi={C\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=be71dea014b345d130231579ad7a5115}{%
+           family={Meier},
+           familyi={M\bibinitperiod},
+           given={Ueli},
+           giveni={U\bibinitperiod}}}%
+        {{hash=288bdbcfe1b91ad7484d7a24f74f99ed}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{8fe7912e702ac09efe5e14ecd70624f3}
+      \strng{fullhash}{8fe7912e702ac09efe5e14ecd70624f3}
+      \strng{fullhashraw}{8fe7912e702ac09efe5e14ecd70624f3}
+      \strng{bibnamehash}{8fe7912e702ac09efe5e14ecd70624f3}
+      \strng{authorbibnamehash}{8fe7912e702ac09efe5e14ecd70624f3}
+      \strng{authornamehash}{8fe7912e702ac09efe5e14ecd70624f3}
+      \strng{authorfullhash}{8fe7912e702ac09efe5e14ecd70624f3}
+      \strng{authorfullhashraw}{8fe7912e702ac09efe5e14ecd70624f3}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2012 IEEE Conference on Computer Vision and Pattern Recognition}
+      \field{title}{Multi-column deep neural networks for image classification}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2012}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1109/CVPR.2012.6248110
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/pdf/1202.2745
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/pdf/1202.2745
       \endverb
     \endentry
     \entry{make2023}{article}{}{}
@@ -868,8 +954,8 @@
       \strng{authornamehash}{48956cf27f42e7a960d148f7da00585f}
       \strng{authorfullhash}{48956cf27f42e7a960d148f7da00585f}
       \strng{authorfullhashraw}{48956cf27f42e7a960d148f7da00585f}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2504-4990}
@@ -920,8 +1006,8 @@
       \strng{authornamehash}{1d270278cb86ffcfd6356ed5db820a38}
       \strng{authorfullhash}{1d270278cb86ffcfd6356ed5db820a38}
       \strng{authorfullhashraw}{1d270278cb86ffcfd6356ed5db820a38}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Ultralytics YOLO}
