@@ -147,6 +147,8 @@ V našej implementácii používame Python na vytvorenie Wi-Fi servera, spracova
 \subsection{OpenCV}
 OpenCV je knižnica programovacích funkcií určených na počítačové videnie v reálnom čase, ktorú pôvodne vyvinula spoločnosť Intel. Využíva sa v oblastiach detekcie objektov, tvárí a gest, pri vizuálnej odometrii, vnímaní hĺbky či v augmentovanej realite. Knižnica OpenCV je napísaná v programovacom jazyku C++, no ponúka rozhrania pre integráciu v ďalších jazykoch, ako sú Python, Java alebo MATLAB~\cite{acm2012}\cite{opencv2025}.\par
 V našej implementácii používame OpenCV na detekciu vozovky a analýzu jazdných pruhov.
+\subsection{NumPy}
+NumPy je knižnica
 \subsection{CNN}
 \acrfull{cnn}, po slovensky konvolučná neurónová sieť, je typ doprednej neurónovej siete, ktorá používa optimalizáciu filtrov. Tento typ hlbokej neurónovej siete sa štandardne používa pri počítačovom videní a spracovaní obrazu~\cite{cnnvc}.\par
 Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebným prvkom je takzvaná konvolučná vrstva, ktorá obsahuje rôzne filtre -- matice váh. Počas doprednej propagácie sa po celej výške a šírke vstupnej matice počíta skalárny súčin pre každý filter konvolučnej vrstvy. Výsledkom je dvojrozmerná aktivačná mapa daného filtra. \acrshort{cnn} sa učia vytvárať filtre, ktoré sa aktivujú v prípade, že sa na vstupe nachádza požadovaná vlastnosť. Ďalšie vrstvy ako združovacia (pooling) vrstva sa používa na zmenšenie rozmerov vstupnej matice, ReLU vrstva na odstránenie záporných hodnôt a plne prepojená (fully connected) vrstva na finálnu klasifikáciu~\cite{cnnvc}.\par
@@ -180,14 +182,20 @@ def region_of_interest(frame):
 
     return roi_mask
 \end{lstlisting}
-Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný obraz, pričom všetky jej prvky boli nastavené na maximálnu hodnotu 8-bitového rozsahu (255). Následne bola do tejto matice prenesená relevantná časť datasetu od vopred definovanej vertikálnel hranice \verb|roi_height| smerom nadol. Výsledok, viditeľný na obrázku \ref{fig:roi}, je obraz, kde sú spracované len tie pixely, ktoré sú v spodnej polovici obrazu a pravdepodobne obsahujú informácie o vozovke.
+Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný obraz, pričom všetky jej prvky boli nastavené na maximálnu hodnotu 8-bitového rozsahu (255). Túto maticu sme si definovali pomocou knižnice NumPy. Následne bola do tejto matice prenesená relevantná časť datasetu od vopred definovanej vertikálnel hranice \verb|roi_height| smerom nadol. Výsledok, viditeľný na obrázku \ref{fig:roi}, je obraz, kde sú spracované len tie pixely, ktoré sú v spodnej polovici obrazu a pravdepodobne obsahujú informácie o vozovke.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.20]{img/roi.jpg}
+	\includegraphics[scale=0.60]{img/roi.png}
 	\caption{Obraz s použitím ROI}
 	\label{fig:roi}
 \end{figure}
 \subsubsection{Hľadanie tmavých regiónov}
+Hľadanie tmavých regiónov na vozovke je jednoduchý a výpočtovo nenáročný spôsob detekcie jazdných pruhov. Autonómne vozidlá dokážu detekovať svetlý jazdný pruh na tmavom asfalte vďaka kontraste týchto dvoch plôch. V princípe používame rovnaký prístup, no v našej implementácii hľadáme čierny pruh v strede bielej vozovky. Tento postup dosahuje lepšie výsledky v zhoršených svetelných podmienkach.\par
+Najprv je potrebné si definovať hranice pre najsvetlejší a najtmavší tmavý región. V kóde si definujeme hranice ako NumPy pole s reprezentáciou vo formáte odtieň-sýtosť-jas (HSV). Odtieň (hue) predstavuje hodnotu od 0 po 179 -- čiže polohu na farebnom kolese. Sýtosť (saturation) je percentuálne vyjadrenie "čistoty" farby -- t.j. množstvo šedej; volíme čísla od 0 po 255. Jas (Value) určuje intenzitu svetla. Hodnota 0 predstavuje absolútnu čiernu, zatiaľ čo hodnota 255 zodpovedá maximálnemu jasu farby.\par
+\begin{lstlisting}[language=Python, caption=Definície maxima a minima tmavých regiónov]
+lower_black = np.array([0, 0, 0])
+upper_black = np.array([180, 255, 70])
+\end{lstlisting}
 \subsubsection{Hľadanie kontúr vozovky}
 \subsection{Detekcia prekážok}
 Dôležitým pilierom bezpečnosti autonómnych vozidiel je schopnosť detekcie prekážok. V reálnom čase musia identifikovať a klasifikovať prekážku na vozovke alebo v jej blízkosti a adekvátne na ňu reagovať. Tento proces využíva dáta z rôznych senzorov na vyhodnotenie situácie. Na základe týchto dát dokáže \acrshort{av} obísť objekt alebo zastaviť. V tejto podkapitole si vysvetlíme použité metódy na detekciu prekážok~\cite{badue2021}.
@@ -335,17 +343,17 @@ void loop() {
 \end{lstlisting}
 \subsection{Návrh rámu a rozloženie komponentov}
 Správny návrh rámu a rozloženia komponentov na ňom je doležité pre správne fungovanie celého systému. V našej implementácii sme sa zamerali na minimalizovanie váhy vozidla a maximalizovanie kompaktnosti komponentov a tým ich zohranie.\par
-Na návrh rámu sme použili softvér Blender -- populárny, všeobecne používaný program na dizajn, modelovanie a animáciu, ktorý umožnuje exportovať do formáte .stl, ideálneho pre 3D tlač. Po odmeraní všetkých komponentov, sme začali pracovať na prototype rámu. Vyskúšali sme mnoho návrhov, kde sme otestovali rôzne rozloženia a orientácie súčiastok. Zvolili sme si dizajn s dvoma kolesami vpredu a zadnou vidlicou, ktorá je vymeniteľná (pre prípad opotrebovania alebo zmeny povrchu). Najťažšie komponenty -- batériu a menič napätia -- sme umiestnili na spodok vozidla, aby sme znížili ťažiško a zvýšili stabilitu. Pridali sme držiak na kameru a ultrazvukový senzor na stabilizáciu obrazu. Kolesá sme navrhli ako duté valce s cieľom minimalizovania hmotnosti.\par
+Na návrh rámu sme použili softvér Blender -- populárny, všeobecne používaný program na dizajn, modelovanie a animáciu, ktorý umožnuje exportovať do formáte .stl, ideálneho pre 3D tlač. Po odmeraní všetkých komponentov, sme začali pracovať na prototype rámu. Vyskúšali sme mnoho návrhov, kde sme otestovali rôzne rozloženia a orientácie súčiastok. Zvolili sme si dizajn s dvoma kolesami vpredu a zadnou vidlicou, ktorá je vymeniteľná (pre prípad opotrebovania alebo zmeny povrchu). Najťažšie komponenty -- batériu a menič napätia -- sme umiestnili na spodok vozidla, aby sme znížili ťažiško a zvýšili stabilitu. Pridali sme držiak na kameru a ultrazvukový senzor na stabilizáciu obrazu.\par
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.35]{img/model.png}
 	\caption{3D model vozidla}
 	\label{fig:model}
 \end{figure}
-Model bol vytlačený na tlačiarni Bambulab A1 mini, použitím filamentu kyseliny polymliečnej (PLA). Na kolesá vozidla sme zasa využili odolnejší polyetyléntereftálat modifikovaný glykolom (PETG).\par
+Model bol vytlačený na tlačiarni Bambulab A1 mini, použitím filamentu kyseliny polymliečnej (PLA). Prvotne boli kolesá vytlačené z polyetyléntereftelátu (PET) a doplnené o protišmykový polep, no tento povrch nedosahoval požadovaný stupeň trakcie. Zakúpili sme dve kolesá s priemerom 43mm, gumeným povrchom a oskou určenou pre náš typ motorčekov.\par
 \subsection{Montovanie vozidla}
 Po získaní všetkých potrebných komponentov sme začali s montážou vozidla. Na prepojenie súčiastok sme použili nepájivé pole a farebne odlíšené vodiče. Jednotlivé elektronické prvky sme zapojili podľa definície pinov v kóde. Nepájivé pole sme na rám vozidla pomocou lepiacej vrstvy na jeho spodnej strane.\par
-K motorčekom sme prispájkovali káble, pripevnili kolesá a nalepili pásku na zvýšenie trenia. Celú sústavu pre obe strany sme následne zasunuli do vyhradených držiakov. Kameru a ultrazvukový senzor sme vložili do držiaku, ktorý sme pripevnili k vozidlu pomocou sťahovacích pások.\par
+K motorčekom sme prispájkovali káble a pripevnili kolesá. Celú sústavu pre obe strany sme následne zasunuli do vyhradených držiakov. Kameru a ultrazvukový senzor sme vložili do držiaku, ktorý sme pripevnili k vozidlu pomocou sťahovacích pások.\par
 K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali -- viď obrázok \ref{fig:vozidlo1} a \ref{fig:vozidlo2}.
 \newpage
 \begin{figure}[!ht]
