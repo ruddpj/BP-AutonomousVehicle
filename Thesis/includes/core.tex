@@ -196,6 +196,19 @@ Najprv je potrebné si definovať hranice pre najsvetlejší a najtmavší tmav�
 lower_black = np.array([0, 0, 0])
 upper_black = np.array([180, 255, 70])
 \end{lstlisting}
+V ďalšom kroku konvertujeme obraz z kamery z pôvodného blue-green-red (BGR) formátu na HSV reprezentáciu pomocou OpenCV funkcie \verb|cvtColor| s argumentom \verb|COLOR_BGR2HSV|. Volaním funkcie \verb|inRange| s nami definovanými hranicami dostaneme zamaskované tie pixely, ktoré spadajú do tohto rozmedzia.\par
+Výstup obsahuje šum a diery, ktoré môžu vniesť nesprávne výsledky, preto ich musíme eliminovať. Daný efekt vieme dosiahnuť pomocou morfologickej transformácie. Šum predstavuje malé izolované regióny pixelov, ktoré do obrazu nepatria. Proces erózie vie tento šum odstrániť -- v kóde je to volaním funkcie \verb|morphologyEx| s argumentom \verb|MORPH_OPEN| a maticou jednotiek, ktorá funguje ako filter. Na uzavretie dier -- tmavých oblastí vo vnútri objektu -- používame rovnakú funkciu, no v tomto prípade s argumentom \verb|MORPH_CLOSE|. Tento postup sa nazýva dilatácia.
+\begin{lstlisting}[language=Python, caption=Maskovanie tmavých regiónov]
+def mask_road(frame):
+    hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+    mask = cv.inRange(hsv, lower_black, upper_black)
+
+    kernel = np.ones((5, 5), np.uint8)
+    mask = cv.morphologyEx(mask, cv.MORPH_OPEN, kernel)
+    mask = cv.morphologyEx(mask, cv.MORPH_CLOSE, kernel)
+
+    return mask
+\end{lstlisting}
 \subsubsection{Hľadanie kontúr vozovky}
 \subsection{Detekcia prekážok}
 Dôležitým pilierom bezpečnosti autonómnych vozidiel je schopnosť detekcie prekážok. V reálnom čase musia identifikovať a klasifikovať prekážku na vozovke alebo v jej blízkosti a adekvátne na ňu reagovať. Tento proces využíva dáta z rôznych senzorov na vyhodnotenie situácie. Na základe týchto dát dokáže \acrshort{av} obísť objekt alebo zastaviť. V tejto podkapitole si vysvetlíme použité metódy na detekciu prekážok~\cite{badue2021}.
