@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  15 APR 2026 18:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  15 APR 2026 23:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1806,25 +1806,28 @@ Overfull \hbox (19.03288pt too wide) in paragraph at lines 376--377
 
 
 [34]
-<img/vozidlo1.jpg, id=817, 2534.46875pt x 2017.5375pt>
+
+[35 <./img/model.png>]
+<img/vozidlo1.jpg, id=822, 2534.46875pt x 2017.5375pt>
 File: img/vozidlo1.jpg Graphic file (type jpg)
 <use img/vozidlo1.jpg>
-Package pdftex.def Info: img/vozidlo1.jpg  used on input line 387.
+Package pdftex.def Info: img/vozidlo1.jpg  used on input line 393.
 (pdftex.def)             Requested size: 304.12312pt x 242.09406pt.
-<img/vozidlo2.jpg, id=818, 3071.475pt x 2481.27pt>
+<img/vozidlo2.jpg, id=823, 3071.475pt x 2481.27pt>
 File: img/vozidlo2.jpg Graphic file (type jpg)
 <use img/vozidlo2.jpg>
-Package pdftex.def Info: img/vozidlo2.jpg  used on input line 393.
+Package pdftex.def Info: img/vozidlo2.jpg  used on input line 399.
 (pdftex.def)             Requested size: 307.1655pt x 248.14154pt.
 
 
-[35 <./img/model.png>]
+[36{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc} <./img
+/vozidlo1.jpg>]
 
-[36 <./img/vozidlo1.jpg> <./img/vozidlo2.jpg>])
+[37 <./img/vozidlo2.jpg>])
 
-[37] (./includes/conclusion.tex)
+[38] (./includes/conclusion.tex)
 
-[38
+[39
 
 
 ]
@@ -1833,28 +1836,28 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-[39
+[40
 
 
 ]
 
-[40] (./includes/ai_declaration.tex)
+[41] (./includes/ai_declaration.tex)
 
-[41] (./includes/attachmentA.tex)
+[42] (./includes/attachmentA.tex)
 
-[42
+[43
 
 
 
 
 ] (./includes/attachmentB.tex)
 
-[43
+[44
 
 
 ] (./includes/attachmentC.tex)
 
-[44
+[45
 
 
 ] (./thesis.aux)
@@ -1863,36 +1866,39 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 8F77EB83BC1DDAEA11CC0E3534D1E60F;8631.
+(rerunfilecheck)             Checksum: C00CBD80D7968999B29CCD827FBC8A4D;8743.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37857 strings out of 473190
- 685001 string characters out of 5715806
+ 37860 strings out of 473190
+ 685035 string characters out of 5715806
  1763371 words of memory out of 5000000
- 59970 multiletter control sequences out of 15000+600000
+ 59971 multiletter control sequences out of 15000+600000
  676927 words of font info for 237 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,131p,2372b,3128s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/tex
-mf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fon
-ts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
-lic/lm/lmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.
-pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/
-local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texl
-ive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025
-/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dis
-t/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
-e1/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
-lm/lmtt12.pfb>
-Output written on thesis.pdf (45 pages, 6166356 bytes).
+ve/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fo
+nts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/p
+ublic/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lm
+r12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></us
+r/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texl
+ive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fo
+nts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/
+public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/l
+m/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pf
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/loc
+al/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on thesis.pdf (46 pages, 6195227 bytes).
 PDF statistics:
- 1061 PDF objects out of 1200 (max. 8388607)
- 950 compressed objects within 10 object streams
- 295 named destinations out of 1000 (max. 500000)
+ 1092 PDF objects out of 1200 (max. 8388607)
+ 970 compressed objects within 10 object streams
+ 296 named destinations out of 1000 (max. 500000)
  71188 words of extra memory for PDF output out of 74296 (max. 10000000)
 
