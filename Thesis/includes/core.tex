@@ -1,5 +1,5 @@
 \section{Autonómne vozidlá}\label{sec:AutonomneVozidla}
-\subsection{Čo je to autonómne vozidlo?}
+\subsection{Čo je to autonómne vozidlo?} %TODO Natiahnuť
 \acrfull{av}, niekedy nazývané aj samoriadiace auto je dopravný prostriedok, ktorý, na rozdiel od tradičných vozidiel nevyžaduje vodiča. Autonómne vozidlá vykonávajú túto úlohu pomocou viacerých hardvérových a softvérových systémov. Hoci ani v roku 2026 nemá termín 'samoriadiace' jednotnú štadardnú definíciu, hlavným cieľom týchto technológií zostáva eliminácia ľudských chýb, zvýšenie efektivity premávky a sprístupnenie prepravy ľudom, ktorí nie sú schopní šoférovať sami.\par
 Na vnímanie okolia vozidla používame senzory detekcie objektov. Systém vnímania používa kamery, \acrfull{radar}, \acrfull{lidar} a ultrazvukové senzory, pričom každý z nich má špecifickú funkciu. Autonómne vozidlá často pracujú s čiastočne neznámym a dynamickým prostredím, preto si musia vystavať model svojho prostredia a zároveň sa v ňom lokalizovať. Tento proces je známy pod skratkou SLAM (súčasná lokalizácia a mapovanie). Spočíva v spracovaní dát zo senzorov, máp a systéme \glslink{gps}{globálneho polohovacieho systému} \acrshort{gps}, vďaka čomu si zariadenie vytvorí model prostredia a určí v ňom svoju polohu v reálnom čase~\cite{wevolver2020}.\par
 Tretí systém je zodpovedný za plánovanie a rozhodovanie. Na základe dát z predchádzajúcej vrstvy vozidlo vyhodnocuje a reaguje na vývoj dopravnej situácii. Táto vrstva má mnoho funkcií od plánovania trasy po vyhýbanie sa prekážkam. Najčastejšie sa používajú modely strojového učenia, vrátane neurónových sietí~\cite{wevolver2020}.\par
@@ -20,7 +20,7 @@ Posledným kľúčovým článkom je konanie a ovládanie. Systém ovládania vo
 \paragraph{Plná automatizácia}Najvyšší stupeň automatizácie, vozidlo dokáže jazdiť samostatne za všetkých podmienok, v ktorých dokáže jazdiť človek. Neexistuje potreba vodiča. Vozidlo zastaví v prípade zlyhania určitých modulov riadenia~\cite{saej3016}.
 
 \section{Analýza súčasného stavu}\label{sec:Analyza}
-\subsection{Aktuálny stav technológie}
+\subsection{Aktuálny stav technológie} %TODO Natiahnuť
 V posledných rokoch sme zaznamenali nárast vydaní automobilov tretej úrovne autonómnosti, autonómne taxi služby sa stávajú realizovateľným spôsobom dopravy v mestách a dostali sme prvé ukážky kamiónov bez nutnosti ľudského vodiča~\cite{electronics2022}\cite{mckinsey2026}.\par
 Vďaka vývoju v oblasti umelej inteligecie a zvýšenia výkonu výpočtových platforiem sme zaregistrovali značný pokrok v technológiách autonómnych vozidiel. Výrobcovia sa snažia zlepšovať kombinácie \acrshort{radar}ových, \acrshort{lidar}ových a kamerových dát tak, aby boli robustnejšie voči dopravným a poveternostným podmienkam. Pokračuje snaha v návrhu scenárov pre hraničné sitúacie, čím sa zlepší percepčná schopnosť autonómnych systémov a zrýchli ich nasadenie~\cite{motortrend2026}\cite{nvidia2026}.\par
 Autonómne vozidla zaznamenali značnú investíciu ale aj kontrolu zo strany štátnych a nadnárodných organizácií. Spoločnosti, ktoré poskytujú služby samoriadiacich vozidiel rozširujú svoju dostupnosť, znižujú počet senzorov a náklady na hardvér. Hoci technológický pokrok napreduje, integrácia do infraštruktúry mesta zostáva podstatnou výzvou pre adopciu \acrshort{av} do dopravy. Štandard SAE International preto opisuje plán prechodu od asistencie šoférovania po plne autonómnu prevádzku~\cite{theguardian2026}\cite{waymo2026}.
@@ -128,9 +128,9 @@ DRV8833 sme použili na nezávislé riadenie dvoch \acrshort{dc} motorov. Integr
 	\item Drive prúd: 1.5A (MAX pre jeden mostík)
 	\item Maximálny výkon: 15W
 \end{itemize}
-\subsection{Ďalšie elektrické komponenty}
-V implementácií sme použili Li-Ion akumulátor s napätím 7.4V a kapacitou 1500mAh. Pohon zabezpečujú dva \acrshort{dc} motorčeky s prevodovkou na 200\acrshort{rpm} pri 3V. Kvôli ochrane komponentov vyžadujúce 5V napájanie sme do systému zapojili menič napätia (step-down buck converter). Súčasťou zapojenia je taktiež kolískový prepínač na vypnutie/zapnutie systému.
-\subsection{Server}
+\subsection{Ďalšie elektrické komponenty} %TODO Natiahnuť
+V implementácií sme použili Li-Ion akumulátor s napätím 7.4V a kapacitou 3000mAh. Pohon zabezpečujú dva \acrshort{dc} motorčeky s prevodovkou na 200\acrshort{rpm} pri 3V. Kvôli ochrane komponentov vyžadujúce 5V napájanie sme do systému zapojili menič napätia (step-down buck converter). Súčasťou zapojenia je taktiež trojpólový, dvojpolohový prepínač na vypnutie/zapnutie systému.
+\subsection{Server} %TODO Vysvetliť klient server
 Server je počítač alebo softvér, ktorý poskytuje dáta, zdroje alebo služby iným počítačom. Táto architektúra sa nazýva klient-server model, kde server je podradený klientovi.\par
 Vzhľadom na obmedzený výpočtový výkon mikrokontrolérov Arduino, ktoré nie sú schopné vykonávať komplexné výpočty neurónových sietí v reálnom čase, sme do systému zaradili centrálny server. Ten zabezpečuje spracovanie obrazu a koordináciu bezdrótových periférií. V našej implementácii túto úlohu plní laptop, ktorý zároveň slúži ako prístupový bod pre Wi-Fi sieť.
 
@@ -146,13 +146,14 @@ Vďaka jeho jednoduchosti a rozširenej podpore knižníc sa Python používa pr
 V našej implementácii používame Python na vytvorenie Wi-Fi servera, spracovanie dát z kamery a následnú interpretáciu výsledkov do podoby príkazov pre pohyb kolies.
 \subsection{OpenCV}
 OpenCV je knižnica programovacích funkcií určených na počítačové videnie v reálnom čase, ktorú pôvodne vyvinula spoločnosť Intel. Využíva sa v oblastiach detekcie objektov, tvárí a gest, pri vizuálnej odometrii, vnímaní hĺbky či v augmentovanej realite. Knižnica OpenCV je napísaná v programovacom jazyku C++, no ponúka rozhrania pre integráciu v ďalších jazykoch, ako sú Python, Java alebo MATLAB~\cite{acm2012}\cite{opencv2025}.\par
-V našej implementácii používame OpenCV na detekciu vozovky a analýzu jazdných pruhov.
+V našej implementácii používame OpenCV na detekciu vozovky a analýzu jazdných pruhov. Nainštalovali sme ho pomocou systéma na správu balíkov pip príkazom \verb|pip install opencv-python|.
 \subsection{NumPy}
-NumPy je knižnica
+NumPy je knižnica pre programovací jazyk Python, ktorý pridáva podporu optimalizované polia, matice a matematické funkcie, ktoré s nimi pracuje~\cite{numpy}.\par
+Python interpretuje inštrukcie riadok po riadku, čo spomaľuje celkový program. Knižnica NumPy urýchľuje tento proces tým, že vykonáva výpočtovo náročné operácie vo vysoko optimalizovanom, kompilovanom C kóde. Taktiež mnoho operácií uvoľnujú globálny zámok interpreteru, čím dovoľuje paralelné spúšťanie viacerých vlakien viacjadrového procesora. Horeuvedená knižnica OpenCV používa NumPy na ukladanie dát a operácie s nimi~\cite{opencv2025}\cite{numpy}.\par
+V našej implementácii používame knižnicu NumPy na prácu s vektormi a maticami pri transformácii obrazových dát. Bola inštalovaná použitím príkazu \verb|pip install numpy|.
 \subsection{CNN}
 \acrfull{cnn}, po slovensky konvolučná neurónová sieť, je typ doprednej neurónovej siete, ktorá používa optimalizáciu filtrov. Tento typ hlbokej neurónovej siete sa štandardne používa pri počítačovom videní a spracovaní obrazu~\cite{cnnvc}.\par
-Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebným prvkom je takzvaná konvolučná vrstva, ktorá obsahuje rôzne filtre -- matice váh. Počas doprednej propagácie sa po celej výške a šírke vstupnej matice počíta skalárny súčin pre každý filter konvolučnej vrstvy. Výsledkom je dvojrozmerná aktivačná mapa daného filtra. \acrshort{cnn} sa učia vytvárať filtre, ktoré sa aktivujú v prípade, že sa na vstupe nachádza požadovaná vlastnosť. Ďalšie vrstvy ako združovacia (pooling) vrstva sa používa na zmenšenie rozmerov vstupnej matice, ReLU vrstva na odstránenie záporných hodnôt a plne prepojená (fully connected) vrstva na finálnu klasifikáciu~\cite{cnnvc}.\par
-Obrázok \ref{fig:cnn} zobrazuje bežnú konvolučnú neurónovú sieť.\par
+Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebným prvkom je takzvaná konvolučná vrstva, ktorá obsahuje rôzne filtre -- matice váh. Počas doprednej propagácie sa po celej výške a šírke vstupnej matice počíta skalárny súčin pre každý filter konvolučnej vrstvy. Výsledkom je dvojrozmerná aktivačná mapa daného filtra. \acrshort{cnn} sa učia vytvárať filtre, ktoré sa aktivujú v prípade, že sa na vstupe nachádza požadovaná vlastnosť. Ďalšie vrstvy ako združovacia (pooling) vrstva sa používa na zmenšenie rozmerov vstupnej matice, ReLU vrstva na odstránenie záporných hodnôt a plne prepojená (fully connected) vrstva na finálnu klasifikáciu. Obrázok \ref{fig:cnn} zobrazuje bežnú konvolučnú neurónovú sieť~\cite{cnnvc}.\par
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.40]{img/cnn.png}
@@ -163,13 +164,13 @@ Obrázok \ref{fig:cnn} zobrazuje bežnú konvolučnú neurónovú sieť.\par
 \acrshort{cnn} dosahujú pri analýze obrazového vstupu výrazne nižšiu chybovosť a efektívnejší proces učenia v porovnaní s inými typmi neurónových sietí. V súčasnosti sa konvolučné neurónové siete používajú na detekciu prekážok v autonómnych vozidlách, no objavuje sa rastúci trend prechodu na veľké jazykové modely (LLM), ktoré kontrolujú všetky systémy vozidla~\cite{electronics2022}\cite{nvidia2026}\cite{ciregan2012}.\par
 \subsubsection{Ultralytics YOLOv8}\label{subsubsec:yolo}
 YOLOv8 je systém od spoločnosti Ultralytics určený na detekciu objektov v reálnom čase; funguje na základe konvolučných neurónových sietí. Metóda \acrfull{yolo} vyžaduje iba jednu doprednú propagáciu (forward pass) na vytvorenie predpokladu, preto je ideálna pre aplikácie v reálnom čase~\cite{make2023}\cite{yolo2023}.\par
-Tento model je už predtrénovaný na rozsiahlych datasetoch, vďaka čomu je pripravený na okamžitú implementáciu bez nutnosti zložitej konfigurácie. V našej implementácii ho využívame na detekciu prekážky v dráhe vozidla.
+Tento model je už predtrénovaný na rozsiahlych datasetoch, vďaka čomu je pripravený na okamžitú implementáciu bez nutnosti zložitej konfigurácie. V našej implementácii ho využívame na detekciu prekážky v dráhe vozidla. Inštalácia prebehla nasledovným príkazom: \verb|pip install ultralytics|.
 
 \section{Detekcia}\label{sec:Detekcia}
 \subsection{Detekcia vozovky}
 Detekcia jazdných pruhov a hraníc vozovky predstavuje jeden z kritických subsystémov autonómnych vozidiel. Jej hlavnou úlohou je identifikovať cestu, udržať sa na nej a správne zareágovať v prípade zmien vozovky. \acrshort{av} sú schopné túto funkciu vykonávať fúziou rôznych senzorov. Táto podkapitola sa zaoberá metódami spracovania dát, ktoré umožnujú systému identifikovať vozovku od prostredia~\cite{badue2021}.
 \subsubsection{Region of interest}
-\acrfull{roi}, po slovensky oblasť záujmu, je časť datasetu, ktorá je vybraná pre určitý dôvod. V kontexte autonómnych vozidiel sa \acrshort{roi} používa na ohraničenie určitej oblasti obrazového vstupu kamier, ktorá je pre daný systém detekcie relevantná.\par
+\acrfull{roi}, po slovensky oblasť záujmu, je časť datasetu, ktorá je vybraná pre určitý dôvod. V kontexte autonómnych vozidiel sa \acrshort{roi} používa na ohraničenie určitej oblasti obrazového vstupu kamier, ktorá je pre daný systém detekcie relevantná~\cite{opencv2025}.\par
 Pri implementácii detekcie vozovky sme použili \acrshort{roi} ako prvý krok pred-spracovania. Vozovka sa v drvivej väčšine prípadov nachádza v spodnej polovici obrazu a spracovanie hornej časti zbytočne vnáša nepotrebné informácie, čo spôsobuje vizuálny šum a zaťažuje procesor.\par
 Na oddelenie \acrshort{roi} sme použili funkcie dostupné v knižnici OpenCV.\par
 \begin{lstlisting}[language=Python, caption=Funkcia ROI]
@@ -190,14 +191,14 @@ Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný ob
 	\label{fig:roi}
 \end{figure}
 \subsubsection{Hľadanie tmavých regiónov}
-Hľadanie tmavých regiónov na vozovke je jednoduchý a výpočtovo nenáročný spôsob detekcie jazdných pruhov. Autonómne vozidlá dokážu detekovať svetlý jazdný pruh na tmavom asfalte vďaka kontraste týchto dvoch plôch. V princípe používame rovnaký prístup, no v našej implementácii hľadáme čierny pruh v strede bielej vozovky. Tento postup dosahuje lepšie výsledky v zhoršených svetelných podmienkach.\par
-Najprv je potrebné si definovať hranice pre najsvetlejší a najtmavší tmavý región. V kóde si definujeme hranice ako NumPy pole s reprezentáciou vo formáte odtieň-sýtosť-jas (HSV). Odtieň (hue) predstavuje hodnotu od 0 po 179 -- čiže polohu na farebnom kolese. Sýtosť (saturation) je percentuálne vyjadrenie "čistoty" farby -- t.j. množstvo šedej; volíme čísla od 0 po 255. Jas (Value) určuje intenzitu svetla. Hodnota 0 predstavuje absolútnu čiernu, zatiaľ čo hodnota 255 zodpovedá maximálnemu jasu farby.\par
+Hľadanie tmavých regiónov na vozovke je jednoduchý a výpočtovo nenáročný spôsob detekcie jazdných pruhov. Autonómne vozidlá dokážu detekovať svetlý jazdný pruh na tmavom asfalte vďaka kontraste týchto dvoch plôch. V princípe používame rovnaký prístup, no v našej implementácii hľadáme čierny pruh v strede bielej vozovky. Tento postup dosahuje lepšie výsledky v zhoršených svetelných podmienkach~\cite{opencv2025}.\par
+Najprv je potrebné si definovať hranice pre najsvetlejší a najtmavší tmavý región. V kóde si definujeme hranice ako NumPy pole s reprezentáciou vo formáte odtieň-sýtosť-jas (HSV). Odtieň (hue) predstavuje hodnotu od 0 po 179 -- čiže polohu na farebnom kolese. Sýtosť (saturation) je percentuálne vyjadrenie "čistoty" farby -- t.j. množstvo šedej; volíme čísla od 0 po 255. Jas (Value) určuje intenzitu svetla. Hodnota 0 predstavuje absolútnu čiernu, zatiaľ čo hodnota 255 zodpovedá maximálnemu jasu farby~\cite{opencv2025}.\par
 \begin{lstlisting}[language=Python, caption=Definície maxima a minima tmavých regiónov]
 lower_black = np.array([0, 0, 0])
 upper_black = np.array([180, 255, 70])
 \end{lstlisting}
-V ďalšom kroku konvertujeme obraz z kamery z pôvodného blue-green-red (BGR) formátu na HSV reprezentáciu pomocou OpenCV funkcie \verb|cvtColor| s argumentom \verb|COLOR_BGR2HSV|. Volaním funkcie \verb|inRange| s nami definovanými hranicami dostaneme zamaskované tie pixely, ktoré spadajú do tohto rozmedzia.\par
-Výstup obsahuje šum a diery, ktoré môžu vniesť nesprávne výsledky, preto ich musíme eliminovať. Daný efekt vieme dosiahnuť pomocou morfologickej transformácie. Šum predstavuje malé izolované regióny pixelov, ktoré do obrazu nepatria. Proces erózie vie tento šum odstrániť -- v kóde je to volaním funkcie \verb|morphologyEx| s argumentom \verb|MORPH_OPEN| a maticou jednotiek, ktorá funguje ako filter. Na uzavretie dier -- tmavých oblastí vo vnútri objektu -- používame rovnakú funkciu, no v tomto prípade s argumentom \verb|MORPH_CLOSE|. Tento postup sa nazýva dilatácia.
+V ďalšom kroku konvertujeme obraz z kamery z pôvodného blue-green-red (BGR) formátu na HSV reprezentáciu pomocou OpenCV funkcie \verb|cvtColor| s argumentom \verb|COLOR_BGR2HSV|. Volaním funkcie \verb|inRange| s nami definovanými hranicami dostaneme zamaskované tie pixely, ktoré spadajú do tohto rozmedzia~\cite{opencv2025}.\par
+Výstup obsahuje šum a diery, ktoré môžu vniesť nesprávne výsledky, preto ich musíme eliminovať. Daný efekt vieme dosiahnuť pomocou morfologickej transformácie. Šum predstavuje malé izolované regióny pixelov, ktoré do obrazu nepatria. Proces erózie vie tento šum odstrániť -- v kóde je to volaním funkcie \verb|morphologyEx| s argumentom \verb|MORPH_OPEN| a maticou jednotiek, ktorá funguje ako filter. Na uzavretie dier -- tmavých oblastí vo vnútri objektu -- používame rovnakú funkciu, no v tomto prípade s argumentom \verb|MORPH_CLOSE|. Tento postup sa nazýva dilatácia~\cite{opencv2025}.\par
 \begin{lstlisting}[language=Python, caption=Maskovanie tmavých regiónov]
 def mask_road(frame):
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
@@ -210,6 +211,16 @@ def mask_road(frame):
     return mask
 \end{lstlisting}
 \subsubsection{Hľadanie kontúr vozovky}
+Kontúra je krivka, ktorá spája všetky body s rovnakou farbou alebo intenzitou. Kontúry sú dôležitou súčasťou detekcie jazdných pruhov na vozovke. Princípom sa podobá hľadaním hranice tmavého objektu na svetlom pozadí~\cite{opencv2025}.\par
+V knižnici OpenCV existuje funkcia \verb|findContours| na algoritmickú detekciu kontúr v obraze. Funkcia vracia dve polia -- výstupné pole kontúr a pole opisujúce hierarchiu topológie obrazu, no túto štruktúru zahadzujeme, pretože nie je pre nás užitočné~\cite{opencv2025}.\par
+Voláme funkciu s dvomi parametrami. Prvý parameter je režim vyhľadávanie kontúr; používame mód \verb|RETR_EXTERNAL|, ktorý zachytáva iba extrémne vonkajšie kontúry. Alternatívne režimy zachýtavajú všetky možné kontúry, no líšia sa v hierarchickom usporiadaní kontúr -- zoznam, dvojstupňová alebo stromová štruktúra~\cite{opencv2025}.\par 
+Druhý parameter predstavuje algoritmus aproximácie kontúr. V implementácii je využívaný režim \verb|CHAIN_APPROX_SIMPLE|. Z praktického hľadiska komprimuje segmenty bodov ležiacie na jednej rovine -- horizontálne, vertikálne alebo diagonálne -- a zanechá iba ich koncové body. To znamená, že štvorcová kontúra bude zjednodušená iba na jej rohové body. Iná metóda používa algoritmus aproximácie pomocou Teh-Chin reťazcov, ďalšia ponecháva všetky body kontúry~\cite{opencv2025}.
+Implementácia kódu v systéme detekcie čiar vyzerá nasledovne.\par
+\begin{lstlisting}[language=Python, caption=Detekcia kontúr]
+def find_contours(mask):
+    contours, _ = cv.findContours(mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+    return contours
+\end{lstlisting}
 \subsection{Detekcia prekážok}
 Dôležitým pilierom bezpečnosti autonómnych vozidiel je schopnosť detekcie prekážok. V reálnom čase musia identifikovať a klasifikovať prekážku na vozovke alebo v jej blízkosti a adekvátne na ňu reagovať. Tento proces využíva dáta z rôznych senzorov na vyhodnotenie situácie. Na základe týchto dát dokáže \acrshort{av} obísť objekt alebo zastaviť. V tejto podkapitole si vysvetlíme použité metódy na detekciu prekážok~\cite{badue2021}.
 \subsubsection{Ultrazvukový senzor}
@@ -273,6 +284,7 @@ Dôsledkom nízkeho výpočtového výkonu mikrokontrolérov Arduino sme použil
 	\caption{Diagram komunikácie komponentov}
 	\label{fig:spojenie}
 \end{figure}
+\subsubsection{Komunikácia kamery a serveru}
 Server je v našom projekte laptop, ktorý taktiež spúšťa Wi-Fi sieť na komunikáciu s komponentmi - viď obrázok \ref{fig:spojenie}. Všetky funkcie webserveru sme programovali pomocou jazyka Python. Bezdrôtový pripojný bod sme vytvorili NetworkManagerom, nástrojom na konfiguráciu sieťových zariadení v operačnom systéme Linux, pomocou ktorého sme sieťovú kartu našeho laptopu zmenili na prípojný bod Wi-Fi hotspotu. Na spustenie tohto programu v Pythone sme použili knižnicu subprocess. \par
 \begin{lstlisting}[language=Python, caption=Zapnutie Wi-Fi hotspotu]
 import subprocess
@@ -309,6 +321,7 @@ void startCameraServer(){
   }
 }
 \end{lstlisting}
+\subsubsection{Komunikácia serveru a mikrokontroléra}
 Vďaka statickej IP adrese dokážeme serveru povedať na akej URL má očakávať obrázky. Funkcia VideoCapture z knižnice OpenCV má podporu pre spracovanie obrazu z URL. Po interpretovaní dát, server pošle požiadavku na Arduino Nano. Odpoveď sa odošle cez UDP socket, ideálne pre aplikácie fungujúce v reálnom čase, IP adrese mikrokontroléra na porte 5005. Komunikáciu sprostredkuje Python knižnica socket. Poslané dáta sú vo forme 2 bytov, čo je najmenší potrebný buffer na uloženie údajov o riadení.\par
 \begin{lstlisting}[language=Python, caption=Posielanie UDP packetov]
 import struct
@@ -324,7 +337,8 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 def sendUDP(direction: float):
     sock.sendto(struct.pack('<H', direction), (UDP_IP, UDP_PORT))
 \end{lstlisting}
-Arduino príjme UDP packet a súčasne získa nameránu vzdialenosť z ultrazvukového senzora. Snímač sa spúšťa v intervaloch 50ms, z dôvodu efektívneho využitia výpočtového výkonu. Ak vyhodnotí, že objekt pred senzorom je do 10 cm, vozidlo zastaví, inak nastaví riadenie motorov. Každému z motorčekov sú priradené dva výstupné piny -- pulse width modulation (PWM) a smerový (DIR) pin. PWM riadi rýchlosť a DIR smer otáčania kolies. Signály z pinov sú zaslané na DRV8833, ktorý fyzicky poháňa dva \acrshort{dc} motory.
+\subsubsection{Komunikácia mikrokontroléra s perifériami} %TODO Pridať nastavenie pinov
+Arduino príjme UDP packet a súčasne získa nameránu vzdialenosť z ultrazvukového senzora. Snímač sa spúšťa v intervaloch 50ms, z dôvodu efektívneho využitia výpočtového výkonu. Ak vyhodnotí, že objekt pred senzorom je do 10 cm, vozidlo zastaví, inak nastaví riadenie motorov. Každému z motorčekov sú priradené dva výstupné piny -- pinA a pinB. Signály z pinov sú zaslané na DRV8833, ktorý fyzicky poháňa dva \acrshort{dc} motory. Na tento účel používame funkciu \verb|ledcWrite| z knižnice funkcií Arduino pre ESP32 mikrokontroléry. V prípade, že sa snažíme poháňať motor dopredu napíšeme na pinA hodnotu rýchlosti a pinB nastavíme na hodnotu 0. V opačnom scenáry sa zápisy pre piny vymenia. Ak sa snažíme motorček zastaviť, zapíšeme na obidve piny 0, no zápisy vysokých hodnôt by mali rovnaký efekt.
 \begin{lstlisting}[language=C++, caption=Vnútorný cyklus Arduina]
 void loop() {
   while (udp.parsePacket() >= 2) {
@@ -364,11 +378,10 @@ Na návrh rámu sme použili softvér Blender -- populárny, všeobecne použív
 	\label{fig:model}
 \end{figure}
 Model bol vytlačený na tlačiarni Bambulab A1 mini, použitím filamentu kyseliny polymliečnej (PLA). Prvotne boli kolesá vytlačené z polyetyléntereftelátu (PET) a doplnené o protišmykový polep, no tento povrch nedosahoval požadovaný stupeň trakcie. Zakúpili sme dve kolesá s priemerom 43mm, gumeným povrchom a oskou určenou pre náš typ motorčekov.\par
-\subsection{Montovanie vozidla}
-Po získaní všetkých potrebných komponentov sme začali s montážou vozidla. Na prepojenie súčiastok sme použili nepájivé pole a farebne odlíšené vodiče. Jednotlivé elektronické prvky sme zapojili podľa definície pinov v kóde. Nepájivé pole sme na rám vozidla pomocou lepiacej vrstvy na jeho spodnej strane.\par
+\subsection{Montovanie vozidla} %TODO Natiahnuť
+Po získaní všetkých potrebných komponentov sme začali s montážou vozidla. Na prepojenie súčiastok sme použili nepájivé pole a farebne odlíšené vodiče. Jednotlivé elektronické prvky sme zapojili podľa definície pinov v kóde. Nepájivé pole sme na rám vozidla pripevnili pomocou lepiacej vrstvy na jeho spodnej strane.\par
 K motorčekom sme prispájkovali káble a pripevnili kolesá. Celú sústavu pre obe strany sme následne zasunuli do vyhradených držiakov. Kameru a ultrazvukový senzor sme vložili do držiaku, ktorý sme pripevnili k vozidlu pomocou sťahovacích pások.\par
-K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali -- viď obrázok \ref{fig:vozidlo1} a \ref{fig:vozidlo2}.
-\newpage
+K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a menič napätia sme spojili a zasunuli do vyhradenej prehradky. Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali -- viď obrázok \ref{fig:vozidlo1} a \ref{fig:vozidlo2}.\par
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.12]{img/vozidlo1.jpg}
@@ -385,5 +398,7 @@ K batérii sme pripojili vypínač, na ovládanie toku elektriny. Batériu a men
 \section{Metodika a testovanie}\label{sec:MetodikaATestovanie}
 \subsection{Metodika}
 \subsection{Testovanie}
+%TODO Rozšíriť a napísať po získaní dát
 
 \section{Výsledky}\label{sec:Vysledky}
+%TODO Napísať

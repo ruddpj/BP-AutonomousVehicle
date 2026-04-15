@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  14 APR 2026 21:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  15 APR 2026 18:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1522,12 +1522,12 @@ al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 
 
 ]
-<includes/assignment.pdf, id=232, 597.50786pt x 845.04686pt>
+<includes/assignment.pdf, id=244, 597.50786pt x 845.04686pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf>
 Package pdftex.def Info: includes/assignment.pdf  used on input line 56.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
-<includes/assignment.pdf, id=234, page=1, 597.50786pt x 845.04686pt>
+<includes/assignment.pdf, id=246, page=1, 597.50786pt x 845.04686pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf, page 1>
 Package pdftex.def Info: includes/assignment.pdf , page1 used on input line 56.
@@ -1656,7 +1656,7 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 [12]
 
 [13]
-<img/sensors.png, id=444, 284.39583pt x 156.91959pt>
+<img/sensors.png, id=463, 284.39583pt x 156.91959pt>
 File: img/sensors.png Graphic file (type png)
 <use img/sensors.png>
 Package pdftex.def Info: img/sensors.png  used on input line 35.
@@ -1670,7 +1670,7 @@ Package pdftex.def Info: img/sensors.png  used on input line 35.
 [16]
 
 [17]
-<img/arduino.png, id=503, 645.41125pt x 483.8075pt>
+<img/arduino.png, id=522, 645.41125pt x 483.8075pt>
 File: img/arduino.png Graphic file (type png)
 <use img/arduino.png>
 Package pdftex.def Info: img/arduino.png  used on input line 61.
@@ -1683,7 +1683,7 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 [18{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./img/ar
 duino.png>]
-<img/esp32cam.jpg, id=518, 642.4pt x 843.15pt>
+<img/esp32cam.jpg, id=537, 642.4pt x 843.15pt>
 File: img/esp32cam.jpg Graphic file (type jpg)
 <use img/esp32cam.jpg>
 Package pdftex.def Info: img/esp32cam.jpg  used on input line 81.
@@ -1691,7 +1691,7 @@ Package pdftex.def Info: img/esp32cam.jpg  used on input line 81.
 
 
 [19 <./img/esp32cam.jpg>]
-<img/hcsr04.jpg, id=529, 963.6pt x 722.7pt>
+<img/hcsr04.jpg, id=548, 963.6pt x 722.7pt>
 File: img/hcsr04.jpg Graphic file (type jpg)
 <use img/hcsr04.jpg>
 Package pdftex.def Info: img/hcsr04.jpg  used on input line 101.
@@ -1699,7 +1699,7 @@ Package pdftex.def Info: img/hcsr04.jpg  used on input line 101.
 
 
 [20 <./img/hcsr04.jpg>]
-<img/drv8833.jpg, id=539, 1939.245pt x 1497.595pt>
+<img/drv8833.jpg, id=558, 1939.245pt x 1497.595pt>
 File: img/drv8833.jpg Graphic file (type jpg)
 <use img/drv8833.jpg>
 Package pdftex.def Info: img/drv8833.jpg  used on input line 119.
@@ -1707,24 +1707,8 @@ Package pdftex.def Info: img/drv8833.jpg  used on input line 119.
 
 
 [21 <./img/drv8833.jpg>]
-
-[22]
-<img/cnn.png, id=571, 1043.9pt x 321.2pt>
-File: img/cnn.png Graphic file (type png)
-<use img/cnn.png>
-Package pdftex.def Info: img/cnn.png  used on input line 158.
-(pdftex.def)             Requested size: 417.5526pt x 128.47772pt.
-
-
-[23 <./img/cnn.png>]
-
-[24] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 175.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-75.
+49.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1733,32 +1717,54 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<img/roi.png, id=603, 317.185pt x 288.07625pt>
+
+
+[22]
+Overfull \hbox (3.33704pt too wide) in paragraph at lines 153--154
+\T1/lmr/m/n/12 (-20) pri trans-for-má-cii ob-ra-zo-vých dát. Bola in-²ta-lo-van
+á po-u-ºi-tím prí-kazu [][]\T1/lmtt/m/n/12 pip install numpy[]\T1/lmr/m/n/12 (-
+20) . 
+ []
+
+<img/cnn.png, id=594, 1043.9pt x 321.2pt>
+File: img/cnn.png Graphic file (type png)
+<use img/cnn.png>
+Package pdftex.def Info: img/cnn.png  used on input line 159.
+(pdftex.def)             Requested size: 417.5526pt x 128.47772pt.
+
+
+[23]
+
+[24 <./img/cnn.png>]
+(/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 176.
+<img/roi.png, id=628, 317.185pt x 288.07625pt>
 File: img/roi.png Graphic file (type png)
 <use img/roi.png>
-Package pdftex.def Info: img/roi.png  used on input line 188.
+Package pdftex.def Info: img/roi.png  used on input line 189.
 (pdftex.def)             Requested size: 190.31245pt x 172.84708pt.
 
 
 [25]
 
 [26 <./img/roi.png>]
-<img/ultrazvuk.png, id=628, 602.25pt x 301.125pt>
+
+[27]
+<img/ultrazvuk.png, id=676, 602.25pt x 301.125pt>
 File: img/ultrazvuk.png Graphic file (type png)
 <use img/ultrazvuk.png>
-Package pdftex.def Info: img/ultrazvuk.png  used on input line 218.
+Package pdftex.def Info: img/ultrazvuk.png  used on input line 229.
 (pdftex.def)             Requested size: 361.35278pt x 180.67638pt.
-
-
-[27 <./img/ultrazvuk.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 229.
+(Font)              <10> on input line 240.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 229.
+(Font)              <7> on input line 240.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 229.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+(Font)              <5> on input line 240.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1769,51 +1775,52 @@ File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 )
 
 [28{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local
-/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./img/ultrazvuk.png
+>]
 
 [29]
-<img/diagram1.png, id=694, 763.85374pt x 503.8825pt>
+
+[30]
+<img/diagram1.png, id=724, 763.85374pt x 503.8825pt>
 File: img/diagram1.png Graphic file (type png)
 <use img/diagram1.png>
-Package pdftex.def Info: img/diagram1.png  used on input line 272.
+Package pdftex.def Info: img/diagram1.png  used on input line 283.
 (pdftex.def)             Requested size: 381.92593pt x 251.94063pt.
 
 
-[30 <./img/diagram1.png>]
-
-[31]
+[31 <./img/diagram1.png>]
 
 [32]
-<img/model.png, id=780, 1314.41063pt x 542.77782pt>
+
+[33]
+<img/model.png, id=790, 1314.41063pt x 542.77782pt>
 File: img/model.png Graphic file (type png)
 <use img/model.png>
-Package pdftex.def Info: img/model.png  used on input line 362.
+Package pdftex.def Info: img/model.png  used on input line 376.
 (pdftex.def)             Requested size: 460.05061pt x 189.97508pt.
 
-Overfull \hbox (19.03288pt too wide) in paragraph at lines 362--363
+Overfull \hbox (19.03288pt too wide) in paragraph at lines 376--377
  [][] 
  []
 
 
 
-[33 <./img/model.png>]
-
 [34]
-<img/vozidlo1.jpg, id=803, 2534.46875pt x 2017.5375pt>
+<img/vozidlo1.jpg, id=817, 2534.46875pt x 2017.5375pt>
 File: img/vozidlo1.jpg Graphic file (type jpg)
 <use img/vozidlo1.jpg>
-Package pdftex.def Info: img/vozidlo1.jpg  used on input line 374.
+Package pdftex.def Info: img/vozidlo1.jpg  used on input line 387.
 (pdftex.def)             Requested size: 304.12312pt x 242.09406pt.
-<img/vozidlo2.jpg, id=804, 3071.475pt x 2481.27pt>
+<img/vozidlo2.jpg, id=818, 3071.475pt x 2481.27pt>
 File: img/vozidlo2.jpg Graphic file (type jpg)
 <use img/vozidlo2.jpg>
-Package pdftex.def Info: img/vozidlo2.jpg  used on input line 380.
+Package pdftex.def Info: img/vozidlo2.jpg  used on input line 393.
 (pdftex.def)             Requested size: 307.1655pt x 248.14154pt.
 
 
-[35 <./img/vozidlo1.jpg> <./img/vozidlo2.jpg>]
+[35 <./img/model.png>]
 
-[36])
+[36 <./img/vozidlo1.jpg> <./img/vozidlo2.jpg>])
 
 [37] (./includes/conclusion.tex)
 
@@ -1855,171 +1862,37 @@ Package microtype Info: Character `029' is missing
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `thesis.out':
-(rerunfilecheck)             Before: 13F71BD8C1C013E3C9D721E6ACEB1E3D;7855
-(rerunfilecheck)             After:  9CCF1161BCC8C20B88906E6AA7972E51;7860.
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 8F77EB83BC1DDAEA11CC0E3534D1E60F;8631.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37865 strings out of 473190
- 685019 string characters out of 5715806
- 1762319 words of memory out of 5000000
- 59959 multiletter control sequences out of 15000+600000
- 676701 words of font info for 235 fonts, out of 8000000 for 9000
+ 37857 strings out of 473190
+ 685001 string characters out of 5715806
+ 1763371 words of memory out of 5000000
+ 59970 multiletter control sequences out of 15000+600000
+ 676927 words of font info for 237 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,131p,2372b,3128s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{lstlisting.138} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{lstlisting.125} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{lstlisting.110} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{lstlisting.93} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{lstlisting.82} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{lstlisting.75} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{lstlisting.66} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{figure.caption.170} has been referenced but does no
-t exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{figure.caption.169} has been referenced but does no
-t exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{figure.caption.167} has been referenced but does no
-t exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{figure.caption.92} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{figure.caption.60} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.185} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.182} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.179} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section*.177} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section*.176} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section*.175} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.174} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.173} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.172} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.171} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.168} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.166} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.91} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.90} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.89} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.81} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.59} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.58} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsubsection.57} has been referenced but does not 
-exist, replaced by a fixed one
-
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loca
-l/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive
-/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf
--dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts
-/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
-c/lm/lmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pf
-b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/
-fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
-/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm
-/lmtt12.pfb>
-Output written on thesis.pdf (45 pages, 6162007 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texli
+ve/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fon
+ts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pub
+lic/lm/lmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.
+pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/
+local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texl
+ive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dis
+t/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
+e1/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/
+lm/lmtt12.pfb>
+Output written on thesis.pdf (45 pages, 6166356 bytes).
 PDF statistics:
- 1060 PDF objects out of 1200 (max. 8388607)
- 949 compressed objects within 10 object streams
- 318 named destinations out of 1000 (max. 500000)
- 71164 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1061 PDF objects out of 1200 (max. 8388607)
+ 950 compressed objects within 10 object streams
+ 295 named destinations out of 1000 (max. 500000)
+ 71188 words of extra memory for PDF output out of 74296 (max. 10000000)
 
