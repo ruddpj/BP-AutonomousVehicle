@@ -18,6 +18,7 @@ Posledným kľúčovým článkom je konanie a ovládanie. Systém ovládania vo
 \paragraph{Vysoká automatizácia}Na tejto úrovni je vozidlo schopné zvládnuť jazdu úplne samo v rámci definovaných prostredí alebo podmienok. V prípade, že sa vozidlo dostane mimo týchto podmienok, dokáže bezpečne zastaviť. Prítomnosť ľudského šoféra nie je nutná~\cite{saej3016}.
 \subsubsection{Úroveň 5}
 \paragraph{Plná automatizácia}Najvyšší stupeň automatizácie, vozidlo dokáže jazdiť samostatne za všetkých podmienok, v ktorých dokáže jazdiť človek. Neexistuje potreba vodiča. Vozidlo zastaví v prípade zlyhania určitých modulov riadenia~\cite{saej3016}.
+\subsection{Definícia pojmov}%TODO presunúť sem časti
 
 \section{Analýza súčasného stavu}\label{sec:Analyza}
 \subsection{Aktuálny stav technológie} %TODO Natiahnuť
@@ -49,6 +50,9 @@ Alternatívny prístup zvolila spoločnosť Tesla, so službou Robotaxi a systé
 \acrfull{adr} sa používajú v súčasnosti v univerzitných kampusoch a mestách na donášku jedla. Poskytujú takzvanú last-mile delivery (dodanie na poslednú míľu) a fungujú na štvrtej úrovni autonómie. Primárne využívané na chodníkoch alebo cyklochodníkoch, doručovacie roboty sú schopné prekonávať križovatky, vyhýbať sa prekážkam a doručovať tovar na vzdialenosť pár kilometrov~\cite{srinivas2022}.\par
 \acrshort{adr} používajú zväčša kombináciu kamier a počítačového videnia na navigovanie, týmto spôsobom zabezpečujú nížšie náklady na výrobu, s väčšou mierou škalovateľnosti. Niektorí výrobcovia sa vyhýbajú používaniu \acrshort{gps}, pretože neposkytuje dostatočnú mieru presnosti~\cite{forbes2025}.\par
 Autonómna donáška jedla zaznamenala výrazný rozvoj počas pandémie COVID-19. Mnohé spoločnosti poskytujúce donášku jedla, ako napríklad Uber Eats a DoorDash, ale aj logistické spoločnosti ako Amazon, Walmart a Google začali investovať do vývoja \acrshort{adr}. Jedným z priekopníkov v tejto oblasti je spoločnosť Starship Technologies, ktorá výrazne rozšírila svoju flotilu práve počas pandémie. Zatiaľ čo donáška pomocou pozemných robotov je bežná, mnohé spoločnosti investujú aj do vývoja doručovania pomocou autonómnych dronov~\cite{forbes2025}.
+
+\section{Ciele práce}\label{sec:CielePrace}
+%TODO
 
 \section{Komponenty systému}\label{sec:Komponenty}
 V tejto kapitole si preberieme použité komponenty celkového systému. Výber správnych súčastí v rámci limitácií bakalárskej práce je kľúčový pre získanie lepších výsledkov. V tejto práci sme boli obmedzený na platformu mikrokontrolérov Arduino a použitím knižnice počítačového videnia OpenCV.
@@ -146,11 +150,11 @@ Vďaka jeho jednoduchosti a rozširenej podpore knižníc sa Python používa pr
 V našej implementácii používame Python na vytvorenie Wi-Fi servera, spracovanie dát z kamery a následnú interpretáciu výsledkov do podoby príkazov pre pohyb kolies.
 \subsection{OpenCV}
 OpenCV je knižnica programovacích funkcií určených na počítačové videnie v reálnom čase, ktorú pôvodne vyvinula spoločnosť Intel. Využíva sa v oblastiach detekcie objektov, tvárí a gest, pri vizuálnej odometrii, vnímaní hĺbky či v augmentovanej realite. Knižnica OpenCV je napísaná v programovacom jazyku C++, no ponúka rozhrania pre integráciu v ďalších jazykoch, ako sú Python, Java alebo MATLAB~\cite{acm2012}\cite{opencv2025}.\par
-V našej implementácii používame OpenCV na detekciu vozovky a analýzu jazdných pruhov. Nainštalovali sme ho pomocou systéma na správu balíkov pip príkazom \verb|pip install opencv-python|.
+V našej implementácii používame OpenCV na detekciu vozovky a analýzu jazdných pruhov.
 \subsection{NumPy}
 NumPy je knižnica pre programovací jazyk Python, ktorý pridáva podporu optimalizované polia, matice a matematické funkcie, ktoré s nimi pracuje~\cite{numpy}.\par
 Python interpretuje inštrukcie riadok po riadku, čo spomaľuje celkový program. Knižnica NumPy urýchľuje tento proces tým, že vykonáva výpočtovo náročné operácie vo vysoko optimalizovanom, kompilovanom C kóde. Taktiež mnoho operácií uvoľnujú globálny zámok interpreteru, čím dovoľuje paralelné spúšťanie viacerých vlakien viacjadrového procesora. Horeuvedená knižnica OpenCV používa NumPy na ukladanie dát a operácie s nimi~\cite{opencv2025}\cite{numpy}.\par
-V našej implementácii používame knižnicu NumPy na prácu s vektormi a maticami pri transformácii obrazových dát. Bola inštalovaná použitím príkazu \verb|pip install numpy|.
+V našej implementácii používame knižnicu NumPy na prácu s vektormi a maticami pri transformácii obrazových dát.
 \subsection{CNN}
 \acrfull{cnn}, po slovensky konvolučná neurónová sieť, je typ doprednej neurónovej siete, ktorá používa optimalizáciu filtrov. Tento typ hlbokej neurónovej siete sa štandardne používa pri počítačovom videní a spracovaní obrazu~\cite{cnnvc}.\par
 Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebným prvkom je takzvaná konvolučná vrstva, ktorá obsahuje rôzne filtre -- matice váh. Počas doprednej propagácie sa po celej výške a šírke vstupnej matice počíta skalárny súčin pre každý filter konvolučnej vrstvy. Výsledkom je dvojrozmerná aktivačná mapa daného filtra. \acrshort{cnn} sa učia vytvárať filtre, ktoré sa aktivujú v prípade, že sa na vstupe nachádza požadovaná vlastnosť. Ďalšie vrstvy ako združovacia (pooling) vrstva sa používa na zmenšenie rozmerov vstupnej matice, ReLU vrstva na odstránenie záporných hodnôt a plne prepojená (fully connected) vrstva na finálnu klasifikáciu. Obrázok \ref{fig:cnn} zobrazuje bežnú konvolučnú neurónovú sieť~\cite{cnnvc}.\par
@@ -164,11 +168,13 @@ Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebn
 \acrshort{cnn} dosahujú pri analýze obrazového vstupu výrazne nižšiu chybovosť a efektívnejší proces učenia v porovnaní s inými typmi neurónových sietí. V súčasnosti sa konvolučné neurónové siete používajú na detekciu prekážok v autonómnych vozidlách, no objavuje sa rastúci trend prechodu na veľké jazykové modely (LLM), ktoré kontrolujú všetky systémy vozidla~\cite{electronics2022}\cite{nvidia2026}\cite{ciregan2012}.\par
 \subsubsection{Ultralytics YOLOv8}\label{subsubsec:yolo}
 YOLOv8 je systém od spoločnosti Ultralytics určený na detekciu objektov v reálnom čase; funguje na základe konvolučných neurónových sietí. Metóda \acrfull{yolo} vyžaduje iba jednu doprednú propagáciu (forward pass) na vytvorenie predpokladu, preto je ideálna pre aplikácie v reálnom čase~\cite{make2023}\cite{yolo2023}.\par
-Tento model je už predtrénovaný na rozsiahlych datasetoch, vďaka čomu je pripravený na okamžitú implementáciu bez nutnosti zložitej konfigurácie. V našej implementácii ho využívame na detekciu prekážky v dráhe vozidla. Inštalácia prebehla nasledovným príkazom: \verb|pip install ultralytics|.
+Tento model je už predtrénovaný na rozsiahlych datasetoch, vďaka čomu je pripravený na okamžitú implementáciu bez nutnosti zložitej konfigurácie. V našej implementácii ho využívame na detekciu prekážky v dráhe vozidla.
 
-\section{Detekcia}\label{sec:Detekcia}
+\section{Návrh a implementácia}\label{sec:NavrhAImplementacia}
+Vhodný návrh architektúry je kľúčový pre efektívnu spoluprácu všetkých komponentov. Počas vývoja bolo otestovaných niekoľko prístupov, kým sa nepodarilo dosiahnuť optimálne riešenie. V tejto kapitole popíšeme použitý dizajn a jeho následnú implementáciu.
 \subsection{Detekcia vozovky}
-Detekcia jazdných pruhov a hraníc vozovky predstavuje jeden z kritických subsystémov autonómnych vozidiel. Jej hlavnou úlohou je identifikovať cestu, udržať sa na nej a správne zareágovať v prípade zmien vozovky. \acrshort{av} sú schopné túto funkciu vykonávať fúziou rôznych senzorov. Táto podkapitola sa zaoberá metódami spracovania dát, ktoré umožnujú systému identifikovať vozovku od prostredia~\cite{badue2021}.
+Detekcia jazdných pruhov a hraníc vozovky predstavuje jeden z kritických subsystémov autonómnych vozidiel. Jej hlavnou úlohou je identifikovať cestu, udržať sa na nej a správne zareágovať v prípade zmien vozovky. \acrshort{av} sú schopné túto funkciu vykonávať fúziou rôznych senzorov~\cite{badue2021}.\par
+Táto podkapitola sa zaoberá metódami spracovania dát, ktoré umožnujú systému identifikovať vozovku od prostredia. Používame metódy a funkcie dostupné v programovacom jazyku Python, ale aj v knižniciach NumPy a OpenCV. Nainštalovali sme ich pomocou systému na správu balíkov pip príkazmi \verb|pip install opencv-python| a \verb|pip install numpy|.
 \subsubsection{Region of interest}
 \acrfull{roi}, po slovensky oblasť záujmu, je časť datasetu, ktorá je vybraná pre určitý dôvod. V kontexte autonómnych vozidiel sa \acrshort{roi} používa na ohraničenie určitej oblasti obrazového vstupu kamier, ktorá je pre daný systém detekcie relevantná~\cite{opencv2025}.\par
 Pri implementácii detekcie vozovky sme použili \acrshort{roi} ako prvý krok pred-spracovania. Vozovka sa v drvivej väčšine prípadov nachádza v spodnej polovici obrazu a spracovanie hornej časti zbytočne vnáša nepotrebné informácie, čo spôsobuje vizuálny šum a zaťažuje procesor.\par
@@ -222,7 +228,8 @@ def find_contours(mask):
     return contours
 \end{lstlisting}
 \subsection{Detekcia prekážok}
-Dôležitým pilierom bezpečnosti autonómnych vozidiel je schopnosť detekcie prekážok. V reálnom čase musia identifikovať a klasifikovať prekážku na vozovke alebo v jej blízkosti a adekvátne na ňu reagovať. Tento proces využíva dáta z rôznych senzorov na vyhodnotenie situácie. Na základe týchto dát dokáže \acrshort{av} obísť objekt alebo zastaviť. V tejto podkapitole si vysvetlíme použité metódy na detekciu prekážok~\cite{badue2021}.
+Dôležitým pilierom bezpečnosti autonómnych vozidiel je schopnosť detekcie prekážok. V reálnom čase musia identifikovať a klasifikovať prekážku na vozovke alebo v jej blízkosti a adekvátne na ňu reagovať. Tento proces využíva dáta z rôznych senzorov na vyhodnotenie situácie. Na základe týchto dát dokáže \acrshort{av} obísť objekt alebo zastaviť~\cite{badue2021}.\par
+V tejto podkapitole si vysvetlíme použité metódy na detekciu prekážok.
 \subsubsection{Ultrazvukový senzor}
 \begin{figure}[!ht]
 	\centering
@@ -260,8 +267,8 @@ Keďže je tento výpočet náročnejší, merania prebiehajú v 50 ms intervalo
 \end{lstlisting}
 Z dôvodu zjednodušenia výpočtu používame aproximáciu skutočnej vzdialenosti v centimetroch. Ak sa meraný predmet nachádza vo vzdialenosti do 10 cm, vozidlo zastaví~\cite{hcsr04}.
 \subsubsection{Ultralytics YOLOv8}
-V našej implementácii používame YOLOv8 od spoločnosti Ultralytics -- ako bolo popísané v sekcii \ref{subsubsec:yolo}. Pre programovací jazyk Python existuje jednoduché rozhranie, ktoré prácu s modelom zjednodušuje.\par
-Nasledovný kód nám vytvorí inštanciu predtrénovaného modelu \verb|yolov8n.pt| a zadefinuje funkciu, pomocou ktorej vieme detekovať objekty.
+V našej implementácii používame YOLOv8 od spoločnosti Ultralytics -- ako bolo popísané v sekcii \ref{subsubsec:yolo}. Pre programovací jazyk Python existuje jednoduché rozhranie, ktoré prácu s modelom zjednodušuje. Inštalácia prebehla nasledovným príkazom: \verb|pip install ultralytics|\par
+Nasledovný kód nám vytvorí inštanciu predtrénovaného modelu \verb|yolov8n.pt| a zadefinuje funkciu, pomocou ktorej vieme detekovať objekty.\par
 \begin{lstlisting}[language=Python, caption=Príprava CNN na detekciu objektov]
 from ultralytics import YOLO
 
@@ -272,9 +279,7 @@ def detect(frame):
 \end{lstlisting}
 Funkcia \verb|detect| vracia zoznam (list) objektov \verb|Result|, napriek tomu, že vstupom je iba jedna snímka. Vyberieme nultý prvok, ktorý obsahuje všetky detekcie pre daný obrázok.
 \subsection{Interpretácia dát}
-
-\section{Návrh a implementácia}\label{sec:NavrhAImplementacia}
-Vhodný návrh architektúry je kľúčový pre efektívnu spoluprácu všetkých komponentov. Počas vývoja bolo otestovaných niekoľko prístupov, kým sa nepodarilo dosiahnuť optimálne riešenie. V tejto kapitole popíšeme použitý dizajn a jeho následnú implementáciu.
+%TODO
 \subsection{Návrh komunikácie komponentov}
 Komunikácia komponentov predstavuje dôležitý aspekt projektu, pretože je nutné aby si jednotlivé časti mohli synchrónne vymieňať a spracovať dáta. Systém je navrhnutý tak, aby v prípade výpadku jedného alebo viacerých komponentov dokázal bezpečne zastaviť vozidlo.\par
 Dôsledkom nízkeho výpočtového výkonu mikrokontrolérov Arduino sme použili v našej implementácii model klient-server. V danej štruktúre vystupujú dva typy entít; nadradení klienti iniciujú požiadavky na pasívny server, ktorý posiela odpovede klientom.\par
