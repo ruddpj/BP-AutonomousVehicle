@@ -29,5 +29,9 @@ def find_contours(mask):
     contours, _ = cv.findContours(mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
     return contours
 
-def video_grid(video_array):
-    return np.concatenate(video_array, axis=1)
+def transform(frame):
+    roi = region_of_interest(frame)
+    mask = mask_road(roi)
+    contours = find_contours(mask)
+
+    return contours

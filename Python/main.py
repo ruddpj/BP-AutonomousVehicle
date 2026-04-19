@@ -1,6 +1,5 @@
 import cv2 as cv
 import time
-import os
 import connect as cnt
 import transform as tf
 import interpret as itp
@@ -9,13 +8,8 @@ import detect as dt
 DEBUG_MODE = True
 
 def videoLoop():
-    while True and not DEBUG_MODE:
-        response = os.system(f"ping -c 1 {cnt.CAM_IP} > /dev/null 2>&1")
-        if response == 0:
-            print("ESP32-CAM online")
-            break
-        print(".", end="")
-        time.sleep(1)
+    if not DEBUG_MODE:
+        cnt.ping_cam()
 
     cap = cv.VideoCapture(0 if DEBUG_MODE else cnt.CAM_URL)
     if not cap.isOpened():
@@ -23,7 +17,9 @@ def videoLoop():
         exit(1)
 
     frame_count = 0
-    detections = None
+    detections, true_det = None, None
+    stop = False
+
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -31,34 +27,34 @@ def videoLoop():
 
         frame = cv.resize(frame, (320, 240))
 
-        roi = tf.region_of_interest(frame)
-        mask = tf.mask_road(roi)
-        contours = tf.find_contours(mask)
-
+        # Detect obstacles every 6 frames
         if frame_count % 6 == 0:
             detections = dt.detect(frame)
             frame_count = 0
 
-        if detections is None:
+            for det in detections:
+                stop, true_det = dt.decide_stop(det)
+
+        # If an obstacle is detected, stop the car
+        if stop:
+            dt.draw_boxes(frame, true_det)
+            steering = 0
+        else:
+            # No obstacle detected, find the lane center and continue
+            contours = tf.transform(frame)
+
             cx, cy = itp.find_center(contours)
             if cx is not None:
                 itp.mark_center(frame, cx, cy)
                 steering = itp.compute_steering(cx)
             else:
-                steering = None
-        else:
-            steering = itp.avoid_obstacles(detections)
+                steering = 0
 
-        if steering is not None:
-            cnt.sendUDP(steering)
-            cv.putText(frame, str(steering), (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-        else:
-            cnt.badUDP()
-            cv.putText(frame, "Lane not detected", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        cnt.sendUDP(steering)
+        output = itp.show_text(frame, steering, stop)
 
-        #All inputs have to be 3-dimensional
-        videogrid = tf.video_grid((frame, cv.cvtColor(mask, cv.COLOR_GRAY2BGR), roi))
-        cv.imshow("Lane detection", videogrid)
+        # All inputs have to be 3-dimensional
+        cv.imshow("Lane detection", output)
 
         if cv.waitKey(1) & 0xFF == 27:  # ESC
             break

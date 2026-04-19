@@ -1,6 +1,8 @@
 import subprocess
 import socket
 import struct
+import os
+import time
 
 SSID = "LAPTOP_AP"
 PASSWORD = "12345678"
@@ -12,6 +14,15 @@ UDP_IP = "10.42.0.111"
 UDP_PORT = 5005
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+def ping_cam():
+    while True:
+        response = os.system(f"ping -c 1 {CAM_IP} > /dev/null 2>&1")
+        if response == 0:
+            print("ESP32-CAM online")
+            return
+        print(".", end="")
+        time.sleep(1)
 
 def startHotspot():
     print("Starting Hotspot")
@@ -38,6 +49,3 @@ def stopHotspot():
 def sendUDP(direction: float):
     sock.sendto(struct.pack('<H', direction), (UDP_IP, UDP_PORT))
 
-
-def badUDP():
-    sock.sendto(struct.pack('<H', 0), (UDP_IP, UDP_PORT))

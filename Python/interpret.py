@@ -17,8 +17,21 @@ def mark_center(frame, cx, cy):
 
 
 def compute_steering(cx, width=320):
-    return round(1 + (cx / width) * 510)
+    return round(511 - (cx / width) * 510)
 
 
-def avoid_obstacles(detections, half_frame_width=160):
-    return 0
+def show_text(frame, steering, stop):
+    if steering != 0:
+        cv.putText(frame, str(steering),
+                   (10, 30), cv.FONT_HERSHEY_SIMPLEX,
+                   1, (0, 255, 0), 2)
+    elif stop:
+        cv.putText(frame, "Obstacle detected",
+                   (10, 30), cv.FONT_HERSHEY_SIMPLEX,
+                   1, (0, 0, 255), 2)
+    else:
+        cv.putText(frame, "Lane not detected",
+                   (10, 30), cv.FONT_HERSHEY_SIMPLEX,
+                   1, (0, 255, 0), 2)
+
+    return frame
