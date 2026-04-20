@@ -178,7 +178,7 @@ Vhodný návrh architektúry je kľúčový pre efektívnu spoluprácu všetkýc
 Detekcia jazdných pruhov a hraníc vozovky predstavuje jeden z kritických subsystémov autonómnych vozidiel. Jej hlavnou úlohou je identifikovať cestu, udržať sa na nej a správne zareágovať v prípade zmien vozovky. \acrshort{av} sú schopné túto funkciu vykonávať fúziou rôznych senzorov~\cite{badue2021}.\par
 Táto podkapitola sa zaoberá metódami spracovania dát, ktoré umožnujú systému identifikovať vozovku od prostredia. Používame metódy a funkcie dostupné v programovacom jazyku Python, ale aj v knižniciach NumPy a OpenCV. Nainštalovali sme ich pomocou systému na správu balíkov pip príkazmi \verb|pip install opencv-python| a \verb|pip install numpy|.
 \subsubsection{Region of interest}
-\acrfull{roi}, po slovensky oblasť záujmu, je časť datasetu, ktorá je vybraná pre určitý dôvod. V kontexte autonómnych vozidiel sa \acrshort{roi} používa na ohraničenie určitej oblasti obrazového vstupu kamier, ktorá je pre daný systém detekcie relevantná~\cite{opencv2025}.\par
+V kontexte autonómnych vozidiel sa \acrshort{roi} používa na ohraničenie určitej oblasti obrazového vstupu kamier, ktorá je pre daný systém detekcie relevantná~\cite{opencv2025}.\par
 Pri implementácii detekcie vozovky sme použili \acrshort{roi} ako prvý krok pred-spracovania. Vozovka sa v drvivej väčšine prípadov nachádza v spodnej polovici obrazu a spracovanie hornej časti zbytočne vnáša nepotrebné informácie, čo spôsobuje vizuálny šum a zaťažuje procesor.\par
 Na oddelenie \acrshort{roi} sme použili funkcie dostupné v knižnici OpenCV.\par
 \begin{lstlisting}[language=Python, caption=Funkcia ROI]
@@ -198,7 +198,7 @@ Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný ob
 	\caption{Obraz s použitím ROI}
 	\label{fig:roi}
 \end{figure}
-\subsubsection{Hľadanie tmavých regiónov}
+\subsubsection{Hľadanie tmavých regiónov} %TODO Doplniť fotku
 Hľadanie tmavých regiónov na vozovke je jednoduchý a výpočtovo nenáročný spôsob detekcie jazdných pruhov. Autonómne vozidlá dokážu detekovať svetlý jazdný pruh na tmavom asfalte vďaka kontraste týchto dvoch plôch. V princípe používame rovnaký prístup, no v našej implementácii hľadáme čierny pruh v strede bielej vozovky. Tento postup dosahuje lepšie výsledky v zhoršených svetelných podmienkach~\cite{opencv2025}.\par
 Prvý krok je definícia hraníc pre najsvetlejší a najtmavší tmavý región. V kóde si definujeme hranice ako NumPy pole s reprezentáciou vo formáte odtieň-sýtosť-jas (HSV). Odtieň (hue) predstavuje hodnotu od 0 po 179 -- čiže polohu na farebnom kolese. Sýtosť (saturation) je percentuálne vyjadrenie "čistoty" farby -- t.j. množstvo šedej; volíme čísla od 0 po 255. Jas (Value) určuje intenzitu svetla. Hodnota 0 predstavuje absolútnu čiernu, zatiaľ čo hodnota 255 zodpovedá maximálnemu jasu farby~\cite{opencv2025}.\par
 \begin{lstlisting}[language=Python, caption=Definície maxima a minima tmavých regiónov]
@@ -219,7 +219,7 @@ def mask_road(frame):
     return mask
 \end{lstlisting}
 \subsubsection{Hľadanie kontúr vozovky}
-Kontúra je krivka, ktorá spája všetky body s rovnakou farbou alebo intenzitou. Kontúry sú dôležitou súčasťou detekcie jazdných pruhov na vozovke. Princípom sa podobá hľadaním hranice tmavého objektu na svetlom pozadí~\cite{opencv2025}.\par
+Kontúry\footnote{Kontúra je krivka, ktorá spája všetky body s rovnakou farbou alebo intenzitou.} sú dôležitou súčasťou detekcie jazdných pruhov na vozovke. Princípom sa podobá hľadaním hranice tmavého objektu na svetlom pozadí~\cite{opencv2025}.\par
 V knižnici OpenCV existuje funkcia \verb|findContours| na algoritmickú detekciu kontúr v obraze. Funkcia vracia dve polia -- výstupné pole kontúr a pole opisujúce hierarchiu topológie obrazu, no túto štruktúru zahadzujeme, pretože nie je pre nás užitočné~\cite{opencv2025}.\par
 Voláme funkciu s dvomi parametrami. Prvý parameter je režim vyhľadávanie kontúr; používame mód \verb|RETR_EXTERNAL|, ktorý zachytáva iba extrémne vonkajšie kontúry. Alternatívne režimy zachýtavajú všetky možné kontúry, no líšia sa v hierarchickom usporiadaní kontúr -- zoznam, dvojstupňová alebo stromová štruktúra~\cite{opencv2025}.\par 
 Druhý parameter predstavuje algoritmus aproximácie kontúr. V implementácii je využívaný režim \verb|CHAIN_APPROX_SIMPLE|. Z praktického hľadiska komprimuje segmenty bodov ležiacie na jednej rovine -- horizontálne, vertikálne alebo diagonálne -- a zanechá iba ich koncové body. To znamená, že štvorcová kontúra bude zjednodušená iba na jej rohové body. Iná metóda používa algoritmus aproximácie pomocou Teh-Chin reťazcov, ďalšia ponecháva všetky body kontúry~\cite{opencv2025}.
@@ -278,7 +278,7 @@ def detect(frame):
     return model(frame, verbose=False)[0]
 \end{lstlisting}
 Funkcia \verb|detect| vracia zoznam (list) objektov \verb|Result|, napriek tomu, že vstupom je iba jedna snímka. Vyberieme nultý prvok, ktorý obsahuje všetky detekcie pre daný obrázok.
-\subsection{Interpretácia dát} %TODO dokončiť
+\subsection{Interpretácia dát} %TODO Doplniť fotku detekcie stredu
 Správna interpretácia výstupných dát z modulov je dôležitá pre spolunažívanie senzorov a pohybových systémov vozidla. V autonómnych vozidlách ide o modul plánovania a rozhodovania, ktorý má za úlohu prepojiť podsystémy vnímania a konania.\par
 V prípade, že sa kamera pripojila a dokážeme načítať jej výstup, môžeme pokračovať s jeho spracovaním.\par
 Začneme s detekciou prekážok pomocou \acrshort{cnn}. Z dôvodu zvýšenia výpočtovej efektivity programu spúšťame detekciu každých 6 snímok. Model YOLOv8 je schopný detekovať 80 rôznych tried objektov, vrátane tých, ktoré by sme na vozovke neočakávali. Aby sme nedostávali falošné pozitíva, vybrali sme si podmnožinu týchto tried na detekciu. Do výberu sme zahrnuli ľudí, dopravné prostriedky a zvieratá.\par
@@ -311,8 +311,13 @@ def decide_stop(det):
     return False, None
 \end{lstlisting}
 V alternatívnom scenári, kde nebola nedetekovaná prekážka pomocou \acrshort{cnn}, budeme postupovať s určením jazdného pruhu.\par
-Po získaní kontúr jazdného pruhu môžeme nájsť stredovú líniu najväčšej z nich. Vyberieme si kontúru s najväčšou plochou. Pomocou funkcie \verb|moments| z knižnice OpenCV vypočítame momenty pixelov. Momenty sú vážené priemery intezity (jasu) jednotlivých pixelov. Tieto údaje sú kľúčove pri výpočte geometrického stredu kontúry~\cite{opencv2025}.\par
-Na získanie x-ovej súradnice stredu, vydelíme horizontálny moment ($m_10$) momentom plochy ($m_00$). To isté urobíme s vertikálnym momentom ($m_01$) na zistenie y-ovej súradnice.\par
+Po identifikácii kontúr jazdného pruhu je ďalším krokom určenie stredovej línie tej najvýraznejšej z nich. Vyberieme si kontúru s najväčšou plochou. Pomocou funkcie \verb|moments| z knižnice OpenCV získame momenty pixelov\footnote{Momenty sú vážené priemery intezity (jasu) jednotlivých pixelov.}. Tieto údaje sú kľúčove pri výpočte geometrického stredu kontúry~\cite{opencv2025}.\par
+Súradnice stredu ($c_x, c_y$) následne vypočítame pomocou nasledujúcich vzorcov:
+\begin{itemize}
+\item \textbf{X-ová súradnica} $c_x=\frac{m_{10}}{m_{00}}$
+\item \textbf{Y-ová súradnica} $c_y=\frac{m_{01}}{m_{00}}$
+\end{itemize}
+Kde $m_{10}$ a $m_{01}$ predstavujú horizontálny a vertikálny moment a $m_{00}$ zodpovedá ploche danej kontúry.
 \begin{lstlisting}[language=Python, caption=Výpočet geometrického stredu kontúry]
 def find_center(contours):
     if contours:
@@ -325,10 +330,17 @@ def find_center(contours):
             return cx, cy
     return None, None
 \end{lstlisting}
-Hodnotu riadenia vypočítame pomocou x-ovej súradnice stredu. V našej implementácii normalizujeme výstup na hodnotu v rozsahu <1-511>. To znamená, že máme 255 hodnôt pre otáčanie doľava, 255 doprava a jednu hodnotu pre stred. Hodnotu 0 si rezervujeme pre zastavanie.\par
+Po zistení geometrického stredu jazdného pruhu vypočítame samotnú hodnotu riadenia. Naša implementácia normalizuje hodnoty na rozsah hodnôt $<1, 511>$, čím zabezpečíme plynulé vstupy pre riadiaci systém vozidla.
+\begin{itemize}
+\item \textbf{Hodnoty $<1,255>$:} Otáčanie doľava.
+\item \textbf{Hodnoty $<257,511>$:} Otáčanie doprava.
+\item \textbf{Hodnota $256$:} Priama jazda.
+\item \textbf{Hodnota $0$:} Rezervovaná pre zastavenie.
+\end{itemize}
+Tento normalizovaný prístup umožnuje mapovanie odchýlky od stredu obrazu na konkrétny vstup pre riadenia kolies. Hodnota 0 slúži ako príznak pre zastavenie vozidla.\par
 \begin{lstlisting}[language=Python, caption=Výpočet hodnoty riadenia]
 def compute_steering(cx, width=320):
-    return round(511 - (cx / width) * 510)
+    return round((cx / width) * 510) + 1
 \end{lstlisting}
 Následne sa táto hodnota sa posiela na Arduino mikrokontrolér, kde sa vykonáva posledné rozhodnutie.\par
 Na Arduine sa najskôr skontroluje hodnota z ultrazvukového modulu. V prípade, že je detekovaná prekážka do desať centimetrov, vozidlo zastaví. Ultrazvukový senzor berie najvyššiu prioritu.\par

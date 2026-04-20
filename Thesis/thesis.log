@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  19 APR 2026 23:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  20 APR 2026 22:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1656,7 +1656,7 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 [12]
 
 [13]
-<img/sensors.png, id=462, 284.39583pt x 156.91959pt>
+<img/sensors.png, id=468, 284.39583pt x 156.91959pt>
 File: img/sensors.png Graphic file (type png)
 <use img/sensors.png>
 Package pdftex.def Info: img/sensors.png  used on input line 36.
@@ -1672,7 +1672,7 @@ Package pdftex.def Info: img/sensors.png  used on input line 36.
 [17]
 
 [18]
-<img/arduino.png, id=526, 645.41125pt x 483.8075pt>
+<img/arduino.png, id=532, 645.41125pt x 483.8075pt>
 File: img/arduino.png Graphic file (type png)
 <use img/arduino.png>
 Package pdftex.def Info: img/arduino.png  used on input line 66.
@@ -1685,12 +1685,12 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 [19{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./img/ar
 duino.png>]
-<img/esp32cam.jpg, id=540, 642.4pt x 843.15pt>
+<img/esp32cam.jpg, id=546, 642.4pt x 843.15pt>
 File: img/esp32cam.jpg Graphic file (type jpg)
 <use img/esp32cam.jpg>
 Package pdftex.def Info: img/esp32cam.jpg  used on input line 86.
 (pdftex.def)             Requested size: 128.47772pt x 168.627pt.
-<img/hcsr04.jpg, id=544, 963.6pt x 722.7pt>
+<img/hcsr04.jpg, id=550, 963.6pt x 722.7pt>
 File: img/hcsr04.jpg Graphic file (type jpg)
 <use img/hcsr04.jpg>
 Package pdftex.def Info: img/hcsr04.jpg  used on input line 105.
@@ -1700,7 +1700,7 @@ Package pdftex.def Info: img/hcsr04.jpg  used on input line 105.
 [20 <./img/esp32cam.jpg>]
 
 [21 <./img/hcsr04.jpg>]
-<img/drv8833.jpg, id=560, 1939.245pt x 1497.595pt>
+<img/drv8833.jpg, id=566, 1939.245pt x 1497.595pt>
 File: img/drv8833.jpg Graphic file (type jpg)
 <use img/drv8833.jpg>
 Package pdftex.def Info: img/drv8833.jpg  used on input line 122.
@@ -1710,7 +1710,7 @@ Package pdftex.def Info: img/drv8833.jpg  used on input line 122.
 [22 <./img/drv8833.jpg>]
 
 [23]
-<img/cnn.png, id=596, 1043.9pt x 321.2pt>
+<img/cnn.png, id=602, 1043.9pt x 321.2pt>
 File: img/cnn.png Graphic file (type png)
 <use img/cnn.png>
 Package pdftex.def Info: img/cnn.png  used on input line 165.
@@ -1737,7 +1737,7 @@ nput line 184.
 
 
 [26]
-<img/roi.png, id=644, 317.185pt x 288.07625pt>
+<img/roi.png, id=649, 317.185pt x 288.07625pt>
 File: img/roi.png Graphic file (type png)
 <use img/roi.png>
 Package pdftex.def Info: img/roi.png  used on input line 197.
@@ -1745,19 +1745,20 @@ Package pdftex.def Info: img/roi.png  used on input line 197.
 
 
 [27 <./img/roi.png>]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 222.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 222.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 222.
+
 
 [28]
-<img/ultrazvuk.png, id=675, 602.25pt x 301.125pt>
+<img/ultrazvuk.png, id=685, 602.25pt x 301.125pt>
 File: img/ultrazvuk.png Graphic file (type png)
 <use img/ultrazvuk.png>
 Package pdftex.def Info: img/ultrazvuk.png  used on input line 238.
 (pdftex.def)             Requested size: 361.35278pt x 180.67638pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 249.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 249.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 249.
 
 
 [29 <./img/ultrazvuk.png>]
@@ -1775,58 +1776,60 @@ File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 /texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 
 [31]
-<img/diagram1.png, id=731, 763.85374pt x 503.8825pt>
+
+[32{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+<img/diagram1.png, id=775, 763.85374pt x 503.8825pt>
 File: img/diagram1.png Graphic file (type png)
 <use img/diagram1.png>
-Package pdftex.def Info: img/diagram1.png  used on input line 318.
+Package pdftex.def Info: img/diagram1.png  used on input line 359.
 (pdftex.def)             Requested size: 381.92593pt x 251.94063pt.
 
 
-[32]
+[33]
 
-[33 <./img/diagram1.png>]
+[34 <./img/diagram1.png>]
 
-[34]
+[35]
 
-[35{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-<img/model.png, id=836, 1314.41063pt x 542.77782pt>
+[36]
+<img/model.png, id=854, 1314.41063pt x 542.77782pt>
 File: img/model.png Graphic file (type png)
 <use img/model.png>
-Package pdftex.def Info: img/model.png  used on input line 414.
+Package pdftex.def Info: img/model.png  used on input line 455.
 (pdftex.def)             Requested size: 460.05061pt x 189.97508pt.
 
-Overfull \hbox (19.03288pt too wide) in paragraph at lines 414--415
+Overfull \hbox (19.03288pt too wide) in paragraph at lines 455--456
  [][] 
  []
 
 
 
-[36 <./img/model.png>]
-
 [37]
-<img/vozidlo1.jpg, id=852, 2534.46875pt x 2017.5375pt>
+
+[38 <./img/model.png>]
+<img/vozidlo1.jpg, id=884, 2534.46875pt x 2017.5375pt>
 File: img/vozidlo1.jpg Graphic file (type jpg)
 <use img/vozidlo1.jpg>
-Package pdftex.def Info: img/vozidlo1.jpg  used on input line 433.
+Package pdftex.def Info: img/vozidlo1.jpg  used on input line 474.
 (pdftex.def)             Requested size: 304.12312pt x 242.09406pt.
-<img/vozidlo2.jpg, id=853, 3071.475pt x 2481.27pt>
+<img/vozidlo2.jpg, id=885, 3071.475pt x 2481.27pt>
 File: img/vozidlo2.jpg Graphic file (type jpg)
 <use img/vozidlo2.jpg>
-Package pdftex.def Info: img/vozidlo2.jpg  used on input line 439.
+Package pdftex.def Info: img/vozidlo2.jpg  used on input line 480.
 (pdftex.def)             Requested size: 307.1655pt x 248.14154pt.
 
 
-[38 <./img/vozidlo1.jpg>]
+[39 <./img/vozidlo1.jpg>]
 
-[39 <./img/vozidlo2.jpg>]
+[40 <./img/vozidlo2.jpg>]
 
-[40
+[41
 
 ])
 
-[41] (./includes/conclusion.tex)
+[42] (./includes/conclusion.tex)
 
-[42
+[43
 
 
 ]
@@ -1835,16 +1838,16 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-[43
+[44
 
 
 ]
 
-[44] (./includes/ai_declaration.tex)
+[45] (./includes/ai_declaration.tex)
 
-[45] (./includes/attachmentB.tex)
+[46] (./includes/attachmentB.tex)
 
-[46
+[47
 
 
 
@@ -1855,16 +1858,16 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A31BAB624CBC96FA9E5091F76DE30393;8681.
+(rerunfilecheck)             Checksum: 796DCE786E6311BC376E01E4E73B4E38;8681.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37923 strings out of 473190
- 685412 string characters out of 5715806
- 1777257 words of memory out of 5000000
- 60018 multiletter control sequences out of 15000+600000
+ 37974 strings out of 473190
+ 686042 string characters out of 5715806
+ 1833257 words of memory out of 5000000
+ 60046 multiletter control sequences out of 15000+600000
  677327 words of font info for 241 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,131p,2372b,3128s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1884,10 +1887,10 @@ m/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/loc
 al/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
 /2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (47 pages, 6200192 bytes).
+Output written on thesis.pdf (48 pages, 6208875 bytes).
 PDF statistics:
- 1109 PDF objects out of 1200 (max. 8388607)
- 986 compressed objects within 10 object streams
- 310 named destinations out of 1000 (max. 500000)
+ 1147 PDF objects out of 1200 (max. 8388607)
+ 1022 compressed objects within 11 object streams
+ 333 named destinations out of 1000 (max. 500000)
  71180 words of extra memory for PDF output out of 74296 (max. 10000000)
 

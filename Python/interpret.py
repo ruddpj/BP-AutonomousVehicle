@@ -17,7 +17,7 @@ def mark_center(frame, cx, cy):
 
 
 def compute_steering(cx, width=320):
-    return round(511 - (cx / width) * 510)
+    return round((cx / width) * 510) + 1
 
 
 def show_text(frame, steering, stop):

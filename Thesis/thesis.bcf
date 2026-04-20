@@ -2460,6 +2460,7 @@
     <bcf:citekey order="62" intorder="1">opencv2025</bcf:citekey>
     <bcf:citekey order="63" intorder="1">badue2021</bcf:citekey>
     <bcf:citekey order="64" intorder="1">hcsr04</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">opencv2025</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
