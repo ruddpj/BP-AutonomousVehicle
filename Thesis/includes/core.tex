@@ -330,6 +330,10 @@ Hodnotu riadenia vypočítame pomocou x-ovej súradnice stredu. V našej impleme
 def compute_steering(cx, width=320):
     return round(511 - (cx / width) * 510)
 \end{lstlisting}
+Následne sa táto hodnota sa posiela na Arduino mikrokontrolér, kde sa vykonáva posledné rozhodnutie.\par
+Na Arduine sa najskôr skontroluje hodnota z ultrazvukového modulu. V prípade, že je detekovaná prekážka do desať centimetrov, vozidlo zastaví. Ultrazvukový senzor berie najvyššiu prioritu.\par
+\begin{lstlisting}[language=Python, caption=Rozhodovanie na vozidle]
+\end{lstlisting}
 \subsection{Návrh komunikácie komponentov}
 Komunikácia komponentov predstavuje dôležitý aspekt projektu, pretože je nutné aby si jednotlivé časti mohli synchrónne vymieňať a spracovať dáta. Systém je navrhnutý tak, aby v prípade výpadku jedného alebo viacerých komponentov dokázal bezpečne zastaviť vozidlo.\par
 Dôsledkom nízkeho výpočtového výkonu mikrokontrolérov Arduino sme použili v našej implementácii model klient-server. V danej štruktúre vystupujú dva typy entít; nadradení klienti iniciujú požiadavky na pasívny server, ktorý posiela odpovede klientom.\par
