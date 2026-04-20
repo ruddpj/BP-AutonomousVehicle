@@ -333,6 +333,11 @@ def compute_steering(cx, width=320):
 Následne sa táto hodnota sa posiela na Arduino mikrokontrolér, kde sa vykonáva posledné rozhodnutie.\par
 Na Arduine sa najskôr skontroluje hodnota z ultrazvukového modulu. V prípade, že je detekovaná prekážka do desať centimetrov, vozidlo zastaví. Ultrazvukový senzor berie najvyššiu prioritu.\par
 \begin{lstlisting}[language=Python, caption=Rozhodovanie na vozidle]
+if (distance < 10 || steer < -255 || steer > 255) {
+  stopWheels();
+} else {
+  driveSteering(steer*2);
+}
 \end{lstlisting}
 \subsection{Návrh komunikácie komponentov}
 Komunikácia komponentov predstavuje dôležitý aspekt projektu, pretože je nutné aby si jednotlivé časti mohli synchrónne vymieňať a spracovať dáta. Systém je navrhnutý tak, aby v prípade výpadku jedného alebo viacerých komponentov dokázal bezpečne zastaviť vozidlo.\par
