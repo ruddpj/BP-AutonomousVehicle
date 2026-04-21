@@ -60,8 +60,8 @@ Vozidlo reaguje na riadiace signály
 
 1. Klonovanie repozitára
 ```bash
-git clone https://github.com/tvoje-meno/tvoj-repozitar.git
-cd tvoj-repozitar
+git clone https://github.com/ruddpj/BP-AutonomousVehicle.git
+cd BP-AutonomousVehicle
 ```
 2. Inštalácia závislostí
 ```bash
@@ -69,7 +69,7 @@ pip install opencv-python ultralytics numpy
 ```
 ## ▶️ Spustenie
 ```bash
-python main.py
+python Python/main.py
 ```
 ## 🔌 Hardvér
 
