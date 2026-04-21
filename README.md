@@ -73,13 +73,19 @@ python Python/main.py
 ```
 ## 🔌 Hardvér
 
-Arduino Nano ESP32
+- Arduino Nano ESP32
 
-ESP32-CAM
+- ESP32-CAM + OV2640
 
-DC motory + driver
+- DRV8833
 
-Napájanie (batéria)
+- HC-SR04
+
+- 2x 3V 300RPM DC motory
+
+- Buck menič nepätia
+
+- Napájanie (batéria)
 
 ## 📂 Štruktúra projektu (príklad)
 ```
