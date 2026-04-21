@@ -59,19 +59,18 @@ Vozidlo reaguje na riadiace signály
 # 🛠️ Inštalácia
 
 1. Klonovanie repozitára
-
+```bash
 git clone https://github.com/tvoje-meno/tvoj-repozitar.git
-
 cd tvoj-repozitar
-
+```
 2. Inštalácia závislostí
-
+```bash
 pip install opencv-python ultralytics numpy
-
+```
 # ▶️ Spustenie
-
+```bash
 python main.py
-
+```
 # 🔌 Hardvér
 
 Arduino Nano ESP32
@@ -83,20 +82,17 @@ DC motory + driver
 Napájanie (batéria)
 
 # 📂 Štruktúra projektu (príklad)
-
+```
 .
-
-├── main.py
-
-├── yolo/
-
-├── cv/
-
-├── arduino/
-
-├── models/
-
-└── README.md
+├── Arduino/
+├── Model/
+├── Python/
+├── Thesis/
+├── .gitignore
+├── LICENSE
+├── README.md
+└── yolov8n.pt
+```
 
 # 🎓 Účel projektu
 
