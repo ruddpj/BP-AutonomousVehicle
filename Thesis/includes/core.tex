@@ -50,8 +50,21 @@ Alternatívny prístup zvolila spoločnosť Tesla, so službou Robotaxi a systé
 \acrfull{adr} sa používajú v súčasnosti v univerzitných kampusoch a mestách na donášku jedla. Poskytujú takzvanú last-mile delivery (dodanie na poslednú míľu) a fungujú na štvrtej úrovni autonómie. Primárne využívané na chodníkoch alebo cyklochodníkoch, doručovacie roboty sú schopné prekonávať križovatky, vyhýbať sa prekážkam a doručovať tovar na vzdialenosť pár kilometrov~\cite{srinivas2022}.\par
 \acrshort{adr} používajú zväčša kombináciu kamier a počítačového videnia na navigovanie, týmto spôsobom zabezpečujú nížšie náklady na výrobu, s väčšou mierou škalovateľnosti. Niektorí výrobcovia sa vyhýbajú používaniu \acrshort{gps}, pretože neposkytuje dostatočnú mieru presnosti~\cite{forbes2025}.\par
 Autonómna donáška jedla zaznamenala výrazný rozvoj počas pandémie COVID-19. Mnohé spoločnosti poskytujúce donášku jedla, ako napríklad Uber Eats a DoorDash, ale aj logistické spoločnosti ako Amazon, Walmart a Google začali investovať do vývoja \acrshort{adr}. Jedným z priekopníkov v tejto oblasti je spoločnosť Starship Technologies, ktorá výrazne rozšírila svoju flotilu práve počas pandémie. Zatiaľ čo donáška pomocou pozemných robotov je bežná, mnohé spoločnosti investujú aj do vývoja doručovania pomocou autonómnych dronov~\cite{forbes2025}.
-\subsection{Zhrnutie poznatkov}
-%TODO
+Značným problémom \acrshort{adr} je ich krátky dosah, pomála rýchlosť a obmedzená kapacita užitočného zaťaženia. Mnohé spoločnosti investujú do hybridných modelov donášky kombináciou konvenčných donáškových vozidiel a doručovacích robotov~\cite{srinivas2022}.\par
+V závislosti od charakteristík systému možno existujúci model hybridného doručovania klasifikovať ako nasledujúce tri kategórie:
+\begin{itemize}
+\item \textbf{Dvojúrovňový model:} Tento model využíva konvenčné vozidlá (kamióny alebo dodávky) na hromadnú prepravu zásielok z centrálneho depa do siete menších lokálnych skladísk. Z týchto miest vykonávajú \acrshort{adr} donášku na poslednú míľu priamo zákazníkovi~\cite{srinivas2022}.
+\item \textbf{Mothership model:} V tomto modeli slúži štandardné donáškové vozidlo ako materská loď, ktorá je špecialne upravená na prepravu flotily \acrshort{adr}. Autonómne vozidla sa vypúštajú z meterskej lode v bezprostrednej blízkosti cieľov donášky. Ide o jeden z najčastejšie skúmaných modelov v aktualnej literatúre~\cite{srinivas2022}.
+\item \textbf{Model čaty} Autonómne vozidlá doručujú zásielky samostatne v oblastiach, ktoré sú schopné navigovať. Ak však musia prekonať zóny, ktoré sú pre roboty nedostupné, pripoja sa k manuálne riadenému vozidlu, ktoré funguje ako "vodca čaty". Roboty nasledujú toto vozidlo, až kým nedorazia do zóny im vhodnej~\cite{srinivas2022}.
+\end{itemize}
+\subsection{Zhrnutie poznatkov} %TODO
+Po analýze technologického vývoja autonómnych vozidiel je nevyhnutné kriticky zhodnotiť ich dopad na reálne dopravné prostredie. V nasledujúcej podkapitole si identifikujeme kľúčové trendy a vyvodíme poznatky, ktoré formujú súčasnú sféru autonómnej mobility.\par
+Mnohé implementácie v priemysle autonómnych vozidiel sa posúvajú od asistovaných systémov úrovne 2 a 3, k plne autonómnej prevádzke v špecifických podmienkach úrovne 4. Plná autonómia úrovne 5 stále ostáva dlhodobým problémom v danej oblasti.\par
+Senzory...\par
+AI ako celý mozog...\par
+Edge cases...\par
+Škálovateľnosť...\par
+Integrácia...\par
 
 \section{Ciele práce}\label{sec:CielePrace}
 %TODO
@@ -446,6 +459,7 @@ void loop() {
     distance = duration / 58;
     echoDone = false;
   }
+}
 \end{lstlisting}
 \subsection{Návrh rámu a rozloženie komponentov}
 Správny návrh rámu a rozloženia komponentov na ňom je doležité pre správne fungovanie celého systému. V našej implementácii sme sa zamerali na minimalizovanie váhy vozidla a maximalizovanie kompaktnosti komponentov a tým ich zohranie.\par

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  20 APR 2026 22:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  21 APR 2026 23:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1668,60 +1668,62 @@ Package pdftex.def Info: img/sensors.png  used on input line 36.
 [15 <./img/sensors.png>]
 
 [16]
-
-[17]
-
-[18]
-<img/arduino.png, id=532, 645.41125pt x 483.8075pt>
-File: img/arduino.png Graphic file (type png)
-<use img/arduino.png>
-Package pdftex.def Info: img/arduino.png  used on input line 66.
-(pdftex.def)             Requested size: 193.62486pt x 145.14337pt.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
-3.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
+6.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[19{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./img/ar
-duino.png>]
-<img/esp32cam.jpg, id=546, 642.4pt x 843.15pt>
+[17{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+[18]
+
+[19]
+<img/arduino.png, id=544, 645.41125pt x 483.8075pt>
+File: img/arduino.png Graphic file (type png)
+<use img/arduino.png>
+Package pdftex.def Info: img/arduino.png  used on input line 79.
+(pdftex.def)             Requested size: 193.62486pt x 145.14337pt.
+
+
+[20 <./img/arduino.png>]
+<img/esp32cam.jpg, id=557, 642.4pt x 843.15pt>
 File: img/esp32cam.jpg Graphic file (type jpg)
 <use img/esp32cam.jpg>
-Package pdftex.def Info: img/esp32cam.jpg  used on input line 86.
+Package pdftex.def Info: img/esp32cam.jpg  used on input line 99.
 (pdftex.def)             Requested size: 128.47772pt x 168.627pt.
-<img/hcsr04.jpg, id=550, 963.6pt x 722.7pt>
+<img/hcsr04.jpg, id=561, 963.6pt x 722.7pt>
 File: img/hcsr04.jpg Graphic file (type jpg)
 <use img/hcsr04.jpg>
-Package pdftex.def Info: img/hcsr04.jpg  used on input line 105.
+Package pdftex.def Info: img/hcsr04.jpg  used on input line 118.
 (pdftex.def)             Requested size: 163.80983pt x 122.85736pt.
 
 
-[20 <./img/esp32cam.jpg>]
+[21 <./img/esp32cam.jpg>]
 
-[21 <./img/hcsr04.jpg>]
-<img/drv8833.jpg, id=566, 1939.245pt x 1497.595pt>
+[22 <./img/hcsr04.jpg>]
+<img/drv8833.jpg, id=577, 1939.245pt x 1497.595pt>
 File: img/drv8833.jpg Graphic file (type jpg)
 <use img/drv8833.jpg>
-Package pdftex.def Info: img/drv8833.jpg  used on input line 122.
+Package pdftex.def Info: img/drv8833.jpg  used on input line 135.
 (pdftex.def)             Requested size: 155.14276pt x 119.81004pt.
 
 
-[22 <./img/drv8833.jpg>]
+[23 <./img/drv8833.jpg>]
 
-[23]
-<img/cnn.png, id=602, 1043.9pt x 321.2pt>
+[24]
+<img/cnn.png, id=614, 1043.9pt x 321.2pt>
 File: img/cnn.png Graphic file (type png)
 <use img/cnn.png>
-Package pdftex.def Info: img/cnn.png  used on input line 165.
+Package pdftex.def Info: img/cnn.png  used on input line 178.
 (pdftex.def)             Requested size: 417.5526pt x 128.47772pt.
 
 
-[24]
+[25]
 
-[25 <./img/cnn.png>]
+[26 <./img/cnn.png>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-79.
+92.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1733,35 +1735,35 @@ Package microtype Info: Loading generic protrusion settings for font family
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 184.
+nput line 197.
 
 
-[26]
-<img/roi.png, id=649, 317.185pt x 288.07625pt>
+[27]
+<img/roi.png, id=660, 317.185pt x 288.07625pt>
 File: img/roi.png Graphic file (type png)
 <use img/roi.png>
-Package pdftex.def Info: img/roi.png  used on input line 197.
+Package pdftex.def Info: img/roi.png  used on input line 210.
 (pdftex.def)             Requested size: 190.31245pt x 172.84708pt.
 
 
-[27 <./img/roi.png>]
+[28 <./img/roi.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 222.
+(Font)              <10> on input line 235.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 222.
+(Font)              <7> on input line 235.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 222.
+(Font)              <5> on input line 235.
 
 
-[28]
-<img/ultrazvuk.png, id=685, 602.25pt x 301.125pt>
+[29]
+<img/ultrazvuk.png, id=697, 602.25pt x 301.125pt>
 File: img/ultrazvuk.png Graphic file (type png)
 <use img/ultrazvuk.png>
-Package pdftex.def Info: img/ultrazvuk.png  used on input line 238.
+Package pdftex.def Info: img/ultrazvuk.png  used on input line 251.
 (pdftex.def)             Requested size: 361.35278pt x 180.67638pt.
 
 
-[29 <./img/ultrazvuk.png>]
+[30 <./img/ultrazvuk.png>]
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
@@ -1772,64 +1774,64 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 )
 
-[30{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local
+[31{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local
 /texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 
-[31]
+[32]
 
-[32{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-<img/diagram1.png, id=775, 763.85374pt x 503.8825pt>
+[33{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+<img/diagram1.png, id=786, 763.85374pt x 503.8825pt>
 File: img/diagram1.png Graphic file (type png)
 <use img/diagram1.png>
-Package pdftex.def Info: img/diagram1.png  used on input line 359.
+Package pdftex.def Info: img/diagram1.png  used on input line 372.
 (pdftex.def)             Requested size: 381.92593pt x 251.94063pt.
 
 
-[33]
+[34]
 
-[34 <./img/diagram1.png>]
-
-[35]
+[35 <./img/diagram1.png>]
 
 [36]
-<img/model.png, id=854, 1314.41063pt x 542.77782pt>
+
+[37]
+<img/model.png, id=865, 1314.41063pt x 542.77782pt>
 File: img/model.png Graphic file (type png)
 <use img/model.png>
-Package pdftex.def Info: img/model.png  used on input line 455.
+Package pdftex.def Info: img/model.png  used on input line 469.
 (pdftex.def)             Requested size: 460.05061pt x 189.97508pt.
 
-Overfull \hbox (19.03288pt too wide) in paragraph at lines 455--456
+Overfull \hbox (19.03288pt too wide) in paragraph at lines 469--470
  [][] 
  []
 
 
 
-[37]
+[38]
 
-[38 <./img/model.png>]
-<img/vozidlo1.jpg, id=884, 2534.46875pt x 2017.5375pt>
+[39 <./img/model.png>]
+<img/vozidlo1.jpg, id=897, 2534.46875pt x 2017.5375pt>
 File: img/vozidlo1.jpg Graphic file (type jpg)
 <use img/vozidlo1.jpg>
-Package pdftex.def Info: img/vozidlo1.jpg  used on input line 474.
+Package pdftex.def Info: img/vozidlo1.jpg  used on input line 488.
 (pdftex.def)             Requested size: 304.12312pt x 242.09406pt.
-<img/vozidlo2.jpg, id=885, 3071.475pt x 2481.27pt>
+<img/vozidlo2.jpg, id=898, 3071.475pt x 2481.27pt>
 File: img/vozidlo2.jpg Graphic file (type jpg)
 <use img/vozidlo2.jpg>
-Package pdftex.def Info: img/vozidlo2.jpg  used on input line 480.
+Package pdftex.def Info: img/vozidlo2.jpg  used on input line 494.
 (pdftex.def)             Requested size: 307.1655pt x 248.14154pt.
 
 
-[39 <./img/vozidlo1.jpg>]
+[40 <./img/vozidlo1.jpg>]
 
-[40 <./img/vozidlo2.jpg>]
+[41 <./img/vozidlo2.jpg>]
 
-[41
+[42
 
 ])
 
-[42] (./includes/conclusion.tex)
+[43] (./includes/conclusion.tex)
 
-[43
+[44
 
 
 ]
@@ -1838,16 +1840,16 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-[44
+[45
 
 
 ]
 
-[45] (./includes/ai_declaration.tex)
+[46] (./includes/ai_declaration.tex)
 
-[46] (./includes/attachmentB.tex)
+[47] (./includes/attachmentB.tex)
 
-[47
+[48
 
 
 
@@ -1858,17 +1860,17 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 796DCE786E6311BC376E01E4E73B4E38;8681.
+(rerunfilecheck)             Checksum: F793C143852A35615F009BAE656EF16C;8681.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37974 strings out of 473190
- 686042 string characters out of 5715806
+ 37980 strings out of 473190
+ 686114 string characters out of 5715806
  1833257 words of memory out of 5000000
- 60046 multiletter control sequences out of 15000+600000
- 677327 words of font info for 241 fonts, out of 8000000 for 9000
+ 60048 multiletter control sequences out of 15000+600000
+ 677424 words of font info for 242 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,131p,2372b,3128s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
@@ -1887,10 +1889,10 @@ m/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pf
 b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/loc
 al/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive
 /2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (48 pages, 6208875 bytes).
+Output written on thesis.pdf (49 pages, 6211411 bytes).
 PDF statistics:
- 1147 PDF objects out of 1200 (max. 8388607)
- 1022 compressed objects within 11 object streams
- 333 named destinations out of 1000 (max. 500000)
+ 1160 PDF objects out of 1200 (max. 8388607)
+ 1034 compressed objects within 11 object streams
+ 335 named destinations out of 1000 (max. 500000)
  71180 words of extra memory for PDF output out of 74296 (max. 10000000)
 
