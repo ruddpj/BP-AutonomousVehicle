@@ -1,4 +1,4 @@
-# 🚗 Autonómne riadenie malého vozidla s detekciou prekážky
+# Autonómne riadenie malého vozidla s detekciou prekážky
 Autor: Rudolf Tisoň
 
 
@@ -90,7 +90,7 @@ python Python/main.py
 - Napájanie (batéria)
 
 
-## 📂 Štruktúra projektu (príklad)
+## 📂 Štruktúra projektu
 ```
 .
 ├── Arduino/
