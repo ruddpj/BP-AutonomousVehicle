@@ -1,15 +1,14 @@
 # 🚗 Autonómne riadenie malého vozidla s detekciou prekážky
-
 Autor: Rudolf Tisoň
 
-## 📌 Popis projektu
 
+## 📌 Popis projektu
 Tento projekt sa zameriava na autonómne riadenie malého vozidla pomocou počítačového videnia. Vozidlo dokáže sledovať jazdný pruh (čiaru) a zároveň detegovať prekážky v reálnom čase.
 
 Na spracovanie obrazu sa využíva knižnica OpenCV a model YOLO, pričom riadenie vozidla zabezpečuje mikrokontrolér Arduino Nano ESP32 v kombinácii s kamerovým modulom ESP32-CAM.
 
-## ⚙️ Použité technológie
 
+## ⚙️ Použité technológie
 🐍 Python
 
 👁️ OpenCV
@@ -20,8 +19,8 @@ Na spracovanie obrazu sa využíva knižnica OpenCV a model YOLO, pričom riaden
 
 📷 ESP32-CAM
 
-## 🚀 Funkcionalita
 
+## 🚀 Funkcionalita
 Detekcia jazdného pruhu (line following)
 
 Detekcia prekážok pomocou YOLO
@@ -36,8 +35,8 @@ Spracovanie obrazu v reálnom čase
 
 Komunikácia medzi PC a mikrokontrolérom
 
-## 🧠 Princíp fungovania
 
+## 🧠 Princíp fungovania
 ESP32-CAM streamuje obraz do počítača
 
 Python skript spracováva obraz:
@@ -48,16 +47,16 @@ YOLO → detekcia prekážok
 
 Na základe detekcie sa vypočíta:
 
-smer (steering)
+- smer (steering)
 
-stav (jazda / stop)
+- stav (jazda / stop)
 
 Príkazy sa odošlú do Arduino Nano ESP32
 
 Vozidlo reaguje na riadiace signály
 
-## 🛠️ Inštalácia
 
+## 🛠️ Inštalácia
 1. Klonovanie repozitára
 ```bash
 git clone https://github.com/ruddpj/BP-AutonomousVehicle.git
@@ -67,12 +66,15 @@ cd BP-AutonomousVehicle
 ```bash
 pip install opencv-python ultralytics numpy
 ```
+
+
 ## ▶️ Spustenie
 ```bash
 python Python/main.py
 ```
-## 🔌 Hardvér
 
+
+## 🔌 Hardvér
 - Arduino Nano ESP32
 
 - ESP32-CAM + OV2640
@@ -87,6 +89,7 @@ python Python/main.py
 
 - Napájanie (batéria)
 
+
 ## 📂 Štruktúra projektu (príklad)
 ```
 .
@@ -100,10 +103,10 @@ python Python/main.py
 └── yolov8n.pt
 ```
 
-## 🎓 Účel projektu
 
+## 🎓 Účel projektu
 Projekt bol vytvorený ako súčasť štúdia (bakalárska práca) a slúži na demonštráciu využitia počítačového videnia v autonómnych systémoch.
 
-## 📜 Licencia
 
+## 📜 Licencia
 Tento projekt je licencovaný pod GNU GPL-3.0
