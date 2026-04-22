@@ -57,14 +57,15 @@ V závislosti od charakteristík systému možno existujúci model hybridného d
 \item \textbf{Mothership model:} V tomto modeli slúži štandardné donáškové vozidlo ako materská loď, ktorá je špecialne upravená na prepravu flotily \acrshort{adr}. Autonómne vozidla sa vypúštajú z meterskej lode v bezprostrednej blízkosti cieľov donášky. Ide o jeden z najčastejšie skúmaných modelov v aktualnej literatúre~\cite{srinivas2022}.
 \item \textbf{Model čaty} Autonómne vozidlá doručujú zásielky samostatne v oblastiach, ktoré sú schopné navigovať. Ak však musia prekonať zóny, ktoré sú pre roboty nedostupné, pripoja sa k manuálne riadenému vozidlu, ktoré funguje ako "vodca čaty". Roboty nasledujú toto vozidlo, až kým nedorazia do zóny im vhodnej~\cite{srinivas2022}.
 \end{itemize}
-\subsection{Zhrnutie poznatkov} %TODO
+\subsection{Zhrnutie poznatkov}
 Po analýze technologického vývoja autonómnych vozidiel je nevyhnutné kriticky zhodnotiť ich dopad na reálne dopravné prostredie. V nasledujúcej podkapitole si identifikujeme kľúčové trendy a vyvodíme poznatky, ktoré formujú súčasnú sféru autonómnej mobility.\par
 Mnohé implementácie v priemysle autonómnych vozidiel sa posúvajú od asistovaných systémov úrovne 2 a 3, k plne autonómnej prevádzke v špecifických podmienkach úrovne 4. Plná autonómia úrovne 5 stále ostáva dlhodobým problémom v danej oblasti.\par
-Senzory...\par
-AI ako celý mozog...\par
-Edge cases...\par
-Škálovateľnosť...\par
-Integrácia...\par
+Počet senzorov sa v autonómnych vozidlách zdatne zmenšuje. Prechádza sa z ideológie "maximálnej redundancie" s vysokým počtom senzorov na optimalizovaný prístup. Firmy ako Tesla nahrádzajú spoľahlivé, no ekonomicky nevýhodné \acrshort{lidar}ové senzory za kombináciu kamier a \acrshort{ai}.\par
+Kontrastne, spoločnosti ako Waymo sa držia prístupu založeného na \acrshort{lidar}e, no snažia sa znížiť cenu a zvýšiť ich efektivitu. V súčasnosti ešte neexituje konsenzus medzi technologickými spoločnosťami.\par
+\acrshort{ai} zohráva dôležitú rolu pri plánovacom a rozhodovacom systéme autonómnych vozidiel. Súčasné trendy ukazujú na využívanie veľkých jazykových modelov, ktoré sú schopné interpretovať dáta zo senzorov a z nich priamo rozhodnúť o chode autonómneho vozidla.\par
+Hraničné situácie zohrávajú najväčšiu bariéru ku masovému nasadeniu autonómnych vozidiel úrovne 5. Vývoj v oblasti umelej inteligencii sa zameriava práve na tieto edge cases. Z analýzy vyplýva, že vyriešením tohto problému, bude zavedenie \acrshort{av} v mestách zdatne urýchlené.\par
+Technológia samotná nestačí pre adopciu autonómnych vozidiel do miest. Značným problémom je integrácia v mestskom prostredí a verejná akceptácia \acrshort{av}. Predpokladáme, že krajiny, ktoré budú investovať do integrácie autonómnych vozidiel, a ktoré majú progresívny názor na ich nasadenie, budú zaznamenávať najväčší nárast v tomto sektore.\par
+Viaceré z identifikovaných aspektov boli priamo reflektované v našom návrhu systému autonómneho vozidla s detekciou prekážok.
 
 \section{Ciele práce}\label{sec:CielePrace}
 %TODO
