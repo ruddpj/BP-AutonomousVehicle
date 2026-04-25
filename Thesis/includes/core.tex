@@ -208,7 +208,7 @@ def region_of_interest(frame):
 Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný obraz, pričom všetky jej prvky boli nastavené na maximálnu hodnotu 8-bitového rozsahu (255). Túto maticu sme si definovali pomocou knižnice NumPy. Následne bola do tejto matice prenesená relevantná časť datasetu od vopred definovanej vertikálnel hranice \verb|roi_height| smerom nadol. Výsledok, viditeľný na obrázku \ref{fig:roi}, je obraz, kde sú spracované len tie pixely, ktoré sú v spodnej polovici obrazu a pravdepodobne obsahujú informácie o vozovke.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.80]{img/roi.png}
+	\includegraphics[scale=0.67]{img/roi.png}
 	\caption{Obraz s použitím ROI}
 	\label{fig:roi}
 \end{figure}
@@ -232,6 +232,13 @@ def mask_road(frame):
 
     return mask
 \end{lstlisting}
+Výstupné maskovanie silne závisí od externých faktorov ako napríklad okolité osvetlenie. Obrazok \ref{fig:mask} zobrazuje možný výstup maskovania.
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.67]{img/masklane.png}
+	\caption{Hľadanie tmavého jazdného pruhu.}
+	\label{fig:mask}
+\end{figure}
 \subsubsection{Hľadanie kontúr vozovky}
 Kontúry\footnote{Kontúra je krivka, ktorá spája všetky body s rovnakou farbou alebo intenzitou.} sú dôležitou súčasťou detekcie jazdných pruhov na vozovke. Princípom sa podobá hľadaním hranice tmavého objektu na svetlom pozadí~\cite{opencv2025}.\par
 V knižnici OpenCV existuje funkcia \verb|findContours| na algoritmickú detekciu kontúr v obraze. Funkcia vracia dve polia -- výstupné pole kontúr a pole opisujúce hierarchiu topológie obrazu, no túto štruktúru zahadzujeme, pretože nie je pre nás užitočné~\cite{opencv2025}.\par
@@ -326,12 +333,12 @@ def decide_stop(det):
 \end{lstlisting}
 V alternatívnom scenári, kde nebola nedetekovaná prekážka pomocou \acrshort{cnn}, budeme postupovať s určením jazdného pruhu.\par
 Po identifikácii kontúr jazdného pruhu je ďalším krokom určenie stredovej línie tej najvýraznejšej z nich. Vyberieme si kontúru s najväčšou plochou. Pomocou funkcie \verb|moments| z knižnice OpenCV získame momenty pixelov\footnote{Momenty sú vážené priemery intezity (jasu) jednotlivých pixelov.}. Tieto údaje sú kľúčove pri výpočte geometrického stredu kontúry~\cite{opencv2025}.\par
-Súradnice stredu ($c_x, c_y$) následne vypočítame pomocou nasledujúcich vzorcov:
+Súradnice stredu ($c_x, c_y$) vypočítame pomocou nasledujúcich vzorcov:
 \begin{itemize}
 \item \textbf{X-ová súradnica} $c_x=\frac{m_{10}}{m_{00}}$
 \item \textbf{Y-ová súradnica} $c_y=\frac{m_{01}}{m_{00}}$
 \end{itemize}
-Kde $m_{10}$ a $m_{01}$ predstavujú horizontálny a vertikálny moment a $m_{00}$ zodpovedá ploche danej kontúry.
+Kde $m_{10}$ a $m_{01}$ predstavujú horizontálny a vertikálny moment a $m_{00}$ zodpovedá ploche danej kontúry.\par
 \begin{lstlisting}[language=Python, caption=Výpočet geometrického stredu kontúry]
 def find_center(contours):
     if contours:
@@ -344,7 +351,7 @@ def find_center(contours):
             return cx, cy
     return None, None
 \end{lstlisting}
-Po zistení geometrického stredu jazdného pruhu vypočítame samotnú hodnotu riadenia. Naša implementácia normalizuje hodnoty na rozsah hodnôt $<1, 511>$, čím zabezpečíme plynulé vstupy pre riadiaci systém vozidla.
+Po zistení geometrického stredu jazdného pruhu vypočítame samotnú hodnotu riadenia. Naša implementácia normalizuje hodnoty na rozsah hodnôt $<1, 511>$, čím zabezpečíme plynulé vstupy pre riadiaci systém vozidla.\par
 \begin{itemize}
 \item \textbf{Hodnoty $<1,255>$:} Otáčanie doľava.
 \item \textbf{Hodnoty $<257,511>$:} Otáčanie doprava.
@@ -356,6 +363,13 @@ Tento normalizovaný prístup umožnuje mapovanie odchýlky od stredu obrazu na 
 def compute_steering(cx, width=320):
     return round((cx / width) * 510) + 1
 \end{lstlisting}
+Pomocou zistených hodnôt vieme zaznačiť stred jazdného pruhu a vypísať hodnotu otáčania, ako je možné vidieť na obrázku \ref{fig:center}.\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.67]{img/findcenter.png}
+	\caption{Hľadanie stredu jazdného pruhu.}
+	\label{fig:center}
+\end{figure}
 Následne sa táto hodnota sa posiela na Arduino mikrokontrolér, kde sa vykonáva posledné rozhodnutie.\par
 Na Arduine sa najskôr skontroluje hodnota z ultrazvukového modulu. V prípade, že je detekovaná prekážka do desať centimetrov, vozidlo zastaví. Ultrazvukový senzor berie najvyššiu prioritu.\par
 \begin{lstlisting}[language=Python, caption=Rozhodovanie na vozidle]
