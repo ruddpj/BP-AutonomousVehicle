@@ -19,6 +19,24 @@ Posledným kľúčovým článkom je konanie a ovládanie. Systém ovládania vo
 \subsubsection{Úroveň 5}
 \paragraph{Plná automatizácia}Najvyšší stupeň automatizácie, vozidlo dokáže jazdiť samostatne za všetkých podmienok, v ktorých dokáže jazdiť človek. Neexistuje potreba vodiča. Vozidlo zastaví v prípade zlyhania určitých modulov riadenia~\cite{saej3016}.
 
+\section{Ciele práce}\label{sec:CielePrace}
+V tejto kapitole si stanovýme hlavný cieľ bakalárskej práce a taktiež čiastkové ciele, ktoré slúžia ako milníky pri praktickom spracovaní témy práce.\par
+Hlavný cieľ bakalárskej práce je návrh a implementácia algoritmu pre autonómne riadenie malého robotického vozidla, ktoré dokáže v reálnom čase detegovať prekážky v jazdnej dráhe a následne na ne reágovať.\par
+Praktická časť práce sa zameriava na implementáciu riešenia na hardvérovej platforme Arduino so súčasnými metódami počítačového videnia pomocou knižnice OpenCV.\par
+\textbf{Čiastkové ciele}
+\begin{enumerate}
+	\item \textbf{Analýza problematiky:} Teoretické spracovanie aktuálnej problematiky v oblasti autonónych vozidiel. Zhodnotenie súčasnej a budúcej implementácie jednotlivých systémov použitých v \acrshort{av}. Prehľad konkrétneho využitia senzorových systémov a umelej inteligencie na detekciu prekážok.
+
+	\item \textbf{Návrh technologického riešenia:} Výber optimálnej kombinácie hardvérových a softvérových komponentov v rámci obmedzenia bakalárskej práce. Zvolenie riadiacej jednotky Arduino, typ a počet senzorov, programovací jazyk riešenia a mechanické prvky vozidla. Výber metód detekcie prekážky a jazdného pruhu pomocou počítačového videnia. Fyzický návrh vzhľadu vozidla so zameraním na použité materiály a rozloženie komponentov.
+
+	\item \textbf{Algoritmizácia detekcie:} Zvolenie riešení v prostredí OpenCV zameraných na spracovanie obrazu z kamery na identifikáciu prekážok a jazdného pruhu v zornom poli vozidla.
+
+	\item \textbf{Prepojenie komponentov:} Návrh metód komunikácie jednotlivých komponentov. Prepojenie vrstiev riadenia autonómneho vozidla od vnímania po konanie. Interpretácia výstupov na vstupy pre jednotlivé systémy. Návrh fyzického prepojenie častí systému pomocou komunikáčného média.
+
+	\item \textbf{Zostavenie riešenia:} Implementácia zvolených návrhov. Naprogramovanie riešenia s použitím knižnice OpenCV. Zostavenie rámu vozidla a následná montáž.
+
+	\item \textbf{Testovanie a validácia:} Navrhnutie metodiky testovania a následné overenie funkčnosti vozidla v rozličných situáciách. Otestovanie detekcie rôznych prekážok.
+\end{enumerate}
 
 \section{Analýza súčasného stavu}\label{sec:Analyza}
 \subsection{Aktuálny stav technológie}
@@ -53,9 +71,9 @@ Autonómna donáška jedla zaznamenala výrazný rozvoj počas pandémie COVID-1
 Značným problémom \acrshort{adr} je ich krátky dosah, pomála rýchlosť a obmedzená kapacita užitočného zaťaženia. Mnohé spoločnosti investujú do hybridných modelov donášky kombináciou konvenčných donáškových vozidiel a doručovacích robotov~\cite{srinivas2022}.\par
 V závislosti od charakteristík systému možno existujúci model hybridného doručovania klasifikovať ako nasledujúce tri kategórie:
 \begin{itemize}
-\item \textbf{Dvojúrovňový model:} Tento model využíva konvenčné vozidlá (kamióny alebo dodávky) na hromadnú prepravu zásielok z centrálneho depa do siete menších lokálnych skladísk. Z týchto miest vykonávajú \acrshort{adr} donášku na poslednú míľu priamo zákazníkovi~\cite{srinivas2022}.
-\item \textbf{Mothership model:} V tomto modeli slúži štandardné donáškové vozidlo ako materská loď, ktorá je špecialne upravená na prepravu flotily \acrshort{adr}. Autonómne vozidla sa vypúštajú z meterskej lode v bezprostrednej blízkosti cieľov donášky. Ide o jeden z najčastejšie skúmaných modelov v aktualnej literatúre~\cite{srinivas2022}.
-\item \textbf{Model čaty} Autonómne vozidlá doručujú zásielky samostatne v oblastiach, ktoré sú schopné navigovať. Ak však musia prekonať zóny, ktoré sú pre roboty nedostupné, pripoja sa k manuálne riadenému vozidlu, ktoré funguje ako ``vodca čaty''. Roboty nasledujú toto vozidlo, až kým nedorazia do zóny im vhodnej~\cite{srinivas2022}.
+	\item \textbf{Dvojúrovňový model:} Tento model využíva konvenčné vozidlá (kamióny alebo dodávky) na hromadnú prepravu zásielok z centrálneho depa do siete menších lokálnych skladísk. Z týchto miest vykonávajú \acrshort{adr} donášku na poslednú míľu priamo zákazníkovi~\cite{srinivas2022}.
+	\item \textbf{Mothership model:} V tomto modeli slúži štandardné donáškové vozidlo ako materská loď, ktorá je špecialne upravená na prepravu flotily \acrshort{adr}. Autonómne vozidla sa vypúštajú z meterskej lode v bezprostrednej blízkosti cieľov donášky. Ide o jeden z najčastejšie skúmaných modelov v aktualnej literatúre~\cite{srinivas2022}.
+	\item \textbf{Model čaty} Autonómne vozidlá doručujú zásielky samostatne v oblastiach, ktoré sú schopné navigovať. Ak však musia prekonať zóny, ktoré sú pre roboty nedostupné, pripoja sa k manuálne riadenému vozidlu, ktoré funguje ako ``vodca čaty''. Roboty nasledujú toto vozidlo, až kým nedorazia do zóny im vhodnej~\cite{srinivas2022}.
 \end{itemize}
 \subsection{Zhrnutie poznatkov}
 Po analýze technologického vývoja autonómnych vozidiel je nevyhnutné kriticky zhodnotiť ich dopad na reálne dopravné prostredie. V nasledujúcej podkapitole si identifikujeme kľúčové trendy a vyvodíme poznatky, ktoré formujú súčasnú sféru autonómnej mobility.\par
@@ -66,9 +84,6 @@ Kontrastne, spoločnosti ako Waymo sa držia prístupu založeného na \acrshort
 Hraničné situácie zohrávajú najväčšiu bariéru ku masovému nasadeniu autonómnych vozidiel úrovne 5. Vývoj v oblasti umelej inteligencii sa zameriava práve na tieto edge cases. Z analýzy vyplýva, že vyriešením tohto problému, bude zavedenie \acrshort{av} v mestách zdatne urýchlené.\par
 Technológia samotná nestačí pre adopciu autonómnych vozidiel do miest. Značným problémom je integrácia v mestskom prostredí a verejná akceptácia \acrshort{av}. Predpokladáme, že krajiny, ktoré budú investovať do integrácie autonómnych vozidiel, a ktoré majú progresívny názor na ich nasadenie, budú zaznamenávať najväčší nárast v tomto sektore.\par
 Viaceré z identifikovaných aspektov boli priamo reflektované v našom návrhu systému autonómneho vozidla s detekciou prekážok.
-
-\section{Ciele práce}\label{sec:CielePrace}
-%TODO
 
 \section{Komponenty systému}\label{sec:Komponenty}
 V tejto kapitole si preberieme použité komponenty celkového systému. Výber správnych súčastí v rámci limitácií bakalárskej práce je kľúčový pre získanie lepších výsledkov.
@@ -212,7 +227,7 @@ Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný ob
 	\caption{Obraz s použitím ROI}
 	\label{fig:roi}
 \end{figure}
-\subsubsection{Hľadanie tmavých regiónov} %TODO Doplniť fotku
+\subsubsection{Hľadanie tmavých regiónov}
 Hľadanie tmavých regiónov na vozovke je jednoduchý a výpočtovo nenáročný spôsob detekcie jazdných pruhov. Autonómne vozidlá dokážu detekovať svetlý jazdný pruh na tmavom asfalte vďaka kontraste týchto dvoch plôch. V princípe používame rovnaký prístup, no v našej implementácii hľadáme čierny pruh v strede bielej vozovky. Tento postup dosahuje lepšie výsledky v zhoršených svetelných podmienkach~\cite{opencv2025}.\par
 Prvý krok je definícia hraníc pre najsvetlejší a najtmavší tmavý región. V kóde si definujeme hranice ako NumPy pole s reprezentáciou vo formáte odtieň-sýtosť-jas (HSV). Odtieň (hue) predstavuje hodnotu od 0 po 179 -- čiže polohu na farebnom kolese. Sýtosť (saturation) je percentuálne vyjadrenie ``čistoty'' farby -- t.j. množstvo šedej; volíme čísla od 0 po 255. Jas (Value) určuje intenzitu svetla. Hodnota 0 predstavuje absolútnu čiernu, zatiaľ čo hodnota 255 zodpovedá maximálnemu jasu farby~\cite{opencv2025}.\par
 \begin{lstlisting}[language=Python, caption=Definície maxima a minima tmavých regiónov]
@@ -299,15 +314,15 @@ def detect(frame):
     return model(frame, verbose=False)[0]
 \end{lstlisting}
 Funkcia \verb|detect| vracia zoznam (list) objektov \verb|Result|, napriek tomu, že vstupom je iba jedna snímka. Vyberieme nultý prvok, ktorý obsahuje všetky detekcie pre daný obrázok.
-\subsection{Interpretácia dát} %TODO Doplniť fotku detekcie stredu
+\subsection{Interpretácia dát}
 Správna interpretácia výstupných dát z modulov je dôležitá pre spolunažívanie senzorov a pohybových systémov vozidla. V autonómnych vozidlách ide o modul plánovania a rozhodovania, ktorý má za úlohu prepojiť podsystémy vnímania a konania.\par
 V prípade, že sa kamera pripojila a dokážeme načítať jej výstup, môžeme pokračovať s jeho spracovaním.\par
 Začneme s detekciou prekážok pomocou \acrshort{cnn}. Z dôvodu zvýšenia výpočtovej efektivity programu spúšťame detekciu každých 6 snímok. Model YOLOv8 je schopný detekovať 80 rôznych tried objektov, vrátane tých, ktoré by sme na vozovke neočakávali. Aby sme nedostávali falošné pozitíva, vybrali sme si podmnožinu týchto tried na detekciu. Do výberu sme zahrnuli ľudí, dopravné prostriedky a zvieratá.\par
 Za okolností, že model YOLO identifikoval objekt z definovaného zoznamu prekážok, systém následne vyhodnotcuje podmienky pre zastavenie vozidla. Rozhodovací systém je založený na troch kľúčových podmienkach, ktoré boli založené na základe testovania a optimalizácie systému:
 \begin{enumerate}
-\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa stred objektu nachádza v rámci definovanej hranice.
-\item \textbf{Blízkosť objektu} V druhom kroku zisťujeme plochu, ktorú prekážka zaberá na obrazovke. Ak táto hodnota prekročí stanovenú hranicu, vyhodnotí sa podmienka za splnenú.
-\item \textbf{Spoľahlivosť} Záverečná podmienka je overenie miery konfidencie modelu. Týmto sa minimalizujú falošné pozitíva a nežiadúce zastavenie vozidla.
+	\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa stred objektu nachádza v rámci definovanej hranice.
+	\item \textbf{Blízkosť objektu} V druhom kroku zisťujeme plochu, ktorú prekážka zaberá na obrazovke. Ak táto hodnota prekročí stanovenú hranicu, vyhodnotí sa podmienka za splnenú.
+	\item \textbf{Spoľahlivosť} Záverečná podmienka je overenie miery konfidencie modelu. Týmto sa minimalizujú falošné pozitíva a nežiadúce zastavenie vozidla.
 \end{enumerate}
 Až po súčasnom splnení všetkých troch podmienok sa aktivuje zastavenie vozidla.\par
 \begin{lstlisting}[language=Python, caption=Rozhodovanie zastavenia pri detekcii pomocou CNN]
@@ -335,8 +350,8 @@ V alternatívnom scenári, kde nebola nedetekovaná prekážka pomocou \acrshort
 Po identifikácii kontúr jazdného pruhu je ďalším krokom určenie stredovej línie tej najvýraznejšej z nich. Vyberieme si kontúru s najväčšou plochou. Pomocou funkcie \verb|moments| z knižnice OpenCV získame momenty pixelov\footnote{Momenty sú vážené priemery intezity (jasu) jednotlivých pixelov.}. Tieto údaje sú kľúčove pri výpočte geometrického stredu kontúry~\cite{opencv2025}.\par
 Súradnice stredu ($c_x, c_y$) vypočítame pomocou nasledujúcich vzorcov:
 \begin{itemize}
-\item \textbf{X-ová súradnica} $c_x=\frac{m_{10}}{m_{00}}$
-\item \textbf{Y-ová súradnica} $c_y=\frac{m_{01}}{m_{00}}$
+	\item \textbf{X-ová súradnica} $c_x=\frac{m_{10}}{m_{00}}$
+	\item \textbf{Y-ová súradnica} $c_y=\frac{m_{01}}{m_{00}}$
 \end{itemize}
 Kde $m_{10}$ a $m_{01}$ predstavujú horizontálny a vertikálny moment a $m_{00}$ zodpovedá ploche danej kontúry.\par
 \begin{lstlisting}[language=Python, caption=Výpočet geometrického stredu kontúry]
@@ -353,10 +368,10 @@ def find_center(contours):
 \end{lstlisting}
 Po zistení geometrického stredu jazdného pruhu vypočítame samotnú hodnotu riadenia. Naša implementácia normalizuje hodnoty na rozsah hodnôt $<1, 511>$, čím zabezpečíme plynulé vstupy pre riadiaci systém vozidla.\par
 \begin{itemize}
-\item \textbf{Hodnoty $<1,255>$:} Otáčanie doľava.
-\item \textbf{Hodnoty $<257,511>$:} Otáčanie doprava.
-\item \textbf{Hodnota $256$:} Priama jazda.
-\item \textbf{Hodnota $0$:} Rezervovaná pre zastavenie.
+	\item \textbf{Hodnoty $<1,255>$:} Otáčanie doľava.
+	\item \textbf{Hodnoty $<257,511>$:} Otáčanie doprava.
+	\item \textbf{Hodnota $256$:} Priama jazda.
+	\item \textbf{Hodnota $0$:} Rezervovaná pre zastavenie.
 \end{itemize}
 Tento normalizovaný prístup umožnuje mapovanie odchýlky od stredu obrazu na konkrétny vstup pre riadenia kolies. Hodnota 0 slúži ako príznak pre zastavenie vozidla.\par
 \begin{lstlisting}[language=Python, caption=Výpočet hodnoty riadenia]
@@ -516,7 +531,6 @@ Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla sk
 %TODO
 \subsection{Metodika}
 \subsection{Testovanie}
-%TODO Rozšíriť a napísať po získaní dát
 
 \section{Výsledky}\label{sec:Vysledky}
 %TODO Napísať
