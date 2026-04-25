@@ -55,12 +55,12 @@ V závislosti od charakteristík systému možno existujúci model hybridného d
 \begin{itemize}
 \item \textbf{Dvojúrovňový model:} Tento model využíva konvenčné vozidlá (kamióny alebo dodávky) na hromadnú prepravu zásielok z centrálneho depa do siete menších lokálnych skladísk. Z týchto miest vykonávajú \acrshort{adr} donášku na poslednú míľu priamo zákazníkovi~\cite{srinivas2022}.
 \item \textbf{Mothership model:} V tomto modeli slúži štandardné donáškové vozidlo ako materská loď, ktorá je špecialne upravená na prepravu flotily \acrshort{adr}. Autonómne vozidla sa vypúštajú z meterskej lode v bezprostrednej blízkosti cieľov donášky. Ide o jeden z najčastejšie skúmaných modelov v aktualnej literatúre~\cite{srinivas2022}.
-\item \textbf{Model čaty} Autonómne vozidlá doručujú zásielky samostatne v oblastiach, ktoré sú schopné navigovať. Ak však musia prekonať zóny, ktoré sú pre roboty nedostupné, pripoja sa k manuálne riadenému vozidlu, ktoré funguje ako "vodca čaty". Roboty nasledujú toto vozidlo, až kým nedorazia do zóny im vhodnej~\cite{srinivas2022}.
+\item \textbf{Model čaty} Autonómne vozidlá doručujú zásielky samostatne v oblastiach, ktoré sú schopné navigovať. Ak však musia prekonať zóny, ktoré sú pre roboty nedostupné, pripoja sa k manuálne riadenému vozidlu, ktoré funguje ako ``vodca čaty''. Roboty nasledujú toto vozidlo, až kým nedorazia do zóny im vhodnej~\cite{srinivas2022}.
 \end{itemize}
 \subsection{Zhrnutie poznatkov}
 Po analýze technologického vývoja autonómnych vozidiel je nevyhnutné kriticky zhodnotiť ich dopad na reálne dopravné prostredie. V nasledujúcej podkapitole si identifikujeme kľúčové trendy a vyvodíme poznatky, ktoré formujú súčasnú sféru autonómnej mobility.\par
 Mnohé implementácie v priemysle autonómnych vozidiel sa posúvajú od asistovaných systémov úrovne 2 a 3, k plne autonómnej prevádzke v špecifických podmienkach úrovne 4. Plná autonómia úrovne 5 stále ostáva dlhodobým problémom v danej oblasti.\par
-Počet senzorov sa v autonómnych vozidlách zdatne zmenšuje. Prechádza sa z ideológie "maximálnej redundancie" s vysokým počtom senzorov na optimalizovaný prístup. Firmy ako Tesla nahrádzajú spoľahlivé, no ekonomicky nevýhodné \acrshort{lidar}ové senzory za kombináciu kamier a \acrshort{ai}.\par
+Počet senzorov sa v autonómnych vozidlách zdatne zmenšuje. Prechádza sa z ideológie ``maximálnej redundancie'' s vysokým počtom senzorov na optimalizovaný prístup. Firmy ako Tesla nahrádzajú spoľahlivé, no ekonomicky nevýhodné \acrshort{lidar}ové senzory za kombináciu kamier a \acrshort{ai}.\par
 Kontrastne, spoločnosti ako Waymo sa držia prístupu založeného na \acrshort{lidar}e, no snažia sa znížiť cenu a zvýšiť ich efektivitu. V súčasnosti ešte neexituje konsenzus medzi technologickými spoločnosťami.\par
 \acrshort{ai} zohráva dôležitú rolu pri plánovacom a rozhodovacom systéme autonómnych vozidiel. Súčasné trendy ukazujú na využívanie veľkých jazykových modelov, ktoré sú schopné interpretovať dáta zo senzorov a z nich priamo rozhodnúť o chode autonómneho vozidla.\par
 Hraničné situácie zohrávajú najväčšiu bariéru ku masovému nasadeniu autonómnych vozidiel úrovne 5. Vývoj v oblasti umelej inteligencii sa zameriava práve na tieto edge cases. Z analýzy vyplýva, že vyriešením tohto problému, bude zavedenie \acrshort{av} v mestách zdatne urýchlené.\par
@@ -77,7 +77,7 @@ Arduino je taliánska open source hardvérová a softvérová firma, ktorá diza
 V našej práci používame Arduino Nano ESP32 ako riadiacu jednotku, ktorá získava vstupy od ostatných komponentov a podľa nich riadi mechanické časti vozidla~\cite{arduino}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.30]{img/arduino.png}
+	\includegraphics[scale=0.47]{img/arduino.png}
 	\caption{Arduino Nano ESP32}
 	\footnotesize{Arduino, licencované pod \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}, cez arduino.cc.}
 	\label{fig:arduino}
@@ -97,7 +97,7 @@ V našej práci používame Arduino Nano ESP32 ako riadiacu jednotku, ktorá zí
 Vývojová doska ESP32-CAM integruje Wi-Fi a Bluetooth modul spolu s rozhraním na pripojenie 2MPx kamerový senzor OV2640. Táto kombinácia nám poskytuje oddelenú implementáciu prenosu videa, čím uvolníme výpočtovú záťaž hlavného čipu. Senzor OV2640 disponuje s natívnym rozlíšením 1600 x 1200 pixelov a obrazovou frekvenciou 60 FPS, čo poskytuje dostatočnú výkonovú rezervu~\cite{esp32cam}\cite{ov2640}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.20]{img/esp32cam.jpg}
+	\includegraphics[scale=0.30]{img/esp32cam.jpg}
 	\caption{ESP32-CAM a OV2640}
 	\footnotesize{Nowforever, licencované pod \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}, cez Wikimedia Commons.}
 	\label{fig:esp32cam}
@@ -116,7 +116,7 @@ Vývojová doska ESP32-CAM integruje Wi-Fi a Bluetooth modul spolu s rozhraním 
 HC-SR04 je nákladovo efektívne riešenie na detekciu prekážky pred vozidlom. Používame ho ako sekundárny systém na núdzové zastavenie vozidla v prípade, že kamerový systém nedetekuje prekážku~\cite{hcsr04}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.17]{img/hcsr04.jpg}
+	\includegraphics[scale=0.28]{img/hcsr04.jpg}
 	\caption{HC-SR04 Ultrazvukový senzor}
 	\footnotesize{Nevit Dilmen, licencované pod \href{https://creativecommons.org/licenses/by-sa/3.0/deed.en}{CC BY-SA 3.0}, cez Wikimedia Commons.}
 	\label{fig:hcsr04}
@@ -130,10 +130,10 @@ HC-SR04 je nákladovo efektívne riešenie na detekciu prekážky pred vozidlom.
 	\item Merací úhol: 15°
 \end{itemize}
 \subsection{DRV8833 driver pre motorčeky}
-DRV8833 sme použili na nezávislé riadenie dvoch \acrshort{dc} motorov. Integrovaný obvod obsahuje dvojitý H-mostík, ktorý umožnuje meniť polaritu napätia, a tým aj smer otáčania motorov. Modul má štyri vstupné piny (dva pre každý motor), pomocou ktorých možno ovládať rýchlosť a smer otáčania~\cite{drv8833}.\par\newpage
+DRV8833 sme použili na nezávislé riadenie dvoch \acrshort{dc} motorov. Integrovaný obvod obsahuje dvojitý H-mostík, ktorý umožnuje meniť polaritu napätia, a tým aj smer otáčania motorov. Modul má štyri vstupné piny (dva pre každý motor), pomocou ktorých možno ovládať rýchlosť a smer otáčania~\cite{drv8833}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.08]{img/drv8833.jpg}
+	\includegraphics[scale=0.13]{img/drv8833.jpg}
 	\caption{DRV8833 driver pre motorčeky}
 	\label{fig:drv8833}
 \end{figure}
@@ -208,13 +208,13 @@ def region_of_interest(frame):
 Proces začal vytvorením pomocnej matice, s rovnakými rozmermi ako vstupný obraz, pričom všetky jej prvky boli nastavené na maximálnu hodnotu 8-bitového rozsahu (255). Túto maticu sme si definovali pomocou knižnice NumPy. Následne bola do tejto matice prenesená relevantná časť datasetu od vopred definovanej vertikálnel hranice \verb|roi_height| smerom nadol. Výsledok, viditeľný na obrázku \ref{fig:roi}, je obraz, kde sú spracované len tie pixely, ktoré sú v spodnej polovici obrazu a pravdepodobne obsahujú informácie o vozovke.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.60]{img/roi.png}
+	\includegraphics[scale=0.80]{img/roi.png}
 	\caption{Obraz s použitím ROI}
 	\label{fig:roi}
 \end{figure}
 \subsubsection{Hľadanie tmavých regiónov} %TODO Doplniť fotku
 Hľadanie tmavých regiónov na vozovke je jednoduchý a výpočtovo nenáročný spôsob detekcie jazdných pruhov. Autonómne vozidlá dokážu detekovať svetlý jazdný pruh na tmavom asfalte vďaka kontraste týchto dvoch plôch. V princípe používame rovnaký prístup, no v našej implementácii hľadáme čierny pruh v strede bielej vozovky. Tento postup dosahuje lepšie výsledky v zhoršených svetelných podmienkach~\cite{opencv2025}.\par
-Prvý krok je definícia hraníc pre najsvetlejší a najtmavší tmavý región. V kóde si definujeme hranice ako NumPy pole s reprezentáciou vo formáte odtieň-sýtosť-jas (HSV). Odtieň (hue) predstavuje hodnotu od 0 po 179 -- čiže polohu na farebnom kolese. Sýtosť (saturation) je percentuálne vyjadrenie "čistoty" farby -- t.j. množstvo šedej; volíme čísla od 0 po 255. Jas (Value) určuje intenzitu svetla. Hodnota 0 predstavuje absolútnu čiernu, zatiaľ čo hodnota 255 zodpovedá maximálnemu jasu farby~\cite{opencv2025}.\par
+Prvý krok je definícia hraníc pre najsvetlejší a najtmavší tmavý región. V kóde si definujeme hranice ako NumPy pole s reprezentáciou vo formáte odtieň-sýtosť-jas (HSV). Odtieň (hue) predstavuje hodnotu od 0 po 179 -- čiže polohu na farebnom kolese. Sýtosť (saturation) je percentuálne vyjadrenie ``čistoty'' farby -- t.j. množstvo šedej; volíme čísla od 0 po 255. Jas (Value) určuje intenzitu svetla. Hodnota 0 predstavuje absolútnu čiernu, zatiaľ čo hodnota 255 zodpovedá maximálnemu jasu farby~\cite{opencv2025}.\par
 \begin{lstlisting}[language=Python, caption=Definície maxima a minima tmavých regiónov]
 lower_black = np.array([0, 0, 0])
 upper_black = np.array([180, 255, 70])
@@ -249,7 +249,7 @@ V tejto podkapitole si vysvetlíme použité metódy na detekciu prekážok.
 \subsubsection{Ultrazvukový senzor}
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.60]{img/ultrazvuk.png}
+	\includegraphics[scale=0.67]{img/ultrazvuk.png}
 	\caption{Diagram fungovania ultrazvukového senzora}
 	\label{fig:ultrazvuk}
 \end{figure}
@@ -486,7 +486,7 @@ Mikrokontrolér, kamerový modul, motor driver a ultrazvukový senzor boli zapoj
 Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali -- viď obrázok \ref{fig:vozidlo1} a \ref{fig:vozidlo2}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.12]{img/vozidlo1.jpg}
+	\includegraphics[scale=0.10]{img/vozidlo1.jpg}
 	\caption{Skompletizované vozidlo (predok)}
 	\label{fig:vozidlo1}
 \end{figure}
