@@ -255,7 +255,7 @@ Výstupné maskovanie silne závisí od externých faktorov ako napríklad okoli
 	\label{fig:mask}
 \end{figure}
 \subsubsection{Hľadanie kontúr vozovky}
-Kontúry\footnote{Kontúra je krivka, ktorá spája všetky body s rovnakou farbou alebo intenzitou.} sú dôležitou súčasťou detekcie jazdných pruhov na vozovke. Princípom sa podobá hľadaním hranice tmavého objektu na svetlom pozadí~\cite{opencv2025}.\par
+Kontúry sú dôležitou súčasťou detekcie jazdných pruhov na vozovke. Princípom sa podobá hľadaním hranice tmavého objektu na svetlom pozadí~\cite{opencv2025}.\par
 V knižnici OpenCV existuje funkcia \verb|findContours| na algoritmickú detekciu kontúr v obraze. Funkcia vracia dve polia -- výstupné pole kontúr a pole opisujúce hierarchiu topológie obrazu, no túto štruktúru zahadzujeme, pretože nie je pre nás užitočné~\cite{opencv2025}.\par
 Voláme funkciu s dvomi parametrami. Prvý parameter je režim vyhľadávanie kontúr; používame mód \verb|RETR_EXTERNAL|, ktorý zachytáva iba extrémne vonkajšie kontúry. Alternatívne režimy zachýtavajú všetky možné kontúry, no líšia sa v hierarchickom usporiadaní kontúr -- zoznam, dvojstupňová alebo stromová štruktúra~\cite{opencv2025}.\par 
 Druhý parameter predstavuje algoritmus aproximácie kontúr. V implementácii je využívaný režim \verb|CHAIN_APPROX_SIMPLE|. Z praktického hľadiska komprimuje segmenty bodov ležiacie na jednej rovine -- horizontálne, vertikálne alebo diagonálne -- a zanechá iba ich koncové body. To znamená, že štvorcová kontúra bude zjednodušená iba na jej rohové body. Iná metóda používa algoritmus aproximácie pomocou Teh-Chin reťazcov, ďalšia ponecháva všetky body kontúry~\cite{opencv2025}.
@@ -282,7 +282,7 @@ Pri našej implementácii sme použili ultrazvukový senzor na detekciu prekáž
 	\item Spustí sa časovač, zatiaľ čo senzor očakáva návratový signál.
 	\item Ak zaznamená pulz, zastaví časovač a zníži hodnotu \verb|Echo| pinu.
 \end{enumerate}
-Keďže máme rýchlosť zvuku\footnote{Používame rýchlosť zvuku pri suchom 20$^\circ$C vzduchu, čo je 343m/s.} a čas za ktorý sa signál vrátil, vieme vypočítať vzdialenosť vozidla a objektu pred ním. Rovnica na výpočet vzdialenosti je nasledovná:
+Keďže máme rýchlosť zvuku ($343m*s^{-1}$) a čas za ktorý sa signál vrátil, vieme vypočítať vzdialenosť vozidla a objektu pred ním. Rovnica na výpočet vzdialenosti je nasledovná:
 \[ \text{vzdialenosť} = \frac{\text{nameraný čas}}{2} \cdot \text{rýchlosť zvuku} \]
 Ultrazvukový modul riadime pomocou dvoch pinov mikrokontroléra Arduino. Jeden pin, nastavený na mód OUTPUT, používame sa zaslanie vysokej hodnoty na modul. Druhý pin, nastavený na mód INPUT, je určený na získanie signálu zo senzora; na tento pin sme pripojili rutinu prerušenia.
 \begin{lstlisting}[language=C++, caption=Obsluha prerušenia ultrazvukového senzora]
@@ -318,7 +318,7 @@ Funkcia \verb|detect| vracia zoznam (list) objektov \verb|Result|, napriek tomu,
 Správna interpretácia výstupných dát z modulov je dôležitá pre spolunažívanie senzorov a pohybových systémov vozidla. V autonómnych vozidlách ide o modul plánovania a rozhodovania, ktorý má za úlohu prepojiť podsystémy vnímania a konania.\par
 V prípade, že sa kamera pripojila a dokážeme načítať jej výstup, môžeme pokračovať s jeho spracovaním.\par
 Začneme s detekciou prekážok pomocou \acrshort{cnn}. Z dôvodu zvýšenia výpočtovej efektivity programu spúšťame detekciu každých 6 snímok. Model YOLOv8 je schopný detekovať 80 rôznych tried objektov, vrátane tých, ktoré by sme na vozovke neočakávali. Aby sme nedostávali falošné pozitíva, vybrali sme si podmnožinu týchto tried na detekciu. Do výberu sme zahrnuli ľudí, dopravné prostriedky a zvieratá.\par
-Za okolností, že model YOLO identifikoval objekt z definovaného zoznamu prekážok, systém následne vyhodnotcuje podmienky pre zastavenie vozidla. Rozhodovací systém je založený na troch kľúčových podmienkach, ktoré boli založené na základe testovania a optimalizácie systému:
+Za okolností, že model YOLO identifikoval objekt z definovaného zoznamu prekážok, systém následne vyhodnocuje podmienky pre zastavenie vozidla. Rozhodovací systém je založený na troch kľúčových podmienkach, ktoré boli založené na základe testovania a optimalizácie systému:
 \begin{enumerate}
 	\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa stred objektu nachádza v rámci definovanej hranice.
 	\item \textbf{Blízkosť objektu} V druhom kroku zisťujeme plochu, ktorú prekážka zaberá na obrazovke. Ak táto hodnota prekročí stanovenú hranicu, vyhodnotí sa podmienka za splnenú.
@@ -346,8 +346,15 @@ def decide_stop(det):
                 return True, box
     return False, None
 \end{lstlisting}
+Posledný krok je zaznačiť detekciu na snímke -- viď obrázok \ref{fig:cnndetect}.\clearpage
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.67]{img/cnndetect.png}
+	\caption{Detekcia prekážky pomocou CNN.}
+	\label{fig:cnndetect}
+\end{figure}
 V alternatívnom scenári, kde nebola nedetekovaná prekážka pomocou \acrshort{cnn}, budeme postupovať s určením jazdného pruhu.\par
-Po identifikácii kontúr jazdného pruhu je ďalším krokom určenie stredovej línie tej najvýraznejšej z nich. Vyberieme si kontúru s najväčšou plochou. Pomocou funkcie \verb|moments| z knižnice OpenCV získame momenty pixelov\footnote{Momenty sú vážené priemery intezity (jasu) jednotlivých pixelov.}. Tieto údaje sú kľúčove pri výpočte geometrického stredu kontúry~\cite{opencv2025}.\par
+Po identifikácii kontúr jazdného pruhu je ďalším krokom určenie stredovej línie tej najvýraznejšej z nich. Vyberieme si kontúru s najväčšou plochou. Pomocou funkcie \verb|moments| z knižnice OpenCV získame momenty pixelov -- vážené priemery intezity (jasu) jednotlivých pixelov. Tieto údaje sú kľúčove pri výpočte geometrického stredu kontúry~\cite{opencv2025}.\par
 Súradnice stredu ($c_x, c_y$) vypočítame pomocou nasledujúcich vzorcov:
 \begin{itemize}
 	\item \textbf{X-ová súradnica} $c_x=\frac{m_{10}}{m_{00}}$
@@ -386,14 +393,22 @@ Pomocou zistených hodnôt vieme zaznačiť stred jazdného pruhu a vypísať ho
 	\label{fig:center}
 \end{figure}
 Následne sa táto hodnota sa posiela na Arduino mikrokontrolér, kde sa vykonáva posledné rozhodnutie.\par
-Na Arduine sa najskôr skontroluje hodnota z ultrazvukového modulu. V prípade, že je detekovaná prekážka do desať centimetrov, vozidlo zastaví. Ultrazvukový senzor berie najvyššiu prioritu.\par
-\begin{lstlisting}[language=Python, caption=Rozhodovanie na vozidle]
+Na Arduine sa najskôr skontroluje hodnota z ultrazvukového modulu. V prípade, že je detekovaná prekážka do desať centimetrov, vozidlo zastaví. Ultrazvukový senzor berie najvyššiu prioritu.
+\clearpage
+\begin{lstlisting}[language=Python, caption=Rozhodovanie na vozidle] 
 if (distance < 10 || steer < -255 || steer > 255) {
   stopWheels();
 } else {
   driveSteering(steer*2);
 }
-\end{lstlisting}
+\end{lstlisting} %TODO skontrolovať pred posledným editom
+Celkovú postupnosť krokov opísaných v tejto podkapitole opisuje nasledovný sekvenčný diagram.\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.67]{img/sequence.png}
+	\caption{Sekvenčný diagram vyhodnotenia dát zo senzorov.}
+	\label{fig:sequence}
+\end{figure}
 \subsection{Návrh komunikácie komponentov}
 Komunikácia komponentov predstavuje dôležitý aspekt projektu, pretože je nutné aby si jednotlivé časti mohli synchrónne vymieňať a spracovať dáta. Systém je navrhnutý tak, aby v prípade výpadku jedného alebo viacerých komponentov dokázal bezpečne zastaviť vozidlo.\par
 Dôsledkom nízkeho výpočtového výkonu mikrokontrolérov Arduino sme použili v našej implementácii model klient-server. V danej štruktúre vystupujú dva typy entít; nadradení klienti iniciujú požiadavky na pasívny server, ktorý posiela odpovede klientom.\par
@@ -515,13 +530,13 @@ Mikrokontrolér, kamerový modul, motor driver a ultrazvukový senzor boli zapoj
 Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali -- viď obrázok \ref{fig:vozidlo1} a \ref{fig:vozidlo2}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.10]{img/vozidlo1.jpg}
+	\includegraphics[scale=0.09]{img/vozidlo1.jpg}
 	\caption{Skompletizované vozidlo (predok)}
 	\label{fig:vozidlo1}
 \end{figure}
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.10]{img/vozidlo2.jpg}
+	\includegraphics[scale=0.09]{img/vozidlo2.jpg}
 	\caption{Skompletizované vozidlo (zadok)}
 	\label{fig:vozidlo2}
 \end{figure}
