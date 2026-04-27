@@ -5,7 +5,7 @@ import transform as tf
 import interpret as itp
 import detect as dt
 
-DEBUG_MODE = True
+DEBUG_MODE = False
 
 def videoLoop():
     if not DEBUG_MODE:
@@ -26,6 +26,7 @@ def videoLoop():
             continue
 
         frame = cv.resize(frame, (320, 240))
+        frame = cv.flip(frame, -1)
 
         # Detect obstacles every 6 frames
         if frame_count % 6 == 0:
@@ -45,7 +46,6 @@ def videoLoop():
 
             cx, cy = itp.find_center(contours)
             if cx is not None:
-                itp.mark_center(frame, cx, cy)
                 steering = itp.compute_steering(cx)
             else:
                 steering = 0

@@ -402,9 +402,9 @@ Na Arduine sa najskôr skontroluje hodnota z ultrazvukového modulu. V prípade,
 if (distance < 10 || steer < -255 || steer > 255) {
   stopWheels();
 } else {
-  driveSteering(steer*2);
+  driveSteering(steer);
 }
-\end{lstlisting} %TODO skontrolovať pred posledným editom
+\end{lstlisting}
 Celkovú postupnosť krokov opísaných v tejto podkapitole opisuje nasledovný sekvenčný diagram.\par
 \begin{figure}[!ht]
 	\centering

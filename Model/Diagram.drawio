@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="ub8gjhBiqY6bSehZgteE">
-    <mxGraphModel dx="2020" dy="1084" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="770" dy="437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -186,8 +186,8 @@
         <mxCell id="pWu_k_q1SA2lCSRvb3VX-40" parent="pWu_k_q1SA2lCSRvb3VX-6" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;recursiveResize=0;container=1;collapsible=0;width=40;height=20;" value="&lt;b&gt;opt&lt;/b&gt;" vertex="1">
           <mxGeometry height="60" width="360" x="30" y="330" as="geometry" />
         </mxCell>
-        <mxCell id="pWu_k_q1SA2lCSRvb3VX-42" parent="pWu_k_q1SA2lCSRvb3VX-40" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;[skutočnáPrekážka == true]&lt;/font&gt;" vertex="1">
-          <mxGeometry height="10" width="120" x="73" y="3" as="geometry" />
+        <mxCell id="pWu_k_q1SA2lCSRvb3VX-42" parent="pWu_k_q1SA2lCSRvb3VX-40" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font&gt;[skutočnáPrekážka == true]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="10" width="157" x="73" y="3" as="geometry" />
         </mxCell>
         <mxCell id="pWu_k_q1SA2lCSRvb3VX-74" edge="1" parent="pWu_k_q1SA2lCSRvb3VX-6" style="endArrow=classic;html=1;rounded=0;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">

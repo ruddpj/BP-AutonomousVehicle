@@ -40,6 +40,7 @@ def videoLoop():
             continue
 
         frame = cv.resize(frame, (320, 240))
+        frame = cv.flip(frame, -1)
         cv.imshow("ESP32CAM", frame)
         cv.waitKey(1)
 
@@ -50,13 +51,13 @@ def videoLoop():
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_a]:
-            val = 511
-        elif keys[pygame.K_d]:
             val = 1
+        elif keys[pygame.K_d]:
+            val = 511
         elif keys[pygame.K_w]:
             val = 256
         else:
-            cnt.badUDP()
+            cnt.sendUDP(0)
             clock.tick(60)
             continue
 

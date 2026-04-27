@@ -27,7 +27,7 @@ uint16_t distance = 0;
 #define R_PINB D11
 
 // Driver constants
-const int BASE_SPEED = 255;
+const int BASE_SPEED = 180;
 const int PWM_FREQ = 20000;
 const int PWM_RES = 8;
 
@@ -58,8 +58,8 @@ void setMotor(int pinA, int pinB, int speed) {
 void driveSteering(int steer) {
   if (steer > -16 && steer < 16) steer = 0;
 
-  int left = constrain(BASE_SPEED - steer, -255, 255);
-  int right = constrain(BASE_SPEED + steer, -255, 255);
+  int left = constrain(BASE_SPEED + steer, -255, 255);
+  int right = constrain(BASE_SPEED - steer, -255, 255);
 
   setMotor(0, 1, left);
   setMotor(2, 3, right);
@@ -142,6 +142,6 @@ void loop() {
   if (distance < 10 || steer < -255 || steer > 255) {
     stopWheels();
   } else {
-    driveSteering(steer*2);
+    driveSteering(steer);
   }
 }

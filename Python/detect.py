@@ -16,7 +16,7 @@ obstructions = ["person", "bicycle", "car", "motorcycle", "bus",
 
 
 def detect(frame):
-    return model(frame, verbose=True)[0]
+    return model(frame, verbose=False)[0]
 
 
 def decide_stop(det):
@@ -40,11 +40,12 @@ def decide_stop(det):
     return False, None
 
 
-def draw_boxes(frame, boxes):
-    for box in boxes.boxes:
-        x1, y1, x2, y2 = map(int, box.xyxy[0])
+def draw_boxes(frame, box):
+    x1, y1, x2, y2 = map(int, box.xyxy[0])
 
-        if (y2 - y1) > CENTER:
-            cv.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-            cv.drawMarker(frame, ((x2 - x1) // 2 + x1, (y2 - y1) // 2 + y1), (0, 255, 0), markerType=cv.MARKER_CROSS, markerSize=15)
+    if (y2 - y1) > CENTER:
+        cv.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        cv.drawMarker(frame, ((x2 - x1) // 2 + x1, (y2 - y1) // 2 + y1), (0, 255, 0), markerType=cv.MARKER_CROSS, markerSize=15)
+        cv.putText(frame, model.names[int(box.cls[0])], (x1, y1 - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
     return frame
