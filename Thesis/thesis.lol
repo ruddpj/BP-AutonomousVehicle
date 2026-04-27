@@ -9,8 +9,8 @@
 \contentsline {lstlisting}{\numberline {9}{\ignorespaces Výpočet geometrického stredu kontúry}}{35}{lstlisting.134}%
 \contentsline {lstlisting}{\numberline {10}{\ignorespaces Výpočet hodnoty riadenia}}{36}{lstlisting.145}%
 \contentsline {lstlisting}{\numberline {11}{\ignorespaces Rozhodovanie na vozidle}}{37}{lstlisting.149}%
-\contentsline {lstlisting}{\numberline {12}{\ignorespaces Zapnutie Wi-Fi hotspotu}}{38}{lstlisting.159}%
+\contentsline {lstlisting}{\numberline {12}{\ignorespaces Zapnutie Wi-Fi hotspotu}}{39}{lstlisting.159}%
 \contentsline {lstlisting}{\numberline {13}{\ignorespaces Pingovanie IP adresy kamerového modulu}}{39}{lstlisting.173}%
-\contentsline {lstlisting}{\numberline {14}{\ignorespaces Spustenie HTTP stream na ESP32-CAM}}{39}{lstlisting.182}%
+\contentsline {lstlisting}{\numberline {14}{\ignorespaces Spustenie HTTP stream na ESP32-CAM}}{40}{lstlisting.182}%
 \contentsline {lstlisting}{\numberline {15}{\ignorespaces Posielanie UDP packetov}}{40}{lstlisting.198}%
 \contentsline {lstlisting}{\numberline {16}{\ignorespaces Vnútorný cyklus Arduina}}{41}{lstlisting.210}%
