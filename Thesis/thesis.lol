@@ -8,9 +8,9 @@
 \contentsline {lstlisting}{\numberline {8}{\ignorespaces Rozhodovanie zastavenia pri detekcii pomocou CNN}}{34}{lstlisting.113}%
 \contentsline {lstlisting}{\numberline {9}{\ignorespaces Výpočet geometrického stredu kontúry}}{35}{lstlisting.134}%
 \contentsline {lstlisting}{\numberline {10}{\ignorespaces Výpočet hodnoty riadenia}}{36}{lstlisting.145}%
-\contentsline {lstlisting}{\numberline {11}{\ignorespaces Rozhodovanie na vozidle}}{37}{lstlisting.149}%
-\contentsline {lstlisting}{\numberline {12}{\ignorespaces Zapnutie Wi-Fi hotspotu}}{39}{lstlisting.159}%
-\contentsline {lstlisting}{\numberline {13}{\ignorespaces Pingovanie IP adresy kamerového modulu}}{39}{lstlisting.173}%
-\contentsline {lstlisting}{\numberline {14}{\ignorespaces Spustenie HTTP stream na ESP32-CAM}}{40}{lstlisting.182}%
-\contentsline {lstlisting}{\numberline {15}{\ignorespaces Posielanie UDP packetov}}{40}{lstlisting.198}%
-\contentsline {lstlisting}{\numberline {16}{\ignorespaces Vnútorný cyklus Arduina}}{41}{lstlisting.210}%
+\contentsline {lstlisting}{\numberline {11}{\ignorespaces Rozhodovanie na vozidle}}{37}{lstlisting.152}%
+\contentsline {lstlisting}{\numberline {12}{\ignorespaces Zapnutie Wi-Fi hotspotu}}{40}{lstlisting.162}%
+\contentsline {lstlisting}{\numberline {13}{\ignorespaces Pingovanie IP adresy kamerového modulu}}{40}{lstlisting.176}%
+\contentsline {lstlisting}{\numberline {14}{\ignorespaces Spustenie HTTP stream na ESP32-CAM}}{41}{lstlisting.185}%
+\contentsline {lstlisting}{\numberline {15}{\ignorespaces Posielanie UDP packetov}}{41}{lstlisting.201}%
+\contentsline {lstlisting}{\numberline {16}{\ignorespaces Vnútorný cyklus Arduina}}{42}{lstlisting.213}%

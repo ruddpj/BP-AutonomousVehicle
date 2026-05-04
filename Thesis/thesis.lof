@@ -9,15 +9,16 @@
 \contentsline {figure}{\numberline {8}{\ignorespaces Hľadanie tmavého jazdného pruhu.}}{30}{figure.caption.75}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Diagram fungovania ultrazvukového senzora}}{32}{figure.caption.83}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Detekcia prekážky pomocou CNN.}}{35}{figure.caption.133}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Hľadanie stredu jazdného pruhu.}}{36}{figure.caption.148}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Sekvenčný diagram vyhodnotenia dát zo senzorov.}}{37}{figure.caption.155}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Diagram komunikácie komponentov}}{38}{figure.caption.157}%
-\contentsline {figure}{\numberline {14}{\ignorespaces 3D model vozidla}}{42}{figure.caption.233}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Integrované vývojové prostredie Arduino}}{43}{figure.caption.235}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Nahratie kódu na ESP32-CAM}}{44}{figure.caption.236}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Delič napätia}}{44}{figure.caption.237}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Skompletizované vozidlo (predok)}}{45}{figure.caption.238}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Skompletizované vozidlo (zadok)}}{45}{figure.caption.239}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Hľadanie stredu jazdného pruhu.}}{36}{figure.caption.151}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Sekvenčný diagram vyhodnotenia dát zo senzorov.}}{38}{figure.caption.158}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Diagram komunikácie komponentov}}{39}{figure.caption.160}%
+\contentsline {figure}{\numberline {14}{\ignorespaces 3D model vozidla}}{43}{figure.caption.236}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Integrované vývojové prostredie Arduino}}{44}{figure.caption.238}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Delič napätia}}{45}{figure.caption.239}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Skompletizované vozidlo (predok)}}{46}{figure.caption.240}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Skompletizované vozidlo (zadok)}}{46}{figure.caption.241}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Grafický dizajn trate}}{48}{figure.caption.244}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Testovacia trať}}{48}{figure.caption.245}%
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 

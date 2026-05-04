@@ -383,10 +383,13 @@ Po zistení geometrického stredu jazdného pruhu vypočítame samotnú hodnotu 
 	\item \textbf{Hodnota $256$:} Priama jazda.
 	\item \textbf{Hodnota $0$:} Rezervovaná pre zastavenie.
 \end{itemize}
-Tento normalizovaný prístup umožnuje mapovanie odchýlky od stredu obrazu na konkrétny vstup pre riadenia kolies. Hodnota 0 slúži ako príznak pre zastavenie vozidla.\par
+Tento normalizovaný postup priraďuje odchýlku zo stredu priamo k hodnote riadenia. Aplikáciou nelineárnej mocninovej funkcie transformujeme výstupný rozsah tak, aby sme v okolí stredovej osi dosiahli vyššiu stabilitu a presnosť riadenia.\par
 \begin{lstlisting}[language=Python, caption=Výpočet hodnoty riadenia]
-def compute_steering(cx, width=320):
-    return round((cx / width) * 510) + 1
+def compute_steering(cx, center=160, alpha=1.6):
+    error = (cx - center) / center
+    error = pow(abs(error), alpha) * (1 if error >= 0 else -1)
+
+    return int(256 + error * 255)
 \end{lstlisting}
 Pomocou zistených hodnôt vieme zaznačiť stred jazdného pruhu a vypísať hodnotu otáčania, ako je možné vidieť na obrázku \ref{fig:center}.\par
 \begin{figure}[!ht]
@@ -395,9 +398,8 @@ Pomocou zistených hodnôt vieme zaznačiť stred jazdného pruhu a vypísať ho
 	\caption{Hľadanie stredu jazdného pruhu.}
 	\label{fig:center}
 \end{figure}
-Následne sa táto hodnota sa posiela na Arduino mikrokontrolér, kde sa vykonáva posledné rozhodnutie.\par
+Následne sa táto hodnota sa posiela na Arduino mikrokontrolér.\par
 Na Arduine sa najskôr skontroluje hodnota z ultrazvukového modulu. V prípade, že je detekovaná prekážka do desať centimetrov, vozidlo zastaví. Ultrazvukový senzor berie najvyššiu prioritu.
-\clearpage
 \begin{lstlisting}[language=Python, caption=Rozhodovanie na vozidle] 
 if (distance < 10 || steer < -255 || steer > 255) {
   stopWheels();
@@ -405,10 +407,10 @@ if (distance < 10 || steer < -255 || steer > 255) {
   driveSteering(steer);
 }
 \end{lstlisting}
-Celkovú postupnosť krokov opísaných v tejto podkapitole opisuje nasledovný sekvenčný diagram.\par
+Celkovú postupnosť krokov v tejto podkapitole opisuje nasledovný sekvenčný diagram.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.64]{img/diagram2.png}
+	\includegraphics[scale=0.80]{img/diagram2.png}
 	\caption{Sekvenčný diagram vyhodnotenia dát zo senzorov.}
 	\label{fig:sequence}
 \end{figure}
@@ -523,7 +525,7 @@ Najťažšie komponenty -- batériu a menič napätia -- sme umiestnili na spodo
 \end{figure}
 Model bol vytlačený na tlačiarni Bambulab A1 mini, použitím filamentu kyseliny polymliečnej (PLA). Prvotne boli kolesá vytlačené z polyetyléntereftelátu (PET) a doplnené o protišmykový polep, no tento povrch nedosahoval požadovaný stupeň trakcie.\par
 Zakúpili sme dve kolesá s priemerom 43mm, gumeným povrchom a oskou určenou pre náš typ motorčekov.\par
-\subsection{Montovanie vozidla a nahratie softvéru} %TODO Nahradiť obrázky
+\subsection{Montovanie vozidla a nahratie softvéru}
 V tejto podkapitole si priblížime fyzické spojenie hardvéru a softvéru. Priebeh procesu nebol priamočiary a vykazoval časové aj logické odchýlky od predpokladaného modelu. Mnohé spomenuté komponenty boli testované samostatne a skutočný program prešiel mnohými iteráciami, predtým než sme našli tú ideálnu. Pre potreby tejto práce však uvádzame optimálnu sekvenciu krokov, ktoré predstavujú logicky správny postup.\par
 Začali sme nahratím kódu na Arduino Nano ESP32. Tento mikrokontrolér má podporu nahrávania kódu pomocou konektoru USB-C. Pomocou dátového USB káblu sme zapojili Arduino do laptopu, kde máme uložený program. Integrované vývojové prostredie Arduino IDE (obrázok \ref{fig:arduinoide}) automaticky detekovalo pripojený mikrokontrolér. Pomocou tlačidla \verb|Upload| v tomto prostredí sme úspešne skompilovali a nahrali kód na Arduino Nano ESP32.\par
 \begin{figure}[!ht]
@@ -532,20 +534,14 @@ Začali sme nahratím kódu na Arduino Nano ESP32. Tento mikrokontrolér má pod
 	\caption{Integrované vývojové prostredie Arduino}
 	\label{fig:arduinoide}
 \end{figure}
-V ďalšom kroku sme nahrali kód na ESP32-CAM. Narozdiel od Arduina, ESP32-CAM nemá univerzálnu zbernicu. Na tento účel sme pripojili programovací shield (obrázok \ref{fig:esp32camupload}), určený pre túto dosku. Tento modul funguje ako adaptér USB na sériové rozhranie a disponuje starším Micro USB B portom. Podobne ako v minulom kroku, Arduino IDE rozpoznalo vývojovú dosku. Kód sme skompilovali a nahrali pomocou tohto prostredia. Týmto krokom je nahratie softvéru na časť vozidla hotové.\par
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.25]{img/esp32camupload.png}
-	\caption{Nahratie kódu na ESP32-CAM}
-	\label{fig:esp32camupload}
-\end{figure}
+V ďalšom kroku sme nahrali kód na ESP32-CAM. Narozdiel od Arduina, ESP32-CAM nemá univerzálnu zbernicu. Na tento účel sme pripojili programovací shield, určený pre túto dosku. Tento modul funguje ako adaptér USB na sériové rozhranie a disponuje starším Micro USB B portom. Podobne ako v minulom kroku, Arduino IDE rozpoznalo vývojovú dosku. Kód sme skompilovali a nahrali pomocou tohto prostredia. Týmto krokom je nahratie softvéru na časť vozidla hotové.\par
 Na prepojenie súčiastok sme použili nepájivé pole a farebne odlíšené vodiče. Pripevnili sme ho na rám vozidla pomocou lepiacej vrstvy na spodnej strane.\par
 Vďaka headerom sme zapojili Arduino Nano ESP32 a motor driver DRV8833 na breadboard.\par
 Podľa definície sme spojili výstupné štyri piny Arduina pre ľavý a pravý motorček k IN pinom motor drivera. K motorčekom sme prispájkovali káble a pripevnili kolesá. Celú sústavu pre obe strany sme následne zasunuli do vyhradených držiakov. Koncové hroty sme zapojili k OUT pinom motor drivera.\par
 V ďalšom kroku sme zapojili ultrazvukový senzor. Trig pin senzora sme spojili s dezignovaným output pinom na Arduine pomocou vodiča. Zapojili sme $10\,k\Omega$ rezistor na Echo pin senzora a $20\,k\Omega$ cez zdieľané uzemnenie. Výstupné napätie 3.333V -- prijateľné pre Arduino -- sme získali z vodiča pripojeného medzi dvomi odpormi. Koniec vodiča sme zapojili do input pinu na Arduine -- viď obrázok \ref{fig:voltagedivider}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.25]{img/voltagedivider.png}
+	\includegraphics[scale=0.85]{img/voltagedivider.png}
 	\caption{Delič napätia}
 	\label{fig:voltagedivider}
 \end{figure}
@@ -555,22 +551,56 @@ Mikrokontrolér, kamerový modul, motor driver a ultrazvukový senzor boli zapoj
 Na záver sme do rámu vložili podpornú vidlicu, čím sme montáž vozidla skompletizovali -- viď obrázok \ref{fig:vozidlo1} a \ref{fig:vozidlo2}.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.09]{img/vozidlo1.jpg}
+	\includegraphics[scale=0.11]{img/vozidlo1.jpg}
 	\caption{Skompletizované vozidlo (predok)}
 	\label{fig:vozidlo1}
 \end{figure}
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.09]{img/vozidlo2.jpg}
+	\includegraphics[scale=0.11]{img/vozidlo2.jpg}
 	\caption{Skompletizované vozidlo (zadok)}
 	\label{fig:vozidlo2}
 \end{figure}
 
 \clearpage
-\section{Metodika a testovanie}\label{sec:MetodikaATestovanie}
-%TODO
-\subsection{Metodika}
-\subsection{Testovanie}
+\section{Metodika testovania}\label{sec:MetodikaTestovania}
+V tejto kapitole sú popísané použité techniky a proces testovania navrhnutého systému. Testovanie je nevyhnutnou súčasťou realizácie každého projektu, pretože umožňuje overiť funkčnosť návrhu v praxi a posúdiť mieru naplnenia stanovených cieľov v reálnych podmienkach. Výsledky tejto časti zároveň slúžia na porovnanie dosiahnutých riešení s inými prácami, ktoré využívajú odlišnú architektúru.\par
+V rámci experimentov sme sa zamerali na overenie dvoch hlavných funkcií systému:
+\begin{itemize}
+	\item \textbf{Autonómne riadenie} Cieľom bolo otestovať schopnosť vozidla sledovať vopred určenú trasu. Testovacia dráha bola navrhnutá tak, aby obsahovala rovné úseky aj zákruty. Úspešnosť systému sme hodnotili podľa stability a schopnosti vozidla udržať sa na vozovke bez vybočenia.
+	
+	\item \textbf{Detekcia prekážky} Keďže vývoj tohto systému bol hlavným cieľom práce, väčšina testov je zameraná práve na túto oblasť. Systém využíva dva typy senzorov -- kamerový modul s konvolučnou neurónovou sieťou a ultrazvukový senzor. Testy sú navrhnuté tak, aby preverili spoľahlivosť oboch týchto systémov.
+\end{itemize}
+\subsection{Autonómne riadenie}
+Autonómne riadenie chápeme ako schopnosť vozidla samostatne vykonávať jazdné úkony bez zásahu ľudského operátora. Pre overenie tejto schopnosti musí riadiaci systém vozidla zvládať jazdu nielen na priamych úsekoch, ale aj v zákrutách. Z tohto dôvodu bolo nevyhnutné navrhnúť testovaciu dráhu, ktorá zahŕňa obidva prvky.\par
+Grafický návrh trate bol pôvodne vypracovaný v prostredí editora obrázkov -- viď obrázok \ref{fig:design}.
+\clearpage
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.18]{img/design.png}
+	\caption{Grafický dizajn trate}
+	\label{fig:design}
+\end{figure}
 
-\section{Výsledky}\label{sec:Vysledky}
-%TODO Napísať
+Po grafickom návrhu nasledovala fyzická realizácia trate. Na jej vytvorenie sme použili osem papierov formátu A4 (celkovou plochou zodpovedajúcich formátu A1), ktoré boli vzájomne prepojené do súvislého celku. Samotná dráha bola následne vytvorená pomocou čiernej matnej lepiacej pásky, pričom sme ako presnú predlohu využili digitálny dizajn (obrázok \ref{fig:track}).\par
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.09]{img/track.jpg}
+	\caption{Testovacia trať}
+	\label{fig:track}
+\end{figure}
+Proces testovania spočíva v sledovaní dvoch hlavných parametrov: schopnosti vozidla prejsť celú dráhu bez jej opustenia a času, za ktorý okruh absolvuje. Test vykonáme celkovo desaťkrát. Všetky namerané výsledky zaznamenáme do tabuľky, aby sme mohli následne vyhodnotiť úspešnosť a stabilitu riadenia.
+\subsection{Detekcia prekážky}
+Významnou vlastnosťou autonómneho riadenia je schopnosť vozidla detegovať prekážky a vhodne na ne reagovať. Väčšina systémov využíva určitú mieru redundancie, čo znamená, že vozidlo disponuje záložným riešením pre prípad zlyhania niektorého z podsystémov.\par
+Z tohto dôvodu sme testovanie rozdelili do dvoch častí:
+\begin{itemize}
+	\item Testovanie ultrazvukového modulu.
+	\item Testovanie konvolučnej neurónovej siete.
+\end{itemize}
+Pri testovaní ultrazvukového modulu sme využili tri typy prekážok: stredne veľký, štíhly a široký objekt. Tieto predmety simulujú rôzne prekážky, ktoré sa môžu vyskytovať priamo na vozovke alebo v jej blízkosti. Každý test sme opakovali päťkrát, čím sme získali celkovo 15 meraní.\par
+%TODO Obrázok
+Testovanie neurónovej siete prebiehalo s piatimi rôznymi objektmi: osobným automobilom, nákladným vozidlom, mužom, ženou a psom. Sledovali sme nielen úspešnosť detekcie, ale aj to, či systém správne vyhodnotí polohu prekážky (priamo na vozovke alebo v jej blízkosti) a adekvátne na ňu zareaguje. Každú situáciu sme testovali päťkrát, čo pri kombinácii typu objektu a jeho polohy prinieslo spolu 50 výsledkov.\par
+%TODO Obrázok
+Celkovo v tejto časti vyhodnocujeme 65 testovacích scenárov. Na ich základe určíme efektivitu navrhnutej implementácie a identifikujeme prípadné nedostatky systému.
+
+\section{Výsledky}\label{sec:Vysledky} %TODO

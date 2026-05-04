@@ -48,18 +48,18 @@
 \contentsline {subsubsection}{\numberline {6.2.1}Ultrazvukový senzor}{31}{subsubsection.82}%
 \contentsline {subsubsection}{\numberline {6.2.2}Ultralytics YOLOv8}{33}{subsubsection.103}%
 \contentsline {subsection}{\numberline {6.3}Interpretácia dát}{33}{subsection.109}%
-\contentsline {subsection}{\numberline {6.4}Návrh komunikácie komponentov}{38}{subsection.156}%
-\contentsline {subsubsection}{\numberline {6.4.1}Komunikácia kamery a serveru}{38}{subsubsection.158}%
-\contentsline {subsubsection}{\numberline {6.4.2}Komunikácia serveru a mikrokontroléra}{40}{subsubsection.197}%
-\contentsline {subsubsection}{\numberline {6.4.3}Komunikácia mikrokontroléra s perifériami}{40}{subsubsection.209}%
-\contentsline {subsection}{\numberline {6.5}Návrh rámu a rozloženie komponentov}{42}{subsection.232}%
-\contentsline {subsection}{\numberline {6.6}Montovanie vozidla a nahratie softvéru}{42}{subsection.234}%
-\contentsline {section}{\numberline {7}Metodika a testovanie}{46}{section.240}%
-\contentsline {subsection}{\numberline {7.1}Metodika}{46}{subsection.241}%
-\contentsline {subsection}{\numberline {7.2}Testovanie}{46}{subsection.242}%
-\contentsline {section}{\numberline {8}Výsledky}{47}{section.243}%
-\contentsline {section}{Z\'{a}ver}{48}{section*.244}%
-\contentsline {section}{Literatúra}{49}{section*.245}%
+\contentsline {subsection}{\numberline {6.4}Návrh komunikácie komponentov}{39}{subsection.159}%
+\contentsline {subsubsection}{\numberline {6.4.1}Komunikácia kamery a serveru}{39}{subsubsection.161}%
+\contentsline {subsubsection}{\numberline {6.4.2}Komunikácia serveru a mikrokontroléra}{41}{subsubsection.200}%
+\contentsline {subsubsection}{\numberline {6.4.3}Komunikácia mikrokontroléra s perifériami}{41}{subsubsection.212}%
+\contentsline {subsection}{\numberline {6.5}Návrh rámu a rozloženie komponentov}{43}{subsection.235}%
+\contentsline {subsection}{\numberline {6.6}Montovanie vozidla a nahratie softvéru}{43}{subsection.237}%
+\contentsline {section}{\numberline {7}Metodika testovania}{47}{section.242}%
+\contentsline {subsection}{\numberline {7.1}Autonómne riadenie}{47}{subsection.243}%
+\contentsline {subsection}{\numberline {7.2}Detekcia prekážky}{49}{subsection.246}%
+\contentsline {section}{\numberline {8}Výsledky}{50}{section.247}%
+\contentsline {section}{Z\'{a}ver}{51}{section*.248}%
+\contentsline {section}{Literatúra}{52}{section*.249}%
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
@@ -204,5 +204,5 @@
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
-\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{51}{section*.246}%
-\contentsline {section}{\numberline {A}Výpis dlhého kódu}{52}{section.248}%
+\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{54}{section*.250}%
+\contentsline {section}{\numberline {A}Výpis dlhého kódu}{55}{section.252}%
