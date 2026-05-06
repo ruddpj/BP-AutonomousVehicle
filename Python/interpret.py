@@ -18,7 +18,6 @@ def mark_center(frame, cx, cy):
 
 def compute_steering(cx, center=160, alpha=1.6):
     error = (cx - center) / center
-
     error = pow(abs(error), alpha) * (1 if error >= 0 else -1)
 
     return int(256 + error * 255)

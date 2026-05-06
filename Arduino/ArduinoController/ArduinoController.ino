@@ -27,7 +27,7 @@ uint16_t distance = 0;
 #define R_PINB D11
 
 // Driver constants
-const int BASE_SPEED = 180;
+const int BASE_SPEED = 200;
 const int PWM_FREQ = 20000;
 const int PWM_RES = 8;
 

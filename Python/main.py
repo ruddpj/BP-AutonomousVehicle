@@ -47,6 +47,7 @@ def videoLoop():
             cx, cy = itp.find_center(contours)
             if cx is not None:
                 steering = itp.compute_steering(cx)
+                itp.mark_center(frame, cx, cy)
             else:
                 steering = 0
 
