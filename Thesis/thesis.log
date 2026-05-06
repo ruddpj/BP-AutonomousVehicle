@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  4 MAY 2026 19:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.14)  5 MAY 2026 18:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1522,39 +1522,39 @@ al/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
 
 
 ]
-<includes/assignment.pdf, id=240, 597.50786pt x 845.04686pt>
+<includes/assignment.pdf, id=240, 598.235pt x 845.1575pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf>
 Package pdftex.def Info: includes/assignment.pdf  used on input line 56.
-(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
-<includes/assignment.pdf, id=242, page=1, 597.50786pt x 845.04686pt>
+(pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
+<includes/assignment.pdf, id=242, page=1, 598.235pt x 845.1575pt>
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf, page 1>
 Package pdftex.def Info: includes/assignment.pdf , page1 used on input line 56.
 
-(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
+(pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf, page 1>
 Package pdftex.def Info: includes/assignment.pdf , page1 used on input line 56.
 
-(pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf, page 1>
 Package pdftex.def Info: includes/assignment.pdf , page1 used on input line 56.
 
-(pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf, page 1>
 Package pdftex.def Info: includes/assignment.pdf , page1 used on input line 56.
 
-(pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 
 
 File: includes/assignment.pdf Graphic file (type pdf)
 <use includes/assignment.pdf, page 1>
 Package pdftex.def Info: includes/assignment.pdf , page1 used on input line 56.
 
-(pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
 [2
 
 
@@ -1658,7 +1658,7 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 [13]
 
 [14]
-<img/sensors.png, id=497, 284.39583pt x 156.91959pt>
+<img/sensors.png, id=518, 284.39583pt x 156.91959pt>
 File: img/sensors.png Graphic file (type png)
 <use img/sensors.png>
 Package pdftex.def Info: img/sensors.png  used on input line 56.
@@ -1679,7 +1679,7 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [18{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [19]
-<img/arduino.png, id=574, 645.41125pt x 483.8075pt>
+<img/arduino.png, id=596, 645.41125pt x 483.8075pt>
 File: img/arduino.png Graphic file (type png)
 <use img/arduino.png>
 Package pdftex.def Info: img/arduino.png  used on input line 97.
@@ -1687,7 +1687,7 @@ Package pdftex.def Info: img/arduino.png  used on input line 97.
 
 
 [20 <./img/arduino.png>]
-<img/esp32cam.jpg, id=587, 642.4pt x 843.15pt>
+<img/esp32cam.jpg, id=609, 642.4pt x 843.15pt>
 File: img/esp32cam.jpg Graphic file (type jpg)
 <use img/esp32cam.jpg>
 Package pdftex.def Info: img/esp32cam.jpg  used on input line 117.
@@ -1695,12 +1695,12 @@ Package pdftex.def Info: img/esp32cam.jpg  used on input line 117.
 
 
 [21 <./img/esp32cam.jpg>]
-<img/hcsr04.jpg, id=598, 963.6pt x 722.7pt>
+<img/hcsr04.jpg, id=619, 963.6pt x 722.7pt>
 File: img/hcsr04.jpg Graphic file (type jpg)
 <use img/hcsr04.jpg>
 Package pdftex.def Info: img/hcsr04.jpg  used on input line 136.
 (pdftex.def)             Requested size: 269.80615pt x 202.35461pt.
-<img/drv8833.jpg, id=602, 1939.245pt x 1497.595pt>
+<img/drv8833.jpg, id=623, 1939.245pt x 1497.595pt>
 File: img/drv8833.jpg Graphic file (type jpg)
 <use img/drv8833.jpg>
 Package pdftex.def Info: img/drv8833.jpg  used on input line 153.
@@ -1714,7 +1714,7 @@ Package pdftex.def Info: img/drv8833.jpg  used on input line 153.
 [24]
 
 [25]
-<img/cnn.png, id=648, 1043.9pt x 321.2pt>
+<img/cnn.png, id=669, 1043.9pt x 321.2pt>
 File: img/cnn.png Graphic file (type png)
 <use img/cnn.png>
 Package pdftex.def Info: img/cnn.png  used on input line 196.
@@ -1741,7 +1741,7 @@ nput line 215.
 
 
 [28]
-<img/roi.png, id=694, 392.46625pt x 330.23375pt>
+<img/roi.png, id=716, 392.46625pt x 330.23375pt>
 File: img/roi.png Graphic file (type png)
 <use img/roi.png>
 Package pdftex.def Info: img/roi.png  used on input line 228.
@@ -1749,7 +1749,7 @@ Package pdftex.def Info: img/roi.png  used on input line 228.
 
 
 [29 <./img/roi.png>]
-<img/masklane.png, id=708, 366.36874pt x 326.21875pt>
+<img/masklane.png, id=729, 366.36874pt x 326.21875pt>
 File: img/masklane.png Graphic file (type png)
 <use img/masklane.png>
 Package pdftex.def Info: img/masklane.png  used on input line 255.
@@ -1759,7 +1759,7 @@ Package pdftex.def Info: img/masklane.png  used on input line 255.
 [30 <./img/masklane.png>]
 
 [31]
-<img/ultrazvuk.png, id=738, 602.25pt x 301.125pt>
+<img/ultrazvuk.png, id=759, 602.25pt x 301.125pt>
 File: img/ultrazvuk.png Graphic file (type png)
 <use img/ultrazvuk.png>
 Package pdftex.def Info: img/ultrazvuk.png  used on input line 277.
@@ -1783,7 +1783,7 @@ xlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025
 [33]
 
 [34]
-<img/cnndetect.png, id=804, 371.3875pt x 332.24126pt>
+<img/cnndetect.png, id=825, 371.3875pt x 332.24126pt>
 File: img/cnndetect.png Graphic file (type png)
 <use img/cnndetect.png>
 Package pdftex.def Info: img/cnndetect.png  used on input line 355.
@@ -1793,7 +1793,7 @@ Package pdftex.def Info: img/cnndetect.png  used on input line 355.
 [35
 
  <./img/cnndetect.png>]
-<img/findcenter.png, id=825, 366.36874pt x 329.23pt>
+<img/findcenter.png, id=846, 366.36874pt x 329.23pt>
 File: img/findcenter.png Graphic file (type png)
 <use img/findcenter.png>
 Package pdftex.def Info: img/findcenter.png  used on input line 397.
@@ -1801,7 +1801,7 @@ Package pdftex.def Info: img/findcenter.png  used on input line 397.
 
 
 [36 <./img/findcenter.png>]
-<img/diagram2.png, id=837, 492.84125pt x 754.82pt>
+<img/diagram2.png, id=858, 492.84125pt x 754.82pt>
 File: img/diagram2.png Graphic file (type png)
 <use img/diagram2.png>
 Package pdftex.def Info: img/diagram2.png  used on input line 413.
@@ -1815,7 +1815,7 @@ LaTeX Warning: Text page 38 contains only floats.
 
 
 [38 <./img/diagram2.png>]
-<img/diagram1.png, id=852, 763.85374pt x 503.8825pt>
+<img/diagram1.png, id=873, 763.85374pt x 503.8825pt>
 File: img/diagram1.png Graphic file (type png)
 <use img/diagram1.png>
 Package pdftex.def Info: img/diagram1.png  used on input line 423.
@@ -1835,7 +1835,7 @@ Package pdftex.def Info: img/diagram1.png  used on input line 423.
 ]
 
 [42]
-<img/model.png, id=941, 1314.41063pt x 542.77782pt>
+<img/model.png, id=962, 1314.41063pt x 542.77782pt>
 File: img/model.png Graphic file (type png)
 <use img/model.png>
 Package pdftex.def Info: img/model.png  used on input line 522.
@@ -1843,7 +1843,7 @@ Package pdftex.def Info: img/model.png  used on input line 522.
 
 
 [43 <./img/model.png>]
-<img/arduinoide.png, id=948, 1860.9525pt x 1016.79875pt>
+<img/arduinoide.png, id=969, 1860.9525pt x 1016.79875pt>
 File: img/arduinoide.png Graphic file (type png)
 <use img/arduinoide.png>
 Package pdftex.def Info: img/arduinoide.png  used on input line 533.
@@ -1851,17 +1851,17 @@ Package pdftex.def Info: img/arduinoide.png  used on input line 533.
 
 
 [44 <./img/arduinoide.png>]
-<img/voltagedivider.png, id=955, 411.03563pt x 265.74281pt>
+<img/voltagedivider.png, id=976, 411.03563pt x 265.74281pt>
 File: img/voltagedivider.png Graphic file (type png)
 <use img/voltagedivider.png>
 Package pdftex.def Info: img/voltagedivider.png  used on input line 544.
 (pdftex.def)             Requested size: 349.38193pt x 225.88245pt.
-<img/vozidlo1.jpg, id=958, 3071.475pt x 2488.29625pt>
+<img/vozidlo1.jpg, id=979, 3071.475pt x 2488.29625pt>
 File: img/vozidlo1.jpg Graphic file (type jpg)
 <use img/vozidlo1.jpg>
 Package pdftex.def Info: img/vozidlo1.jpg  used on input line 554.
 (pdftex.def)             Requested size: 337.8633pt x 273.71344pt.
-<img/vozidlo2.jpg, id=959, 3071.475pt x 2699.08376pt>
+<img/vozidlo2.jpg, id=980, 3071.475pt x 2699.08376pt>
 File: img/vozidlo2.jpg Graphic file (type jpg)
 <use img/vozidlo2.jpg>
 Package pdftex.def Info: img/vozidlo2.jpg  used on input line 560.
@@ -1879,12 +1879,12 @@ LaTeX Warning: Text page 46 contains only floats.
 [47
 
 ]
-<img/design.png, id=974, 1690.06406pt x 1194.71344pt>
+<img/design.png, id=995, 1690.06406pt x 1194.71344pt>
 File: img/design.png Graphic file (type png)
 <use img/design.png>
 Package pdftex.def Info: img/design.png  used on input line 580.
 (pdftex.def)             Requested size: 304.19841pt x 215.03914pt.
-<img/track.jpg, id=976, 4095.3pt x 3071.475pt>
+<img/track.jpg, id=997, 4095.3pt x 3071.475pt>
 File: img/track.jpg Graphic file (type jpg)
 <use img/track.jpg>
 Package pdftex.def Info: img/track.jpg  used on input line 588.
@@ -1927,10 +1927,6 @@ Package microtype Info: Character `029' is missing
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: AA94283F2D2F0BBBAA14CAA249D75CC8;8769.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
@@ -1959,10 +1955,10 @@ fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
 pe1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public
 /lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.
 pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (56 pages, 9721066 bytes).
+Output written on thesis.pdf (56 pages, 9689209 bytes).
 PDF statistics:
- 1228 PDF objects out of 1440 (max. 8388607)
- 1085 compressed objects within 11 object streams
+ 1249 PDF objects out of 1440 (max. 8388607)
+ 1099 compressed objects within 11 object streams
  356 named destinations out of 1000 (max. 500000)
  63028 words of extra memory for PDF output out of 74296 (max. 10000000)
 
