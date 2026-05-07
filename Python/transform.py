@@ -6,7 +6,7 @@ upper_black = np.array([180, 255, 70])
 
 def region_of_interest(frame):
     h, w = frame.shape[:2]
-    roi_height = 100
+    roi_height = 80
     roi_mask = np.ones_like(frame) * 255
 
     roi_mask[h - roi_height:h, :] = frame[h - roi_height:h, :]

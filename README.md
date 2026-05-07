@@ -1,6 +1,7 @@
 # Autonómne riadenie malého vozidla s detekciou prekážky
 Autor: Rudolf Tisoň
 
+![plot](./Model/logo.png)
 
 ## 📌 Popis projektu
 Tento projekt sa zameriava na autonómne riadenie malého vozidla pomocou počítačového videnia. Vozidlo dokáže sledovať jazdný pruh (čiaru) a zároveň detegovať prekážky v reálnom čase.
