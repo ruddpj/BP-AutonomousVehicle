@@ -102,7 +102,7 @@ python Python/main.py
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-└── yolov8n.pt
+└── yolov8s.pt
 ```
 
 
