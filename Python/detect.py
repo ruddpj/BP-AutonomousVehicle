@@ -1,5 +1,10 @@
 import cv2 as cv
 from ultralytics import YOLO
+import torch
+
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+torch.use_deterministic_algorithms(True)
 
 WIDTH = 320
 HEIGHT = 240
@@ -9,7 +14,7 @@ CENTER_THRESHOLD = 60
 AREA_THRESHOLD = 5000
 CONF_THRESHOLD = 0.5
 
-model = YOLO("yolov8n.pt")
+model = YOLO("yolov8s.pt")
 
 obstructions = ["person", "bicycle", "car", "motorcycle", "bus",
                 "truck", "cat", "dog", "horse", "sheep", "cow"]
@@ -30,6 +35,8 @@ def decide_stop(det):
             obj_center = (x2 + x1) // 2
             area = (x2 - x1) * (y2 - y1)
             conf = float(box.conf[0])
+
+            print("center: " + str(obj_center) + ", area: " + str(area) + ", conf: " + str(conf))
 
             in_front = abs(obj_center - WIDTH // 2) < CENTER_THRESHOLD
             close = area > AREA_THRESHOLD
