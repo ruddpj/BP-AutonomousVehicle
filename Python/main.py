@@ -35,6 +35,8 @@ def videoLoop():
 
             for det in detections:
                 stop, true_det = dt.decide_stop(det)
+                if stop:
+                    break
 
         # If an obstacle is detected, stop the car
         if stop:
