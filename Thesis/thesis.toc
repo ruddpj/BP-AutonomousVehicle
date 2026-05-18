@@ -56,10 +56,13 @@
 \contentsline {subsection}{\numberline {6.6}Montovanie vozidla a nahratie softvéru}{43}{subsection.237}%
 \contentsline {section}{\numberline {7}Metodika testovania}{47}{section.242}%
 \contentsline {subsection}{\numberline {7.1}Autonómne riadenie}{47}{subsection.243}%
-\contentsline {subsection}{\numberline {7.2}Detekcia prekážky}{49}{subsection.246}%
-\contentsline {section}{\numberline {8}Výsledky}{50}{section.247}%
-\contentsline {section}{Z\'{a}ver}{51}{section*.248}%
-\contentsline {section}{Literatúra}{52}{section*.249}%
+\contentsline {subsection}{\numberline {7.2}Detekcia prekážky}{48}{subsection.245}%
+\contentsline {section}{\numberline {8}Výsledky}{51}{section.248}%
+\contentsline {subsection}{\numberline {8.1}Testovanie detekcie vozovky}{51}{subsection.249}%
+\contentsline {subsection}{\numberline {8.2}Testovanie ultrazvukového senzora}{52}{subsection.251}%
+\contentsline {subsection}{\numberline {8.3}Testovanie konvolučnej neurónovej siete}{53}{subsection.255}%
+\contentsline {section}{Z\'{a}ver}{54}{section*.256}%
+\contentsline {section}{Literatúra}{55}{section*.257}%
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
@@ -204,5 +207,5 @@
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
-\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{54}{section*.250}%
-\contentsline {section}{\numberline {A}Výpis dlhého kódu}{55}{section.252}%
+\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{57}{section*.258}%
+\contentsline {section}{\numberline {A}Výpis dlhého kódu}{58}{section.260}%
