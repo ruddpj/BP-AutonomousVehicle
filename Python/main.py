@@ -26,7 +26,8 @@ def videoLoop():
             continue
 
         frame = cv.resize(frame, (320, 240))
-        frame = cv.flip(frame, -1)
+        if not DEBUG_MODE:
+            frame = cv.flip(frame, -1)
 
         # Detect obstacles every 6 frames
         if frame_count % 6 == 0:
