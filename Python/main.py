@@ -19,54 +19,56 @@ def videoLoop():
     frame_count = 0
     detections, true_det = None, None
     stop = False
-
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            continue
-
-        frame = cv.resize(frame, (320, 240))
-        if not DEBUG_MODE:
-            frame = cv.flip(frame, -1)
-
-        # Detect obstacles every 6 frames
-        if frame_count % 6 == 0:
-            detections = dt.detect(frame)
-            frame_count = 0
-
-            for det in detections:
-                stop, true_det = dt.decide_stop(det)
-                if stop:
-                    break
-
-        # If an obstacle is detected, stop the car
-        if stop:
-            dt.draw_boxes(frame, true_det)
-            steering = 0
-        else:
-            # No obstacle detected, find the lane center and continue
-            contours = tf.transform(frame)
-
-            cx, cy = itp.find_center(contours)
-            if cx is not None:
-                steering = itp.compute_steering(cx)
-                itp.mark_center(frame, cx, cy)
-            else:
+    
+    try:
+        while True:
+            ret, frame = cap.read()
+            if not ret or frame is None:
+                continue
+    
+            frame = cv.resize(frame, (320, 240))
+            if not DEBUG_MODE:
+                frame = cv.flip(frame, -1)
+    
+            # Detect obstacles every 6 frames
+            if frame_count % 6 == 0:
+                detections = dt.detect(frame) or []
+                stop = False
+                frame_count = 0
+    
+                for det in detections:
+                    stop, true_det = dt.decide_stop(det)
+                    if stop:
+                        break
+    
+            # If an obstacle is detected, stop the car
+            if stop and true_det is not None:
+                dt.draw_boxes(frame, true_det)
                 steering = 0
-
-        cnt.sendUDP(steering)
-        output = itp.show_text(frame, steering, stop)
-
-        # All inputs have to be 3-dimensional
-        cv.imshow("Lane detection", output)
-
-        if cv.waitKey(1) & 0xFF == 27:  # ESC
-            break
-
-        frame_count += 1
-
-    cap.release()
-    cv.destroyAllWindows()
+            else:
+                # No obstacle detected, find the lane center and continue
+                contours = tf.transform(frame)
+    
+                cx, cy = itp.find_center(contours)
+                if cx is not None:
+                    steering = itp.compute_steering(cx)
+                    itp.mark_center(frame, cx, cy)
+                else:
+                    steering = 0
+    
+            cnt.sendUDP(steering)
+            output = itp.show_text(frame, steering, stop)
+    
+            # All inputs have to be 3-dimensional
+            cv.imshow("Lane detection", output)
+    
+            if cv.waitKey(1) & 0xFF == 27:  # ESC
+                break
+    
+            frame_count += 1
+    finally:
+        cap.release()
+        cv.destroyAllWindows()
 
 
 if __name__ == "__main__":

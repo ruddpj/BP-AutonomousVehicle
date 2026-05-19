@@ -323,7 +323,7 @@ Začneme s detekciou prekážok pomocou \acrshort{cnn}. Z dôvodu zvýšenia vý
 Za okolností, že model YOLO identifikoval objekt z definovaného zoznamu prekážok, systém následne vyhodnocuje podmienky pre zastavenie vozidla. Rozhodovací systém je založený na troch kľúčových podmienkach, ktoré boli založené na základe testovania a optimalizácie systému:
 \begin{enumerate}
 	\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa stred objektu nachádza v rámci definovanej hranice.
-	\item \textbf{Blízkosť objektu} V druhom kroku zisťujeme plochu, ktorú prekážka zaberá na obrazovke. Ak táto hodnota prekročí stanovenú hranicu, vyhodnotí sa podmienka za splnenú.
+	\item \textbf{Blízkosť objektu} V druhom kroku zisťujeme plochu, ktorú prekážka zaberá na obrazovke. Ak táto hodnota prekročí stanovenú hranicu, vyhodnotí sa podmienka za splnenú. Pre každú z vybraných tried je definovaná vlastná hranica.
 	\item \textbf{Spoľahlivosť} Záverečná podmienka je overenie miery konfidencie modelu. Týmto sa minimalizujú falošné pozitíva a nežiadúce zastavenie vozidla.
 \end{enumerate}
 Až po súčasnom splnení všetkých troch podmienok sa aktivuje zastavenie vozidla.\par
@@ -341,7 +341,7 @@ def decide_stop(det):
             conf = float(box.conf[0])
 
             in_front = abs(obj_center - WIDTH // 2) < CENTER_THRESHOLD
-            close = area > AREA_THRESHOLD
+            close = area > obstructions[name]
             reliable = conf > CONF_THRESHOLD
 
             if in_front and close and reliable:
@@ -613,15 +613,15 @@ Proces testovania bol rozdelený do troch fáz podľa umiestnenia prekážky vzh
 	\item \textbf{Fáza 2:} Prekážka sa nachádza na okraji vozovky.
 	\item \textbf{Fáza 3:} Prekážka je situovaná mimo vozovky.
 \end{itemize}
-V každej z týchto fáz sme sledovali a vyhodnocovali reakciu vozidla, konkrétne jeho schopnosť včas zastaviť, respektíve pokračovať v jazde v závislosti od polohy detegovaného objektu. Každý test sme opakovali päťkrát, čím sme získali celkovo 45 meraní.\par
-Testovanie neurónovej siete prebiehalo s piatimi rôznymi objektmi: osobným automobilom, nákladným vozidlom, bicyklom, človekom a psom (obrázok \ref{fig:cnn_obstacles}). Na testovanie sme použili \acrshort{cnn} YOLOv8 od spoločnosti Ultralytics. Sledovali sme nielen úspešnosť detekcie, ale aj to, či systém správne vyhodnotí polohu prekážky (priamo na vozovke alebo v jej blízkosti) a adekvátne na ňu zareaguje. Každú situáciu sme testovali päťkrát, čo pri kombinácii typu objektu a jeho polohy prinieslo spolu 50 výsledkov.\par
+V každej z týchto fáz sme sledovali a vyhodnocovali reakciu vozidla, konkrétne jeho schopnosť včas zastaviť, respektíve pokračovať v jazde v závislosti od polohy detegovaného objektu. Každý test sme opakovali päťkrát, čím sme získali celkovo štyridsaťpäť meraní.\par
+Testovanie neurónovej siete prebiehalo s piatimi rôznymi objektmi: osobným automobilom, nákladným vozidlom, bicyklom, človekom a psom (obrázok \ref{fig:cnn_obstacles}). Na testovanie sme použili \acrshort{cnn} YOLOv8 od spoločnosti Ultralytics. Sledovali sme nielen úspešnosť detekcie, ale aj to, či systém správne vyhodnotí polohu prekážky (priamo na vozovke alebo v jej blízkosti) a adekvátne na ňu zareaguje. Ultrazvukový senzor sme odpojili, aby jeho vstup neovplyvňoval výsledky neurónovej siete. Každú situáciu sme testovali päťkrát, čo pri kombinácii typu objektu a jeho polohy prinieslo spolu päťdesiat výsledkov.\par
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.10]{img/cnn_obstacles.jpg}
 	\caption{Prekážky na testovanie CNN.}
 	\label{fig:cnn_obstacles}
 \end{figure}
-Celkovo v tejto časti vyhodnocujeme  testovacích scenárov. Na ich základe určíme efektivitu navrhnutej implementácie a identifikujeme prípadné nedostatky systému.
+Celkovo v tejto časti vyhodnocujeme deväťdesiatpäť testovacích scenárov. Na ich základe určíme efektivitu navrhnutej implementácie a identifikujeme prípadné nedostatky systému.
 
 \section{Výsledky}\label{sec:Vysledky}
 V tejto kapitole sa zameriavame na analýzu dát získaných počas meraní opísaných v predchádzajúcej časti práce. Cieľom objektívneho zhodnotenia je získať relevantnú spätnú väzbu o úspešnosti navrhnutej implementácie. Namerané údaje zároveň slúžia ako podklad pre prípadné porovnanie s inými modelmi autonómnych vozidiel.\par

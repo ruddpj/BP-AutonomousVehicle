@@ -8,12 +8,13 @@ SSID = "LAPTOP_AP"
 PASSWORD = "12345678"
 
 CAM_IP = "10.42.0.128"
-CAM_URL = "http://10.42.0.128:81/stream"
+CAM_URL = f"http://{CAM_IP}:81/stream"
 
 UDP_IP = "10.42.0.111"
 UDP_PORT = 5005
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
 
 def ping_cam():
     while True:
@@ -23,6 +24,7 @@ def ping_cam():
             return
         print(".", end="")
         time.sleep(1)
+
 
 def startHotspot():
     print("Starting Hotspot")
