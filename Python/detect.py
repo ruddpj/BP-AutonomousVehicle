@@ -8,7 +8,8 @@ torch.use_deterministic_algorithms(True)
 
 WIDTH = 320
 HEIGHT = 240
-CENTER = 160
+LANE_LEFT = 130
+LANE_RIGHT = 190
 
 CENTER_THRESHOLD = 60
 CONF_THRESHOLD = 0.5
@@ -40,13 +41,11 @@ def decide_stop(det):
         if name in obstructions:
             x1, y1, x2, y2 = map(int, box.xyxy[0])
 
-            obj_center = (x2 + x1) // 2
             area = (x2 - x1) * (y2 - y1)
             conf = float(box.conf[0])
+            margin = int(area * 0.001)
 
-            print("center: " + str(obj_center) + ", area: " + str(area) + ", conf: " + str(conf))
-
-            in_front = abs(obj_center - WIDTH // 2) < CENTER_THRESHOLD
+            in_front = x1 < (LANE_RIGHT + margin) and x2 > (LANE_LEFT - margin)
             close = area > obstructions[name]
             reliable = conf > CONF_THRESHOLD
 

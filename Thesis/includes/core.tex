@@ -322,7 +322,7 @@ V prípade, že sa kamera pripojila a dokážeme načítať jej výstup, môžem
 Začneme s detekciou prekážok pomocou \acrshort{cnn}. Z dôvodu zvýšenia výpočtovej efektivity programu spúšťame detekciu každých 6 snímok. Model YOLOv8 je schopný detegovať 80 rôznych tried objektov, vrátane tých, ktoré by sme na vozovke neočakávali. Aby sme nedostávali falošné pozitíva, vybrali sme si podmnožinu týchto tried na detekciu. Do výberu sme zahrnuli ľudí, dopravné prostriedky a zvieratá.\par
 Za okolností, že model YOLO identifikoval objekt z definovaného zoznamu prekážok, systém následne vyhodnocuje podmienky pre zastavenie vozidla. Rozhodovací systém je založený na troch kľúčových podmienkach, ktoré boli založené na základe testovania a optimalizácie systému:
 \begin{enumerate}
-	\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa stred objektu nachádza v rámci definovanej hranice.
+	\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa objekt nachádza v rámci definovanej hranice. Hranice sa zväčšujú podľa blízkosti objektu k vozidlu.
 	\item \textbf{Blízkosť objektu} V druhom kroku zisťujeme plochu, ktorú prekážka zaberá na obrazovke. Ak táto hodnota prekročí stanovenú hranicu, vyhodnotí sa podmienka za splnenú. Pre každú z vybraných tried je definovaná vlastná hranica.
 	\item \textbf{Spoľahlivosť} Záverečná podmienka je overenie miery konfidencie modelu. Týmto sa minimalizujú falošné pozitíva a nežiadúce zastavenie vozidla.
 \end{enumerate}
@@ -336,11 +336,11 @@ def decide_stop(det):
         if name in obstructions:
             x1, y1, x2, y2 = map(int, box.xyxy[0])
 
-            obj_center = (x2 + x1) // 2
             area = (x2 - x1) * (y2 - y1)
             conf = float(box.conf[0])
+            margin = int(area * 0.001)
 
-            in_front = abs(obj_center - WIDTH // 2) < CENTER_THRESHOLD
+            in_front = x1 < (LANE_RIGHT + margin) and x2 > (LANE_LEFT - margin)
             close = area > obstructions[name]
             reliable = conf > CONF_THRESHOLD
 
@@ -472,7 +472,7 @@ void startCameraServer(){
 Vďaka statickej IP adrese dokážeme serveru povedať na akej URL má očakávať obrázky. Funkcia VideoCapture z knižnice OpenCV má podporu pre spracovanie obrazu z URL. Po interpretovaní dát, server pošle požiadavku na Arduino Nano. Odpoveď sa odošle cez UDP socket, ideálne pre aplikácie fungujúce v reálnom čase, IP adrese mikrokontroléra na porte 5005. Komunikáciu sprostredkuje Python knižnica socket. Poslané dáta sú vo forme 2 bytov, čo je najmenší potrebný buffer na uloženie údajov o riadení.\par
 \begin{lstlisting}[language=Python, caption=Posielanie UDP packetov]
 CAM_IP = "10.42.0.128"
-CAM_URL = "http://10.42.0.128:81/stream"
+CAM_URL = f"http://{CAM_IP}:81/stream"
 
 UDP_IP = "10.42.0.111"
 UDP_PORT = 5005
