@@ -11,13 +11,21 @@ HEIGHT = 240
 CENTER = 160
 
 CENTER_THRESHOLD = 60
-AREA_THRESHOLD = 5000
 CONF_THRESHOLD = 0.5
 
 model = YOLO("yolov8s.pt")
 
-obstructions = ["person", "bicycle", "car", "motorcycle", "bus",
-                "truck", "cat", "dog", "horse", "sheep", "cow"]
+obstructions = {"person" : 4000,
+                "bicycle" : 5000,
+                "car" : 8000,
+                "motorcycle" : 4000,
+                "bus" : 30000,
+                "truck" : 20000,
+                "cat" : 1500,
+                "dog" : 3000,
+                "horse" : 6000,
+                "sheep" : 4000,
+                "cow" : 6000}
 
 
 def detect(frame):
@@ -39,7 +47,7 @@ def decide_stop(det):
             print("center: " + str(obj_center) + ", area: " + str(area) + ", conf: " + str(conf))
 
             in_front = abs(obj_center - WIDTH // 2) < CENTER_THRESHOLD
-            close = area > AREA_THRESHOLD
+            close = area > obstructions[name]
             reliable = conf > CONF_THRESHOLD
 
             if in_front and close and reliable:
@@ -49,10 +57,8 @@ def decide_stop(det):
 
 def draw_boxes(frame, box):
     x1, y1, x2, y2 = map(int, box.xyxy[0])
-
-    if (y2 - y1) > CENTER:
-        cv.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        cv.drawMarker(frame, ((x2 - x1) // 2 + x1, (y2 - y1) // 2 + y1), (0, 255, 0), markerType=cv.MARKER_CROSS, markerSize=15)
-        cv.putText(frame, model.names[int(box.cls[0])], (x1, y1 - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+    cv.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+    cv.drawMarker(frame, ((x2 - x1) // 2 + x1, (y2 - y1) // 2 + y1), (0, 255, 0), markerType=cv.MARKER_CROSS, markerSize=15)
+    cv.putText(frame, model.names[int(box.cls[0])], (x1, y1 - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
     return frame
