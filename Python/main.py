@@ -42,7 +42,7 @@ def videoLoop():
                         break
     
             # If an obstacle is detected, stop the car
-            if stop and true_det is not None:
+            if stop:
                 dt.draw_boxes(frame, true_det)
                 steering = 0
             else:
@@ -51,7 +51,7 @@ def videoLoop():
     
                 cx, cy = itp.find_center(contours)
                 if cx is not None:
-                    steering = itp.compute_steering(cx)
+                    steering = itp.compute_steering(cx, true_det)
                     itp.mark_center(frame, cx, cy)
                 else:
                     steering = 0

@@ -43,14 +43,15 @@ def decide_stop(det):
 
             area = (x2 - x1) * (y2 - y1)
             conf = float(box.conf[0])
-            margin = int(area * 0.001)
 
-            in_front = x1 < (LANE_RIGHT + margin) and x2 > (LANE_LEFT - margin)
+            in_front = x1 < LANE_RIGHT and x2 > LANE_LEFT
             close = area > obstructions[name]
             reliable = conf > CONF_THRESHOLD
 
             if in_front and close and reliable:
                 return True, box
+            elif close and reliable:
+                return False, box
     return False, None
 
 
