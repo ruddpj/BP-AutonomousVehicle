@@ -61,8 +61,8 @@
 \contentsline {subsection}{\numberline {8.1}Testovanie detekcie vozovky}{51}{subsection.249}%
 \contentsline {subsection}{\numberline {8.2}Testovanie ultrazvukového senzora}{52}{subsection.251}%
 \contentsline {subsection}{\numberline {8.3}Testovanie konvolučnej neurónovej siete}{53}{subsection.255}%
-\contentsline {section}{Z\'{a}ver}{54}{section*.256}%
-\contentsline {section}{Literatúra}{55}{section*.257}%
+\contentsline {section}{Z\'{a}ver}{56}{section*.261}%
+\contentsline {section}{Literatúra}{57}{section*.262}%
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
@@ -207,5 +207,5 @@
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
 \babel@toc {slovak}{}\relax 
-\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{57}{section*.258}%
-\contentsline {section}{\numberline {A}Výpis dlhého kódu}{58}{section.260}%
+\contentsline {subsection}{Použitie nástrojov umelej inteligencie}{59}{section*.263}%
+\contentsline {section}{\numberline {A}Výpis dlhého kódu}{60}{section.265}%
