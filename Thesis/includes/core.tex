@@ -323,12 +323,12 @@ Začneme s detekciou prekážok pomocou \acrshort{cnn}. Z dôvodu zvýšenia vý
 Za okolností, že model YOLO identifikoval objekt z definovaného zoznamu prekážok, systém následne vyhodnocuje podmienky pre zastavenie vozidla. Rozhodovací systém je založený na troch kľúčových podmienkach, ktoré boli založené na základe testovania a optimalizácie systému:
 \begin{enumerate}
 	\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa objekt nachádza v rámci definovanej hranice. Hranice sa zväčšujú podľa blízkosti objektu k vozidlu.
-	\item \textbf{Blízkosť objektu} V druhom kroku zisťujeme plochu, ktorú prekážka zaberá na obrazovke. Ak táto hodnota prekročí stanovenú hranicu, vyhodnotí sa podmienka za splnenú. Pre každú z vybraných tried je definovaná vlastná hranica.
+	\item \textbf{Blízkosť objektu} V druhom kroku zisťujeme vzdialenosť k objektu. Túto hodnotu aproximujeme podľa spodnej vertikálnej súradnice prekážky.
 	\item \textbf{Spoľahlivosť} Záverečná podmienka je overenie miery konfidencie modelu. Týmto sa minimalizujú falošné pozitíva a nežiadúce zastavenie vozidla.
 \end{enumerate}
 Až po súčasnom splnení všetkých troch podmienok sa aktivuje zastavenie vozidla.\par
 \begin{lstlisting}[language=Python, caption=Rozhodovanie zastavenia pri detekcii pomocou CNN]
-def decide_stop(det):
+def decide_stop(det, alpha = 0.5):
     for box in det.boxes:
         cls = int(box.cls[0])
         name = model.names[cls]
@@ -336,14 +336,13 @@ def decide_stop(det):
         if name in obstructions:
             x1, y1, x2, y2 = map(int, box.xyxy[0])
 
-            area = (x2 - x1) * (y2 - y1)
             conf = float(box.conf[0])
-            margin = int(area * 0.001)
+            margin = int(y2 * alpha)
 
-            in_front = x1 < (LANE_RIGHT + margin) and x2 > (LANE_LEFT - margin)
-            close = area > obstructions[name]
+            in_front = x1 < (CENTER + margin) and x2 > (CENTER - margin)
+            close = y2 > CLOSE_THRESHOLD
             reliable = conf > CONF_THRESHOLD
-
+            
             if in_front and close and reliable:
                 return True, box
     return False, None

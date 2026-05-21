@@ -8,32 +8,31 @@ torch.use_deterministic_algorithms(True)
 
 WIDTH = 320
 HEIGHT = 240
-LANE_LEFT = 130
-LANE_RIGHT = 190
+CENTER = 160
 
-CENTER_THRESHOLD = 60
+CLOSE_THRESHOLD = 180
 CONF_THRESHOLD = 0.5
 
 model = YOLO("yolov8s.pt")
 
-obstructions = {"person" : 4000,
-                "bicycle" : 5000,
-                "car" : 8000,
-                "motorcycle" : 4000,
-                "bus" : 30000,
-                "truck" : 20000,
-                "cat" : 1500,
-                "dog" : 3000,
-                "horse" : 6000,
-                "sheep" : 4000,
-                "cow" : 6000}
+obstructions = ["person",
+                "bicycle",
+                "car",
+                "motorcycle",
+                "bus",
+                "truck",
+                "cat",
+                "dog",
+                "horse",
+                "sheep",
+                "cow"]
 
 
 def detect(frame):
     return model(frame, verbose=False)[0]
 
 
-def decide_stop(det):
+def decide_stop(det, alpha = 0.5):
     for box in det.boxes:
         cls = int(box.cls[0])
         name = model.names[cls]
@@ -41,12 +40,11 @@ def decide_stop(det):
         if name in obstructions:
             x1, y1, x2, y2 = map(int, box.xyxy[0])
 
-            area = (x2 - x1) * (y2 - y1)
             conf = float(box.conf[0])
-            margin = int(area * 0.002)
+            margin = int(y2 * alpha)
 
-            in_front = x1 < (LANE_RIGHT + margin) and x2 > (LANE_LEFT - margin)
-            close = area > obstructions[name]
+            in_front = x1 < (CENTER + margin) and x2 > (CENTER - margin)
+            close = y2 > CLOSE_THRESHOLD
             reliable = conf > CONF_THRESHOLD
 
             if in_front and close and reliable:
