@@ -43,7 +43,7 @@ def decide_stop(det):
 
             area = (x2 - x1) * (y2 - y1)
             conf = float(box.conf[0])
-            margin = int(area * 0.001)
+            margin = int(area * 0.002)
 
             in_front = x1 < (LANE_RIGHT + margin) and x2 > (LANE_LEFT - margin)
             close = area > obstructions[name]
