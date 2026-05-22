@@ -305,7 +305,7 @@ Keďže je tento výpočet náročnejší, merania prebiehajú v 50 ms intervalo
     echoDone = false;
   }
 \end{lstlisting}
-Z dôvodu zjednodušenia výpočtu používame aproximáciu skutočnej vzdialenosti v centimetroch. Ak sa meraný predmet nachádza vo vzdialenosti do 10 cm, vozidlo zastaví~\cite{hcsr04}.
+Z dôvodu zjednodušenia výpočtu používame aproximáciu skutočnej vzdialenosti v centimetroch. Ak sa meraný predmet nachádza vo vzdialenosti do 10~cm, vozidlo zastaví~\cite{hcsr04}.
 \subsubsection{Ultralytics YOLOv8}
 V našej implementácii používame YOLOv8 od spoločnosti Ultralytics -- ako bolo popísané v sekcii \ref{subsubsec:yolo}. Pre programovací jazyk Python existuje jednoduché rozhranie, ktoré prácu s modelom zjednodušuje. Inštalácia prebehla nasledovným príkazom: \verb|pip install ultralytics|\par
 Nasledovný kód nám vytvorí inštanciu predtrénovaného modelu \verb|yolov8s.pt| a zadefinuje funkciu, pomocou ktorej vieme detegovať objekty.\par
@@ -323,7 +323,7 @@ Začneme s detekciou prekážok pomocou \acrshort{cnn}. Z dôvodu zvýšenia vý
 Za okolností, že model YOLO identifikoval objekt z definovaného zoznamu prekážok, systém následne vyhodnocuje podmienky pre zastavenie vozidla. Rozhodovací systém je založený na troch kľúčových podmienkach, ktoré boli založené na základe testovania a optimalizácie systému:
 \begin{enumerate}
 	\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa objekt nachádza v rámci definovanej hranice. Hranice sa zväčšujú podľa blízkosti objektu k vozidlu.
-	\item \textbf{Blízkosť objektu} V druhom kroku zisťujeme vzdialenosť k objektu. Túto hodnotu aproximujeme podľa spodnej vertikálnej súradnice prekážky.
+	\item \textbf{Blízkosť objektu} V druhom kroku určujeme vzdialenosť k objektu, ktorú aproximujeme na základe spodnej vertikálnej súradnice detegovanej prekážky.
 	\item \textbf{Spoľahlivosť} Záverečná podmienka je overenie miery konfidencie modelu. Týmto sa minimalizujú falošné pozitíva a nežiadúce zastavenie vozidla.
 \end{enumerate}
 Až po súčasnom splnení všetkých troch podmienok sa aktivuje zastavenie vozidla.\par
@@ -602,9 +602,9 @@ Na obrázku \ref{fig:us_obstacles} sú znázornené objekty využité pri testov
 \end{figure}
 Konkrétne ide o tieto typy prekážok:
 \begin{itemize}
-	\item \textbf{Štíhla prekážka} (4x14 cm): Slúži na simuláciu objektov s vertikálnou orientáciou, ako sú napríklad stĺpy alebo postavy osôb.
-	\item \textbf{Stredne veľká prekážka} (9x9 cm): Predstavuje univerzálny typ objektu a simuluje rozmerovo priemerné prvky prostredia, napríklad časti stien či vozidiel.
-	\item \textbf{Široká prekážka} (14x4 cm): Je určená na simuláciu nízkych prekážok s horizontálnou orientáciou, kam môžeme zaradiť nízke oplotenie, menšie zvieratá alebo deti.
+	\item \textbf{Štíhla prekážka} (4x14~cm): Slúži na simuláciu objektov s vertikálnou orientáciou, ako sú napríklad stĺpy alebo postavy osôb.
+	\item \textbf{Stredne veľká prekážka} (9x9~cm): Predstavuje univerzálny typ objektu a simuluje rozmerovo priemerné prvky prostredia, napríklad časti stien či vozidiel.
+	\item \textbf{Široká prekážka} (14x4~cm): Je určená na simuláciu nízkych prekážok s horizontálnou orientáciou, kam môžeme zaradiť nízke oplotenie, menšie zvieratá alebo deti.
 \end{itemize}
 Proces testovania bol rozdelený do troch fáz podľa umiestnenia prekážky vzhľadom na jazdnú dráhu: 
 \begin{itemize}
@@ -656,7 +656,8 @@ Proces vyhodnocovania sme rozdelili do troch častí, ktoré predstavujú jednot
 \end{tabular}
 \end{table}
 Tabuľka \ref{tab:detekcia} zobrazuje výsledky testovania detekcie jazdného pruhu. Z desiatich testov bolo deväť úspešných, kde vozidlo neopustilo trať. V treťom teste sme zaznamenali zlyhanie, kedy vozidlo pri zatáčaní stratilo vizuálny kontakt s jazdným pruhom. Vozidlo nedokázalo znovu detegovať vozovku, a preto sme test označili ako neúspešný.\par
-Priemerný čas dosiahol 12.74 s, pričom medián bol 12.48 sekundy. Rozmedzie výsledkov bolo 3.46 sekúnd. Najrýchlejší prejazd sme zaznamenali v desiatom pokuse (11.38 s). Najpomalší čas bol v siedmom pokuse (14.84 s). Tento údaj je významný, keďže vozidlo v dôsledku dočasnej straty detekcie pruhu zastalo, čo predĺžilo prejazd o viac než dve sekundy oproti priemeru.
+Priemerný čas dosiahol 12.74 s, pričom medián bol 12.48 sekundy. Rozmedzie výsledkov bolo 3.46 sekúnd. Najrýchlejší prejazd sme zaznamenali v desiatom pokuse (11.38 s). Najpomalší čas bol v siedmom pokuse (14.84 s). Tento údaj je významný, keďže vozidlo v dôsledku dočasnej straty detekcie pruhu zastalo, čo predĺžilo prejazd o viac než dve sekundy oproti priemeru.\par
+Vozidlo dokáže spoľahlivo nasledovať jazdný pruh na rovných úsekoch, no pri zabáčaní môže dôjsť k strate trajektórie. Vizuálny šum z kamery spolu s vysokou rýchlosťou otáčania môže vyvolať nadmernú korekciu, alebo naopak nedostatočnú reakciu riadenia, čo vedie k opusteniu jazdného pruhu. V reálnych podmienkach využíva vozidlo ďalšie vizuálne pomôcky na predvídanie takýchto situácií, napríklad dopravné značenie.
 \subsection{Testovanie ultrazvukového senzora}
 \begin{table}[!ht]
 \caption{Hodnoty : Ultrazvukový senzor -- stred vozovky}
@@ -674,7 +675,7 @@ Priemerný čas dosiahol 12.74 s, pričom medián bol 12.48 sekundy. Rozmedzie v
         \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 100.00\% & 100.00\% \\ \hline
 \end{tabular}
 \end{table}
-Tabuľka \ref{tab:ultrazvuk1} hodnoty namerané pri umiestnení prekážky na stred vozovky. Ultrazvukový senzor nemal problém detegovať prekážku a zastaviť 10 cm pred ňou.\par
+Tabuľka \ref{tab:ultrazvuk1} hodnoty namerané pri umiestnení prekážky na stred vozovky. Ultrazvukový senzor nemal problém detegovať prekážku a zastaviť 10~cm pred ňou.\par
 \begin{table}[!ht]
 \caption{Hodnoty : Ultrazvukový senzor -- mimo vozovky}
 \label{tab:ultrazvuk2}
@@ -709,7 +710,7 @@ Podobne ako v predošlom teste, vozidlo nedetegovalo, že prekážka je v dráhe
 \end{tabular}
 \end{table}
 Tabuľka \ref{tab:ultrazvuk3} zobrazuje kritické zlyhanie systému, ktoré priamo vyplýva z jeho technického návrhu. Ultrazvukové senzory sú primárne určené na detekciu objektov na krátke vzdialenosti pri nízkych rýchlostiach (napr. parkovacie manévre) a nie sú vhodné na všeobecnú detekciu prekážok. Pri reálnych automobiloch je tento nedostatok vyrovnaný rozmiestnením senzorov po celom obvode vozidla.\par
-Použitý ultrazvukový modul HC-SR04 disponuje meracím uhlom 15°. Pri uplatnení sínusovej vety a stanovení brzdnej vzdialenosti na 10 cm od senzora možno vypočítať, že efektívny priemer základne detekčného kužeľa dosahuje približne 2,6 cm. Pre pokrytie celej čelnej šírky vozidla (11 cm) by bolo nevyhnutné zvýšiť detekčnú vzdialenosť až na 42 cm. Takéto nastavenie by však spôsobovalo predčasné zastavenie vozidla a vnášalo do systému nežiaduce falošné detekcie.
+Použitý ultrazvukový modul HC-SR04 disponuje meracím uhlom 15°. Pri uplatnení sínusovej vety a stanovení brzdnej vzdialenosti na 10~cm od senzora možno vypočítať, že efektívny priemer základne detekčného kužeľa dosahuje približne 2,6~cm. Pre pokrytie celej čelnej šírky vozidla (11~cm) by bolo nevyhnutné zvýšiť detekčnú vzdialenosť až na 42~cm. Takéto nastavenie by však spôsobovalo predčasné zastavenie vozidla a vnášalo do systému nežiaduce falošné detekcie.
 \subsection{Testovanie konvolučnej neurónovej siete}
 \begin{table}[!ht]
 \caption{Hodnoty : CNN -- automobil}
@@ -718,16 +719,16 @@ Použitý ultrazvukový modul HC-SR04 disponuje meracím uhlom 15°. Pri uplatne
 \begin{tabular}{|l r|c|c|c|}
         \hline
         \multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{Na vozovke} & Pri vozovke \\ \hline
-        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Obišlo? \\ \hline
-        & 1 & áno & 15 cm &  \\ \hline
-        & 2 & áno & 12 cm &  \\ \hline
-        & 3 & áno & 16 cm &  \\ \hline
-        & 4 & áno & 13 cm &  \\ \hline
-        & 5 & áno & 14 cm &  \\ \hline
-        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 14 cm &  \\ \hline
+        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Zastavilo? \\ \hline
+        & 1 & áno & 12~cm & áno \\ \hline
+        & 2 & áno & 13~cm & áno \\ \hline
+        & 3 & áno & 12~cm & áno \\ \hline
+        & 4 & áno & 11~cm & áno \\ \hline
+        & 5 & áno & 12~cm & nie \\ \hline
+        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 12~cm & 80.00\% \\ \hline
 \end{tabular}
 \end{table}
-Tabuľka \ref{tab:cnn1} zobrazuje hodnoty testovania \acrshort{cnn} YOLOv8 pre automobil. Úspešnosť zastavenia vozidla, keď sa prekážka nachádzala v strede vozovky je 100\%. Priemerná vzdialenosť zastavenia je 14 cm.\par
+\clearpage
 \begin{table}[!ht]
 \caption{Hodnoty : CNN -- Nákladné auto}
 \label{tab:cnn2}
@@ -735,16 +736,17 @@ Tabuľka \ref{tab:cnn1} zobrazuje hodnoty testovania \acrshort{cnn} YOLOv8 pre a
 \begin{tabular}{|l r|c|c|c|}
         \hline
         \multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{Na vozovke} & Pri vozovke \\ \hline
-        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Obišlo? \\ \hline
-        & 1 & áno & 16 cm &  \\ \hline
-        & 2 & áno & 18 cm &  \\ \hline
-        & 3 & áno & 17 cm &  \\ \hline
-        & 4 & áno & 16 cm &  \\ \hline
-        & 5 & áno & 15 cm &  \\ \hline
-        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 16.4 cm &  \\ \hline
+        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Zastavilo? \\ \hline
+        & 1 & áno & 15~cm & áno \\ \hline
+        & 2 & áno & 16~cm & nie \\ \hline
+        & 3 & áno & 14~cm & áno \\ \hline
+        & 4 & áno & 15~cm & áno \\ \hline
+        & 5 & áno & 14~cm & áno \\ \hline
+        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 14.8~cm & 80.00\% \\ \hline
 \end{tabular}
 \end{table}
-V tabuľke \ref{tab:cnn2} je možné vidieť výsledky testovania s nákladným autom. Dosahujeme rovnakú úspešnosť zastavenia ako v predošlej tabuľke -- 100\%. Priemerná vzdialenosť zastavenia je 16.4 cm, ďalej ako v prípade menšieho osobného automobilu.\par
+Tabuľky \ref{tab:cnn1} a \ref{tab:cnn2} zobrazujú úspešnosť detekcie automobilu a nákladného auta. Ak sa objekt nachádza v strede vozovky, úspešnosť detekcie dosahuje 100\%. Priemerná vzdialenosť zastavenia bola v tomto prípade 12~cm pri automobile a 14,8~cm pri nákladnom aute. Úspešnosť však klesla na 80\%, ak sa prekážka nachádzala na okraji vozovky.\par
+Tieto prekážky sú rozmerovo veľké, v dôsledku čoho často zaberajú celý záber kamery, prípadne sú len čiastočne viditeľné, ak sa nachádzajú na okraji vozovky. Detekcia je pomerne jednoduchá v situáciách, kedy sú objekty umiestnené v strede jazdného pruhu, pretože ich kľúčové črty sú dobre rozpoznateľné aj z väčšej vzdialenosti. Problém nastáva, ak sú prekážky viditeľné iba sčasti, čo spôsobuje pokles hodnoty istoty (confidence) \acrshort{cnn}.\par
 \begin{table}[!ht]
 \caption{Hodnoty : CNN -- Bicykel}
 \label{tab:cnn3}
@@ -752,16 +754,15 @@ V tabuľke \ref{tab:cnn2} je možné vidieť výsledky testovania s nákladným 
 \begin{tabular}{|l r|c|c|c|}
         \hline
         \multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{Na vozovke} & Pri vozovke \\ \hline
-        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Obišlo? \\ \hline
-        & 1 & áno & 8 cm &  \\ \hline
-        & 2 & áno & 9 cm &  \\ \hline
-        & 3 & áno & 9 cm &  \\ \hline
-        & 4 & áno & 8 cm &  \\ \hline
-        & 5 & áno & 8 cm &  \\ \hline
-        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 8.4 cm &  \\ \hline
+        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Zastavilo? \\ \hline
+        & 1 & áno & 10~cm & áno \\ \hline
+        & 2 & áno & 13~cm & áno \\ \hline
+        & 3 & áno & 11~cm & áno \\ \hline
+        & 4 & áno & 13~cm & áno \\ \hline
+        & 5 & áno & 12~cm & áno \\ \hline
+        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 11.8~cm & 100.00\% \\ \hline
 \end{tabular}
 \end{table}
-Tabuľka \ref{tab:cnn3} ukazuje výsledky testov pre bicykel. Systém vo všetkých testoch úspešne detekoval prekážku, s priemernou vzdialenosťou detekcie 8.4 cm -- najmenej spomedzi všetkých testov.\par
 \begin{table}[!ht]
 \caption{Hodnoty : CNN -- Človek}
 \label{tab:cnn4}
@@ -769,16 +770,17 @@ Tabuľka \ref{tab:cnn3} ukazuje výsledky testov pre bicykel. Systém vo všetk�
 \begin{tabular}{|l r|c|c|c|}
         \hline
         \multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{Na vozovke} & Pri vozovke \\ \hline
-        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Obišlo? \\ \hline
-        & 1 & áno & 9 cm &  \\ \hline
-        & 2 & áno & 9 cm &  \\ \hline
-        & 3 & áno & 9 cm &  \\ \hline
-        & 4 & áno & 10 cm &  \\ \hline
-        & 5 & áno & 10 cm &  \\ \hline
-        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 9.4 cm &  \\ \hline
+        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Zastavilo? \\ \hline
+        & 1 & áno & 15~cm & áno \\ \hline
+        & 2 & áno & 8~cm & áno \\ \hline
+        & 3 & áno & 12~cm & áno \\ \hline
+        & 4 & áno & 12~cm & áno \\ \hline
+        & 5 & áno & 9~cm & áno \\ \hline
+        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 11.2~cm & 100.00\% \\ \hline
 \end{tabular}
 \end{table}
-V tabuľke \ref{tab:cnn4} vidíme výsledky detekcie človeka na vozovke. Vozidlo vo všetkých testoch dokázalo zastaviť. Priemerná vzdialenosť zastavenia bola 9.4 cm.\par
+V tabuľkách \ref{tab:cnn3} a \ref{tab:cnn4} sú zobrazené výsledky testovania s prekážkami typu bicykel a človek. Úspešnosť zastavenia v oboch prípadoch dosiahla 100\%. Priemerná vzdialenosť zastavenia bola 11,8~cm v prípade bicykla a 11,2~cm pri človeku, pričom rozptyl hodnôt bol vyšší ako v predchádzajúcich testoch.\par
+Človek a bicykel predstavujú stredne veľké prekážky. Detekčný systém vykazoval o niečo nižšiu stabilitu pri rozpoznávaní týchto objektov v porovnaní s rozmerovo veľkými vozidlami, čo viedlo k väčšej variabilite vzdialenosti, v ktorej došlo k úspešnej detekcii. Na druhej strane, vďaka menším rozmerom týchto prekážok ich bolo možné spoľahlivo detegovať aj v prípade, ak sa nachádzali na okraji vozovky.\par
 \begin{table}[!ht]
 \caption{Hodnoty : CNN -- Pes}
 \label{tab:cnn5}
@@ -786,14 +788,16 @@ V tabuľke \ref{tab:cnn4} vidíme výsledky detekcie človeka na vozovke. Vozidl
 \begin{tabular}{|l r|c|c|c|}
         \hline
         \multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{Na vozovke} & Pri vozovke \\ \hline
-        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Obišlo? \\ \hline
-        & 1 & áno & 8 cm &  \\ \hline
-        & 2 & áno & 9 cm &  \\ \hline
-        & 3 & áno & 10 cm &  \\ \hline
-        & 4 & áno & 10 cm &  \\ \hline
-        & 5 & áno & 9 cm &  \\ \hline
-        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 9.2 cm &  \\ \hline
+        \multicolumn{2}{|c|}{\textbf{Poradie}} & Zastavilo? & Vzdialenosť & Zastavilo? \\ \hline
+        & 1 & áno & 7~cm & nie \\ \hline
+        & 2 & áno & 8~cm & áno \\ \hline
+        & 3 & áno & 7~cm & áno \\ \hline
+        & 4 & áno & 8~cm & áno \\ \hline
+        & 5 & áno & 8~cm & áno \\ \hline
+        \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 7.6~cm & 80.00\% \\ \hline
 \end{tabular}
 \end{table}
-Tabuľka \ref{tab:cnn5} zobrazuje výsledky testovania so psom na vozovke. Úspešnosť zastavanie je 100\%. Priemerná vzdialenosť zastavenia je 9.2 cm.\par
-
+Tabuľka \ref{tab:cnn5} zobrazuje výsledky detekcie pre triedu pes. Úspešnosť detekcie v strede vozovky dosahuje 100\% s priemernou vzdialenosťou zastavenia 7,6~cm. Pri umiestnení prekážky na okraji vozovky úspešnosť klesla na 80\%.\par
+Trieda pes predstavuje rozmerovo malý typ prekážky. V dôsledku nízkeho rozlíšenia kamery bolo rozpoznávanie tohto objektu náročné, čo sa prejavilo na nízkej priemernej vzdialenosti zastavenia. Konvolučná sieť bola schopná prekážku detegovať a iniciovať zastavenie až pri jej značnom priblížení. Pri takejto kritickej vzdialenosti by už adekvátne zareagoval aj ultrazvukový senzor. V prípade zlyhania detekcie na okraji vozovky možno predpokladať, že v dôsledku oneskorenej reakcie algoritmu bola táto prekážka systémom úplne ignorovaná.\par
+Z nameraných výsledkov je možné vyvodiť koreláciu medzi veľkosťou objektu a úspešnosťou jeho detekcie. Väčšie prekážky (osobné auto, nákladné auto) boli na detekciu jednoduchšie, no pri ich čiastočnom prekrytí alebo orezaní na okraji záberu bola úspešnosť rozpoznania nižšia. Naopak, menšie prekážky (človek, bicykel, pes) umožňujú detekciu v celom zornom poli kamery, avšak vzdialenosť potrebná na ich spoľahlivú detekciu je značne menšia.\par
+Pre zvýšenie celkovej bezpečnosti a robustnosti vozidla v reálnych podmienkach sa preto ako nutné javí nasadenie dodatočných kamerových modulov na získanie 360~zorného poľa, implementácia senzorickej fúzie a taktiež rozšírenie trénovacieho datasetu pre umelú inteligenciu o špecifické hraničné scenáre.
