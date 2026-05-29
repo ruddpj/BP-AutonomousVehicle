@@ -570,7 +570,7 @@ Na záver bola do rámu vložená podporná vidlica, čím bola montáž vozidla
 V tejto kapitole sú popísané použité techniky a proces testovania navrhnutého systému. Testovanie je nevyhnutnou súčasťou realizácie každého projektu, pretože umožňuje overiť funkčnosť návrhu v praxi a posúdiť mieru naplnenia stanovených cieľov v reálnych podmienkach. Výsledky tejto časti zároveň slúžia na porovnanie dosiahnutých riešení s inými prácami, ktoré využívajú odlišnú architektúru.\par
 V rámci experimentov sme sa zamerali na overenie dvoch hlavných funkcií systému:
 \begin{itemize}
-	\item \textbf{Autonómne riadenie} Cieľom bolo otestovať schopnosť vozidla sledovať vopred určenú trasu. Testovacia dráha bola navrhnutá tak, aby obsahovala rovné úseky aj zákruty. Úspešnosť systému sme hodnotili podľa stability a schopnosti vozidla udržať sa na vozovke bez vybočenia.
+	\item \textbf{Autonómne riadenie} Cieľom bolo otestovať schopnosť vozidla sledovať vopred určenú trasu. Testovacia dráha bola navrhnutá tak, aby obsahovala rovné úseky aj zákruty. Úspešnosť systému sme hodnotili podľa času dokončenia a schopnosti vozidla udržať sa na vozovke bez vybočenia.
 	
 	\item \textbf{Detekcia prekážky} Keďže vývoj tohto systému bol hlavným cieľom práce, väčšina testov je zameraná práve na túto oblasť. Systém využíva dva typy senzorov -- kamerový modul s konvolučnou neurónovou sieťou a ultrazvukový senzor. Testy sú navrhnuté tak, aby preverili spoľahlivosť oboch týchto systémov.
 \end{itemize}
@@ -607,9 +607,9 @@ Na obrázku \ref{fig:us_obstacles} sú znázornené objekty využité pri testov
 \end{figure}
 Konkrétne ide o tieto typy prekážok:
 \begin{itemize}
-	\item \textbf{Štíhla prekážka} (4x14~cm): Slúži na simuláciu objektov s vertikálnou orientáciou, ako sú napríklad stĺpy alebo postavy osôb.
-	\item \textbf{Stredne veľká prekážka} (9x9~cm): Predstavuje univerzálny typ objektu a simuluje rozmerovo priemerné prvky prostredia, napríklad časti stien či vozidiel.
-	\item \textbf{Široká prekážka} (14x4~cm): Je určená na simuláciu nízkych prekážok s horizontálnou orientáciou, kam môžeme zaradiť nízke oplotenie, menšie zvieratá alebo deti.
+	\item \textbf{Štíhla prekážka} (4x14~cm): Slúži na zobrazenie prekážok s vertikálnou orientáciou, ako sú napríklad stĺpy alebo ľudia.
+	\item \textbf{Stredne veľká prekážka} (9x9~cm): Predstavuje univerzálny typ objektu a reprezentuje rozmerovo priemerné prvky prostredia, napríklad časti stien či vozidiel.
+	\item \textbf{Široká prekážka} (14x4~cm): Je určená na zobrazenie nízkych prekážok s horizontálnou orientáciou, kam môžeme zaradiť nízke oplotenie, menšie zvieratá alebo deti.
 \end{itemize}
 Proces testovania bol rozdelený do troch fáz podľa umiestnenia prekážky vzhľadom na jazdnú dráhu: 
 \begin{itemize}
@@ -625,7 +625,7 @@ Testovanie neurónovej siete prebiehalo s piatimi rôznymi objektmi: osobným au
 	\caption{Prekážky na testovanie CNN.}
 	\label{fig:cnn_obstacles}
 \end{figure}
-Celkovo v tejto časti vyhodnocujeme deväťdesiatpäť testovacích scenárov. Na ich základe určíme efektivitu navrhnutej implementácie a identifikujeme prípadné nedostatky systému.
+Celkovo v tejto časti vyhodnocujeme deväťdesiatpäť testovacích scenárov. Na ich základe určíme efektivitu navrhnutej implementácie a identifikujeme prípadné nedostatky systému detekcie prekážky.
 
 \section{Výsledky}\label{sec:Vysledky}
 V tejto kapitole sa zameriavame na analýzu dát získaných počas meraní opísaných v predchádzajúcej časti práce. Cieľom objektívneho zhodnotenia je získať relevantnú spätnú väzbu o úspešnosti navrhnutej implementácie. Namerané údaje zároveň slúžia ako podklad pre prípadné porovnanie s inými modelmi autonómnych vozidiel.\par
