@@ -204,8 +204,8 @@ Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebn
 \end{figure}
 \acrshort{cnn} dosahujú pri analýze obrazového vstupu výrazne nižšiu chybovosť a efektívnejší proces učenia v porovnaní s inými typmi neurónových sietí. V súčasnosti sa konvolučné neurónové siete používajú na detekciu prekážok v autonómnych vozidlách, no objavuje sa rastúci trend prechodu na veľké jazykové modely (LLM), ktoré ovládajú všetky systémy vozidla~\cite{electronics2022}\cite{nvidia2026}\cite{ciregan2012}.\par
 \subsubsection{Ultralytics YOLOv8}\label{subsubsec:yolo}
-YOLOv8 je systém od spoločnosti Ultralytics určený na detekciu objektov v reálnom čase; funguje na základe konvolučných neurónových sietí. Metóda \acrfull{yolo} vyžaduje iba jednu doprednú propagáciu (forward pass) na vytvorenie predpokladu, preto je ideálna pre aplikácie v reálnom čase~\cite{make2023}\cite{yolo2023}.\par
-YOLOv8 ponúka päť veľkostí modelov: nano, small, medium, large a extra-large, ktoré predstavujú kompromis medzi rýchlosťou a presnosťou. Tieto modely sú predtrénované na rozsiahlych datasetoch, vďaka čomu sú pripravené na okamžité nasadenie bez potreby zložitej konfigurácie~\cite{yolo2023}.\par
+\acrshort{yolo}v8 je systém od spoločnosti Ultralytics určený na detekciu objektov v reálnom čase; funguje na základe konvolučných neurónových sietí. Metóda \acrfull{yolo} vyžaduje iba jednu doprednú propagáciu (forward pass) na vytvorenie predpokladu, preto je ideálna pre aplikácie v reálnom čase~\cite{make2023}\cite{yolo2023}.\par
+\acrshort{yolo}v8 ponúka päť veľkostí modelov: nano, small, medium, large a extra-large, ktoré predstavujú kompromis medzi rýchlosťou a presnosťou. Tieto modely sú predtrénované na rozsiahlych datasetoch, vďaka čomu sú pripravené na okamžité nasadenie bez potreby zložitej konfigurácie~\cite{yolo2023}.\par
 V našej implementácii využívame veľkosť modelu \textit{small} na detekciu prekážky v dráhe vozidla.
 
 \section{Návrh a implementácia}\label{sec:NavrhAImplementacia}
@@ -315,7 +315,7 @@ Keďže je tento výpočet náročnejší, merania prebiehajú v 50 ms intervalo
 \end{lstlisting}
 Z dôvodu zjednodušenia výpočtu sa používa aproximácia skutočnej vzdialenosti v centimetroch. Ak sa meraný predmet nachádza vo vzdialenosti do 10~cm, vozidlo zastaví~\cite{hcsr04}.
 \subsubsection{Ultralytics YOLOv8}
-V našej implementácii používame YOLOv8 od spoločnosti Ultralytics -- ako bolo popísané v sekcii \ref{subsubsec:yolo}. Pre programovací jazyk Python existuje jednoduché rozhranie, ktoré prácu s modelom zjednodušuje. Inštalácia prebehla pomocou správcu balíkov pip.\par
+V našej implementácii používame \acrshort{yolo}v8 od spoločnosti Ultralytics -- ako bolo popísané v sekcii \ref{subsubsec:yolo}. Pre programovací jazyk Python existuje jednoduché rozhranie, ktoré prácu s modelom zjednodušuje. Inštalácia prebehla pomocou správcu balíkov pip.\par
 Nasledovný kód nám vytvorí inštanciu predtrénovaného modelu \verb|yolov8s.pt| a zadefinuje funkciu, pomocou ktorej vieme detegovať objekty.\clearpage
 \begin{lstlisting}[language=Python, caption=Príprava CNN na detekciu objektov]
 model = YOLO("yolov8s.pt")
@@ -327,8 +327,8 @@ Funkcia \verb|detect| vracia zoznam (list) objektov \verb|Result|, napriek tomu,
 \subsection{Interpretácia dát}
 Správna interpretácia výstupných dát z jednotlivých modulov je dôležitá pre spoluprácu senzorov a pohybových systémov vozidla. V autonómnych autách túto úlohu plní modul plánovania a rozhodovania, ktorý spája subsystémy vnímania a samotného konania.\par
 Ak bola kamera úspešne pripojená a je možné načítať jej obraz, prechádzame k jeho samotnému spracovaniu.\par
-Implementáciu sme začali detekciou prekážok pomocou \acrshort{cnn}. Na zvýšenie výpočtovej efektivity programu sa táto detekcia spúšťa každých 6 snímok. Keďže model YOLOv8 dokáže detegovať až 80 rôznych tried objektov – vrátane tých, ktoré sa na vozovke bežne nevyskytujú – vybrala sa iba ich špecifická podmnožina, čím sa predchádza falošným pozitívam. Do tohto výberu boli zahrnutí ľudia, dopravné prostriedky a zvieratá.\par
-V prípade, že model YOLO identifikuje objekt z definovaného zoznamu prekážok, systém následne vyhodnotí podmienky na zastavenie vozidla. Rozhodovací proces sa opiera o tri hlavné podmienky, ktoré boli stanovené na základe testovania a optimalizácie systému:
+Implementáciu sme začali detekciou prekážok pomocou \acrshort{cnn}. Na zvýšenie výpočtovej efektivity programu sa táto detekcia spúšťa každých 6 snímok. Keďže model \acrshort{yolo}v8 dokáže detegovať až 80 rôznych tried objektov – vrátane tých, ktoré sa na vozovke bežne nevyskytujú – vybrala sa iba ich špecifická podmnožina, čím sa predchádza falošným pozitívam. Do tohto výberu boli zahrnutí ľudia, dopravné prostriedky a zvieratá.\par
+V prípade, že model \acrshort{yolo} identifikuje objekt z definovaného zoznamu prekážok, systém následne vyhodnotí podmienky na zastavenie vozidla. Rozhodovací proces sa opiera o tri hlavné podmienky, ktoré boli stanovené na základe testovania a optimalizácie systému:
 \begin{enumerate}
 	\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa objekt nachádza v rámci definovanej hranice. Hranice sa zväčšujú podľa blízkosti objektu k vozidlu.
 	\item \textbf{Blízkosť objektu} V druhom kroku určujeme vzdialenosť k objektu, ktorú aproximujeme na základe spodnej vertikálnej súradnice detegovanej prekážky.
@@ -621,7 +621,7 @@ Proces testovania bol rozdelený do troch fáz podľa umiestnenia prekážky vzh
 	\item \textbf{Fáza 3:} Prekážka je situovaná mimo vozovky.
 \end{itemize}
 V každej z týchto fáz sme sledovali a vyhodnocovali reakciu vozidla, konkrétne jeho schopnosť včas zastaviť, respektíve pokračovať v jazde v závislosti od polohy detegovaného objektu. Každý test sme opakovali päťkrát, čím sme získali celkovo štyridsaťpäť meraní.\par
-Testovanie neurónovej siete prebiehalo s piatimi rôznymi objektmi: osobným automobilom, nákladným vozidlom, bicyklom, človekom a psom (obrázok \ref{fig:cnn_obstacles}). Na testovanie sme použili \acrshort{cnn} YOLOv8 od spoločnosti Ultralytics. Sledovali sme nielen úspešnosť detekcie, ale aj to, či systém správne vyhodnotí polohu prekážky (priamo na vozovke alebo v jej blízkosti) a adekvátne na ňu zareaguje. Ultrazvukový senzor sme odpojili, aby jeho vstup neovplyvňoval výsledky neurónovej siete. Každú situáciu sme testovali päťkrát, čo pri kombinácii typu objektu a jeho polohy prinieslo spolu päťdesiat výsledkov.\par
+Testovanie neurónovej siete prebiehalo s piatimi rôznymi objektmi: osobným automobilom, nákladným vozidlom, bicyklom, človekom a psom (obrázok \ref{fig:cnn_obstacles}). Na testovanie sme použili \acrshort{cnn} \acrshort{yolo}v8 od spoločnosti Ultralytics. Sledovali sme nielen úspešnosť detekcie, ale aj to, či systém správne vyhodnotí polohu prekážky (priamo na vozovke alebo v jej blízkosti) a adekvátne na ňu zareaguje. Ultrazvukový senzor sme odpojili, aby jeho vstup neovplyvňoval výsledky neurónovej siete. Každú situáciu sme testovali päťkrát, čo pri kombinácii typu objektu a jeho polohy prinieslo spolu päťdesiat výsledkov.\par
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.10]{img/cnn_obstacles.jpg}
