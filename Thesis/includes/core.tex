@@ -55,7 +55,7 @@ Senzory sú spôsob akým autonómne vozidlá vnímajú svoje okolie. Ako je mo�
 	\centering
 	\includegraphics[scale=1.50]{img/sensors.png}
 	\caption{Ako \acrshort{av} vnímaju prostredie}
-	\footnotesize{\cite{hamza2023}, licencia: \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}.}
+	\parbox{9cm}{\centering\footnotesize{\cite{hamza2023}, licencia: \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}.}}
 	\label{fig:sensors}
 \end{figure}
 Kamery predstavujú najrozšírenejší typ senzorov; sú nákladovo efektívne, no citlivé na zlé osvetlenie a počasie. Používajú sa na detekciu jazdných pruhov, rozpoznávanie dopravných značiek a identifikáciu chodcov a vozidiel. \acrshort{radar} využíva elektromagnetické vlny na meranie vzdialenosti a rýchlosti. Používa sa najmä pre detekciu vzdialených objektov aj v nepriaznivých poveternostných podmienkach (dážď, hmla, sneh). \acrshort{lidar} používa laserové impulzy na vytvorenie detailného trojrozmerného modelu okolia, no okrem vysokých nákladov je aj viac náchylný na zlé počasie. Ultrazvukové senzory majú využitie v detekcii objektov na krátke vzdialenosti, napríklad pri parkovacích manévroch. Na rozdiel od fotoelektrických senzorov (napr. \acrshort{radar}), nie sú ovplyvnené farbou alebo odrazivosťou cieľa, pretože používajú zvuk a nie svetlo~\cite{wevolver2020}\cite{badue2021}.\par
@@ -68,7 +68,7 @@ Mnohí výrobcovia automobilov, technologické spoločnosti a štátne organizá
 Alternatívny prístup zvolila spoločnosť Tesla so svojou službou Robotaxi a systémom FSD (Full Self-Driving), ktorý predstavuje tretí stupeň autonómneho riadenia. Na rozdiel od konkurencie nepoužíva finančne nákladné \acrshort{lidar} senzory, ale spolieha sa výhradne na kamerový systém s interpretáciou dát pomocou umelej inteligencie. Hoci pri bežných vozidlách nad jazdou stále dohliada ľudský operátor pripravený kedykoľvek prevziať kontrolu, v roku 2026 začala spoločnosť do svojej flotily zavádzať prvé vozidlá v plne autonómnom režime bez ľudského dozoru~\cite{notateslaapp2026}.\par
 Ďalším významným hráčom je spoločnosť Nvidia s modelom Alpamayo 1. Tento open-source model uvažovania je navrhnutý a trénovaný špeciálne na zvládanie komplexných a kritických dopravných situácií. Vydanie tohto voľne dostupného riešenia má za cieľ výrazne urýchliť integráciu štvrtej a piatej úrovne \acrshort{av} do bežnej premávky~\cite{nvidia2026}.
 \subsubsection{Autonomizácia donášky jedla}
-\acrfull{adr} sa používajú v súčasnosti v univerzitných kampusoch a mestách na donášku jedla. Poskytujú takzvanú last-mile delivery (dodanie na poslednú míľu) a fungujú na štvrtej úrovni autonómie. Primárne využívané na chodníkoch alebo cyklochodníkoch, doručovacie roboty sú schopné prekonávať križovatky, vyhýbať sa prekážkam a doručovať tovar na vzdialenosť pár kilometrov~\cite{srinivas2022}.\par
+\glslink{adr}{Autonómne doručovacie roboty}~(\acrshort{adr}) sa používajú v súčasnosti v univerzitných kampusoch a mestách na donášku jedla. Poskytujú takzvanú last-mile delivery (dodanie na poslednú míľu) a fungujú na štvrtej úrovni autonómie. Primárne využívané na chodníkoch alebo cyklochodníkoch, doručovacie roboty sú schopné prekonávať križovatky, vyhýbať sa prekážkam a doručovať tovar na vzdialenosť pár kilometrov~\cite{srinivas2022}.\par
 \acrshort{adr} používajú zväčša kombináciu kamier a počítačového videnia na navigovanie, týmto spôsobom zabezpečujú nižšie náklady na výrobu, s väčšou mierou škálovateľnosti. Niektorí výrobcovia sa vyhýbajú používaniu \acrshort{gps}, pretože neposkytuje dostatočnú mieru presnosti~\cite{forbes2025}.\par
 Autonómna donáška jedla zaznamenala výrazný rozvoj počas pandémie COVID-19. Mnohé spoločnosti poskytujúce donášku jedla, ako napríklad Uber Eats a DoorDash, ale aj logistické spoločnosti, ako Amazon, Walmart a Google začali investovať do vývoja \acrshort{adr}. Jedným z priekopníkov v tejto oblasti je spoločnosť Starship Technologies, ktorá výrazne rozšírila svoju flotilu práve počas pandémie. Zatiaľ čo donáška pomocou pozemných robotov je bežná, mnohé spoločnosti investujú aj do vývoja doručovania pomocou autonómnych dronov~\cite{forbes2025}.\par
 Značným problémom \acrshort{adr} je ich krátky dosah, pomalá rýchlosť a obmedzená kapacita užitočného zaťaženia. Mnohé spoločnosti investujú do hybridných modelov donášky kombináciou konvenčných donáškových vozidiel a doručovacích robotov~\cite{srinivas2022}.\par
@@ -97,9 +97,10 @@ V tejto práci sa Arduino Nano ESP32 používa ako riadiaca jednotku, ktorá zí
 	\centering
 	\includegraphics[scale=0.47]{img/arduino.png}
 	\caption{Arduino Nano ESP32}
-	\footnotesize{autor: Arduino, zdroj: arduino.cc, licencia: \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}.}
+	\parbox{9cm}{\centering\footnotesize{autor: Arduino, zdroj: arduino.cc, licencia: \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}.}}
 	\label{fig:arduino}
 \end{figure}
+\clearpage
 \noindent\textbf{Technické parametre:}
 \begin{itemize}
 	\item Rozmery: 18 * 45 mm
@@ -112,14 +113,15 @@ V tejto práci sa Arduino Nano ESP32 používa ako riadiaca jednotku, ktorá zí
 	\item Veľkosť \acrshort{ram}: 8 MB
 \end{itemize}
 \subsection{ESP32-CAM + OV2640 kamera}
-Vývojová doska ESP32-CAM integruje Wi-Fi a Bluetooth modul spolu s rozhraním na pripojenie 2Mpx kamerového senzora OV2640. Táto kombinácia poskytuje oddelenú implementáciu prenosu videa, čím sa odľahčí výpočtová záťaž hlavného čipu. Senzor OV2640 disponuje natívnym rozlíšením 1600 x 1200 pixelov a snímkovou frekvenciou 60 FPS, čo poskytuje dostatočnú výkonovú rezervu~\cite{esp32cam}\cite{ov2640}.\par
+Vývojová doska ESP32-CAM integruje Wi-Fi a Bluetooth modul spolu s rozhraním na pripojenie 2 Mpx kamerového senzora OV2640. Táto kombinácia poskytuje oddelenú implementáciu prenosu videa, čím sa odľahčí výpočtová záťaž hlavného čipu. Senzor OV2640 disponuje natívnym rozlíšením 1600 x 1200 pixelov a snímkovou frekvenciou 60 FPS, čo poskytuje dostatočnú výkonovú rezervu~\cite{esp32cam}\cite{ov2640}.\par
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.30]{img/esp32cam.jpg}
 	\caption{ESP32-CAM a OV2640}
-	\footnotesize{ESP32-CAM, autor: Nowforever, zdroj: Wikimedia Commons, licencia: \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}.}
+	\parbox{9cm}{\centering\footnotesize{ESP32-CAM, autor: Nowforever, zdroj: Wikimedia Commons, licencia: \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}.}}
 	\label{fig:esp32cam}
 \end{figure}
+\clearpage
 \noindent\textbf{Technické parametre:}
 \begin{itemize}
 	\item Rozmery: 27 * 40 mm
@@ -136,9 +138,10 @@ Ultrazvukový senzor HC-SR04 predstavuje nákladovo efektívne riešenie na dete
 	\centering
 	\includegraphics[scale=0.28]{img/hcsr04.jpg}
 	\caption{HC-SR04 ultrazvukový modul}
-	\footnotesize{HC SR04 Ultrasonic Module, autor: Nevit Dilmen, zdroj: Wikimedia Commons, licencia: \href{https://creativecommons.org/licenses/by-sa/3.0/deed.en}{CC BY-SA 3.0}.}
+	\parbox{9cm}{\centering\footnotesize{HC SR04 Ultrasonic Module, autor: Nevit Dilmen, zdroj: Wikimedia Commons, licencia: \href{https://creativecommons.org/licenses/by-sa/3.0/deed.en}{CC BY-SA 3.0}.}}
 	\label{fig:hcsr04}
 \end{figure}
+\clearpage
 \noindent\textbf{Technické parametre:}
 \begin{itemize}
 	\item Rozmery: 20 * 45 * 15 mm
@@ -164,10 +167,10 @@ Modul DRV8833 bol použitý na nezávislé riadenie dvoch \acrshort{dc} motorov.
 	\item Maximálny výkon: 15 W
 \end{itemize}
 \subsection{Ďalšie elektrické komponenty}
-V implementácii je použitý Li-Ion akumulátor s napätím 7,4 V a kapacitou 3 000 mAh.\par
-Pohon zabezpečujú dva \acrshort{dc} motory s prevodovkou s rýchlosťou 200 \acrshort{rpm} pri napätí 3 V.\par
-Z dôvodu ochrany komponentov vyžadujúcich 5 V napájanie je do systému zapojený znižujúci menič napätia (step-down buck converter). Použitý menič disponuje dvojvodičovým vstupom a výstupom v podobe dvoch konektorov USB-A.\par
-Súčasťou zapojenia je taktiež trojpólový, dvojpolohový prepínač na zapnutie a vypnutie celého systému.\par
+V implementácii je použité 18650 Li-Ion akumulátor s napätím 7,4 V a kapacitou 3 000 mAh.\par
+Pohon zabezpečujú dva GA12-N20 \acrshort{dc} motory s prevodovkou s rýchlosťou 200 \acrshort{rpm} pri napätí 3 V.\par
+Z dôvodu ochrany komponentov je do systému zapojený znižujúci menič napätia (step-down buck converter). Použitý menič disponuje dvojvodičovým vstupom a výstupom v podobe dvoch konektorov USB-A. Zabudovaný LM2596 čip reguluje široké pásmo napätí na 5 V s výstupným prúdom 3 A.\par
+Súčasťou zapojenia je taktiež trojpólový, dvojpolohový MTS-102 prepínač na zapnutie a vypnutie celého systému.\par
 Prepojenie jednotlivých komponentov zabezpečuje nepájivé pole a spojovacie vodiče.
 \subsection{Server}
 Vzhľadom na obmedzený výpočtový výkon mikrokontrolérov Arduino, ktoré nie sú schopné vykonávať komplexné výpočty neurónových sietí v reálnom čase, sme do systému zaradili centrálny server. Ten zabezpečuje spracovanie obrazu a koordináciu bezdrôtových periférií. V našej implementácii túto úlohu plní laptop, ktorý zároveň slúži ako prístupový bod pre Wi-Fi sieť.
@@ -196,14 +199,14 @@ Konvolučné neurónové siete sa skladajú z rôznych vrstiev. Hlavným stavebn
 	\centering
 	\includegraphics[scale=0.4]{img/cnn.png}
 	\caption{Typická CNN}
-	\footnotesize{Fully connected convolutional neural network, autor: Aphex34, zdroj: Wikimedia Commons, licencia: \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}.}
+	\parbox{9cm}{\centering\footnotesize{Fully connected convolutional neural network, autor: Aphex34, zdroj: Wikimedia Commons, licencia: \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0}.}}
 	\label{fig:cnn}
 \end{figure}
 \acrshort{cnn} dosahujú pri analýze obrazového vstupu výrazne nižšiu chybovosť a efektívnejší proces učenia v porovnaní s inými typmi neurónových sietí. V súčasnosti sa konvolučné neurónové siete používajú na detekciu prekážok v autonómnych vozidlách, no objavuje sa rastúci trend prechodu na veľké jazykové modely (LLM), ktoré ovládajú všetky systémy vozidla~\cite{electronics2022}\cite{nvidia2026}\cite{ciregan2012}.\par
 \subsubsection{Ultralytics YOLOv8}\label{subsubsec:yolo}
-YOLOv8 je systém od spoločnosti Ultralytics určený na detekciu objektov v reálnom čase; funguje na základe konvolučných neurónových sietí. Metóda \acrfull{yolo} vyžaduje iba jednu doprednú propagáciu (forward pass) na vytvorenie predpokladu, preto je ideálna pre aplikácie v reálnom čase~\cite{make2023}\cite{yolo2023}.\par
-YOLOv8 ponúka päť veľkostí modelov: nano, small, medium, large a extra-large, ktoré predstavujú kompromis medzi rýchlosťou a presnosťou. Tieto modely sú predtrénované na rozsiahlych datasetoch, vďaka čomu sú pripravené na okamžité nasadenie bez potreby zložitej konfigurácie~\cite{yolo2023}.\par
-V našej implementácii využívame veľkosť modelu small na detekciu prekážky v dráhe vozidla.
+\acrshort{yolo}v8 je systém od spoločnosti Ultralytics určený na detekciu objektov v reálnom čase; funguje na základe konvolučných neurónových sietí. Metóda \acrfull{yolo} vyžaduje iba jednu doprednú propagáciu (forward pass) na vytvorenie predpokladu, preto je ideálna pre aplikácie v reálnom čase~\cite{make2023}\cite{yolo2023}.\par
+\acrshort{yolo}v8 ponúka päť veľkostí modelov: nano, small, medium, large a extra-large, ktoré predstavujú kompromis medzi rýchlosťou a presnosťou. Tieto modely sú predtrénované na rozsiahlych datasetoch, vďaka čomu sú pripravené na okamžité nasadenie bez potreby zložitej konfigurácie~\cite{yolo2023}.\par
+V našej implementácii využívame veľkosť modelu \textit{small} na detekciu prekážky v dráhe vozidla.
 
 \section{Návrh a implementácia}\label{sec:NavrhAImplementacia}
 Správny návrh architektúry je dôležitý pre efektívne fungovanie všetkých komponentov. Počas vývoja bolo otestovaných niekoľko prístupov, kým sa nepodarilo dosiahnuť optimálne riešenie. V tejto kapitole popíšeme použitý dizajn a jeho následnú implementáciu.
@@ -278,18 +281,18 @@ V tejto podkapitole si vysvetlíme použité metódy na detekciu prekážok.
 Pri tejto implementácii sme použili ultrazvukový senzor na detekciu prekážok priamo pred vozidlom. Použitý HC-SR04 ultrazvukový senzor funguje ako vysielač, prijímač aj riadiaci obvod -- obrázok \ref{fig:ultrazvuk} ilustruje jeho funkciu.\par
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.65]{img/ultrazvuk.png}
+	\includegraphics[scale=0.55]{img/ultrazvuk.png}
 	\caption{Diagram fungovania ultrazvukového senzora}
 	\label{fig:ultrazvuk}
 \end{figure}
 Princíp merania vzdialenosti je nasledovný:
 \begin{enumerate}
 	\item Arduino pošle signál vysokej úrovne na \verb|Trig| pin ultrazvukového senzora.
-	\item Modul pošle osem 40kHz signálov a nastaví vysokú úroveň na pine \verb|Echo|.
+	\item Modul pošle osem 40 kHz signálov a nastaví vysokú úroveň na pine \verb|Echo|.
 	\item Spustí sa časovač, zatiaľ čo senzor očakáva návratový signál.
 	\item Ak zaznamená pulz, zastaví časovač a zníži hodnotu \verb|Echo| pinu.
 \end{enumerate}
-Na základe známej rýchlosti zvuku ($343m*s^{-1}$) a času, za ktorý sa signál vrátil, je možné vypočítať vzdialenosť vozidla a objektu pred ním. Rovnica na výpočet vzdialenosti je nasledovná:
+Na základe známej rýchlosti zvuku ($343~m*s^{-1}$) a času, za ktorý sa signál vrátil, je možné vypočítať vzdialenosť vozidla a objektu pred ním. Rovnica na výpočet vzdialenosti je nasledovná:
 \[ \text{vzdialenosť} = \frac{\text{nameraný čas}}{2} \cdot \text{rýchlosť zvuku} \]\par
 Ultrazvukový modul je riadený pomocou dvoch pinov mikrokontroléra Arduino. Jeden pin, nastavený na mód OUTPUT, sa používa na zaslanie vysokej hodnoty na modul. Druhý pin, nastavený na mód INPUT, je určený na získanie signálu zo senzora; na tento pin bola pripojená rutinu prerušenia.
 \begin{lstlisting}[language=C++, caption=Obsluha prerušenia ultrazvukového senzora]
@@ -312,8 +315,8 @@ Keďže je tento výpočet náročnejší, merania prebiehajú v 50 ms intervalo
 \end{lstlisting}
 Z dôvodu zjednodušenia výpočtu sa používa aproximácia skutočnej vzdialenosti v centimetroch. Ak sa meraný predmet nachádza vo vzdialenosti do 10~cm, vozidlo zastaví~\cite{hcsr04}.
 \subsubsection{Ultralytics YOLOv8}
-V našej implementácii používame YOLOv8 od spoločnosti Ultralytics -- ako bolo popísané v sekcii \ref{subsubsec:yolo}. Pre programovací jazyk Python existuje jednoduché rozhranie, ktoré prácu s modelom zjednodušuje. Inštalácia prebehla pomocou správcu balíkov pip.\par
-Nasledovný kód nám vytvorí inštanciu predtrénovaného modelu \verb|yolov8s.pt| a zadefinuje funkciu, pomocou ktorej vieme detegovať objekty.\par
+V našej implementácii používame \acrshort{yolo}v8 od spoločnosti Ultralytics -- ako bolo popísané v sekcii \ref{subsubsec:yolo}. Pre programovací jazyk Python existuje jednoduché rozhranie, ktoré prácu s modelom zjednodušuje. Inštalácia prebehla pomocou správcu balíkov pip.\par
+Nasledovný kód nám vytvorí inštanciu predtrénovaného modelu \verb|yolov8s.pt| a zadefinuje funkciu, pomocou ktorej vieme detegovať objekty.\clearpage
 \begin{lstlisting}[language=Python, caption=Príprava CNN na detekciu objektov]
 model = YOLO("yolov8s.pt")
 
@@ -324,8 +327,8 @@ Funkcia \verb|detect| vracia zoznam (list) objektov \verb|Result|, napriek tomu,
 \subsection{Interpretácia dát}
 Správna interpretácia výstupných dát z jednotlivých modulov je dôležitá pre spoluprácu senzorov a pohybových systémov vozidla. V autonómnych autách túto úlohu plní modul plánovania a rozhodovania, ktorý spája subsystémy vnímania a samotného konania.\par
 Ak bola kamera úspešne pripojená a je možné načítať jej obraz, prechádzame k jeho samotnému spracovaniu.\par
-Implementáciu sme začali detekciou prekážok pomocou \acrshort{cnn}. Na zvýšenie výpočtovej efektivity programu sa táto detekcia spúšťa každých 6 snímok. Keďže model YOLOv8 dokáže detegovať až 80 rôznych tried objektov – vrátane tých, ktoré sa na vozovke bežne nevyskytujú – vybrala sa iba ich špecifická podmnožina, čím sa predchádza falošným pozitívam. Do tohto výberu boli zahrnutí ľudia, dopravné prostriedky a zvieratá.\par
-V prípade, že model YOLO identifikuje objekt z definovaného zoznamu prekážok, systém následne vyhodnotí podmienky na zastavenie vozidla. Rozhodovací proces sa opiera o tri hlavné podmienky, ktoré boli stanovené na základe testovania a optimalizácie systému:
+Implementáciu sme začali detekciou prekážok pomocou \acrshort{cnn}. Na zvýšenie výpočtovej efektivity programu sa táto detekcia spúšťa každých 6 snímok. Keďže model \acrshort{yolo}v8 dokáže detegovať až 80 rôznych tried objektov – vrátane tých, ktoré sa na vozovke bežne nevyskytujú – vybrala sa iba ich špecifická podmnožina, čím sa predchádza falošným pozitívam. Do tohto výberu boli zahrnutí ľudia, dopravné prostriedky a zvieratá.\par
+V prípade, že model \acrshort{yolo} identifikuje objekt z definovaného zoznamu prekážok, systém následne vyhodnotí podmienky na zastavenie vozidla. Rozhodovací proces sa opiera o tri hlavné podmienky, ktoré boli stanovené na základe testovania a optimalizácie systému:
 \begin{enumerate}
 	\item \textbf{Trajektória} Prvým krokom je určenie pozície prekážky vzhľadom na jazdnú dráhu vozidla. Podmienka je splnená v prípade, že sa objekt nachádza v rámci definovanej hranice. Hranice sa zväčšujú podľa blízkosti objektu k vozidlu.
 	\item \textbf{Blízkosť objektu} V druhom kroku určujeme vzdialenosť k objektu, ktorú aproximujeme na základe spodnej vertikálnej súradnice detegovanej prekážky.
@@ -570,7 +573,7 @@ Na záver bola do rámu vložená podporná vidlica, čím bola montáž vozidla
 V tejto kapitole sú popísané použité techniky a proces testovania navrhnutého systému. Testovanie je nevyhnutnou súčasťou realizácie každého projektu, pretože umožňuje overiť funkčnosť návrhu v praxi a posúdiť mieru naplnenia stanovených cieľov v reálnych podmienkach. Výsledky tejto časti zároveň slúžia na porovnanie dosiahnutých riešení s inými prácami, ktoré využívajú odlišnú architektúru.\par
 V rámci experimentov sme sa zamerali na overenie dvoch hlavných funkcií systému:
 \begin{itemize}
-	\item \textbf{Autonómne riadenie} Cieľom bolo otestovať schopnosť vozidla sledovať vopred určenú trasu. Testovacia dráha bola navrhnutá tak, aby obsahovala rovné úseky aj zákruty. Úspešnosť systému sme hodnotili podľa stability a schopnosti vozidla udržať sa na vozovke bez vybočenia.
+	\item \textbf{Autonómne riadenie} Cieľom bolo otestovať schopnosť vozidla sledovať vopred určenú trasu. Testovacia dráha bola navrhnutá tak, aby obsahovala rovné úseky aj zákruty. Úspešnosť systému sme hodnotili podľa času dokončenia a schopnosti vozidla udržať sa na vozovke bez vybočenia.
 	
 	\item \textbf{Detekcia prekážky} Keďže vývoj tohto systému bol hlavným cieľom práce, väčšina testov je zameraná práve na túto oblasť. Systém využíva dva typy senzorov -- kamerový modul s konvolučnou neurónovou sieťou a ultrazvukový senzor. Testy sú navrhnuté tak, aby preverili spoľahlivosť oboch týchto systémov.
 \end{itemize}
@@ -607,25 +610,25 @@ Na obrázku \ref{fig:us_obstacles} sú znázornené objekty využité pri testov
 \end{figure}
 Konkrétne ide o tieto typy prekážok:
 \begin{itemize}
-	\item \textbf{Štíhla prekážka} (4x14~cm): Slúži na simuláciu objektov s vertikálnou orientáciou, ako sú napríklad stĺpy alebo postavy osôb.
-	\item \textbf{Stredne veľká prekážka} (9x9~cm): Predstavuje univerzálny typ objektu a simuluje rozmerovo priemerné prvky prostredia, napríklad časti stien či vozidiel.
-	\item \textbf{Široká prekážka} (14x4~cm): Je určená na simuláciu nízkych prekážok s horizontálnou orientáciou, kam môžeme zaradiť nízke oplotenie, menšie zvieratá alebo deti.
+	\item \textbf{Štíhla prekážka} (4x14~cm): Slúži na zobrazenie prekážok s vertikálnou orientáciou, ako sú napríklad stĺpy alebo ľudia.
+	\item \textbf{Stredne veľká prekážka} (9x9~cm): Predstavuje univerzálny typ objektu a reprezentuje rozmerovo priemerné prvky prostredia, napríklad časti stien či vozidiel.
+	\item \textbf{Široká prekážka} (14x4~cm): Je určená na zobrazenie nízkych prekážok s horizontálnou orientáciou, kam môžeme zaradiť nízke oplotenie, menšie zvieratá alebo deti.
 \end{itemize}
-Proces testovania bol rozdelený do troch fáz podľa umiestnenia prekážky vzhľadom na jazdnú dráhu: 
+Proces testovania bol rozdelený do troch fáz podľa umiestnenia prekážky vzhľadom na jazdnú dráhu:\clearpage
 \begin{itemize}
 	\item \textbf{Fáza 1:} Prekážka je umiestnená priamo v strede vozovky.
 	\item \textbf{Fáza 2:} Prekážka sa nachádza na okraji vozovky.
 	\item \textbf{Fáza 3:} Prekážka je situovaná mimo vozovky.
 \end{itemize}
 V každej z týchto fáz sme sledovali a vyhodnocovali reakciu vozidla, konkrétne jeho schopnosť včas zastaviť, respektíve pokračovať v jazde v závislosti od polohy detegovaného objektu. Každý test sme opakovali päťkrát, čím sme získali celkovo štyridsaťpäť meraní.\par
-Testovanie neurónovej siete prebiehalo s piatimi rôznymi objektmi: osobným automobilom, nákladným vozidlom, bicyklom, človekom a psom (obrázok \ref{fig:cnn_obstacles}). Na testovanie sme použili \acrshort{cnn} YOLOv8 od spoločnosti Ultralytics. Sledovali sme nielen úspešnosť detekcie, ale aj to, či systém správne vyhodnotí polohu prekážky (priamo na vozovke alebo v jej blízkosti) a adekvátne na ňu zareaguje. Ultrazvukový senzor sme odpojili, aby jeho vstup neovplyvňoval výsledky neurónovej siete. Každú situáciu sme testovali päťkrát, čo pri kombinácii typu objektu a jeho polohy prinieslo spolu päťdesiat výsledkov.\par
+Testovanie neurónovej siete prebiehalo s piatimi rôznymi objektmi: osobným automobilom, nákladným vozidlom, bicyklom, človekom a psom (obrázok \ref{fig:cnn_obstacles}). Na testovanie sme použili \acrshort{cnn} \acrshort{yolo}v8 od spoločnosti Ultralytics. Sledovali sme nielen úspešnosť detekcie, ale aj to, či systém správne vyhodnotí polohu prekážky (priamo na vozovke alebo v jej blízkosti) a adekvátne na ňu zareaguje. Ultrazvukový senzor sme odpojili, aby jeho vstup neovplyvňoval výsledky neurónovej siete. Každú situáciu sme testovali päťkrát, čo pri kombinácii typu objektu a jeho polohy prinieslo spolu päťdesiat výsledkov.\par
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=0.10]{img/cnn_obstacles.jpg}
 	\caption{Prekážky na testovanie CNN.}
 	\label{fig:cnn_obstacles}
 \end{figure}
-Celkovo v tejto časti vyhodnocujeme deväťdesiatpäť testovacích scenárov. Na ich základe určíme efektivitu navrhnutej implementácie a identifikujeme prípadné nedostatky systému.
+Celkovo v tejto časti vyhodnocujeme deväťdesiatpäť testovacích scenárov. Na ich základe určíme efektivitu navrhnutej implementácie a identifikujeme prípadné nedostatky systému detekcie prekážky.
 
 \section{Výsledky}\label{sec:Vysledky}
 V tejto kapitole sa zameriavame na analýzu dát získaných počas meraní opísaných v predchádzajúcej časti práce. Cieľom objektívneho zhodnotenia je získať relevantnú spätnú väzbu o úspešnosti navrhnutej implementácie. Namerané údaje zároveň slúžia ako podklad pre prípadné porovnanie s inými modelmi autonómnych vozidiel.\par
@@ -767,7 +770,7 @@ Tieto prekážky sú rozmerovo veľké, v dôsledku čoho často zaberajú celý
         & 5 & áno & 12~cm & áno \\ \hline
         \multicolumn{2}{|l|}{\textbf{Úspešnosť}} & 100.00\% & 11.8~cm & 100.00\% \\ \hline
 \end{tabular}
-\end{table}
+\end{table}\clearpage
 \begin{table}[!ht]
 \caption{Detekcia CNN -- človek}
 \label{tab:cnn4}
